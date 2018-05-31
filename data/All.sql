@@ -42,7 +42,7 @@ CREATE TABLE `doTask`(
     `file_url` varchar(100) NOT NULL,
     `upload_date` datetime NOT NULL,
     `tag` int(2) NOT NULL CHECK(tag = 0 OR tag = 1),
-    PRIMARY KEY(`id`) USING BTREE,
+    PRIMARY KEY(`doTask_id`) USING BTREE,
     FOREIGN KEY (`user_id`) REFERENCES user(`user_id`),
     FOREIGN KEY (`task_id`) REFERENCES task(`task_id`)
 )ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
