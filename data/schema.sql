@@ -5,17 +5,32 @@
  Source Server Type    : MySQL
  Source Server Version : 50510
  Source Host           : localhost:3306
- Source Schema         : blog
+ Source Schema         : evaluate
 
  Target Server Type    : MySQL
  Target Server Version : 50510
  File Encoding         : 65001
 
- Date: 30/05/2018 22:49:59
+ Date: 31/05/2018 22:55:16
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for dotask
+-- ----------------------------
+DROP TABLE IF EXISTS `dotask`;
+CREATE TABLE `dotask`  (
+  `id` int(15) NOT NULL AUTO_INCREMENT,
+  `user_id` int(15) NOT NULL,
+  `task_id` int(11) NOT NULL,
+  `task_type` varchar(4) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `file_url` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `upload_date` datetime NOT NULL,
+  `tag` int(2) NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for evaluate
@@ -54,7 +69,7 @@ INSERT INTO `evaluate` VALUES (16, 2, '多媒体课件制作', 4, '技术性2', 
 INSERT INTO `evaluate` VALUES (17, 2, '多媒体课件制作', 5, '艺术性', '画面设计具有较高艺术性，整体风格相对统一', 2);
 INSERT INTO `evaluate` VALUES (18, 3, '即席讲演', 1, '讲演内容', '主题鲜明切题，内容充实、针对性强 问题分析到位，解决策略得当、新颖，说服力强 论据贴切，符合实际，阐释充分 内容构架结构严谨、层次分明、条理清晰', 5);
 INSERT INTO `evaluate` VALUES (19, 3, '即席讲演', 2, '语言艺术', '普通话(英语发音)标准，用语规范，节奏处理得当，说服力强', 3);
-INSERT INTO `evaluate` VALUES (20, 3, '即席讲演', 3, '思维艺术', '思维敏捷，逻辑清晰；灵活而有效地调整、组织讲演内容 ', 3);
+INSERT INTO `evaluate` VALUES (20, 3, '即席讲演', 3, '思维艺术', '思维敏捷，逻辑清晰；灵活而有效地调整、组织讲演内容 ', 3);
 INSERT INTO `evaluate` VALUES (21, 3, '即席讲演', 4, '仪表形象', '神态自然，动作适度，与讲演内容吻合', 3);
 INSERT INTO `evaluate` VALUES (22, 3, '即席讲演', 5, '讲演时间', '时间在2-3分钟之间，不超时', 1);
 INSERT INTO `evaluate` VALUES (23, 4, '模拟上课板书设计', 1, '模拟上课教学目标', '目标设置明确，符合课标要求和学生实际', 3);
@@ -67,5 +82,68 @@ INSERT INTO `evaluate` VALUES (29, 4, '模拟上课板书设计', 7, '模拟上�
 INSERT INTO `evaluate` VALUES (30, 4, '模拟上课板书设计', 8, '板书设计内容匹配', '反映教学设计意图，突显重点、难点，能调动学生主动性和积极性', 4);
 INSERT INTO `evaluate` VALUES (31, 4, '模拟上课板书设计', 9, '板书设计构图', '构思巧妙，富有创意，构图自然，形象直观，教学辅助作用显著', 4);
 INSERT INTO `evaluate` VALUES (32, 4, '模拟上课板书设计', 10, '板书设计书写', '书写快速流畅，字形大小适度，清楚整洁，美观大方，规范正确', 2);
+
+-- ----------------------------
+-- Table structure for grade
+-- ----------------------------
+DROP TABLE IF EXISTS `grade`;
+CREATE TABLE `grade`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `dotask_id` int(15) NOT NULL COMMENT '任务编号',
+  `user_id` int(15) NOT NULL COMMENT '用户编号',
+  `user_type` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '用户类型 0 老师  1自身  2 组员',
+  `eid` int(11) NULL DEFAULT NULL COMMENT '评价模板的评分编号',
+  `grade` int(11) NOT NULL COMMENT '评价模板每项的分数',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Table structure for parameter
+-- ----------------------------
+DROP TABLE IF EXISTS `parameter`;
+CREATE TABLE `parameter`  (
+  `group_size` int(11) NOT NULL,
+  `teacher_evaluation` int(11) NOT NULL,
+  `self_evaluation` int(11) NOT NULL,
+  `group_evaluation` int(11) NOT NULL
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Table structure for task
+-- ----------------------------
+DROP TABLE IF EXISTS `task`;
+CREATE TABLE `task`  (
+  `task_id` int(11) NOT NULL AUTO_INCREMENT,
+  `publisher` tinyint(4) NOT NULL,
+  `publish_class` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `task_title` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `task_content` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `publish_date` datetime NULL DEFAULT NULL,
+  `end_date` datetime NULL DEFAULT NULL,
+  PRIMARY KEY (`task_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Table structure for totalgrade
+-- ----------------------------
+DROP TABLE IF EXISTS `totalgrade`;
+CREATE TABLE `totalgrade`  (
+  `doTask_id` int(15) NOT NULL,
+  `totalGrade` int(11) NOT NULL
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Table structure for user
+-- ----------------------------
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user`  (
+  `user_id` int(15) NOT NULL AUTO_INCREMENT,
+  `user_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `user_number` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `user_class` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `user_role` int(11) NULL DEFAULT NULL,
+  `user_password` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`user_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 SET FOREIGN_KEY_CHECKS = 1;
