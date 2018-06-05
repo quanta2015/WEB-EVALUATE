@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+/**
+ * 
+ * @authors slcyyy (you@example.org)
+ * @date    2018-06-05 10:58:17
+ * @version $Id$
+ */
+.input1 {
+    width: 100%;
+    background: #FFF;
+    margin: auto;
+}
+
+.tool {
+    width: 100%;
+    height: 30px;
+    background: #F5FFFA;
+    border: 1px solid #eee;
+    margin-bottom: 5px;
+}
+
+.tool i {
+    margin-right: 8px;
+    position: relative;
+    top: 3px;
+}
+
+.tool i:first-child {
+    margin-left: 10px;
+}
+
+.input2 {
+    width: 100%;
+    height: 500px;
+    border: 1px solid #eee;
+    background: #fff;
+    margin: auto;
+    overflow: scroll;
+    overflow-x: hidden;
+    font-size: 15px;
+}
+
+.btn {
+    margin: 20px;
+    position: relative;
+    left: 20px;
+}
