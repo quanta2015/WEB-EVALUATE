@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+        <title>学生页面</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+        <link href="information.css" rel="stylesheet"> 
+        <style type="text/css">
+        .head{
+            width: 100%;
+            height: 80px;
+            padding: 0px;
+            margin: 0px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .head-box1{
+            font-weight: bold;
+            color: rgba(0,10,10,0.7);
+            width: 40%;
+            height: 50px;
+            font-size:42px;
+            line-height: 80px;
+            margin-left: 10px;
+        }
+        .head-box2{
+            margin-top: 30px;
+        }
+        #img{
+            z-index: -1;/*使背景图片置底显示*/
+            position:absolute;
+            width:100%;
+            height:100%;
+            opacity: 0.8;
+        }
+        .quit{
+            margin-left: 5px;
+            font-weight: bold;
+            border-radius: 10px;
+        }
+        .page{
+            display: flex;
+            background:rgba(255,255,255,0.3);
+        }
+        .duty{
+            background: rgba(192,192,192,0.5);
+            margin-left: 10px;
+            border:1px solid rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            margin-top: 100px;
+            width: 7%;
+            height: 360px;
+            display: flex;
+        }
+        .d{
+            height: 60px;
+            font-size:20px;
+            text-align: center;
+            line-height: 60px;
+        }
+        .i1{
+            position:absolute;
+            margin-top: 100px;
+            margin-left: 100px;
+        }
+        .i2{
+            position:absolute;
+            margin-top: 200px;
+            margin-left: 100px;
+        }
+        </style>
+    </head>
+    <body>
+        <img alt = "图片无法加载" src="l.jpg" id="img">
+        <div class="head">
+            <span class="head-box1">杭州国际服务工程学院</span>
+            <span class="head-box2">
+                <!--<textarea style="width: 60px;height: 20px;margin-right: 5px;"></textarea>-->
+                张三同学,欢迎您
+                <button type="button" id="quit" class="quit">退出</button>
+            </span>
+        </div>
+        <div class="page">
+            <div class="duty">
+                <div class="d" style="border-bottom: 1px solid black;font-weight: bold;">任务栏</div>
+                <div class="d" id="home">
+                    <a href="index.html" style="text-decoration: none;color: black">首页</a>
+                </div>
+                <div class="d" id="information" style="color: white;font-weight: bold;">资料</div>
+                <div class="d" id="message">
+                    <a href="message.html" style="text-decoration: none;color: black">通知</a>
+                </div>
+                <div class="d" id="homework">
+                    <a href="homework.html" style="text-decoration: none;color: black">作业</a>
+                </div>
+                <div class="d" id="evaluation">
+                    <a href="evaluation.html" style="text-decoration: none;color: black">评价</a>
+                </div>
+            </div>
+            <div class="main">
+                <a href="school.jpg" class="i1" style="text-decoration: none;color: black"><li>学校图标</li></a>
+                <a href="http://hise.hznu.edu.cn/" class="i2" style="text-decoration: none;color: black"><li>学院官网</li></a>
+            </div>
+        </div>
+        <script src="homework.js"></script>
+    </body>
+</html>
