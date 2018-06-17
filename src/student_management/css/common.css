@@ -1,0 +1,155 @@
+
+body{
+	background: #343D4C;
+	width: 100px;
+}
+
+.navbar{ 
+	display: flex;
+
+}
+.c-Mnav {
+	width: 50px;
+	height: 800px;
+
+	background: #D1D1D3;
+}
+
+
+.c-Mnav span{
+	color:#A0A0A0;
+}
+.c-Mnav a{
+	background: #E1E1E3;
+}
+
+
+.c-Mnav .active>a{
+    background-color:#F9852E !important;
+    }
+
+.c-Mnav .active span{
+	  color: white !important;
+}
+.c-Hnav{
+	margin-top: -10px;
+}
+.c-Hnav p{
+	color: white;
+	width: 50px;
+	height:20px;
+	margin-top:22px;
+	background: #F9852E;
+	visibility:hidden;
+	padding-left: 7px;
+}
+
+.c-Hnav .active{
+	visibility:visible;
+}
+
+
+
+.page{
+	/*background-color: white;*/
+	width: 2000px;
+	height: 700px;
+	color: white;
+}
+
+
+.block{
+	height: 100px;
+}
+.input-group textarea{
+	height: 35px;
+	width: 600px;
+}
+
+.clearfix {
+    overflow: hidden;
+    zoom: 1;
+}
+.ZY_sub {
+    padding: 30px 0;
+    text-align: center;
+    border-top: none;
+}
+.btnGray_1 {
+    display: inline-block;
+    height: 28px;
+    padding: 0 10px;
+    background: #ddd;
+    font-size: 15px;
+    color: black;
+    line-height: 28px;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-top: 50px;
+}
+.Btn_blue_1 {
+    display: inline-block;
+    height: 28px;
+    padding: 0 10px;
+    background: rgb(112,193,122);
+    font-size: 15px;
+    color: #FFF;
+    line-height: 28px;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-top: 50px;
+}
+a {
+    text-decoration: none;
+}
+
+.information{
+	margin-left: 400px;
+	color: rgb(112,193,122);
+	text-align: center;
+	margin-top: 80px;
+}
+.information input{
+	color: black;
+}
+
+.index{
+	width: 1300px;
+}
+.index a{
+	text-decoration: none;
+}
+.index h1{
+	text-align: center;
+	font-weight: bold;
+	font-size: 90px;
+	line-height: 700px;
+	color: white;
+}
+.index h1:hover{
+	color: rgb(112,193,122);
+}
+.radius{
+	width: 200px;
+	height: 200px;
+	border-radius: 100px;
+	margin-left: 180px;
+	margin-top: 250px;
+	border: 2px solid rgb(112,193,122);
+}
+.radius:hover{
+	border: 2px solid white;
+}
+.radius a{
+	text-decoration: none;
+}
+.radius p{
+	color: rgb(112,193,122);
+	text-align: center;
+	line-height: 200px;
+	font-size: 25px;
+}
+.radius p:hover{
+	color: white;
+	text-decoration: none;
+}
