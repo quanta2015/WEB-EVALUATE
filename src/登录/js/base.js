@@ -1,6 +1,4 @@
 // RegExp
-var emailPattern = /^[a-z0-9_]+(\.?[a-z0-9-_])*?@([a-zA-Z0-9]([a-zA-Z0-9\-]*?[a-zA-Z0-9])?\.)+[a-zA-Z]{2,20}$/i;
-
 function performRequest(url, method, data, successCallback, errorCallback, completeCallback) {
   var method = method || "POST"
   var url = url || "/"
