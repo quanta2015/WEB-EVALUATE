@@ -59,7 +59,7 @@ $(function() {
   }
 
   function loginValidEmpty() {
-    if (!emailPattern.test($.trim(emailElement.val()))) {
+    if ($.trim(emailElement.val()) == "") {
       $('.field-email').addClass('has-error')
       return false
     } else {
