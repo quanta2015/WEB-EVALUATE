@@ -51,33 +51,9 @@ ul, li {
     text-align: center;
 }
 
-#bd_tab .bd_tab_menu {
-    position: absolute;
-    float: left;
-    margin: 0 auto;
-    padding: 0;
-    width: 100%;
-    z-index: 1;
-}
-
-#bd_tab .bd_tab_menu li {
-    float: left;
-    width: 33%;
-    height: 36px;
-    line-height: 36px;
-    margin: 0 1px 0 0;
-    background-color: #D3DEFB;
-    border-footer: 0px;
-    cursor: pointer;
-    text-align: center;
-    color: #FFFFFF;
-    font-size: 16px;
-    opacity: 0.8;
-}
-
 #bd_tab .bd_tab_box {
     position: relative;
-    top: 36px;
+    top: 10px;
     width: 450px;
     background-color: #FFF;
     color: #000;
@@ -95,7 +71,7 @@ ul, li {
     background-color: #FFF;
     color: #000;
     font-size: 16px;
-    opacity: 0.8;
+    opacity: 0.6;
 }
 
 .hide {

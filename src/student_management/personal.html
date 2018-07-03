@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>教学管理系统</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/common.css" rel="stylesheet">
+    <script src="js/jquery-2.0.0-min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+</head>
+<body>
+<div class="m-container" style="display: flex;">
+    <!--学生首页 学生作业 班级通知 评价任务 个人信息-->
+  <div class="navbar">
+    <nav class="c-Mnav">
+    <ul class="nav nav-pills nav-stacked">
+    <li><a href="index.html" ><span class="glyphicon glyphicon-home"></span></a></li>
+    <li ><a href="homework.html"><span class="glyphicon glyphicon-book"></span></a></li>
+    <li ><a href="inform.html"><span class="glyphicon glyphicon-volume-up"></span></a></li>
+    <li><a href="comment.html"><span class="glyphicon glyphicon-tasks"></span></a></li>
+    <li class="active"><a href="personal.html"><span class="glyphicon glyphicon-user"></span></a></li></ul>
+    </nav>
+
+    <div class="c-Hnav">
+      <p >首页</p>
+      <p >作业</p>
+      <p >通知</p>
+      <p>评价</p>
+      <p class="active">个人</p>
+    </div>
+  </div>
+
+  <div class="page">
+    <div class="information">
+      <h1>个人信息</h1> 
+      <br><br>  
+      <form method="post"  action="www.baidu.com">  
+        <p>  
+          <lable for="username"> 姓 名：</label>  
+          <input type="text" name="" id="username"></p>  
+        <p>  
+          <lable for="password"> 密 码：</label>  
+          <input type="password" name=""id="password"></p>  
+           性 别：   <input type="radio" name="性别">男  
+            <input type="radio" name="性别">女</p>  
+        <p>  
+           年 级：   <select name="nianji">  
+             <option selected>one 
+             <option>two   
+             <option>three  
+             <option>four  
+             </select></p> 
+        <br>
+        <p>  
+          <lable for="introduce"> 个人描述：</label>  
+          <textarea name="commet"rows=5 cols=60  id="introduce">  
+          </textarea></p>  
+        <p>  
+        <br>
+        <p> 
+        <input type="submit" value="提交" style="margin-right: 60px;color: black;">  
+        <input type="reset" value="清空" style="margin-left: 30px;color: black;"></p>
+      </form>
+    </div>
+  </div>
+
+</div>
+</body>
+
+
+</html>
