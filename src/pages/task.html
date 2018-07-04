@@ -2,18 +2,12 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>系统管理</title>
+        <title>教师管理页面</title>
         <link rel="stylesheet" type="text/css" href="../sys/css/task.css">
-        <link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../lib/font-awesome/css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="../lib/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
-        <link rel="stylesheet" type="text/css" href="../sys/css/task.css">
         
         <script type="text/javascript" src="../lib/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="../sys/js/task.js"></script>
-        <script type="text/javascript" src="../lib/bootstrap/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="../lib/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
     </head>
     <body>
         <div class="g-index">
@@ -96,77 +90,31 @@
                     </li>
                 </ul>
             </div>
-            <div class="content">
+            <div class="content" style="height: 100%;">
                 <div class="content-top">
                     <a class="userControl" style="display: flex; align-items: center;">
-                        <span class="userCotrol-title">个人面板&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <span class="userCotrol-title">个人面板&nbsp;&nbsp;&nbsp;&nbsp;</span>
                         <i class="fa fa-power-off nav-more fa-2x" id="nav_icon2" style="color: rgb(32, 142, 251);"></i>
                     </a>
                 </div>
-                <div class="task">
-                    <select>
-                        <option>软工162</option>
-                        <option>软工161</option>
-                    </select>
-                    <!-- <div class="dropdown">
-                        <button type="button" class="dropdown-toggle" id="classChoose" data-toggle="dropdown">
-                        选择班级
-                        <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" role="menu" aria-labelledby="class" id="u-cls">
-                            <li role="presentation">
-                                <a role="menuitem" tabindex="-1" href="#">软工161</a>
-                            </li>
-                        </ul>
-                    </div> -->
-                    <form role="form">
-                        <div class="form-group">
-                            <label for="title">主题</label>
-                            <input type="text" class="form-control" id="title" placeholder="请输入作业主题">
-                        </div>
-                        <div class="form-group">
-                            <label>开始时间：</label>
-                            <input type="text" value="2012-05-15 21:05" id="startDatetimepicker" data-date-format="yyyy-mm-dd hh:ii">
-                        </div>
-                        <div class="form-group">
-                            <label>截止时间</label>
-                            <input type="text" value="2018-07-03 15:34" id="endDatetimepicker" data-date-format="yyyy-mm-dd hh:ii"></div>
-                            <div class="form-group">
-                                <label for="wordRequest">word作业要求</label>
-                                <div>
-                                    <textarea rows="4" cols="50" id="wordRequest" placeholder="请输入word作业要求"></textarea>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="pptRequest">ppt作业要求</label>
-                                <div>
-                                    <textarea rows="4" cols="50" id="pptRequest" placeholder="请输入ppt作业要求"></textarea>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="videoRequest">video作业要求</label>
-                                <div>
-                                    <textarea rows="4" cols="50" id="videoRequest" placeholder="请输入video作业要求"></textarea>
-                                </div>
-                            </div>
-                            <button id="release-btn" data-loading-text="作业发布中" type="button"> 提交作业
-                            </button>
-                        </form>
+                <div class="content-main">
+                    <div class="content-main-left">
+                        <select>
+                            <option>软工161</option>
+                            <option>软工162</option>
+                        </select>
+                        <textarea rows="8" cols="50" id="startTime" placeholder="&nbsp;&nbsp;开始时间: 0000-00-00 00:00:00 ..."></textarea>
+                        <textarea rows="8" cols="50" id="deadLine" placeholder="&nbsp;&nbsp;结束时间: 0000-00-00 00:00:00 ..."></textarea>
+                        <textarea rows="8" cols="50" id="taskTheme" placeholder="&nbsp;&nbsp;编辑作业主题..."></textarea>
+                    </div>
+                    <div class="content-main-right">
+                        <label>作业要求</label>
+                        <textarea rows="8" cols="50" id="wordRequest" placeholder="&nbsp;&nbsp;请输入Word作业要求..."></textarea>
+                        <textarea rows="8" cols="50" id="wordRequest" placeholder="&nbsp;&nbsp;请输入PPT作业要求..."></textarea>
+                        <textarea rows="8" cols="50" id="wordRequest" placeholder="&nbsp;&nbsp;请输入视频作业要求..."></textarea>
+                        <button class="submit">发布任务</button>
                     </div>
                 </div>
-                <!--<div class="userBox">
-                    <div class="userBox-top">
-                        <img src="images/userPic.jpg" class="userPic">
-                        <div class="userInf">
-                            <span class="userName">毛婕</span>
-                            <span class="userID">2016210405054</span>
-                        </div>
-                    </div>
-                    <div class="userBox-bottom">
-                        <i class="fa fa-power-off nav-more" id="nav_icon2" style="color: rgb(141, 145, 153);"></i>
-                        <a href="../index.html" style="color: rgb(141, 145, 153);">退出当前用户</a>
-                    </div>
-                </div>-->
             </div>
         </div>
     </body>
