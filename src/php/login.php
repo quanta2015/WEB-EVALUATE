@@ -16,18 +16,18 @@ if (isset($_POST['submit'])) {
         }
         mysqli_query($conn, "SET NAMES UTF8");
         // 设定字符集
-        $query = "select * from user where user_name = '{$_POST['name']}' and \r\n                        user_password = '{$_POST['pwd']}'";
+        $query = "select * from user where user_number = '{$_POST['name']}' and \r\n                        user_password = '{$_POST['pwd']}'";
         $result = mysqli_query($conn, $query);
         if (1 == mysqli_num_rows($result)) {
             $_SESSION['name'] = $_POST['name'];
             header("Location:../pages/register.html");
         }
-        $query = "select * from user where user_name = '{$_POST['name']}' and \r\n                        user_password != '{$_POST['pwd']}'";
+        $query = "select * from user where user_number = '{$_POST['name']}' and \r\n                        user_password != '{$_POST['pwd']}'";
         $result = mysqli_query($conn, $query);
         if (1 == mysqli_num_rows($result)) {
             echo "<script>alert('密码填写有误,请重新填写');history.go(-1);</script>";
         }
-        $query = "select * from user where user_name = '{$_POST['name']}'";
+        $query = "select * from user where user_number = '{$_POST['name']}'";
         $result = mysqli_query($conn, $query);
         if (0 == mysqli_num_rows($result)) {
             echo "<script>alert('用户名填写有误,请重新填写');history.go(-1);</script>";
