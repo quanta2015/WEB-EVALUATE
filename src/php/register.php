@@ -34,7 +34,7 @@ else {
                     $stmt = mysqli_prepare($conn, $insert_sql);
                     $result_insert = mysqli_stmt_execute($stmt);
                     if ($result_insert) {
-                        echo "<script>alert('您已注册成功，正在返回登录');location='../pages/login.html'</script>";
+                        echo "<script>alert('您已注册成功，正在返回登录');location='../index.html'</script>";
                         mysqli_free_result($result_insert);
                         exit;
                     }
