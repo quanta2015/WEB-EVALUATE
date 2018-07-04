@@ -1,0 +1,1 @@
+document.wirte("<script language=javascript src='task.js></script>'");
