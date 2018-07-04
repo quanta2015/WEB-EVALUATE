@@ -161,112 +161,72 @@ a {
     color: rgb(141, 145, 153);
 }
 
-.userBox {
-    border-style: solid;
-    border-color: rgb(235, 237, 243);
-    border-width: 2px;
-    height: 20%;
-    width: 28%;
-    border-radius: 3%;
-}
-.userBox-top {
-    display: flex;
-    align-items: center;
-}
-.userPic {
-    margin-top: 5%;
+label {
+    margin-top: 3%;
     margin-left: 5%;
-    border-radius: 50%;
-    height: 40%;
-    width: 25%;
+    font-size: 150%;
 }
-.userInf {
-    width: 100%;
-    height: 70%;
-    display: flex;
+textarea {
+    width: 88%;
+    height: 23%;
+    border: 1px rgb(219, 219, 219) solid;
+    border-radius: 5px;
+    resize: none;
+    margin-top: 4%;
+    margin-left: 5%;
+}
+.submit {
+    height: 5%;
+    border-style: none;
+    width: 17%;
+    font-size: 120%;
+    color: white;
+    background: rgb(0, 152, 242);
+    border-radius: 3px;
+    text-align: center;
+    margin-top: 3%;
+    margin-left: 76%;
+}
+select {
+    margin-top: 3%;
+    width: 20%;
+    height: 5%;
+    margin-left: 5%;
+    border-style: solid 1px rgb(219, 219, 219);
+    background: #fff;
+
+}
+
+#startTime, #deadLine{
+    width: 88%;
+    height: 9.1%;
+    border: 1px rgb(219, 219, 219) solid;
+    border-radius: 5px;
+    resize: none;
+    margin-top: 4%;
+    margin-left: 5%;
+}
+#taskTheme {
+    width: 88%;
+    height: 50.65%;
+    border: 1px rgb(219, 219, 219) solid;
+    border-radius: 5px;
+    resize: none;
+    margin-top: 4%;
+    margin-left: 5%;
+}
+
+.content-main-right, .content-main-left{
+    width: 50%; 
+    height: 100%; 
+    display: flex; 
     flex-direction: column;
-    margin-left: 10%;
 }
-.userID {
-    margin-top: 5%;
+.content-main-left{
+    border-right: solid 1px rgb(230, 233, 241);
 }
-.userBox-bottom {
-    height: 30%;
-    border-top: solid rgb(235, 237, 243) 1px;
-    margin-top: 5%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.content-main{
+    display: flex; 
+    height: 85%; 
+    margin-top: 1%;
 }
-.userBox-bottom > a:hover {
-    color: black;
-}
-.userControl {
-    cursor: pointer;
-}
-
-
-.task {
-    margin-left: 50px;
-    max-width: 700px;
-    background: #FFF;
-    padding: 20px 30px 20px 30px;
-    font: 12px "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #888;
-    text-shadow: 1px 1px 1px #FFF;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-}
-
-.task .dropdown {
-    margin-right: 20px;
-}
-
-.task label {
-    display: block;
-    margin: 0px 0px 5px;
-}
-
-
-.task input[type="text"],
-.task input[type="email"],
-.task textarea {
-    border: 1px solid #CCC;
-    color: #888;
-    height: 20px;
-    line-height: 15px;
-    margin-bottom: 16px;
-    margin-right: 6px;
-    margin-top: 2px;
-    outline: 0 none;
-    padding: 5px 0px 5px 5px;
-    width: 100%;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-}
-
-
-.task textarea {
-    height: 100px;
-    padding: 5px 0px 0px 5px;
-    width: 100%;
-}
-
-.task .button {
-    background: #FFF;
-    border: 1px solid #CCC;
-    padding: 10px 25px 10px 25px;
-    color: #333;
-    border-radius: 4px;
-}
-
-.task .button:hover {
-    color: #333;
-    background-color: #EBEBEB;
-    border-color: #ADADAD;
-}
-
