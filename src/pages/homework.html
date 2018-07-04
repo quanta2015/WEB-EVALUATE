@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- begin::Head -->
+<head>
+	<meta charset="utf-8">
+	<title>学生作业</title>
+	<link rel="stylesheet" type="text/css" href="../sys/css/homework.css">
+	<link rel="stylesheet" type="text/css" href="../lib/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap.min.css">
+	<script type="text/javascript" src="../lib/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="../lib/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../lib/jsrender/jsrender.js"></script>
+</head>
+
+<!-- end::Head -->
+<!-- end::Body -->
+<body>
+	<div class="container">
+		<div class="panel panel-primary duty">
+			<div class="panel-heading">
+				<h3 class="panel-title">任务栏</h3>
+			</div>
+			<div class="panel-body">
+				<div class="row row-title">
+					<div class="col-md-1">ID</div>
+					<div class="col-md-2">标题</div>
+					<div class="col-md-6">作业内容</div>
+					<div class="col-md-3">发布者</div>
+				</div>
+				<div class="row">
+					<!-- 定义JsRender模版 -->  
+					<div class="box"></div>
+					<script type="text/x-jsrender" id="j-specCard">	
+						<div class="col-md-1">{{:number}}</div>
+						<div class="col-md-2">{{:title}}</div>
+						<div class="col-md-6">{{:content}}</div>
+						<div class="col-md-3">{{:publisher}}</div>
+					</script>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</body>
+<script type="text/javascript" src="../sys/js/homework.js"></script> 
+<!-- end::Body -->
+</html>
