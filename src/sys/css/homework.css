@@ -41,15 +41,29 @@ a{color:#202020;text-decoration:none;}
 .container{
 	
 }
-.duty{
-	margin-top: 100px;
+/*.duty{
+	margin-top: 30px;
 }
 .panel-title{
 	height:30px;
 	line-height: 30px;
 }
 .row-title{
-	height:30px;
-	line-height: 30px;
+	height:35px;
+	line-height: 25px;
 	font-weight: bold;
+	font-size: 15px;
+}*/
+
+.block{
+	margin-top: 50px;
+	/*background-color: #eee;*/
+	width: 100%;
+	height: 500px;
+}
+.k{
+	margin-left: 70px;
+}
+.control-label{
+	font-size: 17px;
 }
