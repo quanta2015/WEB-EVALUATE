@@ -1,17 +1,14 @@
+
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
 	<title>学生作业管理</title>
 	<link rel="stylesheet" type="text/css" href="../sys/css/homework.css">
-	<link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="../lib/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
 
 	<script type="text/javascript" src="../lib/jquery/jquery.min.js"></script>
-	<!-- <script type="text/javascript" src="../sys/js/homework.js"></script> -->
-	<script type="text/javascript" src="../lib/bootstrap/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="../lib/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+	<script type="text/javascript" src="../lib/jsrender/jsrender.js"></script>
 </head>
 <body>
 	<div class="g-index">
@@ -20,10 +17,10 @@
 				<div class="nav-logo"><img src="../img/logo02.png"></div>
 				<i class="fa fa-chevron-right nav-more" id="nav_icon3" style="display: none;"></i>
 			</div>
+			<!-- 导航栏内容开始 -->
 			<ul>
 				<li class="nav-item has-chosen">
 					<a href="javascript:;" style="display: flex;">
-						<!--<i class="fa fa-file-text nav-icon"></i>-->
 						<span>我的作业</span>
 						<div class="hidden"></div>
 						<i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
@@ -32,7 +29,6 @@
 				<li class="nav-item"></li>
 				<li class="nav-item">
 					<a href="javascript:;" style="display: flex;">
-						<!--<i class="fa fa-search nav-icon"></i>-->
 						<span>成绩评定</span>
 						<div class="hidden"></div>
 						<i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
@@ -41,7 +37,6 @@
 				<li class="nav-item"></li>
 				<li class="nav-item">
 					<a href="javascript:;" style="display: flex;">
-						<!--<i class="fa fa-check-square-o nav-icon"></i>-->
 						<span>成绩评定</span>
 						<div class="hidden"></div>
 						<i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
@@ -50,7 +45,6 @@
 				<li class="nav-item"></li>
 				<li class="nav-item">
 					<a href="javascript:;" style="display: flex;">
-						<!--<i class="fa fa-check-square-o nav-icon"></i>-->
 						<span>设置</span>
 						<div class="hidden"></div>
 						<i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
@@ -58,63 +52,54 @@
 				</li>
 				<li class="nav-item"></li>
 			</ul>
+			<!-- 导航栏内容结束 -->
 		</div>
-		<div class="content">
-			<!-- 列表内容开始 -->
-			<div class="ulDiv">
-				<ul class="clearfix" style="*width:1020px;">
-					<li class="lookLi">
-						<div class="titTxt">
-							<p style="padding-top: 11px;">
-								<a href="homework.html" onclick="javascript:void(0);" title="作业1">作业1</a>
-							</p>
-							<div title="" class="pt5"><span class="f1">开始时间：</span><span></span></div>
-							<div title="" class="pt5"><span class="f1">截止时间：</span><span></span></div>
-							<div title="" class="pt5"><span class="f1">作业状态：</span><strong></strong></div>
-						</div>
-						<div class="titOper">
-							<p class="clearfix">
-								<a class="Btn_blue" href="homework.html">
-									<span>进入</span>
-								</a>
-							</p>
-						</div>
-					</li>
-					<li class="lookLi">
-						<div class="titTxt">
-							<p style="padding-top: 11px;">
-								<a href="homework.html" onclick="javascript:void(0);" title="作业1">作业2</a>
-							</p>
-							<div title="" class="pt5"><span class="f1">开始时间：</span><span></span></div>
-							<div title="" class="pt5"><span class="f1">截止时间：</span><span></span></div>
-							<div title="" class="pt5"><span class="f1">作业状态：</span><strong></strong></div>
-						</div>
-						<div class="titOper">
-							<p style="float: none;" class="clearfix">
-								<a class="Btn_blue fr" href="homework.html">
-									<span>进入</span>
-								</a>
-							</p>
-						</div>
-					</li>
-				</ul>
+		<div class="content" style="height: 100%;">
+			<div class="content-top">
+				<a class="userControl" style="display: flex; align-items: center;">
+					<span class="userCotrol-title">个人面板&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<i class="fa fa-power-off nav-more fa-2x" id="nav_icon2" style="color: rgb(32, 142, 251);"></i>
+				</a>
 			</div>
-    		<!-- 列表内容结束 -->
+			<div class="content-main">
+				<!-- 列表内容开始 -->
+				<div class="ulDiv">
+					<ul class="clearfix" style="*width:1020px;" id="list">
+						<div class="box"></div>
+						<!-- 定义JsRender模版 -->  
+						<script type="text/x-jsrender" id="testTmpl">
+							<li class="lookLi">	
+								<div class="titTxt">
+									<p style="padding-top: 11px;">
+										<a href="homework.html" onclick="javascript:void(0);" title="作业1">作业{{:#index + 1}}</a>
+									</p>
+									<div title="" class="pt5"><span class="f1">开始时间：</span><span>{{:begin}}</span></div>
+									<div title="" class="pt5"><span class="f1">截止时间：</span><span>{{:end}}</span></div>
+									<div title="" class="pt5"><span class="f1">作业状态：</span><strong>
+										{{if state == 1}}已完成
+										{{else}}未完成
+										{{/if}}
+									</strong></div>
+								</div>
+								<div class="titOper">
+									<p class="clearfix">
+										<a class="Btn_blue" href="homework.html">
+											<span>
+												{{if state == 1}}查看
+												{{else}}进入
+												{{/if}}
+											</span>
+										</a>
+									</p>
+								</div>
+							</li>
+						</script>
+					</ul>
+				</div>
+				<!-- 列表内容结束 -->
+			</div>
 		</div>
-                <!--<div class="userBox">
-                    <div class="userBox-top">
-                        <img src="images/userPic.jpg" class="userPic">
-                        <div class="userInf">
-                            <span class="userName">毛婕</span>
-                            <span class="userID">2016210405054</span>
-                        </div>
-                    </div>
-                    <div class="userBox-bottom">
-                        <i class="fa fa-power-off nav-more" id="nav_icon2" style="color: rgb(141, 145, 153);"></i>
-                        <a href="../index.html" style="color: rgb(141, 145, 153);">退出当前用户</a>
-                    </div>
-                </div>-->
-            </div>
-        </div>
-    </body>
-    </html>
+	</div>
+</body>
+<script type="text/javascript" src="../sys/js/student.js"></script> 
+</html>
