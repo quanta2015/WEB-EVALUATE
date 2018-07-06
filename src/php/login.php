@@ -1,8 +1,10 @@
 <?php
 
-require_once 'conn.php';
+
 header("Content-type: text/html; charset=utf-8");
 session_start();
+
+$_SESSION['name'] = $_POST['name'];
 $failitem = array("user_id"=>NULL,"user_name"=>NULL,"user_number"=>NULL,"user_class"=>NULL,"user_role"=>NULL,"user_password"=>NULL);
  
 //  登录系统开启一个session内容
@@ -22,12 +24,13 @@ if ($_POST['name']) {
             echo urldecode(json_encode($response));
     } 
     else {
+        require_once 'conn.php';
         if (!$conn) {
             die('Could not connect: ' . mysqli_connect_error());
         }
         mysqli_query($conn, "SET NAMES UTF8");
         // 设定字符集
-        $query = "select * from user where user_number = '{$_POST['name']}' and \r\n                        user_password = '{$_POST['pwd']}'";
+        $query = "select * from user where user_number = '{$_POST['name']}' and user_password = '{$_POST['pwd']}'";
         $result = mysqli_query($conn, $query);
 
         if (1 == mysqli_num_rows($result)) {
@@ -39,7 +42,7 @@ if ($_POST['name']) {
               );
 
             $response = CodeUtil::jsons_encode($response);
-           header("Content-Type:text/html;charset=utf-8");
+            header("Content-Type:text/html;charset=utf-8");
             echo urldecode(json_encode($response));
 
             $_SESSION['name'] = $_POST['name'];
@@ -47,7 +50,7 @@ if ($_POST['name']) {
 
 
         }
-        $query = "select * from user where user_number = '{$_POST['name']}' and \r\n                        user_password != '{$_POST['pwd']}'";
+        $query = "select * from user where user_number = '{$_POST['name']}' and user_password != '{$_POST['pwd']}'";
         $result = mysqli_query($conn, $query);
         if (1 == mysqli_num_rows($result)) {
 
@@ -59,7 +62,7 @@ if ($_POST['name']) {
             $response = CodeUtil::jsons_encode($response);
             header("Content-Type:text/html;charset=utf-8");
             echo urldecode(json_encode($response));
-                mysqli_free_result($result);
+            mysqli_free_result($result);
            // echo "<script>alert('密码填写有误,请重新填写');history.go(-1);</script>";
         }
         $query = "select * from user where user_number = '{$_POST['name']}'";
@@ -70,10 +73,10 @@ if ($_POST['name']) {
              $response = array(
              'code' => 88,
              "msg"=>"wrongnumber",  
-               'data'=>$failitem
+             'data'=>$failitem
               );
             $response = CodeUtil::jsons_encode($response);
-                mysqli_free_result($result);
+            mysqli_free_result($result);
             header("Content-Type:text/html;charset=utf-8");
             echo urldecode(json_encode($response));
           //  echo "<script>alert('账号填写有误,请重新填写');history.go(-1);</script>";
@@ -86,7 +89,7 @@ if ($_POST['name']) {
 else {  $response = array(
              'code' => 70,
              "msg"=>"emptynumber",
-               'data'=>$failitem
+             'data'=>$failitem
               );
             $response = CodeUtil::jsons_encode($response);
             header("Content-Type:text/html;charset=utf-8");
