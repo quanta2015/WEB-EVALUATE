@@ -2,33 +2,30 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>教师管理页面</title>
-        <link rel="stylesheet" type="text/css" href="./../sys/css/task.css">
-        <link rel="stylesheet" type="text/css" href="./../lib/font-awesome/css/font-awesome.min.css">
-        
+        <title>成绩评定/教师</title>
+        <link rel="stylesheet" type="text/css" href="../sys/css/task.css">
+        <link rel="stylesheet" type="text/css" href="../sys/css/evaluteDetail.css">
+        <link rel="stylesheet" type="text/css" href="../lib/font-awesome/css/font-awesome.min.css">
         <script type="text/javascript" src="../lib/jquery/jquery.min.js"></script>
-        <script type="text/javascript" src="../sys/js/task.js"></script>
+        <script type="text/javascript" src="../lib/jsrender/jsrender.js"></script>
     </head>
     <body>
         <div class="g-index">
             <div class="nav">
                 <div class="nav-top">
                     <div class="nav-logo"><img src="../img/logo02.png"></div>
-                    <i class="fa fa-chevron-right nav-more" id="nav_icon3" style="display: none;"></i>
                 </div>
                 <ul>
-                    <li class="nav-item has-chosen">
+                    <li class="nav-item">
                         <a href="javascript:;" style="display: flex;">
-                            <!--<i class="fa fa-file-text nav-icon"></i>-->
                             <span>发布新任务</span>
                             <div class="hidden"></div>
                             <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
                         </a>
                     </li>
                     <li class="nav-item"></li>
-                    <li class="nav-item">
-                        <a href="evalute.html" style="display: flex;">
-                            <!--<i class="fa fa-search nav-icon"></i>-->
+                    <li class="nav-item has-chosen">
+                        <a href="javascript:;" style="display: flex;">
                             <span>学生成绩评定</span>
                             <div class="hidden"></div>
                             <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
@@ -37,7 +34,6 @@
                     <li class="nav-item"></li>
                     <li class="nav-item">
                         <a href="javascript:;" style="display: flex;">
-                            <!--<i class="fa fa-check-square-o nav-icon"></i>-->
                             <span>学生成绩查询</span>
                             <div class="hidden"></div>
                             <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
@@ -46,7 +42,6 @@
                     <li class="nav-item"></li>
                     <li class="nav-item">
                         <a href="javascript:;" style="display: flex;">
-                            <!--<i class="fa fa-check-square-o nav-icon"></i>-->
                             <span>设置评价标准</span>
                             <div class="hidden"></div>
                             <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
@@ -55,7 +50,6 @@
                     <li class="nav-item"></li>
                     <li class="nav-item">
                         <a href="javascript:;" style="display: flex;">
-                            <!--<i class="fa fa-check-square-o nav-icon"></i>-->
                             <span>设置模块分数比例</span>
                             <div class="hidden"></div>
                             <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
@@ -64,7 +58,6 @@
                     <li class="nav-item"></li>
                     <li class="nav-item">
                         <a href="javascript:;" style="display: flex;">
-                            <!--<i class="fa fa-check-square-o nav-icon"></i>-->
                             <span>设置小组人员</span>
                             <div class="hidden"></div>
                             <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
@@ -73,7 +66,6 @@
                     <li class="nav-item"></li>
                     <li class="nav-item">
                         <a href="javascript:;" style="display: flex;">
-                            <!--<i class="fa fa-check-square-o nav-icon"></i>-->
                             <span>修改密码</span>
                             <div class="hidden"></div>
                             <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
@@ -82,7 +74,6 @@
                     <li class="nav-item"></li>
                     <li class="nav-item">
                         <a href="javascript:;" style="display: flex;">
-                            <!--<i class="fa fa-check-square-o nav-icon"></i>-->
                             <span>班级管理</span>
                             <div class="hidden"></div>
                             <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
@@ -90,32 +81,65 @@
                     </li>
                 </ul>
             </div>
-            <div class="content" style="height: 100%;">
+            <div class="content">
                 <div class="content-top">
                     <a class="userControl" style="display: flex; align-items: center;">
                         <span class="userCotrol-title">个人面板&nbsp;&nbsp;&nbsp;&nbsp;</span>
                         <i class="fa fa-power-off nav-more fa-2x" id="nav_icon2" style="color: rgb(32, 142, 251);"></i>
                     </a>
                 </div>
-                <form class="content-main" action='../php/publish.php' method='post'>
-                    <div class="content-main-left">
-                        <select name="class">
-                            <option value="软工161">软工161</option>
-                            <option value="软工162">软工162</option>
-                        </select>
-                        <textarea rows="8" cols="50" id="startTime" name="begin" placeholder="&nbsp;&nbsp;开始时间: 0000-00-00 00:00:00 ..."></textarea>
-                        <textarea rows="8" cols="50" id="deadLine" name="end" placeholder="&nbsp;&nbsp;结束时间: 0000-00-00 00:00:00 ..."></textarea>
-                        <textarea rows="8" cols="50" id="taskTheme" name="title" placeholder="&nbsp;&nbsp;编辑作业主题..."></textarea>
+                <div class="task_urls" style="display: flex;">
+                    <span class="taskTitle">作业一</span>
+                    <span class="word">查看作业:</span>
+                    <div class="urls" style="display: flex;">
+                        <a href=""><img src="../img/word.png" id="word" style="width: 30%;"></a>
+                        <a href=""><img src="../img/ppt.png" id="ppt" style="width: 30%;"></a>
+                        <a href=""><img src="../img/video.png" id="video" style="width: 30%;"></a>
                     </div>
-                    <div class="content-main-right">
-                        <label>作业要求</label>
-                        <textarea rows="8" cols="50" id="wordRequest" name="task_wd" placeholder="&nbsp;&nbsp;请输入Word作业要求..."></textarea>
-                        <textarea rows="8" cols="50" id="wordRequest" name="task_pt" placeholder="&nbsp;&nbsp;请输入PPT作业要求..."></textarea>
-                        <textarea rows="8" cols="50" id="wordRequest" name="task_vd" placeholder="&nbsp;&nbsp;请输入视频作业要求..."></textarea>
-                        <button class="submit" type="submit" name="submit">发布任务</button>
-                    </div>
-                </from>
+                    <button type="submit" class="button_submit">提交评分</button>
+                </div>
+                <div class="content-main" id="gradeDetail" style="display: flex; flex-direction: column;">
+                    <div class="box"></div>
+                    <script id="theTmpl" type="text/x-jsrender">
+                        <ul>
+                            {{for}}
+                            <li>
+                                <div class="firstTitle">{{:part}}</div>
+                                <div class="secondTitle" style="display: flex;">
+                                    <div style="width: 15%">评价内容</div>
+                                    <div style="width: 55%">评价标准</div>
+                                    <div style="width: 15%">分值</div>
+                                    <div style="width: 15%">评价</div>
+                                </div>
+                                <div class="contentList" style="display: flex;">
+                                    <ul>
+                                        {{for content}}
+                                        <li><div class="cntList-left">{{:#data}}</div></li>
+                                        {{/for}}
+                                    </ul>
+                                    <ul>
+                                        {{for standard}}
+                                        <li><div class="cntList-middle"><span style="padding: 10px;">{{:#data}}</span></div></li>
+                                        {{/for}}
+                                    </ul>
+                                    <ul>
+                                        {{for grade}}
+                                        <li><div class="cntList-right">{{:#data}}</div></li>
+                                        {{/for}}
+                                    </ul>
+                                    <ul>
+                                        {{for grade}}
+                                        <li><div class="cntList-right"><input type="text" name="grade"></div></li>
+                                        {{/for}}
+                                    </ul>
+                                </div>
+                            </li>
+                            {{/for}}
+                        </ul>
+                    </script>
+                </div>
             </div>
         </div>
     </body>
+    <script type="text/javascript" src="../sys/js/evaluteDetail.js"></script>
 </html>

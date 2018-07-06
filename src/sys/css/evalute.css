@@ -1,1 +1,88 @@
-@import"task.css"
+.content-main {
+	height: 90%;
+	width: 100%;
+	margin: 0;
+}
+.content-main-top {
+	width: 100%;
+	height: 12.2%;
+	border-bottom: dashed 1px rgb(230, 233, 241);
+}
+.content-main-top span {
+	color: rgb(74, 74, 74);
+	font-size: 110%;
+	margin-left: 5.5%;
+}
+select {
+	appearance: none;
+	-moz-appearance: none;
+	border: solid 2px rgb(221, 237, 252);
+	width: 15%;
+	height: 50%;
+	color: rgb(140, 144, 153);
+	margin : none;
+	font-size: 100%;
+	margin-left: 1%;
+	margin-top: 0;
+}
+.listTitle {
+	width: 100%;
+	height: 7.7%;
+	border-bottom: dashed 1px rgb(230, 233, 241);
+}
+
+.listTitle span {
+	width: calc(100% / 6);
+	border-right: solid 1px rgb(230, 233, 241);
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: rgb(74, 74, 74);
+}
+.taskList {
+	height: auto;
+	overflow: scroll;
+}
+.taskDetail div {
+	width: calc(100% / 6);
+	border-right: solid 1px rgb(230, 233, 241);
+	height: 54.5px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: rgb(140, 144, 153);
+	border-bottom: dashed 1px rgb(230, 233, 241);
+}
+.comment a {
+	color: rgb(140, 144, 153);
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.comment {
+	background: rgba(221, 237, 252, .4);
+}
+.comment:hover {
+	background: rgba(221, 237, 252, .9);
+}
+.comment a:hover {
+	color: white;
+}
+.minisearch {
+	border-style: none;
+	background-color: rgba(0, 219, 181, .8);
+	border-radius: 4px;
+	color: white;
+	width: 7%;
+	height: 40%;
+	font-size: 120%;
+	margin-left: 8%;
+	font-weight: thin;
+
+}
+.minisearch:hover {
+	background-color: rgb(0, 205, 170);
+}
