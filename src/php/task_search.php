@@ -3,7 +3,7 @@ require_once 'conn.php';
 header("Content-type: text/html; charset=utf-8");
 session_start();
 //获取登录用户的班级
-$ID = $_SESSION['name'];
+$ID = $_SESSION['username'];
 $sql1 = "select user_class from user where user_number ='$ID'";
 $result1 = $conn->query($sql1);
 $row1 = mysqli_fetch_array($result1);
