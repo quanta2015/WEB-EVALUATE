@@ -1,18 +1,18 @@
-        $().ready(function () {
+        $().ready(function() {
 
-            $("#form").validate({
-                rules: {
-                    name: "required",
-                    pwd: "required",
+          $("#form").validate({
+            rules: {
+              name: "required",
+              pwd: "required",
 
-                },
-                messages: {
-                    name: "请输入您的账号",
-                    pwd: {
-                        required: "请输入密码"
-                    }
-                }
-            });
+            },
+            messages: {
+              name: "请输入您的账号",
+              pwd: {
+                required: "请输入密码"
+              }
+            }
+          });
         });
 
         //// RegExp
