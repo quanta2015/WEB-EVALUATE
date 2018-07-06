@@ -4,7 +4,6 @@
 header("Content-type: text/html; charset=utf-8");
 session_start();
 
-$_SESSION['name'] = $_POST['name'];
 $failitem = array("user_id"=>NULL,"user_name"=>NULL,"user_number"=>NULL,"user_class"=>NULL,"user_role"=>NULL,"user_password"=>NULL);
  
 //  登录系统开启一个session内容
@@ -44,9 +43,10 @@ if ($_POST['name']) {
             $response = CodeUtil::jsons_encode($response);
             header("Content-Type:text/html;charset=utf-8");
             echo urldecode(json_encode($response));
-
             $_SESSION['name'] = $_POST['name'];
-      //     header("Location:../pages/task.html");
+            if($_POST['name'] == 'admin'){
+                $_SESSION['name'] = 1;
+            }
 
 
         }
