@@ -13,7 +13,8 @@ if (isset($_POST['submit'])) {
     $publisher = $_SESSION['name'];
     if ($class == "" || $title == "" || $begin == "" || $end == "" || $wd == "" || $pt == "" || $vd == "") {
         echo "<script>alert('信息不能为空，请重新填写');history.go(-1);</script>";
-    } else {
+    } 
+    else {
         if (!$conn) {
             die('Could not connect: ' . mysqli_connect_error());
         }
