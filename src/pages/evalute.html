@@ -2,23 +2,22 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>系统管理</title>
+        <title>成绩评定/教师</title>
         <link rel="stylesheet" type="text/css" href="../sys/css/task.css">
+        <link rel="stylesheet" type="text/css" href="../sys/css/evalute.css">
         <link rel="stylesheet" type="text/css" href="../lib/font-awesome/css/font-awesome.min.css">
         <script type="text/javascript" src="../lib/jquery/jquery.min.js"></script>
-        <script type="text/javascript" src="../sys/js/task.js"></script>
+        <script type="text/javascript" src="../sys/js/evalute.js"></script>
     </head>
     <body>
         <div class="g-index">
             <div class="nav">
                 <div class="nav-top">
                     <div class="nav-logo"><img src="../img/logo02.png"></div>
-                    <i class="fa fa-chevron-right nav-more" id="nav_icon3" style="display: none;"></i>
                 </div>
                 <ul>
                     <li class="nav-item">
                         <a href="javascript:;" style="display: flex;">
-                            <!--<i class="fa fa-file-text nav-icon"></i>-->
                             <span>发布新任务</span>
                             <div class="hidden"></div>
                             <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
@@ -27,7 +26,6 @@
                     <li class="nav-item"></li>
                     <li class="nav-item has-chosen">
                         <a href="javascript:;" style="display: flex;">
-                            <!--<i class="fa fa-search nav-icon"></i>-->
                             <span>学生成绩评定</span>
                             <div class="hidden"></div>
                             <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
@@ -36,7 +34,6 @@
                     <li class="nav-item"></li>
                     <li class="nav-item">
                         <a href="javascript:;" style="display: flex;">
-                            <!--<i class="fa fa-check-square-o nav-icon"></i>-->
                             <span>学生成绩查询</span>
                             <div class="hidden"></div>
                             <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
@@ -45,7 +42,6 @@
                     <li class="nav-item"></li>
                     <li class="nav-item">
                         <a href="javascript:;" style="display: flex;">
-                            <!--<i class="fa fa-check-square-o nav-icon"></i>-->
                             <span>设置评价标准</span>
                             <div class="hidden"></div>
                             <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
@@ -54,7 +50,6 @@
                     <li class="nav-item"></li>
                     <li class="nav-item">
                         <a href="javascript:;" style="display: flex;">
-                            <!--<i class="fa fa-check-square-o nav-icon"></i>-->
                             <span>设置模块分数比例</span>
                             <div class="hidden"></div>
                             <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
@@ -63,7 +58,6 @@
                     <li class="nav-item"></li>
                     <li class="nav-item">
                         <a href="javascript:;" style="display: flex;">
-                            <!--<i class="fa fa-check-square-o nav-icon"></i>-->
                             <span>设置小组人员</span>
                             <div class="hidden"></div>
                             <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
@@ -72,7 +66,6 @@
                     <li class="nav-item"></li>
                     <li class="nav-item">
                         <a href="javascript:;" style="display: flex;">
-                            <!--<i class="fa fa-check-square-o nav-icon"></i>-->
                             <span>修改密码</span>
                             <div class="hidden"></div>
                             <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
@@ -81,7 +74,6 @@
                     <li class="nav-item"></li>
                     <li class="nav-item">
                         <a href="javascript:;" style="display: flex;">
-                            <!--<i class="fa fa-check-square-o nav-icon"></i>-->
                             <span>班级管理</span>
                             <div class="hidden"></div>
                             <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
@@ -92,9 +84,54 @@
             <div class="content">
                 <div class="content-top">
                     <a class="userControl" style="display: flex; align-items: center;">
-                        <span class="userCotrol-title">个人面板&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+                        <span class="userCotrol-title">个人面板&nbsp;&nbsp;&nbsp;&nbsp;</span>
                         <i class="fa fa-power-off nav-more fa-2x" id="nav_icon2" style="color: rgb(32, 142, 251);"></i>
                     </a>
+                </div>
+                <div class="content-main" style="display: flex; flex-direction: column;">
+                    <div class="content-main-top" style="display: flex; align-items: center;">
+                        <span>选择班级:</span>
+                        <select id = "classSlct">
+                            <option>软工161</option>
+                            <option>全部</option>
+                        </select>
+                        <span>选择作业:</span>
+                        <select id = "taskSlct">
+                            <option>作业1</option>
+                            <option>全部</option>
+                        </select>
+                        <button class="minisearch">查询</button>
+                    </div>
+                    <div class="listTitle" style="display: flex; align-items: center;">
+                        <span>作业编号</span>
+                        <span>ID</span>
+                        <span>班级</span>
+                        <span>姓名</span>
+                        <span>评价状态</span>
+                        <span>评价</span>
+                    </div>
+                    <ul class="taskList" style="width: 100%; height: calc(100% - 10% - 7.5%);">
+                        <li style="width: 100%;">
+                            <div class="taskDetail" style="display: flex; align-items: center;">
+                                <div><span>001</span></div>
+                                <div><span>2016210405054</span></div>
+                                <div><span>软工162</span></div>
+                                <div><span>陶娣</span></div>
+                                <div><span>否</span></div>
+                                <div class="comment"><a href="evaluteDetail.html">去评价</a></div>
+                            </div>
+                        </li>
+                        <li style="width: 100%;">
+                            <div class="taskDetail" style="display: flex; align-items: center;">
+                                <div><span>002</span></div>
+                                <div><span>2016210405050</span></div>
+                                <div><span>软工162</span></div>
+                                <div><span>叶艳洁</span></div>
+                                <div><span>是</span></div>
+                                <div class="comment"><a href="evaluteDetail.html">查看评价</a></div>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
                 <!--<div class="userBox">
                     <div class="userBox-top">

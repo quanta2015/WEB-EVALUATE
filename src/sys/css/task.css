@@ -188,13 +188,17 @@ textarea {
     margin-left: 76%;
 }
 select {
-    margin-top: 3%;
-    width: 20%;
-    height: 5%;
+    appearance: none;
+    -moz-appearance: none;
+    border: solid 2px rgb(221, 237, 252);
+    width: 30%;
+    height: 4.5%;
+    color: rgb(140, 144, 153);
+    margin : none;
+    font-size: 100%;
     margin-left: 5%;
-    border-style: solid 1px rgb(219, 219, 219);
-    background: #fff;
-
+    margin-top: 3%;
+    background: transparent;
 }
 
 #startTime, #deadLine{
