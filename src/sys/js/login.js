@@ -13,6 +13,8 @@ $("#login-button").click(function(){
            if(obj.code == 0){
             if(obj.data.user_role == 0)
              window.location.href = 'pages/task.html';
+            if(obj.data.user_role == 1)
+             window.location.href = 'pages/student.php';
            }
            if(obj.code == 70){
             document.getElementById('number').style.display='inline';
