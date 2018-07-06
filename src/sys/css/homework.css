@@ -5,15 +5,15 @@ a{text-decoration:none;color:#202020;}
 .fl{float:left;}
 
 /*作业列表*/
-.ulDiv{ overflow:hidden; font-family:"Microsoft YaHei";padding: 50px}
+.ulDiv{ overflow:hidden; font-family:"Microsoft YaHei";padding: 25px; overflow: scroll;}
 .ulDiv ul{padding-bottom:15px; position:relative; margin-right:-30px;}
-.ulDiv ul li{width:315px; padding:10px 0 10px 0; background-color:#fff; float:left;display:inline; zoom:1; letter-spacing: 0; overflow:hidden;margin-right:22px;}
+.ulDiv ul li{width:320px; padding:10px 10px 10px 10px; background-color:#fff; float:left;display:inline; zoom:1; letter-spacing: 0; overflow:hidden;margin-right:22px;}
 .ulDiv ul li .titTxt{ border:1px solid #e1e1e1; border-bottom:0; padding:0 10px 10px; overflow:hidden;}
 .ulDiv ul li .titTxt p{ color:#333; font-size:16px; font-family:Microsoft YaHei; padding:1px 0;}
 .ulDiv ul li .titTxt p a{color:#333;font-weight:bold;}
 .ulDiv ul li .titTxt strong{ color:#555; font-weight:bold;}
 .ulDiv ul li .titTxt span{ display:inline-block; color:#424242;font-size:12px;}
-.ulDiv ul li .titOper{ background-color:#e8eeda; height:50px; color:#fff; padding:0 10px; overflow:hidden;border:solid 1px  #ccc;}
+.ulDiv ul li .titOper{ background-color:rgb(245, 247, 250); height:50px; color:#fff; padding:0 10px; overflow:hidden;border:solid 1px  #e1e1e1;}
 .ulDiv ul li .titOper p{ margin-top:10px;float:right;}
 .ulDiv ul li .titOper p a{letter-spacing: 0;text-decoration:none;}
 .pt5{padding:5px 0;}
@@ -26,9 +26,9 @@ a{text-decoration:none;color:#202020;}
 .ulDiv ul li .titOper p .delete:hover{ background-position:-203px 0;}
 .ulDiv ul li.lookLi .titOper{}*/
 .Btn_blue{
-	width: 60px;
+	width: 70px;
 	height:30px;
-	background-color: rgb(59,120,175);
+	background-color: rgba(0, 219, 181);
 	float: right;
 	font-size: 14px;
 	font-weight: bold;
@@ -36,11 +36,14 @@ a{text-decoration:none;color:#202020;}
 	line-height: 30px;
 	text-align: center;
 	border-radius: 5px;
+}
+.Btn_blue:hover {
+	background-color: rgb(0, 205, 170);
 }
 .Btn_grey{
-	width: 60px;
+	width: 70px;
 	height:30px;
-	background-color: #ccc;
+	background-color: rgb(169, 169, 169);
 	float: right;
 	font-size: 14px;
 	font-weight: bold;
@@ -49,7 +52,9 @@ a{text-decoration:none;color:#202020;}
 	text-align: center;
 	border-radius: 5px;
 }
-
+.Btn_grey:hover {
+	background-color: rgb(128, 128, 128);
+}
 .container{}
 /*.duty{
 	margin-top: 30px;
@@ -66,18 +71,32 @@ a{text-decoration:none;color:#202020;}
 }*/
 .f{margin-left: 113px;}
 .block{
-	margin-top: 50px;
 	/*background-color: #eee;*/
 	width: 100%;
 	height: 500px;
 }
 .k{margin-left: 70px;}
 .control-label{
-	font-size: 17px;
+	color: rgb(120, 120, 120);
+	font-size: 120%;
+	font-weight: normal;
+	margin-top: 10px;
 }
 .b-s{
 	font-size: 20px;
 	font-weight: bold;
-	margin-top:50px;
-	margin-left: 705px;
+	margin-top:-40px;
+	margin-left: 950px;
+}
+.container-top {
+	margin: 40px;
+	margin-top: 10px;
+	margin-bottom: 30px;
+}
+.container-top span {
+	font-size: 200%;
+	color: rgb(74, 74, 74);
+}
+.form-group {
+	margin-left: -30px;
 }
