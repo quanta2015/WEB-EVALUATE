@@ -30,16 +30,16 @@ function homework(){
 	// global $publish_date;
 	// global $end_date;
 	// $conn = mysqli_connect('127.0.0.1', 'root',  '123456',  'jspj');   // 连接数据库
- //    $conn->query("SET NAMES utf8");
+    // $conn->query("SET NAMES utf8");
 	if($i < $count){
-	 //    $sql3 = "select publisher,publish_date,end_date,task_title from task where publish_class = '$temp' and task_id = '$i' ";
-	 //    $result3 = $conn->query($sql3);
-		// $row3 = mysqli_fetch_array($result3);
-		// 	  $publisher = $row3['publisher'];
-		// 	  $task_title = $row3['task_title'];
-		// 	  $publish_date = $row3['publish_date'];
-		// 	  $end_date = $row3['end_date'];
-		 $i++;
+	 //$sql3 = "select publisher,publish_date,end_date,task_title from task where publish_class = '$temp' and task_id = '$i' ";
+	 //$result3 = $conn->query($sql3);
+	 //$row3 = mysqli_fetch_array($result3);
+	 //$publisher = $row3['publisher'];
+	 //$task_title = $row3['task_title'];
+	 //$publish_date = $row3['publish_date'];
+	 //$end_date = $row3['end_date'];
+		$i++;
 	}
 	else{
 	   $i = 0;
