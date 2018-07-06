@@ -1,8 +1,6 @@
 <?php
-  require_once 'conn.php';
+require_once 'conn.php';
 header("Content-type: text/html; charset=utf-8");
-
-
 session_start();
 if (isset($_POST['submit'])) {
     $class = $_POST["class"];
@@ -13,23 +11,16 @@ if (isset($_POST['submit'])) {
     $pt = $_POST["task_pt"];
     $vd = $_POST["task_vd"];
     $publisher = $_SESSION['name'];
-
     if ($class == "" || $title == "" || $begin == "" || $end == "" || $wd == "" || $pt == "" || $vd == "") {
         echo "<script>alert('信息不能为空，请重新填写');history.go(-1);</script>";
-    }
-    else {
-      
+    } else {
         if (!$conn) {
             die('Could not connect: ' . mysqli_connect_error());
         }
-      
-        $insert_sql = "insert into task(publish_class)values('{$class}'，'{$publisher}',{$title}','{$begin}','{$end}',{$wd}','{$pt}','{$vd}')";
-     
-        $result = $conn->query($insert_sql);
+        $insert_sql = "insert into task(publish_class,task_title,publish_date,end_date,task_content_wd,task_content_pt,task_content_vd,publisher)values('{$class}','{$title}','{$begin}','{$end}','{$wd}','{$pt}','{$vd}','{$publisher}')";
+        //print_r($insert_sql);
+        $result = mysqli_query($conn, $insert_sql);
         echo "<script>alert('发布成功!');location.href='../pages/homework.html';</script>";
     }
-    mysqli_free_result($result);
 }
 mysqli_close($conn);
-
-?>
