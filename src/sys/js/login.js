@@ -11,6 +11,7 @@ $("#login-button").click(function(){
            console.log(data);
            var obj = JSON.parse(data);
            if(obj.code == 0){
+            if(obj.data.user_role == 0)
              window.location.href = 'pages/task.html';
            }
            if(obj.code == 70){

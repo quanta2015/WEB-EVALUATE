@@ -1,0 +1,23 @@
+login API
+POST 提交 name pwd；
+返回：
+{
+	code:
+	msg:
+	data:
+}
+
+//成功实例
+{"code":0,"msg":"success","data":{"user_id":"1","user_name":"admin","user_number":"211","user_class":"162","user_role":"0","user_password":"123456"}}
+
+//账号错误
+{"code":88,"msg":"wrongnumber","data":{"user_id":null,"user_name":null,"user_number":null,"user_class":null,"user_role":null,"user_password":null}}
+
+//密码错误：
+{"code":99,"msg":"wrongpassword","data":{"user_id":null,"user_name":null,"user_number":null,"user_class":null,"user_role":null,"user_password":null}}
+
+//未输入账号
+{"code":70,"msg":"emptynumber","data":{"user_id":null,"user_name":null,"user_number":null,"user_class":null,"user_role":null,"user_password":null}}
+
+//未输入密码
+{"code":80,"msg":"emptypwd","data":{"user_id":null,"user_name":null,"user_number":null,"user_class":null,"user_role":null,"user_password":null}}
