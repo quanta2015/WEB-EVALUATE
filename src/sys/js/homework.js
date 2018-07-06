@@ -1,31 +1,23 @@
-(function(jq, g) {
-
-    var data = [{
-        'number': '001',
-        'title': '教学设计',
-        'content': '根据给定题目，设计完整的一套教学方案。',
-        'publisher':'毛婕老师'
+$(document).on("click", "#submit", function (e) {
+    bootbox.confirm({
+        message: "确认提交作业？",
+        buttons: {
+            confirm: {
+                label: 'Yes',
+                className: 'btn-success'
+            },
+            cancel: {
+                label: 'No',
+                className: 'btn-myStyle'
+            }
         },
-        {
-        'number': '002',
-        'title': '多媒体课件',
-        'content': '根据教学设计内容制作课件，制作平台不限。',
-        'publisher':'毛婕老师'    
-        },
-        {
-        'number': '003',
-        'title': '即席讲演',
-        'content': '根据试题进行讲演，模拟课堂，时间不超过3分钟。',
-        'publisher':'毛婕老师'    
+        callback: function(result) {
+            if(result) {
+                // alert('点击了确认按钮');
+                // location.href="student.html?state=1";
+                url = "student.html?state=1";//此处拼接内容
+                window.location.href = url;
+            } 
         }
-    ]
-        //获取模板
-        jsRenderTpl = $.templates('#j-specCard'),
-        //末班与数据结合
-        finalTpl = jsRenderTpl(data);
-
-        $('.box').html(finalTpl);
-
-})(jQuery, window);
-
-
+    });
+});
