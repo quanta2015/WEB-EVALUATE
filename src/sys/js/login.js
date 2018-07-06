@@ -1,133 +1,36 @@
-//$(function() {
-//  var loginButton = $('#login-button')
-//  var registerButton = $('#register-button')
-//  var emailElement = $('#email')
-//  var passwordElement = $('#password')
-//  var captchaDiv = $('#captcha-div')
-//  var captcha = $('#captcha-image')
-//  var captchaIn = $('#captcha')
-//  var isCaptchaOn = false
-//
-//  var isSendingSigninReq = false
-//  var isSendingCaptchaReq = false
-//
-//  function loginSuccess(result) {
-//    window.location = result.redirect_uri
-//  }
-//
-//  function getCaptcha(key) {
-//    performRequest("/captcha", "GET", {
-//      "key": key
-//    }, captchaGetSuccess, null, function(e) {
-//      isSendingCaptchaReq = false
-//    })
-//  }
-//
-//  function captchaGetSuccess(result) {
-//    isCaptchaOn = result.enabled
-//    captchaIn.val("")
-//    if (result.enabled === true) {
-//      captchaDiv.removeClass('hide')
-//      captcha.attr('src', result.data)
-//    } else {
-//      captchaDiv.addClass('hide')
-//    }
-//  }
-//
-//  function loginError(err) {
-//    var err = err.responseJSON
-//    var key = emailElement.val()
-//    switch (err.code) {
-//      case errCaptchaRequired:
-//      case errCaptchaValidFailed:
-//        showError(err)
-//        getCaptcha(key)
-//        return
-//      case errRequireAuthenticatorTotp:
-//        window.location = "/two-factor?totp_type=0"
-//        return
-//      case errRequireMobileTotp:
-//        window.location = "/two-factor?totp_type=1"
-//        return
-//      default:
-//        if (isCaptchaOn) {
-//          getCaptcha(key)
-//        }
-//        showError(err)
-//        return
-//    }
-//  }
-//
-//  function loginValidEmpty() {
-//    if ($.trim(emailElement.val()) == "") {
-//      $('.field-email').addClass('has-error')
-//      return false
-//    } else {
-//      $('.field-email').removeClass('has-error')
-//    }
-//
-//    if ($.trim(passwordElement.val()) === "") {
-//      $('.field-password').addClass('has-error')
-//      return false
-//    } else {
-//      $('.field-password').removeClass('has-error')
-//    }
-//
-//    if (isCaptchaOn && $.trim(captchaIn.val()) === "") {
-//      $('.field-captcha').addClass('has-error')
-//      return false
-//    } else {
-//      $('.field-captcha').removeClass('has-error')
-//    }
-//    return true
-//  }
-//
-//  loginButton.on('click', function(e) {
-//    if (isSendingSigninReq) {
-//      return
-//    }
-//    var email = emailElement.val()
-//    var password = passwordElement.val()
-//    var captchaVal = captchaIn.val()
-//
-//    if (!loginValidEmpty()) {
-//      return
-//    }
-//
-//    var clientId = getURLParameter("client_id") || ""
-//    var redirectUrl = getURLParameter("redirect_url") || ""
-//    var url = "../html/login?client_id=" + clientId + "&redirect_url=" + redirectUrl
-//
-//    isSendingSigninReq = true
-//    loginButton.addClass('disabled')
-//    performRequest(url, "POST", {
-//      "username": email,
-//      "password": password,
-//      "name": name,
-//      "captcha": captchaVal
-//    }, loginSuccess, loginError, function(e) {
-//      isSendingSigninReq = false
-//      loginButton.removeClass('disabled')
-//    }) 
-//  })
-//
-//  captcha.on('click', function(e) {
-//    if (isSendingCaptchaReq) {
-//      return
-//    }
-//    getCaptcha(emailElement.val())
-//  })
-//
-//  $('#close_alert').on('click', function(e){
-//    $('#notice .alert').hide()
-//  })
-//
-//  $(document).bind('keydown', function(e) {
-//    var theEvent = e || window.event;
-//    var code = theEvent.keyCode || theEvent.which || theEvent.charCode;
-//    if (code == 13) {
-//        loginButton.click();
-//        registerButton.click();
-//    }
-//  })
-//})
+
+
+$("#login-button").click(function(){
+     document.getElementById('pwd').style.display='none';
+      document.getElementById('number').style.display='none';
+    $.ajax({
+        url:'php/login.php',
+        type:"POST",
+        data:$('#login').serialize(),
+        success: function(data) {
+           console.log(data);
+           var obj = JSON.parse(data);
+           if(obj.code == 0){
+             window.location.href = 'pages/task.html';
+           }
+           if(obj.code == 70){
+            document.getElementById('number').style.display='inline';
+            document.getElementById('number').innerHTML="账号不能为空";
+           }
+           if(obj.code == 80){
+            document.getElementById('pwd').style.display='inline';
+            document.getElementById('number').innerHTML="密码不能为空";
+           }
+            if(obj.code == 88){
+            document.getElementById('number').style.display='inline';
+            document.getElementById('number').innerHTML="账号不存在";
+           }
+            if(obj.code == 99){
+            document.getElementById('pwd').style.display='inline';
+            document.getElementById('pwd').innerHTML="密码错误";
+           }
+
+
+        }
+    });
+});

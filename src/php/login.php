@@ -1,58 +1,122 @@
 <?php
 
+require_once 'conn.php';
 header("Content-type: text/html; charset=utf-8");
-header("Access-Control-Allow-Origin: *");
-
 session_start();
-session_regenerate_id(TRUE);
-session_name("mysessionid");
-
-if (isset($_POST['submit'])) {
-    $user = $_POST["name"];
-    $pwd = $_POST["pwd"];
+$failitem = array("user_id"=>NULL,"user_name"=>NULL,"user_number"=>NULL,"user_class"=>NULL,"user_role"=>NULL,"user_password"=>NULL);
+ 
+//  登录系统开启一个session内容
+if ($_POST['name']) {
     
-    if ($user == "" || $pwd == "") {
-        echo "<script>alert('信息不能为空，请重新填写');history.go(-1);</script>";
+
+    $pwd = $_POST["pwd"];
+    // 验证填写信息是否合乎规范
+    if ($pwd == "") {
+            $response = array(
+             'code' => 80,
+             "msg"=>"emptypwd",
+             'data'=>$failitem
+              );
+            $response = CodeUtil::jsons_encode($response);
+            header("Content-Type:text/html;charset=utf-8");
+            echo urldecode(json_encode($response));
     } 
     else {
-        require_once 'conn.php';
-
         if (!$conn) {
             die('Could not connect: ' . mysqli_connect_error());
         }
         mysqli_query($conn, "SET NAMES UTF8");
-        
-        $query = "select * from user where user_number = '{$_POST['name']}' and user_password = '{$_POST['pwd']}'";
+        // 设定字符集
+        $query = "select * from user where user_number = '{$_POST['name']}' and \r\n                        user_password = '{$_POST['pwd']}'";
+        $result = mysqli_query($conn, $query);
+
+        if (1 == mysqli_num_rows($result)) {
+            $items = mysqli_fetch_assoc($result);
+            $response = array(
+             'code' => 0,
+             "msg"=>"success",
+              'data' => $items    // $items为关联数组
+              );
+
+            $response = CodeUtil::jsons_encode($response);
+           header("Content-Type:text/html;charset=utf-8");
+            echo urldecode(json_encode($response));
+
+            $_SESSION['name'] = $_POST['name'];
+      //     header("Location:../pages/task.html");
+
+
+        }
+        $query = "select * from user where user_number = '{$_POST['name']}' and \r\n                        user_password != '{$_POST['pwd']}'";
         $result = mysqli_query($conn, $query);
         if (1 == mysqli_num_rows($result)) {
-            $json_arr = array('success' => 1);
 
-            $_SESSION['is_login'] = "true";
-            $_SESSION['username'] = $_POST['name'];
-            $_SESSION['password'] = $_POST['pwd'];
-
-            header("Location:../pages/task.html");
+             $response = array(
+             'code' => 99,
+             "msg"=>"wrongpassword", 
+             'data'=>$failitem
+              );
+            $response = CodeUtil::jsons_encode($response);
+            header("Content-Type:text/html;charset=utf-8");
+            echo urldecode(json_encode($response));
+                mysqli_free_result($result);
+           // echo "<script>alert('密码填写有误,请重新填写');history.go(-1);</script>";
         }
-
-        $query = "select * from user where user_number = '{$_POST['name']}' and user_password != '{$_POST['pwd']}'";
-        $result = mysqli_query($conn, $query);
-        $rows = mysqli_num_rows($result);
-        if (1 == $rows) {
-            $json_arr = array('success' => -2);
-            // echo "<script>alert('密码填写有误,请重新填写');history.go(-1);</script>";
-        }
-
         $query = "select * from user where user_number = '{$_POST['name']}'";
+
+
         $result = mysqli_query($conn, $query);
-        $rows = mysqli_num_rows($result);
-        if (0 == rows) {
-            $json_arr = array('success' => -1);
-            // echo "<script>alert('用户不存在,请重新填写');history.go(-1);</script>";
+        if (0 == mysqli_num_rows($result)) {
+             $response = array(
+             'code' => 88,
+             "msg"=>"wrongnumber",  
+               'data'=>$failitem
+              );
+            $response = CodeUtil::jsons_encode($response);
+                mysqli_free_result($result);
+            header("Content-Type:text/html;charset=utf-8");
+            echo urldecode(json_encode($response));
+          //  echo "<script>alert('账号填写有误,请重新填写');history.go(-1);</script>";
         }
     }
-    mysqli_free_result($result);
 
-    $login_json = json_encode($json_arr,TRUE);
-    echo $login_json;
 }
-mysqli_close($conn);
+
+
+else {  $response = array(
+             'code' => 70,
+             "msg"=>"emptynumber",
+               'data'=>$failitem
+              );
+            $response = CodeUtil::jsons_encode($response);
+            header("Content-Type:text/html;charset=utf-8");
+            echo urldecode(json_encode($response));}
+
+    // 释放结果
+
+// CodeUtil类,用来给array中的中文进行urlencode
+class CodeUtil
+{
+    public static function jsons_encode($array)
+    {
+        //遍历已有数组，将每个值 urlencode 一下
+        foreach ($array as $key => $value) {
+            if(is_string($value))
+                $array[$key] = urlencode($value);
+        }
+        //用urldecode将值反解
+        return $array;
+    }
+}
+
+
+
+
+/*if($_POST['name']){
+    echo '接受到数据'.$_POST['name'];
+}else{
+    echo '没有接受到数据';
+}
+*/
+
+?>
