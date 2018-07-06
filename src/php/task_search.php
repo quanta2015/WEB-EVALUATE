@@ -4,10 +4,10 @@ header("Content-type: text/html; charset=utf-8");
 session_start();
 //获取登录用户的班级
 $ID = $_SESSION['name'];
-$sql1 = "select user_class from user where user_number ='$ID'";
-$result1 = $conn->query($sql1);
-$row1 = mysqli_fetch_array($result1);
-$temp= $row1['user_class'];
+// $sql1 = "select user_class from user where user_number ='$ID'";
+// $result1 = $conn->query($sql1);
+// $row1 = mysqli_fetch_array($result1);
+// $temp= $row1['user_class'];
 //$_SESSION['temp'] = $temp;
 //获取这个班级的作业信息
 $publisher = 0;
@@ -18,9 +18,9 @@ $sql2 = "select count(task_id) from task";
 $result2 = $conn->query($sql2);
 $row2 =  mysqli_fetch_array($result2);
 $count = $row2['count(task_id)'];
+//echo $count;
 
 // $s = 2;
-// echo $result2->return;
 
 function homework(){
 	static $i = 0;
