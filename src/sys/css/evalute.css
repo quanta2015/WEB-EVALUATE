@@ -39,6 +39,9 @@ select {
 	color: rgb(140, 144, 153);
 	border-bottom: dashed 1px rgb(230, 233, 241);
 }
+.smltitle {
+	color: rgb(74, 74, 74);
+}
 .comment a {
 	color: rgb(140, 144, 153);
 	height: 100%;

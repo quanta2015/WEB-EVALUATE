@@ -5,7 +5,7 @@ a{text-decoration:none;color:#202020;}
 .fl{float:left;}
 
 /*作业列表*/
-.ulDiv{ overflow:hidden; font-family:"Microsoft YaHei";padding: 25px; overflow: scroll;}
+.ulDiv{ overflow:hidden; font-family:"Microsoft YaHei";padding: 25px;}
 .ulDiv ul{padding-bottom:15px; position:relative; margin-right:-30px;}
 .ulDiv ul li{width:320px; padding:10px 10px 10px 10px; background-color:#fff; float:left;display:inline; zoom:1; letter-spacing: 0; overflow:hidden;margin-right:22px;}
 .ulDiv ul li .titTxt{ border:1px solid #e1e1e1; border-bottom:0; padding:0 10px 10px; overflow:hidden;}

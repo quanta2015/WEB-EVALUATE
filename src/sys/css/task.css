@@ -233,4 +233,5 @@ select {
     display: flex; 
     height: 85%; 
     margin-top: 1%;
+    overflow: scroll;
 }

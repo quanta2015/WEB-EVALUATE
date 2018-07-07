@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>成绩评定/教师</title>
+        <title>成绩评定/学生</title>
         <link rel="stylesheet" type="text/css" href="../sys/css/task.css">
         <link rel="stylesheet" type="text/css" href="../sys/css/evaluteDetail.css">
         <link rel="stylesheet" type="text/css" href="../lib/font-awesome/css/font-awesome.min.css">
@@ -18,7 +18,15 @@
                 <ul>
                     <li class="nav-item">
                         <a href="javascript:;" style="display: flex;">
-                            <span>发布新任务</span>
+                            <span>我的作业</span>
+                            <div class="hidden"></div>
+                            <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
+                        </a>
+                    </li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item">
+                        <a href="javascript:;" style="display: flex;">
+                            <span>成绩查询</span>
                             <div class="hidden"></div>
                             <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
                         </a>
@@ -26,39 +34,7 @@
                     <li class="nav-item"></li>
                     <li class="nav-item has-chosen">
                         <a href="javascript:;" style="display: flex;">
-                            <span>学生成绩评定</span>
-                            <div class="hidden"></div>
-                            <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
-                        </a>
-                    </li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item">
-                        <a href="javascript:;" style="display: flex;">
-                            <span>学生成绩查询</span>
-                            <div class="hidden"></div>
-                            <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
-                        </a>
-                    </li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item">
-                        <a href="javascript:;" style="display: flex;">
-                            <span>设置评价标准</span>
-                            <div class="hidden"></div>
-                            <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
-                        </a>
-                    </li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item">
-                        <a href="javascript:;" style="display: flex;">
-                            <span>设置模块分数比例</span>
-                            <div class="hidden"></div>
-                            <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
-                        </a>
-                    </li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item">
-                        <a href="javascript:;" style="display: flex;">
-                            <span>设置小组人员</span>
+                            <span>成绩评定</span>
                             <div class="hidden"></div>
                             <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
                         </a>
@@ -67,14 +43,6 @@
                     <li class="nav-item">
                         <a href="javascript:;" style="display: flex;">
                             <span>修改密码</span>
-                            <div class="hidden"></div>
-                            <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
-                        </a>
-                    </li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item">
-                        <a href="javascript:;" style="display: flex;">
-                            <span>班级管理</span>
                             <div class="hidden"></div>
                             <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
                         </a>
@@ -89,51 +57,45 @@
                     </a>
                 </div>
                 <div class="task_urls" style="display: flex;">
-                    <div class="left">
-                        <span class="taskTitle">作业一</span>
+                    <span class="taskTitle">作业一</span>
+                    <span class="word">查看作业:</span>
+                    <div class="urls" style="display: flex;">
+                        <a href=""><img src="../img/word.png" id="word" style="width: 30%;"></a>
+                        <a href=""><img src="../img/ppt.png" id="ppt" style="width: 30%;"></a>
+                        <a href=""><img src="../img/video.png" id="video" style="width: 30%;"></a>
                     </div>
-                    <div class="dropdown">
-                        <button class="dropbtn">查看作业</button>
-                        <div class="dropdown-content">
-                            <a href="...">教学设计(Word)</a>
-                            <a href="...">多媒体课件(PPT)</a>
-                            <a href="...">即席演讲(MP4)</a>
-                        </div>
-                    </div>
-                    <div class="right">
-                        <button type="submit" class="button_submit">提交评分</button>
-                    </div>
+                    <button type="submit" class="button_submit">提交评分</button>
                 </div>
                 <div class="content-main" id="gradeDetail" style="display: flex; flex-direction: column;">
                     <div class="box"></div>
                     <script id="theTmpl" type="text/x-jsrender">
-                        <ul style="width: 100%;">
+                        <ul>
                             {{for}}
-                            <li style="width: 100%;">
+                            <li>
                                 <div class="firstTitle">{{:part}}</div>
                                 <div class="secondTitle" style="display: flex;">
-                                    <div style="width: 15%;">评价内容</div>
-                                    <div style="width: 55%;">评价标准</div>
-                                    <div style="width: 15%;">分值</div>
-                                    <div style="width: 15%;">评价</div>
+                                    <div style="width: 179px;">评价内容</div>
+                                    <div style="width: 655px;">评价标准</div>
+                                    <div style="width: 179px;">分值</div>
+                                    <div style="width: 179px;">评价</div>
                                 </div>
-                                <div class="contentList" style="display: flex; width: 100%;">
-                                    <ul style="width: 15%;">
+                                <div class="contentList" style="display: flex;">
+                                    <ul>
                                         {{for content}}
                                         <li><div class="cntList-left">{{:#data}}</div></li>
                                         {{/for}}
                                     </ul>
-                                    <ul style="width: 55%;">
+                                    <ul>
                                         {{for standard}}
                                         <li><div class="cntList-middle"><span style="padding: 10px;">{{:#data}}</span></div></li>
                                         {{/for}}
                                     </ul>
-                                    <ul style="width: 15%;">
+                                    <ul>
                                         {{for grade}}
                                         <li><div class="cntList-right">{{:#data}}</div></li>
                                         {{/for}}
                                     </ul>
-                                    <ul style="width: 15%;">
+                                    <ul>
                                         {{for grade}}
                                         <li><div class="cntList-right"><input type="text" name="grade"></div></li>
                                         {{/for}}
