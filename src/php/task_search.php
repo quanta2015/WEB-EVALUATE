@@ -7,7 +7,7 @@ session_start();
 $failitem = array("task_title"=>NULL,"publish_date"=>NULL,"end_date"=>NULL);
 if (!$conn) {
     $response = array(
-    'code' => 55,
+    'code' => 10,
     "msg"=>"connectfail",
     );
     $response = CodeUtil::jsons_encode($response);
@@ -17,7 +17,7 @@ if (!$conn) {
 $ID = $_SESSION['name'];
 if ($ID == "" ) {
     $response = array(
-         'code' => 80,
+         'code' => 20,
          "msg"=>"ID existempty",
          );
     $response = CodeUtil::jsons_encode($response);
@@ -93,7 +93,7 @@ $end_date = $row3['end_date'];
        //错误
         if (0 == mysqli_num_rows($result5)) {
              $response = array(
-             'code' => 95,
+             'code' => 96,
              "msg"=>"wrong publish_date",  
              'data'=>$failitem
               );
