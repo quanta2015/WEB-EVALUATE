@@ -57,45 +57,51 @@
                     </a>
                 </div>
                 <div class="task_urls" style="display: flex;">
-                    <span class="taskTitle">作业一</span>
-                    <span class="word">查看作业:</span>
-                    <div class="urls" style="display: flex;">
-                        <a href=""><img src="../img/word.png" id="word" style="width: 30%;"></a>
-                        <a href=""><img src="../img/ppt.png" id="ppt" style="width: 30%;"></a>
-                        <a href=""><img src="../img/video.png" id="video" style="width: 30%;"></a>
+                    <div class="left">
+                        <span class="taskTitle">作业一</span>
                     </div>
-                    <button type="submit" class="button_submit">提交评分</button>
+                    <div class="dropdown">
+                        <button class="dropbtn">查看作业</button>
+                        <div class="dropdown-content">
+                            <a href="...">教学设计(Word)</a>
+                            <a href="...">多媒体课件(PPT)</a>
+                            <a href="...">即席演讲(MP4)</a>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <button type="submit" class="button_submit">提交评分</button>
+                    </div>
                 </div>
                 <div class="content-main" id="gradeDetail" style="display: flex; flex-direction: column;">
                     <div class="box"></div>
                     <script id="theTmpl" type="text/x-jsrender">
-                        <ul>
+                        <ul style="width: 100%;">
                             {{for}}
-                            <li>
+                            <li style="width: 100%;">
                                 <div class="firstTitle">{{:part}}</div>
                                 <div class="secondTitle" style="display: flex;">
-                                    <div style="width: 179px;">评价内容</div>
-                                    <div style="width: 655px;">评价标准</div>
-                                    <div style="width: 179px;">分值</div>
-                                    <div style="width: 179px;">评价</div>
+                                    <div style="width: 15%;">评价内容</div>
+                                    <div style="width: 55%;">评价标准</div>
+                                    <div style="width: 15%;">分值</div>
+                                    <div style="width: 15%;">评价</div>
                                 </div>
-                                <div class="contentList" style="display: flex;">
-                                    <ul>
+                                <div class="contentList" style="display: flex; width: 100%;">
+                                    <ul style="width: 15%;">
                                         {{for content}}
                                         <li><div class="cntList-left">{{:#data}}</div></li>
                                         {{/for}}
                                     </ul>
-                                    <ul>
+                                    <ul style="width: 55%;">
                                         {{for standard}}
                                         <li><div class="cntList-middle"><span style="padding: 10px;">{{:#data}}</span></div></li>
                                         {{/for}}
                                     </ul>
-                                    <ul>
+                                    <ul style="width: 15%;">
                                         {{for grade}}
                                         <li><div class="cntList-right">{{:#data}}</div></li>
                                         {{/for}}
                                     </ul>
-                                    <ul>
+                                    <ul style="width: 15%;">
                                         {{for grade}}
                                         <li><div class="cntList-right"><input type="text" name="grade"></div></li>
                                         {{/for}}
