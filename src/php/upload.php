@@ -1,18 +1,17 @@
 <?php
-header("Content-type: text/html; charset=utf-8");
-header("Access-Control-Allow-Origin: *");
-
-// 允许上传的图片后缀
-$allowedExts = array("gif", "jpeg", "jpg", "png");
+// 允许上传的文件后缀
+$allowedExts = array("doc", "docx", "ppt", "pptx","avi","flv","mp4","wmv");
 $temp = explode(".", $_FILES["file"]["name"]);
 echo $_FILES["file"]["size"];
 $extension = end($temp);     // 获取文件后缀名
-if ((($_FILES["file"]["type"] == "image/gif")
-|| ($_FILES["file"]["type"] == "image/jpeg")
-|| ($_FILES["file"]["type"] == "image/jpg")
-|| ($_FILES["file"]["type"] == "image/pjpeg")
-|| ($_FILES["file"]["type"] == "image/x-png")
-|| ($_FILES["file"]["type"] == "image/png"))
+if ((($_FILES["file"]["type"] == "application/msword")
+|| ($_FILES["file"]["type"] == "application/vnd.openxmlformats-officedocument.wordprocessingml.document")
+|| ($_FILES["file"]["type"] == "application/vnd.ms-powerpoint")
+|| ($_FILES["file"]["type"] == "application/vnd.openxmlformats-officedocument.presentationml.presentation")
+|| ($_FILES["file"]["type"] == "video/avi")
+|| ($_FILES["file"]["type"] == "application/octet-stream")
+|| ($_FILES["file"]["type"] == "video/mp4")
+|| ($_FILES["file"]["type"] == "video/x-ms-wmv"))
 && ($_FILES["file"]["size"] < 6000000)   // 小于 6M
 && in_array($extension, $allowedExts))
 {
