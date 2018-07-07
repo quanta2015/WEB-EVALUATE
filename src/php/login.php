@@ -47,9 +47,11 @@ if ($_POST['name']) {
             echo urldecode(json_encode($response));
             $_SESSION['name'] = $_POST['name'];
             if($_POST['name'] == 'admin'){
-                $_SESSION['name'] = 1;
+                $_SESSION['name'] = 1;   //教师
             }
-
+            if($_POST['name']) == 'student'){
+                $_SESSION['name'] = 0;   //学生
+            }
 
         }
         $query = "select * from user where user_number = '{$_POST['name']}' and user_password != '{$_POST['pwd']}'";
