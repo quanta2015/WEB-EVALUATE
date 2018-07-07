@@ -31,7 +31,7 @@ $end_date = $row3['end_date'];
 $str = '<li class="lookLi">
 		   <div class="titTxt">
 			    <p style="padding-top: 11px;">
-					<a href="../pages/homework.html" onclick="javascript:void(0);">作业1 '.$title.';
+					<a href="../pages/homework.html" onclick="javascript:void(0);">作业： '.$title.';
 					</a>
 				</p>
 				<div title="" class="pt5">
