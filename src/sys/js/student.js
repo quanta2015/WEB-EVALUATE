@@ -39,3 +39,23 @@ function getData(){
         $("#tit").text("作业状态：未完成");
     }
 }
+
+
+
+
+ $().ready(function() {
+    console.log("search");
+
+    $.ajax({
+        url:'../php/task_search.php',
+        type:"GET",
+        data:'',
+        success: function(data) {
+           console.log(data);
+             var obj = JSON.parse(data);
+             console.log(obj);
+             console.log(obj.data[1]);
+           
+        }
+    });
+});
