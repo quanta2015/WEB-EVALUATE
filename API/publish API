@@ -1,0 +1,12 @@
+publish API
+post 提交 class,title,begin,end,task_wd,task_pt,task_vd
+返回数据 code,msg
+
+//成功实例
+{"code":0,"msg":"success"}
+//存在空输入
+{"code":80,"msg":"existempty"}
+//其他错误
+{"code":20,"msg":"unknownfail"}
+//数据库连接失败
+{"code":55,"msg":"connectfail"}
