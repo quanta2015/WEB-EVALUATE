@@ -4,6 +4,8 @@
 header("Content-type: text/html; charset=utf-8");
 session_start();
 
+$_SESSION['name'] = $_POST['name'];
+
 $failitem = array("user_id"=>NULL,"user_name"=>NULL,"user_number"=>NULL,"user_class"=>NULL,"user_role"=>NULL,"user_password"=>NULL);
  
 //  登录系统开启一个session内容

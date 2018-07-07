@@ -69,8 +69,8 @@
 			<div class="content-main">
 				<div class="container">
 					<div class="container-top"><span>作业1</span></div>
-					<div class="block">
-						<div class="form-group ">
+					<form class="block" action="upload_file.php" method="post" enctype="multipart/form-data">
+						<div class="form-group">
 							<label class="control-label k">一、教学设计(请提交Word文档)</label>
 							<div>
 								<div class="fileinput fileinput-new" data-provides="fileinput">
@@ -79,7 +79,7 @@
 										<span class="btn btn-primary btn-outline btn-file">
 											<span class="fileinput-new"> 上传文件 </span>
 											<span class="fileinput-exists"> 更改文件 </span>
-											<input type="file" name="..."> 
+											<input type="file" name="file"> 
 										</span>
 										<a href="javascript:;" class="btn btn-primary fileinput-exists" data-dismiss="fileinput"> 删除文件 </a>
 										<button type="button" class="btn btn-primary">保存修改</button>
@@ -121,8 +121,8 @@
 								</div>
 							</div>
 						</div>	
-						<button id="submit" type="button" class="btn btn-primary b-s" style="background: rgb(135, 206, 235); border-color: rgb(221, 237, 252);">提交作业</button>
-					</div>
+						<button id="submit" type="submit" class="btn btn-primary b-s" style="background: rgb(135, 206, 235); border-color: rgb(221, 237, 252);">提交作业</button>
+					</form>
 				</div>
 			</div>
 		</div>

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 header("Content-type:text/html;charset=utf-8"); //定义编码和页面
 header("Access-Control-Allow-Origin: *");   //跨域问题
   
