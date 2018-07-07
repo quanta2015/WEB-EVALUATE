@@ -67,28 +67,34 @@
 						<div class="titTxt">
 							<?php 
 							    require_once('task_search.php'); 
+							    $sql1 = "select user_class from user where user_number ='$ID'";
+                                $result1 = $conn->query($sql1);
+                                $row1 = mysqli_fetch_array($result1);
+                                $temp= $row1['user_class'];
 								$i = homework(); 
 							    $sql3 = "select publisher,publish_date,end_date,task_title from task where publish_class = '$temp' and task_id = '$i' ";
+							   // print_r($sql3);
 								$result3 = $conn->query($sql3);  
 		                        $row3 = mysqli_fetch_array($result3);
 		                        $publisher = $row3['publisher'];
 		                        $task_title = $row3['task_title'];
 	                            $publish_date = $row3['publish_date'];
 		                        $end_date = $row3['end_date'];
+                                 
 		                     ?>
 							<p style="padding-top: 11px;">
-								<a href="../pages/homework.html" onclick="javascript:void(0);" title="作业1">作业1 <?php echo "$task_title"; ?></a>
+								<a href="../pages/homework.html" onclick="javascript:void(0);" title="作业1">作业1 <?php echo $task_title; ?></a>
 							</p>
 							<div title="" class="pt5"><span class="f1">开始时间：<?php 
 									 echo "$publish_date"; ?></span><span></span></div>
 							<div title="" class="pt5"><span class="f1">截止时间：<?php  
 								    echo "$end_date"; ?></span><span></span></div>
-							<div title="" class="pt5"><span class="f1">作业状态：</span><strong></strong></div>
+							<div title="" class="pt5"><span class="f1">作业状态:</span><strong></strong></div>
 						</div>
 						<div class="titOper">
 							<p class="clearfix">
 								<a class="Btn_blue" href="../pages/homework.html">
-									<span>进入</span>
+									<span>查看</span>
 								</a>
 							</p>
 						</div>
@@ -99,7 +105,9 @@
                             <?php
 								$i = homework(); 
 							    $sql3 = "select publisher,publish_date,end_date,task_title from task where publish_class = '$temp' and task_id = '$i' ";
-								$result3 = $conn->query($sql3);  
+								//print_r($sql3);
+								$result3 = $conn->query($sql3); 
+
 		                        $row3 = mysqli_fetch_array($result3);
 		                        $publisher = $row3['publisher'];
 		                        $task_title = $row3['task_title'];
@@ -119,7 +127,7 @@
 						<div class="titOper">
 							<p style="float: none;" class="clearfix">
 								<a class="Btn_blue fr" href="../pages/homework.html">
-									<span>进入</span>
+									<span>查看</span>
 								</a>
 							</p>
 						</div>

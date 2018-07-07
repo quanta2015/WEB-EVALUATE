@@ -9,6 +9,7 @@
 
 	<script type="text/javascript" src="../lib/jquery/jquery.min.js"></script>
 	<script type="text/javascript" src="../lib/jsrender/jsrender.js"></script>
+	<script type="text/javascript" src="../lib/jquery/jquery.params.js"></script>
 </head>
 <body>
 	<div class="g-index">
@@ -45,7 +46,7 @@
 				<li class="nav-item"></li>
 				<li class="nav-item">
 					<a href="javascript:;" style="display: flex;">
-						<span>个人设置</span>
+						<span>修改密码</span>
 						<div class="hidden"></div>
 						<i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
 					</a>
@@ -68,6 +69,7 @@
 						<div class="box"></div>
 						<!-- 定义JsRender模版 -->  
 						<script type="text/x-jsrender" id="testTmpl">
+							{{for list}}
 							<li class="lookLi">	
 								<div class="titTxt">
 									<p style="padding-top: 11px;">
@@ -75,24 +77,26 @@
 									</p>
 									<div title="" class="pt5"><span class="f1">开始时间：</span><span>{{:begin}}</span></div>
 									<div title="" class="pt5"><span class="f1">截止时间：</span><span>{{:end}}</span></div>
-									<div title="" class="pt5"><span class="f1">作业状态：</span><strong>
-										{{if state == 1}}已完成
+									<div  id="tit" title="" class="pt5"><span class="f1"></span><strong>
+										<!-- {{if state == 1}}已完成
 										{{else}}未完成
-										{{/if}}
+										{{/if}} -->
 									</strong></div>
 								</div>
 								<div class="titOper">
-									<p class="clearfix">
-										
-											<span>
-												{{if state == 1}}<a class="Btn_blue" href="homework.html" onclick="javascript:void(0);">查看</a>
-												{{else}}<a class="Btn_grey" href="#">进入</a>
-												{{/if}}
-											</span
-										
+									<p class="clearfix">							
+										<!-- <span>
+											<a class="Btn_blue" href="homework.html" onclick="javascript:void(0);">查看</a>
+										</span>	 -->
+										<span>
+											{{if state == 1}}<a class="Btn_grey" href="homework.html" onclick="javascript:void(0);">查看</a>
+											{{else}}<a class="Btn_blue" href="homework.html">去完成</a>
+											{{/if}}
+										</span>		
 									</p>
 								</div>
 							</li>
+							{{/for}}
 						</script>
 					</ul>
 				</div>

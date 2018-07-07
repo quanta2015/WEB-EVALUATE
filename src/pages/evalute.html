@@ -8,6 +8,7 @@
         <link rel="stylesheet" type="text/css" href="../lib/font-awesome/css/font-awesome.min.css">
         <script type="text/javascript" src="../lib/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="../sys/js/evalute.js"></script>
+        <script type="text/javascript" src="../lib/jsrender/jsrender.js"></script>
     </head>
     <body>
         <div class="g-index">
@@ -17,7 +18,7 @@
                 </div>
                 <ul>
                     <li class="nav-item">
-                        <a href="javascript:;" style="display: flex;">
+                        <a href="task.html" style="display: flex;">
                             <span>发布新任务</span>
                             <div class="hidden"></div>
                             <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
@@ -113,42 +114,25 @@
                                 <div><span>评价</span></div>
                             </div>
                         </li>
+                        <div class="box"></div>
+                        <script type="text/x-jsrender" id="theTmpl">
+                        {{for}}
                         <li style="width: 100%;">
                             <div class="taskDetail" style="display: flex; align-items: center;">
-                                <div><span>001</span></div>
-                                <div><span>2016210405054</span></div>
-                                <div><span>软工162</span></div>
-                                <div><span>陶娣</span></div>
-                                <div><span>否</span></div>
-                                <div class="comment"><a href="evaluteDetail.html">去评价</a></div>
+                                <div><span>{{:taskID}}</span></div>
+                                <div><span>{{:stdID}}</span></div>
+                                <div><span>{{:class}}</span></div>
+                                <div><span>{{:name}}</span></div>
+                                <div><span>{{if isEvalute == 0}}否{{else}}是{{/if}}</span></div>
+                                <div class="comment"><a href="evaluteDetail.html">{{if isEvalute == 0}}去评价{{else}}查看评价{{/if}}</a></div>
                             </div>
                         </li>
-                        <li style="width: 100%;">
-                            <div class="taskDetail" style="display: flex; align-items: center;">
-                                <div><span>002</span></div>
-                                <div><span>2016210405050</span></div>
-                                <div><span>软工162</span></div>
-                                <div><span>叶艳洁</span></div>
-                                <div><span>是</span></div>
-                                <div class="comment"><a href="evaluteDetail.html">查看评价</a></div>
-                            </div>
-                        </li>
+                        {{/for}}
+                        </script>
                     </ul>
                 </div>
-                <!--<div class="userBox">
-                    <div class="userBox-top">
-                        <img src="images/userPic.jpg" class="userPic">
-                        <div class="userInf">
-                            <span class="userName">毛婕</span>
-                            <span class="userID">2016210405054</span>
-                        </div>
-                    </div>
-                    <div class="userBox-bottom">
-                        <i class="fa fa-power-off nav-more" id="nav_icon2" style="color: rgb(141, 145, 153);"></i>
-                        <a href="../index.html" style="color: rgb(141, 145, 153);">退出当前用户</a>
-                    </div>
-                </div>-->
             </div>
         </div>
     </body>
+    <script type="text/javascript" src="../sys/js/evalute.js"></script>
 </html>
