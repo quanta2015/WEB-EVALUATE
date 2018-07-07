@@ -6,6 +6,13 @@ session_start();
 
 $_SESSION['name'] = $_POST['name'];
 
+//根据用户名获取到班级
+
+//
+
+
+
+
 $failitem = array("user_id"=>NULL,"user_name"=>NULL,"user_number"=>NULL,"user_class"=>NULL,"user_role"=>NULL,"user_password"=>NULL);
  
 //  登录系统开启一个session内容
@@ -35,6 +42,8 @@ if ($_POST['name']) {
         $result = mysqli_query($conn, $query);
 
         if (1 == mysqli_num_rows($result)) {
+           $_SESSION['class'] = $row1['user_class'];
+           $_SESSION['role'] = $row1['user_role'];
             $items = mysqli_fetch_assoc($result);
             $response = array(
              'code' => 0,
