@@ -1,121 +1,133 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>教师管理页面</title>
-        <link rel="stylesheet" type="text/css" href="./../sys/css/task.css">
-        <link rel="stylesheet" type="text/css" href="./../lib/font-awesome/css/font-awesome.min.css">
-        
-        <script type="text/javascript" src="../lib/jquery/jquery.min.js"></script>
-        <script type="text/javascript" src="../sys/js/task.js"></script>
-    </head>
-    <body>
-        <div class="g-index">
-            <div class="nav">
-                <div class="nav-top">
-                    <div class="nav-logo"><img src="../img/logo02.png"></div>
-                    <i class="fa fa-chevron-right nav-more" id="nav_icon3" style="display: none;"></i>
-                </div>
-                <ul>
-                    <li class="nav-item has-chosen">
-                        <a href="javascript:;" style="display: flex;">
-                            <!--<i class="fa fa-file-text nav-icon"></i>-->
-                            <span>发布新任务</span>
-                            <div class="hidden"></div>
-                            <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
-                        </a>
-                    </li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item">
-                        <a href="evalute.html" style="display: flex;">
-                            <!--<i class="fa fa-search nav-icon"></i>-->
-                            <span>学生成绩评定</span>
-                            <div class="hidden"></div>
-                            <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
-                        </a>
-                    </li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item">
-                        <a href="javascript:;" style="display: flex;">
-                            <!--<i class="fa fa-check-square-o nav-icon"></i>-->
-                            <span>学生成绩查询</span>
-                            <div class="hidden"></div>
-                            <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
-                        </a>
-                    </li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item">
-                        <a href="javascript:;" style="display: flex;">
-                            <!--<i class="fa fa-check-square-o nav-icon"></i>-->
-                            <span>设置评价标准</span>
-                            <div class="hidden"></div>
-                            <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
-                        </a>
-                    </li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item">
-                        <a href="javascript:;" style="display: flex;">
-                            <!--<i class="fa fa-check-square-o nav-icon"></i>-->
-                            <span>设置模块分数比例</span>
-                            <div class="hidden"></div>
-                            <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
-                        </a>
-                    </li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item">
-                        <a href="javascript:;" style="display: flex;">
-                            <!--<i class="fa fa-check-square-o nav-icon"></i>-->
-                            <span>设置小组人员</span>
-                            <div class="hidden"></div>
-                            <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
-                        </a>
-                    </li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item">
-                        <a href="javascript:;" style="display: flex;">
-                            <!--<i class="fa fa-check-square-o nav-icon"></i>-->
-                            <span>修改密码</span>
-                            <div class="hidden"></div>
-                            <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
-                        </a>
-                    </li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item">
-                        <a href="javascript:;" style="display: flex;">
-                            <!--<i class="fa fa-check-square-o nav-icon"></i>-->
-                            <span>班级管理</span>
-                            <div class="hidden"></div>
-                            <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
-                        </a>
-                    </li>
-                </ul>
+
+<head>
+    <meta charset="utf-8">
+    <title>教师管理页面</title>
+    <link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../lib/bootstrap-daterangepicker/daterangepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="./../sys/css/task.css">
+
+    <script type="text/javascript" src="../lib/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../lib/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../lib/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript" src="../lib/bootstrap-daterangepicker/moment.min.js"></script>
+    <script type="text/javascript" src="../lib/bootstrap-daterangepicker/daterangepicker.min.js"></script>
+    <script type="text/javascript" src="../sys/js/task.js"></script>
+
+</head>
+
+<body>
+    <div id="g-index">
+        <div id="nav">
+            <div id="nav-top">
+                <div id="nav-logo"><img src="../img/logo02.png"></div>
+                <i class="fa fa-chevron-right nav-more" id="nav_icon3" style="display: none;"></i>
             </div>
-            <div class="content" style="height: 100%;">
-                <div class="content-top">
-                    <a class="userControl" style="display: flex; align-items: center;">
-                        <span class="userCotrol-title">个人面板&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                        <i class="fa fa-power-off nav-more fa-2x" id="nav_icon2" style="color: rgb(32, 142, 251);"></i>
+            <ul>
+                <li id="nav-item">
+                    <a href="javascript:;" style="display: flex;">
+                        <!--<i class="fa fa-file-text nav-icon"></i>-->
+                        <span>发布新任务</span>
+                        <div id="hidden"></div>
+                        <i class="fa fa-chevron-right nav-more" id="nav_icon1"></i>
                     </a>
-                </div>
-                <form class="content-main" action='../php/publish.php' method='post'>
-                    <div class="content-main-left">
-                        <select name="class">
-                            <option value="软工161">软工161</option>
-                            <option value="软工162">软工162</option>
-                        </select>
-                        <textarea rows="8" cols="50" id="startTime" name="begin" placeholder="&nbsp;&nbsp;开始时间: 0000-00-00 00:00:00 ..."></textarea>
-                        <textarea rows="8" cols="50" id="deadLine" name="end" placeholder="&nbsp;&nbsp;结束时间: 0000-00-00 00:00:00 ..."></textarea>
-                        <textarea rows="8" cols="50" id="taskTheme" name="title" placeholder="&nbsp;&nbsp;编辑作业主题..."></textarea>
-                    </div>
-                    <div class="content-main-right">
-                        <label>作业要求</label>
-                        <textarea rows="8" cols="50" id="wordRequest" name="task_wd" placeholder="&nbsp;&nbsp;请输入Word作业要求..."></textarea>
-                        <textarea rows="8" cols="50" id="wordRequest" name="task_pt" placeholder="&nbsp;&nbsp;请输入PPT作业要求..."></textarea>
-                        <textarea rows="8" cols="50" id="wordRequest" name="task_vd" placeholder="&nbsp;&nbsp;请输入视频作业要求..."></textarea>
-                        <button class="submit" type="submit" name="submit">发布任务</button>
-                    </div>
-                </from>
-            </div>
+                </li>
+                <li id="nav-item"></li>
+                <li id="nav-item">
+                    <a href="javascript:;" style="display: flex;">
+                        <!--<i class="fa fa-search nav-icon"></i>-->
+                        <span>学生成绩评定</span>
+                        <div id="hidden"></div>
+                        <i class="fa fa-chevron-right nav-more" id="nav_icon1"></i>
+                    </a>
+                </li>
+                <li id="nav-item"></li>
+                <li id="nav-item">
+                    <a href="javascript:;" style="display: flex;">
+                        <!--<i class="fa fa-check-square-o nav-icon"></i>-->
+                        <span>学生成绩查询</span>
+                        <div id="hidden"></div>
+                        <i class="fa fa-chevron-right nav-more" id="nav_icon1"></i>
+                    </a>
+                </li>
+                <li id="nav-item"></li>
+                <li id="nav-item">
+                    <a href="javascript:;" style="display: flex;">
+                        <!--<i class="fa fa-check-square-o nav-icon"></i>-->
+                        <span>设置评价标准</span>
+                        <div id="hidden"></div>
+                        <i class="fa fa-chevron-right nav-more" id="nav_icon1"></i>
+                    </a>
+                </li>
+                <li id="nav-item"></li>
+                <li id="nav-item">
+                    <a href="javascript:;" style="display: flex;">
+                        <!--<i class="fa fa-check-square-o nav-icon"></i>-->
+                        <span>设置模块分数比例</span>
+                        <div id="hidden"></div>
+                        <i class="fa fa-chevron-right nav-more" id="nav_icon1"></i>
+                    </a>
+                </li>
+                <li id="nav-item"></li>
+                <li id="nav-item">
+                    <a href="javascript:;" style="display: flex;">
+                        <!--<i class="fa fa-check-square-o nav-icon"></i>-->
+                        <span>设置小组人员</span>
+                        <div id="hidden"></div>
+                        <i class="fa fa-chevron-right nav-more" id="nav_icon1"></i>
+                    </a>
+                </li>
+                <li id="nav-item"></li>
+                <li id="nav-item">
+                    <a href="javascript:;" style="display: flex;">
+                        <!--<i class="fa fa-check-square-o nav-icon"></i>-->
+                        <span>修改密码</span>
+                        <div id="hidden"></div>
+                        <i class="fa fa-chevron-right nav-more" id="nav_icon1"></i>
+                    </a>
+                </li>
+                <li id="nav-item"></li>
+                <li id="nav-item">
+                    <a href="javascript:;" style="display: flex;">
+                        <!--<i class="fa fa-check-square-o nav-icon"></i>-->
+                        <span>班级管理</span>
+                        <div id="hidden"></div>
+                        <i class="fa fa-chevron-right nav-more" id="nav_icon1"></i>
+                    </a>
+                </li>
+            </ul>
         </div>
-    </body>
+        <div id="content" style="height: 100%;">
+            <div id="content-top">
+                <a id="userControl" style="display: flex; align-items: center;">
+                        <span id="userCotrol-title">个人面板&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <i class="fa fa-power-off fa-2x" id="nav_icon2" style="color: rgb(32, 142, 251);"></i>
+                    </a>
+            </div>
+            <form id="content-main" action='../php/publish.php' method='post'>
+                <div id="content-main-left">
+                    <label>选择班级</label>
+                    <select id="clsCh" name="class">
+                        </select>
+                    <label>设定时间</label>
+                    <div class="col-md-11" style="margin-left:13px; margin-top:10px;">
+                        <input type="text" name="daterange" class="form-control" data-value="{{old('daterange')}}" placeholder="请输入提交时间" />
+                    </div>
+                    <label>作业主题</label>
+                    <textarea id="taskTheme" name="title" placeholder="&nbsp;&nbsp;编辑作业主题..."></textarea>
+                </div>
+                <div id="content-main-right">
+                    <label>作业要求</label>
+                    <textarea rows="8" cols="50" id="wordRequest" name="task_wd" placeholder="&nbsp;&nbsp;请输入Word作业要求..."></textarea>
+                    <textarea rows="8" cols="50" id="wordRequest" name="task_pt" placeholder="&nbsp;&nbsp;请输入PPT作业要求..."></textarea>
+                    <textarea rows="8" cols="50" id="wordRequest" name="task_vd" placeholder="&nbsp;&nbsp;请输入视频作业要求..."></textarea>
+                    <button id="submit" type="submit" name="submit">发布任务</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
 </html>
