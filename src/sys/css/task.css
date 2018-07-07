@@ -1,4 +1,6 @@
 @charset "utf-8";
+
+
 body,
 html {
     height: 100%;
@@ -23,13 +25,13 @@ a {
     text-decoration: none;
 }
 
-.g-index {
+#g-index {
     width: 100%;
     height: 100%;
     display: flex;
 }
 
-.nav {
+#nav {
     position: relative;
     width: 250px;
     height: 100%;
@@ -38,7 +40,7 @@ a {
     transition: all .3s;
 }
 
-.nav-top {
+#nav-top {
     width: 100%;
     height: 15%;
     display: flex;
@@ -46,13 +48,13 @@ a {
     border-bottom: solid rgb(230, 233, 240) 1px;
 }
 
-.nav-logo img {
+#nav-logo img {
     margin-left: 10px;
     width: 80%;
     height: 90%;
 }
 
-.nav a {
+#nav a {
     display: block;
     overflow: hidden;
     padding-left: 20px;
@@ -62,28 +64,30 @@ a {
     transition: all .3s;
     display: flex;
     align-items: center;
+    text-decoration: none;
 }
 
-.nav a span {
+#nav a span {
     margin-left: 30px;
+    text-decoration: none;
 }
 
-.nav-item {
+#nav-item {
     position: relative;
     margin-bottom: 5px;
 }
 
-.nav-item ul {
+#nav-item ul {
     display: none;
     background: rgb(223, 237, 251);
 }
 
-.nav-item .nav-show ul {
+#nav-item .nav-show ul {
     display: block;
     margin-bottom: 5px;
 }
 
-.nav-item > a:before {
+#nav-item > a:before {
     content: "";
     position: absolute;
     left: 0px;
@@ -92,9 +96,10 @@ a {
     background: rgb(50, 149, 247);
     opacity: 0;
     transition: all .3s;
+    text-decoration: none;
 }
 
-.nav .nav-icon {
+#nav .nav-icon {
     font-size: 20px;
     position: absolute;
     margin-left: -1px;
@@ -107,19 +112,21 @@ a {
     transition: transform .3s;
 }
 
-.nav-show .nav-more {
+#nav-show .nav-more {
     transform: rotate(90deg);
 }
 
-.nav-show, .nav-item > a:hover {
+#nav-show,
+#nav-item > a:hover {
     background: rgb(223, 237, 251);
 }
 
-.nav-show > a:before, .nav-item > a:hover:before {
+#nav-show > a:before,
+#nav-item > a:hover:before {
     opacity: 1;
 }
 
-.has-chosen:before {
+#has-chosen:before {
     content: "";
     position: absolute;
     left: 0px;
@@ -130,25 +137,25 @@ a {
     transition: all .3s;
 }
 
-.has-chosen{
+#has-chosen {
     background: rgb(223, 237, 251);
 }
 
-.nav-item li:hover a {
+#nav-item li:hover a {
     color: black;
 }
 
-.hidden {
+#hidden {
     flex-grow: 1;
 }
 
-.content {
+#content {
     width: calc(100% - 250px);
     height: 100%;
     transition: all .3s;
 }
 
-.content-top {
+#content-top {
     width: 100%;
     height: 12%;
     display: flex;
@@ -157,15 +164,25 @@ a {
     justify-content: flex-end;
 }
 
-.userCotrol-title, .userName, .userID {
+#userCotrol-title,
+#userName,
+#userID {
     color: rgb(141, 145, 153);
 }
+
+#userControl {
+    text-decoration-line: none;
+    margin-right: 40px;
+}
+
+
 
 label {
     margin-top: 3%;
     margin-left: 5%;
     font-size: 150%;
 }
+
 textarea {
     width: 88%;
     height: 23%;
@@ -175,7 +192,8 @@ textarea {
     margin-top: 4%;
     margin-left: 5%;
 }
-.submit {
+
+#submit {
     height: 5%;
     border-style: none;
     width: 17%;
@@ -187,21 +205,19 @@ textarea {
     margin-top: 3%;
     margin-left: 76%;
 }
+
 select {
-    appearance: none;
-    -moz-appearance: none;
-    border: solid 2px rgb(221, 237, 252);
-    width: 30%;
-    height: 4.5%;
-    color: rgb(140, 144, 153);
-    margin : none;
-    font-size: 100%;
-    margin-left: 5%;
     margin-top: 3%;
-    background: transparent;
+    width: 20%;
+    height: 5%;
+    margin-left: 5%;
+    border-style: solid 1px rgb(219, 219, 219);
+    background: #fff;
+
 }
 
-#startTime, #deadLine{
+#startTime,
+#deadLine {
     width: 88%;
     height: 9.1%;
     border: 1px rgb(219, 219, 219) solid;
@@ -210,6 +226,7 @@ select {
     margin-top: 4%;
     margin-left: 5%;
 }
+
 #taskTheme {
     width: 88%;
     height: 50.65%;
@@ -220,17 +237,20 @@ select {
     margin-left: 5%;
 }
 
-.content-main-right, .content-main-left{
-    width: 50%; 
-    height: 100%; 
-    display: flex; 
+#content-main-right,
+#content-main-left {
+    width: 50%;
+    height: 100%;
+    display: flex;
     flex-direction: column;
 }
-.content-main-left{
+
+#content-main-left {
     border-right: solid 1px rgb(230, 233, 241);
 }
-.content-main{
-    display: flex; 
-    height: 85%; 
+
+#content-main {
+    display: flex;
+    height: 85%;
     margin-top: 1%;
 }
