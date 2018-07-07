@@ -2,17 +2,19 @@
 header("Content-type: text/html; charset=utf-8");
 header("Access-Control-Allow-Origin: *");
 
-// 允许上传的图片后缀
-$allowedExts = array("gif", "jpeg", "jpg", "png");
+// 允许上传的文件后缀
+$allowedExts = array('doc','docx', 'ppt','pptx','mp4','avi','flv','mov');
 $temp = explode(".", $_FILES["file"]["name"]);
 echo $_FILES["file"]["size"];
 $extension = end($temp);     // 获取文件后缀名
-if ((($_FILES["file"]["type"] == "image/gif")
-|| ($_FILES["file"]["type"] == "image/jpeg")
-|| ($_FILES["file"]["type"] == "image/jpg")
-|| ($_FILES["file"]["type"] == "image/pjpeg")
-|| ($_FILES["file"]["type"] == "image/x-png")
-|| ($_FILES["file"]["type"] == "image/png"))
+if ((($_FILES["file"]["type"] == "word/doc")
+|| ($_FILES["file"]["type"] == "word/docx")
+|| ($_FILES["file"]["type"] == "ppt/ppt")
+|| ($_FILES["file"]["type"] == "ppt/pptx")
+|| ($_FILES["file"]["type"] == "video/mp4")
+|| ($_FILES["file"]["type"] == "video/avi"))
+|| ($_FILES["file"]["type"] == "video/flv"))
+|| ($_FILES["file"]["type"] == "video/mov"))
 && ($_FILES["file"]["size"] < 6000000)   // 小于 6M
 && in_array($extension, $allowedExts))
 {
