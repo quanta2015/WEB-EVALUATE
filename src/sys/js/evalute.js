@@ -1,6 +1,4 @@
-(function(jq, g) {
-
-	var arr = [
+var arr = [
 	{
 		'taskID': '001',
 		'stdID':'2016210405054',
@@ -15,11 +13,9 @@
 		'name':'叶艳洁',
 		'isEvalute':'1'
 	}
-	],
-	//获取模版
-	jsRenderTpl = $.templates('#theTmpl'),
-	//模版与数据结合
-	finalTpl = jsRenderTpl(arr);
-
-	$('.box').html(finalTpl);
-})(jQuery, window);
+];
+//获取模版
+var jsRenderTpl = $.templates('#theTmpl');
+//模版与数据结合
+var finalTpl = jsRenderTpl(arr);
+$('.box').html(finalTpl);

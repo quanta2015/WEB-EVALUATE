@@ -16,6 +16,7 @@
 select {
 	appearance: none;
 	-moz-appearance: none;
+	background: transparent;
 	border: solid 2px rgb(221, 237, 252);
 	width: 15%;
 	height: 50%;

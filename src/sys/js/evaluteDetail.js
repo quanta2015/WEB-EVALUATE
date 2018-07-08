@@ -1,7 +1,4 @@
-
-(function(jq, g) {
-
-	var arr = [
+var arr = [
 	{
 		'part': '一、教学设计(单项25分)',
 		'content': ['目标设计', '内容分析',
@@ -59,12 +56,28 @@
 					'书写快速流畅，字形大小适度，清楚整洁，美观大方，规范正确'],
 		'grade': ['3','5','7','7','4','4','5','4','4','2']
 	},
+];
+//获取模版
+var jsRenderTpl = $.templates('#theTmpl');
+//模版与数据结合
+var finalTpl = jsRenderTpl(arr);
+$('.box').html(finalTpl);
 
-	],
-	//获取模版
-	jsRenderTpl = $.templates('#theTmpl'),
-	//模版与数据结合
-	finalTpl = jsRenderTpl(arr);
 
-	$('.box').html(finalTpl);
-})(jQuery, window);
+var submit = document.getElementById("submit_grade");
+submit.onclick = function(e) {
+	// var detail_grade = document.getElementsByName('grade');
+	// var range = document.getElementsByName('range');
+	// for(var i = 0; i < range.length; i++) {
+	// 	console.log(1);
+	// 	console.log(range[i].innerHTML);
+	// }
+	var total_grade = 0;
+	for(var i = 0; i < detail_grade.length; i++) {
+		if(detail_grade[i].value != " " && !isNaN(detail_grade[i].value)) {
+			// console.log(parseInt(detail_grade[i].value));
+			total_grade += parseInt(detail_grade[i].value);
+		}
+	}
+	// console.log(total_grade);
+}

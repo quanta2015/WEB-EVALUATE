@@ -101,7 +101,7 @@
                         </div>
                     </div>
                     <div class="right">
-                        <button type="submit" class="button_submit">提交评分</button>
+                        <button type="submit" class="button_submit" id="submit_grade">提交评分</button>
                     </div>
                 </div>
                 <div class="content-main" id="gradeDetail" style="display: flex; flex-direction: column;">
@@ -135,7 +135,7 @@
                                     </ul>
                                     <ul style="width: 15%;">
                                         {{for grade}}
-                                        <li><div class="cntList-right"><input type="text" name="grade"></div></li>
+                                        <li><div class="cntList-right"><input type="text" name="grade" value=" " requied></div></li>
                                         {{/for}}
                                     </ul>
                                 </div>
