@@ -6,6 +6,13 @@ session_start();
 
 $_SESSION['name'] = $_POST['name'];
 
+//根据用户名获取到班级
+
+//
+
+
+
+
 $failitem = array("user_id"=>NULL,"user_name"=>NULL,"user_number"=>NULL,"user_class"=>NULL,"user_role"=>NULL,"user_password"=>NULL);
  
 //  登录系统开启一个session内容
@@ -35,7 +42,10 @@ if ($_POST['name']) {
         $result = mysqli_query($conn, $query);
 
         if (1 == mysqli_num_rows($result)) {
-            $items = mysqli_fetch_assoc($result);
+                 $items = mysqli_fetch_assoc($result);
+           $_SESSION['class'] = $items['user_class'];
+           $_SESSION['role'] = $items['user_role'];
+     
             $response = array(
              'code' => 0,
              "msg"=>"success",
@@ -45,13 +55,6 @@ if ($_POST['name']) {
             $response = CodeUtil::jsons_encode($response);
             header("Content-Type:text/html;charset=utf-8");
             echo urldecode(json_encode($response));
-            $_SESSION['name'] = $_POST['name'];
-            if($_POST['name'] == 'admin'){
-                $_SESSION['name'] = 1;   //教师
-            }
-            if($_POST['name']) == 'student'){
-                $_SESSION['name'] = 0;   //学生
-            }
 
         }
         $query = "select * from user where user_number = '{$_POST['name']}' and user_password != '{$_POST['pwd']}'";

@@ -73,7 +73,7 @@
                                 $temp= $row1['user_class'];
 								$i = homework(); 
 							    $sql3 = "select publisher,publish_date,end_date,task_title from task where publish_class = '$temp' and task_id = '$i' ";
-							   // print_r($sql3);
+							    print_r($sql3);
 								$result3 = $conn->query($sql3);  
 		                        $row3 = mysqli_fetch_array($result3);
 		                        $publisher = $row3['publisher'];
@@ -105,7 +105,7 @@
                             <?php
 								$i = homework(); 
 							    $sql3 = "select publisher,publish_date,end_date,task_title from task where publish_class = '$temp' and task_id = '$i' ";
-								//print_r($sql3);
+							    //print_r($sql3);
 								$result3 = $conn->query($sql3); 
 
 		                        $row3 = mysqli_fetch_array($result3);

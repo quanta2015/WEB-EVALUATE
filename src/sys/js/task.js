@@ -39,3 +39,19 @@ $(document).ready(function () {
 
 
 });
+
+
+
+$("#submit").click(function(){
+    console.log("fabu");
+
+    $.ajax({
+        url:'../php/publish.php',
+        type:"POST",
+        data:$('#content-main').serialize(),
+        success: function(data) {
+           console.log(data);
+           
+        }
+    });
+});
