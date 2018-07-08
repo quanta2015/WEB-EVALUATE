@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>系统管理</title>
+    <link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../lib/toastr-master/toastr.css">
+    <link rel="stylesheet" type="text/css" href="../sys/css/task.css">
+    <link rel="stylesheet" type="text/css" href="../sys/css/classManagement.css">
+
+
+    <script type="text/javascript" src="../lib/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../lib/toastr-master/toastr.js"></script>
+    <script type="text/javascript" src="../lib/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../lib/bootbox/bootbox.min.js"></script>
+    <script type="text/javascript" src="../lib/jsrender/jsrender.js"></script>
+    <script type="text/javascript" src="../sys/js/classManagement.js"></script>
+
+</head>
+
+<body>
+    <div id="g-index">
+        <div id="nav">
+            <div id="nav-top">
+                <div id="nav-logo"><img src="../img/logo02.png"></div>
+                <i class="fa fa-chevron-right nav-more" id="nav_icon3" style="display: none;"></i>
+            </div>
+            <ul>
+                <li id="nav-item">
+                    <a href="javascript:;" style="display: flex;">
+                        <!--<i class="fa fa-file-text nav-icon"></i>-->
+                        <span>发布新任务</span>
+                        <div id="hidden"></div>
+                        <i class="fa fa-chevron-right nav-more" id="nav_icon1"></i>
+                    </a>
+                </li>
+                <li id="nav-item"></li>
+                <li id="nav-item">
+                    <a href="javascript:;" style="display: flex;">
+                        <!--<i class="fa fa-search nav-icon"></i>-->
+                        <span>学生成绩评定</span>
+                        <div id="hidden"></div>
+                        <i class="fa fa-chevron-right nav-more" id="nav_icon1"></i>
+                    </a>
+                </li>
+                <li id="nav-item"></li>
+                <li id="nav-item">
+                    <a href="javascript:;" style="display: flex;">
+                        <!--<i class="fa fa-check-square-o nav-icon"></i>-->
+                        <span>学生成绩查询</span>
+                        <div id="hidden"></div>
+                        <i class="fa fa-chevron-right nav-more" id="nav_icon1"></i>
+                    </a>
+                </li>
+                <li id="nav-item"></li>
+                <li id="nav-item">
+                    <a href="javascript:;" style="display: flex;">
+                        <!--<i class="fa fa-check-square-o nav-icon"></i>-->
+                        <span>设置评价标准</span>
+                        <div id="hidden"></div>
+                        <i class="fa fa-chevron-right nav-more" id="nav_icon1"></i>
+                    </a>
+                </li>
+                <li id="nav-item"></li>
+                <li id="nav-item">
+                    <a href="javascript:;" style="display: flex;">
+                        <!--<i class="fa fa-check-square-o nav-icon"></i>-->
+                        <span>设置模块分数比例</span>
+                        <div id="hidden"></div>
+                        <i class="fa fa-chevron-right nav-more" id="nav_icon1"></i>
+                    </a>
+                </li>
+                <li id="nav-item"></li>
+                <li id="nav-item">
+                    <a href="javascript:;" style="display: flex;">
+                        <!--<i class="fa fa-check-square-o nav-icon"></i>-->
+                        <span>设置小组人员</span>
+                        <div id="hidden"></div>
+                        <i class="fa fa-chevron-right nav-more" id="nav_icon1"></i>
+                    </a>
+                </li>
+                <li id="nav-item"></li>
+                <li id="nav-item">
+                    <a href="javascript:;" style="display: flex;">
+                        <!--<i class="fa fa-check-square-o nav-icon"></i>-->
+                        <span>修改密码</span>
+                        <div id="hidden"></div>
+                        <i class="fa fa-chevron-right nav-more" id="nav_icon1"></i>
+                    </a>
+                </li>
+                <li id="nav-item"></li>
+                <li id="nav-item">
+                    <a href="javascript:;" style="display: flex;">
+                        <!--<i class="fa fa-check-square-o nav-icon"></i>-->
+                        <span>班级管理</span>
+                        <div id="hidden"></div>
+                        <i class="fa fa-chevron-right nav-more" id="nav_icon1"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="content" style="height: 100%;">
+            <div id="content-top">
+                <a id="userControl" style="display: flex; align-items: center;">
+                        <span id="userCotrol-title">个人面板&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <i class="fa fa-power-off fa-2x" id="nav_icon2" style="color: rgb(32, 142, 251);"></i>
+                    </a>
+            </div>
+
+            <div class="clsCon well">
+                <div class="panel panel-info">
+                    <div class="panel-heading flex">
+                        <h3 class="panel-title clsCh flex">选择</h3>
+                        <h3 class="panel-title clsId flex">序号
+                        </h3>
+                        <h3 class="panel-title clsName flex ">班级名称
+                        </h3>
+                        <h3 class="panel-title clsMan flex"><i class="fa fa-plus-square" style="color:rgb(51, 122, 183)"></i></h3>
+                    </div>
+                    <div id="list"></div>
+
+
+                    <div class="panel-body flex">
+                        <div class="clsCh flex">
+                            <button type="button" class="btn btn-kv  btn-xs btn-normal" onclick="swapCheck()">
+                                全选
+                            </button></div>
+                        <div class="clsId flex"></div>
+                        <div class="clsName flex"></div>
+                        <div class="clsMan flex">
+                            <button type="button" class="btn btn-kv  btn-xs btn-normal" onclick="clsMulRemove()">
+                                批量删除
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <!-- <div class="dropdown">
+                        <button type="button" class="dropdown-toggle" id="classChoose" data-toggle="dropdown">
+                        选择班级
+                        <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="class" id="u-cls">
+                            <li role="presentation">
+                                <a role="menuitem" tabindex="-1" href="#">软工161</a>
+                            </li>
+                        </ul>
+                    </div> -->
+
+
+
+
+            <!--<div class="userBox">
+                    <div class="userBox-top">
+                        <img src="images/userPic.jpg" class="userPic">
+                        <div class="userInf">
+                            <span class="userName">毛婕</span>
+                            <span class="userID">2016210405054</span>
+                        </div>
+                    </div>
+                    <div class="userBox-bottom">
+                        <i class="fa fa-power-off nav-more" id="nav_icon2" style="color: rgb(141, 145, 153);"></i>
+                        <a href="../index.html" style="color: rgb(141, 145, 153);">退出当前用户</a>
+                    </div>
+                </div>-->
+
+        </div>
+
+    </div>
+    <script id="clsTmpl" type="text/x-jsrender">
+        <div class="panel-body flex" id="cls-items">
+            <div class="clsCh flex" id="{{:#getIndex()+1}}"><input type="checkbox" /></div>
+            <div class="clsId flex">{{:#getIndex()+1}}</div>
+            <div class="clsName flex"><a href="#">{{:name}}</a></div>
+            <div class="clsMan flex">
+                <i type="button" class="fa fa-minus-square" style="color:rgb(51, 122, 183)" onclick="clsRemove({{:#getIndex()+1}})">
+                                
+                            </i>
+            </div>
+        </div>
+
+    </script>
+    <script>
+        //check框选中数量
+        var ckNum = 0;
+        //定义数组
+        var clsInfor = [{
+            name: "软工161"
+        }, {
+
+            name: "软工162"
+        }, {
+            name: "物联网162"
+        }];
+        var html = $("#clsTmpl").render(clsInfor);
+        $("#list").append(html);
+        //全选
+        var isCheckAll = false;
+        //悬浮框的位置
+        toastr.options.positionClass = 'toast-bottom-right';
+
+
+        function clsAdd() {
+            bootbox.prompt({
+                size: "small",
+                title: "请输入所加班级名称",
+                buttons: {
+                    confirm: {
+                        label: '增加',
+                        className: 'btn-danger'
+
+                    },
+                    cancel: {
+                        label: '取消',
+                        className: 'btn-success'
+                    }
+                },
+                callback: function(result) {
+                    console.log(result);
+                    if (result) {
+                        clsInfor.push({
+                            name: result
+                        });
+                        for (i = 0, tmp = clsInfor.length; i < tmp; i++) {
+                            $("#cls-items").remove();
+                        }
+
+                        var html = $("#clsTmpl").render(clsInfor);
+                        $("#list").append(html);
+
+                    }
+                }
+            })
+        }
+        //check框
+        function swapCheck() {
+            if (isCheckAll) {
+                $("input[type='checkbox']").each(function() {
+                    this.checked = false;
+                });
+                isCheckAll = false;
+            } else {
+                $("input[type='checkbox']").each(function() {
+                    this.checked = true;
+                });
+                isCheckAll = true;
+            }
+        }
+        //多选删除
+        function clsMulRemove() {
+            if (clsInfor.length) {
+                if (isCheckAll) {
+                    bootbox.confirm({
+                        message: "确认删除全部数据吗?",
+                        buttons: {
+                            cancel: {
+                                label: '取消',
+                                className: 'btn-success'
+                            },
+                            confirm: {
+                                label: '删除',
+                                className: 'btn-danger'
+                            }
+                        },
+                        callback: function(result) {
+                            if (!result) {
+                                toastr.success('已成功取消');
+
+                            } else {
+                                $("div#cls-items").remove();
+                                clsInfor.splice(0, clsInfor.length);
+                                toastr.success('已成功删除');
+                            }
+                        }
+
+                    });
+                } else {
+                    ckNum = 0;
+                    $("input[type='checkbox']").each(function() {
+                        if (this.checked) {
+                            ckNum++;
+                        }
+                    });
+                    if (ckNum == 0) {
+                        toastr.warning('未选中任何班级');
+                    } else {
+                        bootbox.confirm({
+                            message: "确认删除所选班级吗?",
+                            buttons: {
+                                cancel: {
+                                    label: '取消',
+                                    className: 'btn-success'
+                                },
+                                confirm: {
+                                    label: '删除',
+                                    className: 'btn-danger'
+                                }
+                            },
+                            callback: function(result) {
+                                if (!result) {
+                                    toastr.success('已成功取消');
+
+                                } else {
+                                    num = 0;
+                                    $("input[type='checkbox']").each(function() {
+                                        if (this.checked) {
+                                            tmp = $(this).parent().next().text();
+                                            clsInfor.splice(tmp - num - 1, 1);
+                                            num++;
+                                        }
+                                    });
+                                    $("div#cls-items").remove();
+                                    toastr.success('已成功删除');
+                                    html = $("#clsTmpl").render(clsInfor);
+                                    $("#list").append(html);
+
+                                }
+                            }
+
+                        });
+                    }
+
+
+                }
+            }
+        }
+
+        function clsRemove(n) {
+            bootbox.confirm({
+                message: "确认删除此班级吗?",
+                buttons: {
+                    cancel: {
+                        label: '取消',
+                        className: 'btn-success'
+                    },
+                    confirm: {
+                        label: '删除',
+                        className: 'btn-danger'
+                    }
+                },
+                callback: function(result) {
+                    if (!result) {
+                        toastr.success('已成功取消');
+
+                    } else {
+
+                        $("div#cls-items").remove();
+                        clsInfor.splice(n - 1, 1);
+                        toastr.success('已成功删除');
+                        html = $("#clsTmpl").render(clsInfor);
+                        $("#list").append(html);
+                    }
+                }
+
+            });
+
+
+        }
+    </script>
+
+</body>
+
+</html>
