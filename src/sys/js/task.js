@@ -42,16 +42,15 @@ $(document).ready(function () {
 
 
 
-$("#submit").click(function(){
-    console.log("fabu");
+$("#submit").click(function () {
 
     $.ajax({
-        url:'../php/publish.php',
-        type:"POST",
-        data:$('#content-main').serialize(),
-        success: function(data) {
-           console.log(data);
-           
+        url: '../php/publish.php',
+        type: "POST",
+        data: $('#content-main').serialize(),
+        success: function (data) {
+            toastr.success('已成功发布任务');
+
         }
     });
 });
