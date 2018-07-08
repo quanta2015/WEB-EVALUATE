@@ -24,3 +24,5 @@ if ($upfile->uploadeFile('file')) {
 	//var_dump($err);
 }
 //var_dump($upfile);
+
+?>
