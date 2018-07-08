@@ -1,0 +1,59 @@
+a:link,
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+
+    color: crimson;
+}
+
+.btn-dis {
+    margin-right: 20px;
+}
+
+.clsCon {
+    width: 70%;
+    margin-top: 5%;
+    margin-left: 15%;
+    ;
+}
+
+.inline {
+    display: inline-block;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.clsCh {
+    width: 20%;
+    height: 20px;
+    padding: 1%;
+
+}
+
+.clsId {
+    width: 20%;
+    height: 20px;
+    padding: 1%;
+}
+
+.clsName {
+    width: 40%;
+    height: 20px;
+    padding: 1%;
+}
+
+.clsMan {
+    width: 20%;
+    height: 20px;
+    padding: 1%;
+}
+
+.panel-body {
+    border: 1px solid rgb(224, 235, 249);
+}
