@@ -13,8 +13,8 @@
     $("#list").append(html);
     //全选
     var isCheckAll = false;
-    //悬浮框的位置
-    toastr.options.positionClass = 'toast-bottom-right';
+//     //悬浮框的位置
+//     toastr.options.positionClass = 'toast-bottom-right';
 
 
     function clsAdd() {
