@@ -1,38 +1,25 @@
 <?php
-
-header("Content-type: text/html; charset=utf-8");
-
-if($_POST['submit']=='提交作业'){
-	print_r($_FILES);
-	function delEmpty($v){
-		return $v!='';
-	}
-	$newUpFileName = array_filter($_FILES['file']['name'],'delEmpty');
-	print_r($newUpFileName);
-	$dirName = 'upload/';
-	if(!is_dir($dirName)){
-		mkdir($dirName,0777,1);
-	}
-	foreach($newUpFileName as $k=>$v){
-		if(is_uploaded_file($_FILES['file']['tmp_name'][$k])){
-			$upFileDir = $dirName.'/'.$_FILES['file']['name'][$k];
-			if(move_uploaded_file($_FILES['file']['tmp_name'][$k],$upFileDir)){
-				echo '<script type="text/javascript">
-					alert("上传成功！");
-					history.go(-1);
-				</script>';
-			}else{
-				echo '<script type="text/javascript">
-					alert("移动失败！");
-					history.go(-1);
-				</script>';
-			}
-		}else{
-			echo '<script type="text/javascript">
-				alert("不是通过http post上传的文件，请重新操作");
-				history.go(-1);
-			</script>';
-		}
-	}
+//print_r($_FILES['file']);
+header('Content-Type:text/html;charset=utf-8');
+//if(@$_FILES['file'])echo "ddddddddd";;
+include('uploadHelp.php');
+$upfile = new UploadFiles(array('filepath'=>'./upload','allowtype'=>array('doc','docx', 'ppt','pptx','mp4','avi','flv','wmv'),'israndfile'=>true,'maxsize'=>'2000000'));
+if($upfile ->uploadeFile('file')){
+ $arrfile = $upfile ->getnewFile();
+ foreach($arrfile as $v){
+ echo $v,"<br/>";
+ }
+ echo "上传成功！";
+}else{
+ $err = $upfile ->gteerror();
+ if(is_array($err)){
+ foreach($err as $v1){
+  echo $v1,"<br/>";
+ }
+ }else{
+ echo $err;
+ }
+ //var_dump($err);
 }
+//var_dump($upfile);
 ?>

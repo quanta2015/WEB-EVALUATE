@@ -1,4 +1,9 @@
 $(document).on("click", "#submit", function (e) {
+  //   for(i=1; i<4; i++){
+  //   if(document.getElementById('v'+i).value == ''){
+  //     document.getElementById('v'+i).name = 'uu';
+  //   }
+  // }
     bootbox.confirm({
         message: "确认提交作业？",
         buttons: {
