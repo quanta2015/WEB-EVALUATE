@@ -5,7 +5,7 @@ a{text-decoration:none;color:#202020;}
 .fl{float:left;}
 
 /*作业列表*/
-.ulDiv{ overflow:hidden; font-family:"Microsoft YaHei";padding: 25px;}
+.ulDiv{ font-family:"Microsoft YaHei";padding: 25px;}
 .ulDiv ul{padding-bottom:15px; position:relative; margin-right:-30px;}
 .ulDiv ul li{width:320px; padding:10px 10px 10px 10px; background-color:#fff; float:left;display:inline; zoom:1; letter-spacing: 0; overflow:hidden;margin-right:22px;}
 .ulDiv ul li .titTxt{ border:1px solid #e1e1e1; border-bottom:0; padding:0 10px 10px; overflow:hidden;}
@@ -17,14 +17,6 @@ a{text-decoration:none;color:#202020;}
 .ulDiv ul li .titOper p{ margin-top:10px;float:right;}
 .ulDiv ul li .titOper p a{letter-spacing: 0;text-decoration:none;}
 .pt5{padding:5px 0;}
-/*.ulDiv ul li .titOper strong{ font-size:30px; font-family:DokChampa; font-weight:bold; float:left;color:#7b9e31;}
-.ulDiv ul li .titOper strong span{ font-size:12px; font-weight:normal; padding-left:5px;color:#666;}
-.ulDiv ul li .titOper p .copy,.ulDiv ul li .titOper p .delete{ display:inline-block; vertical-align:top; width:14px; height:14px; background-color: lightpink; margin-right:10px; margin-top:8px;}
-.ulDiv ul li .titOper p .copy{ background-position:-131px 0;}
-.ulDiv ul li .titOper p .copy:hover{ background-position:-179px 0;}
-.ulDiv ul li .titOper p .delete{ background-position:-155px 0;}
-.ulDiv ul li .titOper p .delete:hover{ background-position:-203px 0;}
-.ulDiv ul li.lookLi .titOper{}*/
 .Btn_blue{
 	width: 70px;
 	height:30px;
@@ -33,42 +25,16 @@ a{text-decoration:none;color:#202020;}
 	font-size: 14px;
 	font-weight: bold;
 	color: white;
-	line-height: 30px;
+	line-height: 25px;
 	text-align: center;
 	border-radius: 5px;
+	border:none;
+	text-decoration: none;
 }
 .Btn_blue:hover {
 	background-color: rgb(0, 205, 170);
 }
-.Btn_grey{
-	width: 70px;
-	height:30px;
-	background-color: rgb(169, 169, 169);
-	float: right;
-	font-size: 14px;
-	font-weight: bold;
-	color: white;
-	line-height: 30px;
-	text-align: center;
-	border-radius: 5px;
-}
-.Btn_grey:hover {
-	background-color: rgb(128, 128, 128);
-}
 .container{}
-/*.duty{
-	margin-top: 30px;
-}
-.panel-title{
-	height:30px;
-	line-height: 30px;
-}
-.row-title{
-	height:35px;
-	line-height: 25px;
-	font-weight: bold;
-	font-size: 15px;
-}*/
 .f{margin-left: 113px;}
 .block{
 	/*background-color: #eee;*/
@@ -83,17 +49,15 @@ a{text-decoration:none;color:#202020;}
 	margin-top: 10px;
 }
 .b-s{
-	font-size: 20px;
+	font-size: 15px;
 	font-weight: bold;
-	margin-top:-40px;
-	margin-left: 950px;
+	margin-top:20px;
+	margin-left: 20px;
 }
 .container-top {
 	margin: 40px;
-	margin-top: 10px;
+	margin-top: 15px;
 	margin-bottom: 30px;
-}
-.container-top span {
 	font-size: 200%;
 	color: rgb(74, 74, 74);
 }

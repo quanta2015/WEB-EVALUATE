@@ -64,29 +64,29 @@
 			<div class="content-main">
 				<!-- 列表内容开始 -->
 				<div class="ulDiv">
-					<ul class="clearfix" style="*width:1020px;" id="list">
+					<ul class="clearfix" style="width:1100px;" id="list">
 						<div class="box"></div>
 						<!-- 定义JsRender模版 -->  
 						<script type="text/x-jsrender" id="testTmpl">
 							<li class="lookLi">	
 								<div class="titTxt">
-									<p style="padding-top: 11px;">
-										<a id="head" title="作业1">作业{{:#index + 1}}</a>
+									<p style="padding-top: 11px;"><a>作业
+										<a id="head" name="i">{{:#index+1}}</a></a>
 									</p>
 									<div title="" class="pt5"><span class="f1">开始时间：</span><span>{{:begin}}</span></div>
 									<div title="" class="pt5"><span class="f1">截止时间：</span><span>{{:end}}</span></div>
-									<div id="tit" title="" class="pt5"><span class="f1"></span><strong>
-										<!-- {{if state == 1}}已完成
+									<div id="tit" title="" class="pt5"><span class="f1"></span>作业状态：<strong>
+										{{if state == 1}}已完成
 										{{else}}未完成
-										{{/if}} -->
+										{{/if}}
 									</strong></div>
 								</div>
 								<div class="titOper">
 									<p class="clearfix">							
-										<button id="ac" class="Btn_blue">
-											<!-- {{if state == 1}}<a class="Btn_grey" href="homework.html" onclick="javascript:void(0);">查看</a>
-											{{else}}<a class="Btn_blue" href="homework.html">去完成</a>
-											{{/if}} -->
+										<button id="ac" class="Btn_blue" name="{{:#index+1}}">
+											{{if state == 1}}查看
+											{{else}}去完成
+											{{/if}}
 										</button>		
 									</p>
 								</div>

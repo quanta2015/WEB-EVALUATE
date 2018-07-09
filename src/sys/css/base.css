@@ -156,6 +156,7 @@ a {
     border-bottom: solid rgb(230, 233, 240) 1px;
     justify-content: flex-end;
 }
+.content-main{overflow: scroll;height: 87%;width: 100%;}
 
 .userCotrol-title, .userName, .userID {
     color: rgb(141, 145, 153);
