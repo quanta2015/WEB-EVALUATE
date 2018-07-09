@@ -80,7 +80,7 @@ function jump(){
 
 
  $().ready(function() {
-    console.log("search");
+   // console.log("search");
 
     $.ajax({
         url:'../php/task_search.php',
@@ -90,8 +90,7 @@ function jump(){
            console.log(data);
              var obj = JSON.parse(data);
              console.log(obj);
-             console.log(obj.data[1]);
-           
+
         }
     });
 });
