@@ -1,10 +1,11 @@
 <?php
-//print_r($_FILES['file']);
+
 header('Content-Type:text/html;charset=utf-8');
-//if(@$_FILES['file'])echo "ddddddddd";;
+
 include 'uploadHelp.php';
-$upfile = new UploadFiles(array('filepath' => './http://47.100.172.51/WEB-EVALUATE/src/php/upload', 'allowtype' => array(
-'doc', 'docx', 'ppt', 'pptx', 'mp4', 'avi', 'flv', 'wmv','wov'), 'israndfile' => true,
+
+$upfile = new UploadFiles(array('filepath' => './upload', 'allowtype' => array(
+'doc', 'docx', 'ppt', 'pptx', 'mp4', 'avi', 'flv', 'wmv','wov','zip','rar','7z'), 'israndfile' => true,
 						       'maxsize' => '2000000'));
 if ($upfile->uploadeFile('file')) {
 	$arrfile = $upfile->getnewFile();
