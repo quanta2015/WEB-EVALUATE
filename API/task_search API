@@ -4,8 +4,7 @@ task_search API
 
 
 //成功实例
-
-{"code":0,"msg":"success","data":[["12","2018-07-09 00:00:00","2018-07-09 23:59:59","\u6bdb\u5a55"],["\u4f5c\u4e1a2","2018-07-12 00:00:00","2018-07-03 00:00:00","\u6bdb\u5a55"]]}
+{"code":0,"msg":"success","data":[{"task_title":"12","publish_date":"2018-07-09 00:00:00","end_date":"2018-07-09 23:59:59","user_name":"\u6bdb\u5a55"},{"task_title":"\u4f5c\u4e1a2","publish_date":"2018-07-12 00:00:00","end_date":"2018-07-03 00:00:00","user_name":"\u6bdb\u5a55"}]}
 
 //数据库连接失败
 {"code":10,"msg":"connectfail"}
@@ -13,3 +12,5 @@ task_search API
 //登录信息错误 //收到此信息时返回登录页面重新登录
 {"code":20,"msg":"empty loginmsg"}
 
+//没有作业
+{"code":77,"msg":"emptytask"}

@@ -35,9 +35,8 @@ else{
        //错误
        if (0 == mysqli_num_rows($result4)) {
              $response = array(
-             'code' => 68,
-             "msg"=>"wrongtitle",  
-             'data'=>$failitem
+             'code' =>77,
+             "msg"=>"empty"
               );
             $response = CodeUtil::jsons_encode($response);
             mysqli_free_result($result4);
@@ -45,7 +44,7 @@ else{
             die (urldecode(json_encode($response)));
         }
         //正确返回
-       $rows1 = mysqli_fetch_all($result4);
+       $rows1 = mysqli_fetch_all($result4,MYSQLI_ASSOC);
          $response = array(
              'code' => 0,
              "msg"=>"success",
