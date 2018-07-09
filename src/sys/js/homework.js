@@ -1,5 +1,6 @@
 var arr = new Array();//状态数组
 
+//点击提交按钮
 $(document).on("click", "#submit", function (e) {
     bootbox.confirm({
         message: "确认提交作业？",
@@ -24,6 +25,13 @@ $(document).on("click", "#submit", function (e) {
     });
 });
 
+//点击返回按钮
+$(document).ready(function(){
+    $("#return_s").click(function(e){
+        i = $("#head").text();
+        window.location.href="student.html?state=1"+"&i="+i+"&a=1"+"&arr="+arr;;
+    });
+})
 
 
 $(function(){
