@@ -4,7 +4,7 @@
 header("Content-type: text/html; charset=utf-8");
 session_start();
 
-$_SESSION['name'] = $_POST['name'];
+
 
 //根据用户名获取到班级
 
@@ -43,8 +43,10 @@ if ($_POST['name']) {
 
         if (1 == mysqli_num_rows($result)) {
                  $items = mysqli_fetch_assoc($result);
-           $_SESSION['class'] = $items['user_class'];
-           $_SESSION['role'] = $items['user_role'];
+            $_SESSION['id'] = $_POST['name'];
+            $_SESSION['class'] = $items['user_class'];
+            $_SESSION['role'] = $items['user_role'];
+            $_SESSION['name'] = $items['user_name'];
      
             $response = array(
              'code' => 0,

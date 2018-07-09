@@ -3,7 +3,7 @@
 class UploadFiles {
   private $maxsize    = '2000000'; //允许上传文件最大长度2M
   private $allowtype  = array('doc', 'docx', 'ppt', 'pptx', 'mp4', 'avi',
-               'flv', 'wmv'); //允许上传文件类型
+               'flv', 'wmv','mov'); //允许上传文件类型
   private $israndfile = true; //是否随机文件名
   private $filepath; //上传路径
   private $originName; //上传的源文件

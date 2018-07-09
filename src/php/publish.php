@@ -3,7 +3,6 @@ require_once 'conn.php';
 require_once 'common.php';
 header("Content-type: text/html; charset=utf-8");
 session_start();
-$_SESSION['name'] = 'admin';
 
 $class = $_POST["class"];
 $title = $_POST["title"];

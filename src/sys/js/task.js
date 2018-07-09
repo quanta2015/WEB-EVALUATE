@@ -49,8 +49,8 @@ $("#submit").click(function () {
         type: "POST",
         data: $('#content-main').serialize(),
         success: function (data) {
-            toastr.success('已成功发布任务');
-
+            var obj = JSON.parse(data);
+            console.log(obj);
         }
     });
 });

@@ -25,10 +25,11 @@ CREATE TABLE `dotask`  (
   `id` int(15) NOT NULL AUTO_INCREMENT,
   `user_id` int(15) NOT NULL COMMENT '用户编号',
   `task_id` int(11) NOT NULL COMMENT '任务编号',
-  `task_type` varchar(4) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '学生上传文件类型',
+  `task_type` tinyint(4) NOT NULL COMMENT'doc 1,ppt 2,video 3',
   `file_url` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '学生上传文件',
   `upload_date` datetime NOT NULL COMMENT '学生上传时间',
   `tag` int(2) NOT NULL COMMENT '任务完成情况',
+  CONSTRAINT `FK_dotask` FOREIGN KEY (`task_id`) REFERENCES `task` (`task_id`),
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
@@ -114,7 +115,7 @@ CREATE TABLE `parameter`  (
 DROP TABLE IF EXISTS `task`;
 CREATE TABLE `task`  (
   `task_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '任务编号',
-  `publisher` tinyint(4) NOT NULL COMMENT '任务发布者',
+  `publisher` int(15) NOT NULL COMMENT '任务发布者',
   `publish_class` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '任务发布班级对象',
   `task_title` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '任务名称',
   `task_content_wd` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT 'word要求',
@@ -123,7 +124,8 @@ CREATE TABLE `task`  (
   `publish_date` datetime NULL DEFAULT NULL COMMENT '任务发布时间',
   `end_date` datetime NULL DEFAULT NULL COMMENT '任务截止时间',
   `task_url` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '任务附件',
-  PRIMARY KEY (`task_id`) USING BTREE
+  PRIMARY KEY (`task_id`) USING BTREE,
+   CONSTRAINT `FK_pubnum` FOREIGN KEY (`publisher`) REFERENCES `user` (`user_number`)
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
@@ -140,13 +142,12 @@ CREATE TABLE `totalgrade`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user`  (
-  `user_id` int(15) NOT NULL AUTO_INCREMENT COMMENT '用户编号',
   `user_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '用户姓名',
-  `user_number` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '用户账号',
+  `user_number` int(15)NOT NULL  COMMENT '用户账号',
   `user_class` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '用户班级',
   `user_role` int(11) NULL DEFAULT NULL COMMENT '用户角色',
   `user_password` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '用户密码',
-  PRIMARY KEY (`user_id`) USING BTREE
+ PRIMARY KEY (`user_number`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 SET FOREIGN_KEY_CHECKS = 1;
