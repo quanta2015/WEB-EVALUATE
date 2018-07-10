@@ -2,6 +2,7 @@ var arr = new Array();//状态数组
 
 //点击提交按钮
 $(document).on("click", "#submit", function (e) {
+    console.log(1);
     bootbox.confirm({
         message: "确认提交作业？",
         buttons: {
@@ -33,6 +34,10 @@ $(document).ready(function(){
     });
 })
 
+function back(){
+    i = $("#head").text();
+    window.location.href="student.html?state=1"+"&i="+i+"&a=1"+"&arr="+arr;
+}
 
 $(function(){
     getData();
@@ -47,3 +52,5 @@ function getData(){
     }
     $("#head").text(i);
 }
+
+
