@@ -50,7 +50,18 @@ $("#submit").click(function () {
         data: $('#content-main').serialize(),
         success: function (data) {
             var obj = JSON.parse(data);
-            console.log(obj);
+            if (obj.code == 0) {
+                toastr.success('已成功发布任务');
+            } else if (obj.code == 80) {
+                toastr.warning('存在空输入');
+            } else if (obj.code == 20) {
+                toastr.waring('发布失败');
+
+            } else if (obj.code == 55) {
+                toastr.error('数据库连接失败');
+            }
+
         }
     });
 });
+
