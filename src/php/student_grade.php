@@ -1,11 +1,8 @@
-<html>
-<body>
 <?php
 require_once 'conn.php';
 header("Content-type: text/html; charset=utf-8");
 session_start();
-$id = 43; 
-//$_SESSION['id'];
+$id = $_SESSION['id'];
 //$sql1 = "select dotask_id,user_id,sum(grade) from grade where dotask_id = '1' and eid in('1','2','3') and user_id = '$id'";//1换成点开的作业编号.这句话写在评分完成的PHP中
 //$result1 = mysqli_query($conn,$sql1);
 //if(mysqli_num_rows($result1)){
@@ -34,5 +31,3 @@ else{
     exit;
 }
 ?>
-</body>
-</html>
