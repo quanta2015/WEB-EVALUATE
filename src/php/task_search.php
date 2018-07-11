@@ -4,8 +4,25 @@ require_once 'common.php';
 header("Content-type: text/html; charset=utf-8");
 session_start();
 //获取登录的用户名
-$ID = $_SESSION['id'];
-$CLASS = $_SESSION['class'];
+$id= $_SESSION['id'];
+if ($id == "" ) {
+    $response = array(
+         'code' => 20,
+         "msg"=>"empty loginmsg"
+         );
+    $response = CodeUtil::jsons_encode($response);
+    header("Content-Type:text/html;charset=utf-8");
+    die (urldecode(json_encode($response)));
+}
+
+
+if($_POST['class'] !=''){
+  $CLASS = $_POST['class'];
+}
+
+else $CLASS = $_SESSION['class'];
+
+
 
 if (!$conn) {
     $response = array(
@@ -16,21 +33,16 @@ if (!$conn) {
     header("Content-Type:text/html;charset=utf-8");
     die (urldecode(json_encode($response)));
 }
-$ID = $_SESSION['name'];
-if ($ID == "" || $CLASS == "" ) {
-    $response = array(
-         'code' => 20,
-         "msg"=>"empty loginmsg",
-         );
-    $response = CodeUtil::jsons_encode($response);
-    header("Content-Type:text/html;charset=utf-8");
-    echo urldecode(json_encode($response));
-}
+
 else{
-       $sql4 = "select task_title,publish_date,end_date,user.user_name from task,user where publish_class = '{$CLASS}' and publisher = user.user_number";
+   if($CLASS == '全部' ){
+     $sql4 = "select task_title,publish_date,end_date,user.user_name from task,user where publisher = user.user_number";
+   }
+
+  else{
+       $sql4 = "select task_title,publish_date,end_date,user.user_name from task,user where publish_class = '{$CLASS}' and publisher = user.user_number";}
 
        $result4 = $conn->query($sql4);
-       $arr1[] = array();
        header("Content-type: text/html; charset=utf-8");
        //错误
        if (0 == mysqli_num_rows($result4)) {

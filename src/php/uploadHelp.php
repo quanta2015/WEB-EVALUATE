@@ -3,9 +3,9 @@
 require_once 'conn.php';
 
 class UploadFiles {
-  private $maxsize   = '2000000'; //允许上传文件最大长度2M
-  private $allowtype = array('doc', 'docx', 'ppt', 'pptx', 'mp4', 'avi',
-    'flv', 'wmv', 'mov', 'zip', 'rar', '7z'); //允许上传文件类型
+  private $maxsize    = '2000000'; //允许上传文件最大长度2M
+  private $allowtype  = array('doc', 'docx', 'ppt', 'pptx', 'mp4', 'avi',
+               'flv', 'wmv','mov','zip','rar','7z'); //允许上传文件类型
   private $israndfile = true; //是否随机文件名
   private $filepath; //上传路径
   private $originName; //上传的源文件
@@ -22,7 +22,7 @@ class UploadFiles {
       //查看传进来的数组里下标是否与成员属性相同
       //print_r(array_keys(get_class_vars(get_class($this))));
       if (!in_array($key, array_keys(get_class_vars(get_class
-        ($this))))) {
+                   ($this))))) {
         continue;
       } else {
         $this->setOption($key, $val);
@@ -41,7 +41,7 @@ class UploadFiles {
       return false;
     }
     if (!file_exists($this->filepath) || !is_writable($this->
-      filepath)) {
+                    filepath)) {
       if (!@mkdir($this->filepath, 0755)) {
         $this->setOption('errorNum', '-4');
         return false;
@@ -70,7 +70,7 @@ class UploadFiles {
         break;
       case -2;
         $str .= "文件过大，不能超过" . $this->
-        maxsize . "个字节";
+                maxsize . "个字节";
         break;
       case -3;
         $str .= "上传失败";
@@ -116,7 +116,7 @@ class UploadFiles {
   }
   //
   private function setFiles($name = "", $tmp_name = "", $size = "",
-    $error = "") {
+                  $error = "") {
     //检查上传路径
     if (!$this->checkfilePath()) {
       //$this->errorMessg = $this->getError();
@@ -160,9 +160,9 @@ class UploadFiles {
       $errors = array();
       for ($i = 0; $i < count($name); $i++) {
         if ($this->setFiles($name[$i], $tmp_name[$i],
-          $size[$i], $error[$i])) {
+                   $size[$i], $error[$i])) {
           if (!$this->checkfileSize() || !$this->
-            checkfileType()) {
+                    checkfileType()) {
             $errors[] = $this->getError();
             $return   = false;
           }
@@ -179,15 +179,14 @@ class UploadFiles {
         $newfileN = array();
         for ($i = 0; $i < count($name); $i++) {
           if ($this->setFiles($name[$i],
-            $tmp_name[$i], $size[$i],
-                  $error[$i])) {
+          $tmp_name[$i], $size[$i], $error[$i])) {
             if (!$this->copyFile()) {
               $errors[] = $this->
-              getError();
-              $return = false;
+                    getError();
+              $return   = false;
             } else {
               $newfileN[] = $this->
-              newfileName;
+                    newfileName;
             }
           }
           $this->newfileName = $newfileN;
@@ -205,7 +204,7 @@ class UploadFiles {
         }
 
         if ($this->checkfileSize() && $this->
-          checkfileType()) {
+                    checkfileType()) {
         } else {
           $return = false;
         }
@@ -229,13 +228,12 @@ class UploadFiles {
       if ($this->prorandFile()) {
         $this->newfileName = date('Ymdhis') . rand(1000
             , 9999) . "." . $this->fileType; //文件名：任务ID+学号+文件类型
-     //    $this->newfileName = "$task_id" . "$user_number
-     // " . "." . $this->fileType; //文件名：任务ID+学号+文件类型
+            // $this->newfileName = "$task_id" . "$user_number" . "." . $this->fileType; //文件名：任务ID+学号+文件类型
       } else {
         $this->newfileName = $this->originName;
       }
       if (!move_uploaded_file($this->tmpfileName, $filepath .
-        $this->newfileName)) {
+                $this->newfileName)) {
         $this->setOption('errorNum', -3);
         return false;
       } else {

@@ -5,8 +5,7 @@ header('Content-Type:text/html;charset=utf-8');
 include 'uploadHelp.php';
 
 $upfile = new UploadFiles(array('filepath' => './upload', 'allowtype' => array(
-'doc', 'docx', 'ppt', 'pptx', 'mp4', 'avi', 'flv', 'wmv','wov','zip','rar','7z'), 'israndfile' => true,
-						       'maxsize' => '2000000'));
+'doc', 'docx', 'ppt', 'pptx', 'mp4', 'avi', 'flv', 'wmv','wov','zip','rar','7z'), 'israndfile' => true,'maxsize' => '2000000'));
 if ($upfile->uploadeFile('file')) {
 	$arrfile = $upfile->getnewFile();
 	foreach ($arrfile as $v) {

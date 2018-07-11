@@ -1,0 +1,14 @@
+//教师端班级查询成功（返回班级）
+{"code":0,"msg":"successclass","data":[{"class_name":"\u8f6f\u5de5162"},{"class_name":"\u8f6f\u5de5161"}]}
+
+
+//登录信息错误 //收到此信息时返回登录页面重新登录
+{"code":20,"msg":"empty loginmsg"}
+
+
+//数据库连接失败
+{"code":10,"msg":"connectfail"}
+
+
+//没有班级 //建议收到此信息返回班级管理页面
+{"code":77,"msg":"emptytask"}

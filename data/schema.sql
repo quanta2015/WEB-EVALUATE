@@ -20,18 +20,27 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 -- Table structure for dotask
 -- ----------------------------
+
 DROP TABLE IF EXISTS `dotask`;
 CREATE TABLE `dotask`  (
   `id` int(15) NOT NULL AUTO_INCREMENT,
   `user_id` int(15) NOT NULL COMMENT '用户编号',
   `task_id` int(11) NOT NULL COMMENT '任务编号',
-  `task_type` tinyint(4) NOT NULL COMMENT'doc 1,ppt 2,video 3',
-  `file_url` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '学生上传文件',
-  `upload_date` datetime NOT NULL COMMENT '学生上传时间',
-  `tag` int(2) NOT NULL COMMENT '任务完成情况',
+  `doc_url` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci  COMMENT '学生上传doc文件',
+  `ppt_url` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci  COMMENT '学生上传ppt文件',
+  `video_url` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci COMMENT '学生上传video文件',
+  `doc_date` datetime  COMMENT '学生最后上传时间',
+  `ppt_date` datetime  COMMENT '学生最后上传时间',
+  `video_date` datetime  COMMENT '学生最后上传时间',
+  `doc_tag` int(2) NOT NULL COMMENT '任务完成情况 完成0 未完成1',
+  `ppt_tag` int(2) NOT NULL COMMENT '任务完成情况 完成0 未完成1',
+  `video_tag` int(2) NOT NULL COMMENT '任务完成情况 完成0 未完成1',
+  `total_tag` int(2) NOT NULL COMMENT '任务完成情况 完成0 未完成1',
+
   CONSTRAINT `FK_dotask` FOREIGN KEY (`task_id`) REFERENCES `task` (`task_id`),
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
 
 -- ----------------------------
 -- Table structure for evaluate
@@ -151,3 +160,19 @@ CREATE TABLE `user`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 SET FOREIGN_KEY_CHECKS = 1;
+
+
+-- ----------------------------
+-- Table structure for class
+-- ----------------------------
+DROP TABLE IF EXISTS `class`;
+CREATE TABLE `class`  (
+  `class_id`  int(11) NOT NULL AUTO_INCREMENT COMMENT '班级编号',
+  `class_name` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '用户班级',
+  `teacher_num` int(15)NOT NULL  COMMENT '老师账号',
+ PRIMARY KEY (`class_id`) USING BTREE,
+ CONSTRAINT `FK_class` FOREIGN KEY (`teacher_num`) REFERENCES `user` (`user_number`)
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+INSERT INTO `class`(class_name,teacher_num)values("软工162",7);
+INSERT INTO `class`(class_name,teacher_num)values("软工161",7);
