@@ -69,95 +69,50 @@
 				<div class="container-fluid">
 					<div class="container-top">作业<span id="head"></span></div>
 					<form class="block" action="../php/upload.php" method="post" enctype="multipart/form-data">
-						<div class="form-group">
-							<label class="control-label k">一、教学设计(请提交Word文档)</label>
-							<div class="container">
-								<div class="col-md-6">
-									<h5 class="control-label" style="font-size: 100%">作业要求</h5>
-									<div>
-										<textarea class="col-md-12" style="height: 100px;border:1px solid rgb(169, 169, 169);padding: 0"></textarea>
-									</div>
-									
-								</div>
-								<div class="col-md-6">
-									<div class="fileinput fileinput-new col-md-12" data-provides="fileinput">
-										<div class="fileinput-preview thumbnail k col-md-9" data-trigger="fileinput" style=" height: 30px;margin-top: 60px;line-height: 30px; border-color: rgb(230, 233, 241); border-width: 2px;"onmouseover="this.style.cssText='border-color: rgb(169, 169, 169);height: 30px;margin-top: 60px; border-width: 2px;'" onmouseout="this.style.cssText='height: 30px;margin-top: 60px; border-color: rgb(230, 233, 241); border-width: 2px;'"> </div>
-										<div class="k">
-											<span class="btn btn-primary btn-outline btn-file">
-												<span class="fileinput-new"> 上传文件 </span>
-												<span class="fileinput-exists"> 更改文件 </span>
-												<input type="file" name="file[]">
-											</span>
-											<a href="javascript:;" class="btn btn-primary fileinput-exists" data-dismiss="fileinput"> 删除文件 </a>
-											<button type="button" class="btn btn-primary">保存修改</button>
-										</div>
-									</div>
-								</div>
+						<div class="col-md-6" style="margin-left: 20px;">
+							<label class="control-label" style="font-size: 150%">作业要求:</label>
+							<div>
+								<textarea class="col-md-11" style="height: 400px;border:1px solid rgb(169, 169, 169);padding: 0"></textarea>
 							</div>
-							<!-- <div>
-								<div class="fileinput fileinput-new" data-provides="fileinput">
-									<span class="fileinput-preview thumbnail k" data-trigger="fileinput" style="width: 600px; height: 120px;margin-top: 10px; border-color: rgb(230, 233, 241); border-width: 2px;"onmouseover="this.style.cssText='border-color: rgb(169, 169, 169);width: 600px; height: 120px;margin-top: 10px; border-width: 2px;'" onmouseout="this.style.cssText='width: 600px; height: 120px;margin-top: 10px; border-color: rgb(230, 233, 241); border-width: 2px;'"> </span>
-									<span style="margin-left: 30px;">
-										<span class="btn btn-primary btn-outline btn-file">
-											<span class="fileinput-new"> 上传文件 </span>
-											<span class="fileinput-exists"> 更改文件 </span>
-											<input type="file" name="file[]">
-										</span>
-										<a href="javascript:;" class="btn btn-primary fileinput-exists" data-dismiss="fileinput"> 删除文件 </a>
-										<button type="button" class="btn btn-primary">保存修改</button>
+						</div>
+						<div class="col-md-5">
+							<div class="fileinput fileinput-new col-md-12" data-provides="fileinput" style="margin-top: 40px;">
+								<label class="control-label k">一、教学设计(请提交Word文档)</label>
+								<div class="fileinput-preview thumbnail k col-md-10" data-trigger="fileinput" style=" height: 30px;margin-top: 10px;line-height: 30px; border-color: rgb(230, 233, 241); border-width: 2px;"onmouseover="this.style.cssText='border-color: rgb(169, 169, 169);height: 30px;margin-top: 10px; border-width: 2px;'" onmouseout="this.style.cssText='height: 30px;margin-top: 10px; border-color: rgb(230, 233, 241); border-width: 2px;'"> </div>
+								<div class="k">
+									<span class="btn btn-primary btn-outline btn-file">
+										<span class="fileinput-new"> 上传文件 </span>
+										<span class="fileinput-exists"> 更改文件 </span>
+										<input type="file" name="file[]">
 									</span>
-								</div>
-							</div> -->
-						</div>
-						<div class="form-group ">
-							<label class="control-label k">二、多媒体课件(请提交PPT)</label>
-							<div class="container">
-								<div class="col-md-6">
-									<h5 class="control-label" style="font-size: 100%">作业要求</h5>
-									<div>
-										<textarea class="col-md-12" style="height: 100px;border:1px solid rgb(169, 169, 169);padding: 0"></textarea>
-									</div>
-									
-								</div>
-								<div class="col-md-6">
-									<div class="fileinput fileinput-new col-md-12" data-provides="fileinput">
-										<div class="fileinput-preview thumbnail k col-md-9" data-trigger="fileinput" style=" height: 30px;margin-top: 60px;line-height: 30px; border-color: rgb(230, 233, 241); border-width: 2px;"onmouseover="this.style.cssText='border-color: rgb(169, 169, 169);height: 30px;margin-top: 60px; border-width: 2px;'" onmouseout="this.style.cssText='height: 30px;margin-top: 60px; border-color: rgb(230, 233, 241); border-width: 2px;'"> </div>
-										<div class="k">
-											<span class="btn btn-primary btn-outline btn-file">
-												<span class="fileinput-new"> 上传文件 </span>
-												<span class="fileinput-exists"> 更改文件 </span>
-												<input type="file" name="file[]">
-											</span>
-											<a href="javascript:;" class="btn btn-primary fileinput-exists" data-dismiss="fileinput"> 删除文件 </a>
-											<button type="button" class="btn btn-primary">保存修改</button>
-										</div>
-									</div>
+									<a href="javascript:;" class="btn btn-primary fileinput-exists" data-dismiss="fileinput"> 删除文件 </a>
+									<button type="button" class="btn btn-primary">保存修改</button>
 								</div>
 							</div>
-						</div>
-						<div class="form-group ">
-							<label class="control-label k">三、即席讲演(请提交视频压缩文件)</label>
-							<div class="container">
-								<div class="col-md-6">
-									<h5 class="control-label" style="font-size: 100%">作业要求</h5>
-									<div>
-										<textarea class="col-md-12" style="height: 100px;border:1px solid rgb(169, 169, 169);padding: 0"></textarea>
-									</div>
-									
+							<div class="fileinput fileinput-new col-md-12" data-provides="fileinput">
+								<label class="control-label k">二、多媒体课件(请提交PPT)</label>
+								<div class="fileinput-preview thumbnail k col-md-10" data-trigger="fileinput" style=" height: 30px;margin-top: 10px;line-height: 30px; border-color: rgb(230, 233, 241); border-width: 2px;"onmouseover="this.style.cssText='border-color: rgb(169, 169, 169);height: 30px;margin-top: 10px; border-width: 2px;'" onmouseout="this.style.cssText='height: 30px;margin-top: 10px; border-color: rgb(230, 233, 241); border-width: 2px;'"> </div>
+								<div class="k">
+									<span class="btn btn-primary btn-outline btn-file">
+										<span class="fileinput-new"> 上传文件 </span>
+										<span class="fileinput-exists"> 更改文件 </span>
+										<input type="file" name="file[]">
+									</span>
+									<a href="javascript:;" class="btn btn-primary fileinput-exists" data-dismiss="fileinput"> 删除文件 </a>
+									<button type="button" class="btn btn-primary">保存修改</button>
 								</div>
-								<div class="col-md-6">
-									<div class="fileinput fileinput-new col-md-12" data-provides="fileinput">
-										<div class="fileinput-preview thumbnail k col-md-9" data-trigger="fileinput" style=" height: 30px;margin-top: 60px;line-height: 30px; border-color: rgb(230, 233, 241); border-width: 2px;"onmouseover="this.style.cssText='border-color: rgb(169, 169, 169);height: 30px;margin-top: 60px; border-width: 2px;'" onmouseout="this.style.cssText='height: 30px;margin-top: 60px; border-color: rgb(230, 233, 241); border-width: 2px;'"> </div>
-										<div class="k">
-											<span class="btn btn-primary btn-outline btn-file">
-												<span class="fileinput-new"> 上传文件 </span>
-												<span class="fileinput-exists"> 更改文件 </span>
-												<input type="file" name="file[]">
-											</span>
-											<a href="javascript:;" class="btn btn-primary fileinput-exists" data-dismiss="fileinput"> 删除文件 </a>
-											<button type="button" class="btn btn-primary">保存修改</button>
-										</div>
-									</div>
+							</div>
+							<div class="fileinput fileinput-new col-md-12" data-provides="fileinput">
+								<label class="control-label k">三、即席讲演(请提交视频压缩文件)</label>
+								<div class="fileinput-preview thumbnail k col-md-10" data-trigger="fileinput" style=" height: 30px;margin-top: 10px;line-height: 30px; border-color: rgb(230, 233, 241); border-width: 2px;"onmouseover="this.style.cssText='border-color: rgb(169, 169, 169);height: 30px;margin-top: 10px; border-width: 2px;'" onmouseout="this.style.cssText='height: 30px;margin-top: 10px; border-color: rgb(230, 233, 241); border-width: 2px;'"> </div>
+								<div class="k">
+									<span class="btn btn-primary btn-outline btn-file">
+										<span class="fileinput-new"> 上传文件 </span>
+										<span class="fileinput-exists"> 更改文件 </span>
+										<input type="file" name="file[]">
+									</span>
+									<a href="javascript:;" class="btn btn-primary fileinput-exists" data-dismiss="fileinput"> 删除文件 </a>
+									<button type="button" class="btn btn-primary">保存修改</button>
 								</div>
 							</div>
 						</div>

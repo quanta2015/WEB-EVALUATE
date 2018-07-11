@@ -52,6 +52,10 @@ function jump(){
     window.location.href = url;
 }
 $(".btn_detail").click(function(){
+    j = $(this).attr("name");
+    // $("#demoP").text(arr[j].content.substr(0,12));
+    console.log(arr[j].content.substr(0,12)); 
+    alert(document.getElementById('demoP').innerHTML);
 
 })
 //  $(function() {
@@ -62,16 +66,21 @@ $(".btn_detail").click(function(){
 //     });
 // });
 
-var oP = document.getElementById('demoP');
-    var oBtn = document.getElementById('demoBtn');
-    var allContent = oP.innerHTML;                   //存放所有内容
-    oP.innerHTML = oP.innerHTML.substr(0,15);        //截取前100个字符
+
+    var oP = document.getElementById('demoP');
+var oBtn = document.getElementById('demoBtn');
+var allContent = oP.innerHTML;                   //存放所有内容
+oP.innerHTML = oP.innerHTML.substr(0,15);        //截取前100个字符
 oBtn.onclick=function(){
     //oP.innerHTML = allContent;                    //显示所有内容
     alert(allContent);
 }
 
-    
+$(function(){
+for(var j=0;j<arr.length;++j){
+$("#demoP").text(arr[j].content.substr(0,12));
+console.log(arr[j].content.substr(0,12)); 
+}})
 
 $(function(){
     a = $.query.get("a");

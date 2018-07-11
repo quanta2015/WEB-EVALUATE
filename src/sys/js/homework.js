@@ -1,7 +1,7 @@
 var arr = new Array();//状态数组
 
 //点击提交按钮
-$(document).on("click", "#submit", function (e) {
+$(document).on("click", "#submit1", function (e) {
     console.log(1);
     bootbox.confirm({
         message: "确认提交作业？",
