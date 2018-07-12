@@ -37,7 +37,7 @@ a{text-decoration:none;color:#202020;}
 	color: white;
 }
 .btn_detail{
-	border-radius: 8px;
+	border-radius: 10px;
 	border:none;
 	text-decoration: none;
 }
@@ -79,7 +79,4 @@ a{text-decoration:none;color:#202020;}
 	color: rgb(74, 74, 74);
 }
 
-
-/*.details{display: inline-block;width: 280px;overflow: hidden}
-.details:hover{width: auto}*/
 
