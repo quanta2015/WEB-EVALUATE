@@ -5,28 +5,28 @@ var i = 0;//数组下标
 var arr = [
 {
     'publisher':'毛婕老师',
-    'content':'这项研究关注的是持续的社会经济调查与智商的遗传关系。年龄在2岁和16岁之间的孩子被评估了九次，并通过混合家长管理、网站和电话为基础进行测试。发表在情报杂志中的结果显示，有着富裕家庭背景的两岁儿童有更多的机会在智商测试上获得更高的分数，而且随着时间的推移和经验的丰富会获得更高的收入。伦敦大学金史密斯学院的索菲·冯·斯塔姆医生接了这项研究说：“我们在这段时间已经知道，那些处于低社会经济地位（SES）的儿童的智力测试平均比高社会经济地位的儿童糟糕，但智力与SES的发展关系并不是如前所述。我们的调查在建立着关系，强调了SES和IQ之间的联系。我们希望我们的发现将会推动未来研究的具体机制和因素。”',
+    'content':'做一个温暖的人，快乐并懂得如何快乐。快乐并感染身边的人快乐，尽力做到最好。',
     'begin': '2018-7-4',
     'end': '2018-7-10',
     'state': 0 
 },
 {
     'publisher':'毛婕老师',
-    'content':'这项研究关注的是持续的社会经济调查与智商的遗传关系。年龄在2岁和16岁之间的孩子被评估了九次，并通过混合家长管理、网站和电话为基础进行测试。发表在情报杂志中的结果显示，有着富裕家庭背景的两岁儿童有更多的机会在智商测试上获得更高的分数，而且随着时间的推移和经验的丰富会获得更高的收入。伦敦大学金史密斯学院的索菲·冯·斯塔姆医生接了这项研究说：“我们在这段时间已经知道，那些处于低社会经济地位（SES）的儿童的智力测试平均比高社会经济地位的儿童糟糕，但智力与SES的发展关系并不是如前所述。我们的调查在建立着关系，强调了SES和IQ之间的联系。我们希望我们的发现将会推动未来研究的具体机制和因素。”',
+    'content':'人生只有走出来的美丽，没有等出来的辉煌，天再高又怎样，踮起脚尖就能更接近阳光。',
     'begin': '2018-7-6',
     'end': '2018-7-21',
     'state': 0
 },
 {
     'publisher':'毛婕老师',
-    'content':'这项研究关注的是持续的社会经济调查与智商的遗传关系。年龄在2岁和16岁之间的孩子被评估了九次，并通过混合家长管理、网站和电话为基础进行测试。发表在情报杂志中的结果显示，有着富裕家庭背景的两岁儿童有更多的机会在智商测试上获得更高的分数，而且随着时间的推移和经验的丰富会获得更高的收入。伦敦大学金史密斯学院的索菲·冯·斯塔姆医生接了这项研究说：“我们在这段时间已经知道，那些处于低社会经济地位（SES）的儿童的智力测试平均比高社会经济地位的儿童糟糕，但智力与SES的发展关系并不是如前所述。我们的调查在建立着关系，强调了SES和IQ之间的联系。我们希望我们的发现将会推动未来研究的具体机制和因素。”',
+    'content':'生命中最重要的人，或许当你在身边的时候，能感觉到的也只是淡淡的温暖而已，并不比一杯热茶更显著。但当你失去的时候，整个世界瞬间荒芜。只知道我们总是在战胜空间，却对时间无能为力',
     'begin': '2018-7-7',
     'end': '2018-7-21',
     'state': 0
 },
 {
     'publisher':'毛婕老师',
-    'content':'这项研究关注的是持续的社会经济调查与智商的遗传关系。年龄在2岁和16岁之间的孩子被评估了九次，并通过混合家长管理、网站和电话为基础进行测试。发表在情报杂志中的结果显示，有着富裕家庭背景的两岁儿童有更多的机会在智商测试上获得更高的分数，而且随着时间的推移和经验的丰富会获得更高的收入。伦敦大学金史密斯学院的索菲·冯·斯塔姆医生接了这项研究说：“我们在这段时间已经知道，那些处于低社会经济地位（SES）的儿童的智力测试平均比高社会经济地位的儿童糟糕，但智力与SES的发展关系并不是如前所述。我们的调查在建立着关系，强调了SES和IQ之间的联系。我们希望我们的发现将会推动未来研究的具体机制和因素。”',
+    'content':'人约三月草未莘，间关探搡几回闻，仙槎一叶偏入凡，子衔降珠伴露生，唯有早春最知惜，朱唇贝齿启语箴，正是白紵鸢肩倚，廷风拂扬觅无痕。',
     'begin': '2018-7-8',
     'end': '2018-7-21',
     'state': 0 
@@ -37,50 +37,40 @@ var template = $.templates('#testTmpl');
 var htmlOutput = template.render(arr);
 $(".box").html(htmlOutput);
 
+
+
 var s = new Array();//状态数组
 for(var i=0;i<arr.length;++i){
     s[i] = arr[i].state;
 }
-
-//按钮点击事件
-$(".Btn_blue").click(function() {
-    i = $(this).attr("name");
-    jump();
-})
-function jump(){
-    url = "homework.html?i="+i+"&s="+s;//此处拼接内容
-    window.location.href = url;
-}
-$(".btn_detail").click(function(){
-    j = $(this).attr("name");
-    // $("#demoP").text(arr[j].content.substr(0,12));
-    console.log(arr[j].content.substr(0,12)); 
-    alert(document.getElementById('demoP').innerHTML);
-
-})
-//  $(function() {
-//     $('#details h5.demand').bind('mouseover', function() {
-//         $(this).next().slideDown();
-//     }).bind('mouseout', function() {
-//         $(this).next().slideUpa);
-//     });
-// });
-
-
-    var oP = document.getElementById('demoP');
-var oBtn = document.getElementById('demoBtn');
-var allContent = oP.innerHTML;                   //存放所有内容
-oP.innerHTML = oP.innerHTML.substr(0,15);        //截取前100个字符
-oBtn.onclick=function(){
-    //oP.innerHTML = allContent;                    //显示所有内容
-    alert(allContent);
-}
-
-$(function(){
+var arr2 = new Array;//作业内容数组
 for(var j=0;j<arr.length;++j){
-$("#demoP").text(arr[j].content.substr(0,12));
-console.log(arr[j].content.substr(0,12)); 
-}})
+    arr2[j] = arr[j].content;
+}
+$(function(){
+    for(var j=0;j<arr.length;++j){
+        arr[j].content = arr[j].content.substr(0,15);
+        var template = $.templates('#testTmpl');
+        var htmlOutput = template.render(arr);
+        $(".box").html(htmlOutput);
+    }
+    //详情点击事件
+    $(".btn_detail").click(function(){
+        j = $(this).attr("name");
+        alert(arr2[j-1]);
+    });
+    //去完成点击事件
+    $(".Btn_blue").click(function() {
+        i = $(this).attr("name");
+        jump();
+    })
+    function jump(){
+        url = "homework.html?i="+i+"&s="+s;//此处拼接内容
+        window.location.href = url;
+    }
+})
+
+
 
 $(function(){
     a = $.query.get("a");
@@ -107,19 +97,19 @@ function getData(){
 }
 
 //后端接口
-//  $().ready(function() {
-//    // console.log("search");
+ $().ready(function() {
+   // console.log("search");
 
-//     $.ajax({
-//         url:'../php/task_search.php',
-//         type:"GET",
-//         data:'',
-//         success: function(data) {
-//            console.log(data);
-//              var obj = JSON.parse(data);
-//              console.log(obj);
+    $.ajax({
+        url:'../php/task_search.php',
+        type:"GET",
+        data:'',
+        success: function(data) {
+           console.log(data);
+             var obj = JSON.parse(data);
+             console.log(obj);
 
-//         }
-//     });
-// });
+        }
+    });
+});
 
