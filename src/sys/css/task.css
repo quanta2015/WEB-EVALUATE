@@ -25,6 +25,24 @@ a {
     text-decoration: none;
 }
 
+input,
+button,
+select,
+textarea {
+    outline: none
+}
+
+textarea {
+    resize: none
+}
+
+.content-main {
+    margin: 1% 3% 1% 3%;
+    border: 1px solid rgb(219, 219, 219);
+}
+
+.content-main.head {}
+
 #g-index {
     width: 100%;
     height: 100%;
@@ -175,25 +193,37 @@ a {
     margin-right: 40px;
 }
 
+.content-main .head {
+    margin-left: 2%;
+    margin-top: 2%;
+}
 
+.content-main .body {
 
-label {
+    margin-left: 2%;
+}
+
+.content-main .bottom {
     margin-top: 3%;
-    margin-left: 5%;
-    font-size: 150%;
 }
 
 textarea {
-    width: 88%;
-    height: 23%;
     border: 1px rgb(219, 219, 219) solid;
     border-radius: 5px;
-    resize: none;
-    margin-top: 4%;
-    margin-left: 5%;
+}
+
+.taskTitle {
+    width: 400px;
+    height: 300px;
+}
+
+.taskRequest {
+    width: 400px;
+    height: 300px;
 }
 
 #submit {
+    /*
     height: 5%;
     border-style: none;
     width: 17%;
@@ -204,53 +234,5 @@ textarea {
     text-align: center;
     margin-top: 3%;
     margin-left: 76%;
-}
-
-select {
-    margin-top: 3%;
-    width: 20%;
-    height: 5%;
-    margin-left: 5%;
-    border-style: solid 1px rgb(219, 219, 219);
-    background: #fff;
-
-}
-
-#startTime,
-#deadLine {
-    width: 88%;
-    height: 9.1%;
-    border: 1px rgb(219, 219, 219) solid;
-    border-radius: 5px;
-    resize: none;
-    margin-top: 4%;
-    margin-left: 5%;
-}
-
-#taskTheme {
-    width: 88%;
-    height: 50.65%;
-    border: 1px rgb(219, 219, 219) solid;
-    border-radius: 5px;
-    resize: none;
-    margin-top: 4%;
-    margin-left: 5%;
-}
-
-#content-main-right,
-#content-main-left {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-#content-main-left {
-    border-right: solid 1px rgb(230, 233, 241);
-}
-
-#content-main {
-    display: flex;
-    height: 85%;
-    margin-top: 1%;
+*/
 }
