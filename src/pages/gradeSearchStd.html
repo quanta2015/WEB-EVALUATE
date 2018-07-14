@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>成绩查询</title>
+	<link rel="stylesheet" type="text/css" href="../sys/css/homework.css">
+	<link rel="stylesheet" type="text/css" href="../lib/font-awesome/css/font-awesome.min.css">
+
+	<script type="text/javascript" src="../lib/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="../lib/jsrender/jsrender.js"></script>
+	<script type="text/javascript" src="../lib/jquery/jquery.params.js"></script>
+</head>
+<body>
+	<div class="g-index">
+		<div class="nav" style="font-size: 14px;">
+			<div class="nav-top">
+				<div class="nav-logo"><img src="../img/logo02.png"></div>
+				<i class="fa fa-chevron-right nav-more" id="nav_icon3" style="display: none;"></i>
+			</div>
+			<!-- 导航栏内容开始 -->
+			<ul>
+				<li class="nav-item">
+					<a href="student.html" style="display: flex;">
+						<span>我的作业</span>
+						<div class="hidden"></div>
+						<i class="fa fa-chevron-right nav-more" id="nav_icon1"></i>
+					</a>
+				</li>
+				<li class="nav-item"></li>
+				<li class="nav-item has-chosen">
+					<a href="gradeSearchStd.html" style="display: flex;">
+						<span>成绩查询</span>
+						<div class="hidden"></div>
+						<i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
+					</a>
+				</li>
+				<li class="nav-item"></li>
+				<li class="nav-item">
+					<a href="evaluteStudent.html" style="display: flex;">
+						<span>成绩评定</span>
+						<div class="hidden"></div>
+						<i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
+					</a>
+				</li>
+				<li class="nav-item"></li>
+				<li class="nav-item">
+					<a href="pwdChange.html" style="display: flex;">
+						<span>修改密码</span>
+						<div class="hidden"></div>
+						<i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
+					</a>
+				</li>
+				<li class="nav-item"></li>
+			</ul>
+			<!-- 导航栏内容结束 -->
+		</div>
+		<div class="content" style="height: 100%;">
+			<div class="content-top">
+				<a class="userControl" style="display: flex; align-items: center;font-size: 14px;">
+					<span class="userCotrol-title">个人面板&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<i class="fa fa-power-off nav-more fa-2x" id="nav_icon2" style="color: rgb(32, 142, 251);"></i>
+				</a>
+			</div>
+			<div class="content-main">
+				<!-- 列表内容开始 -->
+				<div class="ulDiv">
+					<ul class="clearfix" style="width:1100px;" id="list">
+						<div class="box"></div>
+						<!-- 定义JsRender模版 -->  
+						<script type="text/x-jsrender" id="testTmpl">
+							<li class="lookLi">	
+								<div class="titTxt">
+									<p style="padding-top: 11px;">
+										{{if a == 1}}自评
+										{{else}}老师评
+										{{else}}小组评
+										{{/if}}
+									</p>
+									<div id="tit" title="" class="pt5"><span class="f1"></span>完成状态：<strong>
+										{{if state == 1}}已完成
+										{{else}}未完成
+										{{/if}}
+									</strong></div>
+								</div>
+								<div class="titOper">
+									<p class="clearfix">							
+										<button id="ac" class="Btn_blue">
+											{{if state == 1}}分
+											{{else}}0分
+											{{/if}}
+										</button>		
+									</p>
+								</div>
+							</li>
+						</script>
+					</ul>
+				</div>
+				<!-- 列表内容结束 -->
+			</div>
+		</div>
+	</div>
+</body>
+</html>
