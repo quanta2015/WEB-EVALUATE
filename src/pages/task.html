@@ -39,7 +39,7 @@
                 </li>
                 <li id="nav-item"></li>
                 <li id="nav-item">
-                    <a href="evalute.html" style="display: flex;">
+                    <a href="javascript:;" style="display: flex;">
                         <!--<i class="fa fa-search nav-icon"></i>-->
                         <span>学生成绩评定</span>
                         <div id="hidden"></div>
@@ -84,7 +84,7 @@
                 </li>
                 <li id="nav-item"></li>
                 <li id="nav-item">
-                    <a href="password.html" style="display: flex;">
+                    <a href="javascript:;" style="display: flex;">
                         <!--<i class="fa fa-check-square-o nav-icon"></i>-->
                         <span>修改密码</span>
                         <div id="hidden"></div>
@@ -93,7 +93,7 @@
                 </li>
                 <li id="nav-item"></li>
                 <li id="nav-item">
-                    <a href="classManagement.html" style="display: flex;">
+                    <a href="javascript:;" style="display: flex;">
                         <!--<i class="fa fa-check-square-o nav-icon"></i>-->
                         <span>班级管理</span>
                         <div id="hidden"></div>
@@ -109,29 +109,48 @@
                         <i class="fa fa-power-off fa-2x" id="nav_icon2" style="color: rgb(32, 142, 251);"></i>
                     </a>
             </div>
-            <form id="content-main" action='../php/publish.php' method='post'>
-                <div id="content-main-left">
-                    <label>选择班级</label>
-                    <select id="clsCh" name="class">
-                        </select>
-                    <label>设定时间</label>
-                    <div class="col-md-11" style="margin-left:13px; margin-top:10px;">
-                        <input type="text" name="daterange" class="form-control" data-value="{{old('daterange')}}" placeholder="请输入提交时间" />
+            <div class="content-main" style="">
+                <form action='../php/publish.php' method='post'>
+                    <div class="head row" style="padding-top:10px;">
+                        <form class="form-inline border-bottom">
+                            <div class="form-group col-md-6">
+                                <label style="margin:5px;">班级</label>
+                                <select class="form-control" id="clsCh" name="class" style="width:150px; height:30px; font-size:2px;"> </select>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label style="margin:5px;">时间</label>
+                                <input type="text" name="daterange" class="form-control" data-value="{{old('daterange')}}" style="width:350px; height:30px" placeholder="请输入提交时间" />
+                            </div>
+                        </form>
+
                     </div>
-                    <label>作业主题</label>
-                    <textarea id="taskTheme" name="title" placeholder="&nbsp;&nbsp;编辑作业主题..."></textarea>
-                </div>
-                <div id="content-main-right">
-                    <label>作业要求</label>
-                    <textarea rows="8" cols="50" id="wordRequest" name="task_wd" placeholder="&nbsp;&nbsp;请输入Word作业要求..."></textarea>
-                    <textarea rows="8" cols="50" id="wordRequest" name="task_pt" placeholder="&nbsp;&nbsp;请输入PPT作业要求..."></textarea>
-                    <textarea rows="8" cols="50" id="wordRequest" name="task_vd" placeholder="&nbsp;&nbsp;请输入视频作业要求..."></textarea>
-                    <button id="submit" type="button">发布任务</button>
-                </div>
-            </form>
+                    <div class="body row">
+                        <form class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-md-12" style="margin-left:-10px;">作业主题</label>
+                                <textarea id="taskTitle" class="form-group taskTitle" name="title" placeholder="&nbsp;&nbsp;请输入作业主题..."></textarea>
+
+                            </div>
+                        </form>
+                        <form class="col-md-6">
+                            <div class=form-group>
+                                <label class="col-md-12" style="margin-left:-10px;">作业要求</label>
+                                <textarea id="taskRequest" class="form-group taskRequest" name="task_wd" placeholder="&nbsp;&nbsp;请输入作业要求..."></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="bottom row" style="padding-top:20px">
+                        <div class="form-group col-md-offset-10">
+                            <button class="btn btn-primary" id="submit" type="button ">发布任务</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
         </div>
     </div>
-    <script type="text/javascript" src="../sys/js/task.js"></script>
+    <script type="text/javascript " src="../sys/js/task.js "></script>
 </body>
 
 </html>
