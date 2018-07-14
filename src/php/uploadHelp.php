@@ -4,7 +4,7 @@ require_once 'conn.php';
 
 class UploadFiles {
   private $maxsize    = '2000000'; //允许上传文件最大长度2M
-  private $allowtype  = array('doc', 'docx', 'ppt', 'pptx', 'mp4', 'avi',
+  private $allowtype  = array('doc', 'docx', 'pdf', 'ppt', 'pptx', 'mp4', 'avi',
                'flv', 'wmv','mov','zip','rar','7z'); //允许上传文件类型
   private $israndfile = true; //是否随机文件名
   private $filepath; //上传路径
