@@ -1,0 +1,21 @@
+.pwdCon {
+    width: 300px;
+    margin-top: 5%;
+    margin-left: 30%;
+}
+
+input {
+    width: 200px;
+    height: 30px;
+    border-width: 2px;
+    border-radius: 1px;
+}
+
+.error {
+    color: #EE6363;
+}
+
+input.error {
+    border: 2px solid #EE6363;
+
+}
