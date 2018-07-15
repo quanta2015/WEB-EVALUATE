@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>学生作业管理</title>
+    <title>修改密码</title>
     <link rel="stylesheet" type="text/css" href="../sys/css/homework.css">
     <link rel="stylesheet" type="text/css" href="../lib/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap.min.css">
@@ -30,15 +30,14 @@
             <!-- 导航栏内容开始 -->
             <ul>
                 <li class="nav-item">
-                    <a href="javascript:;" style="dissplay: flex;text-decoration: none;">
+                    <a href="student.html" style="dissplay: flex;text-decoration: none;">
 						<span>我的作业</span>
-
 						<i class="fa fa-chevron-right nav-more f" id="nav_icon1"></i>
 					</a>
                 </li>
                 <li class="nav-item"></li>
                 <li class="nav-item">
-                    <a href="javascript:;" style="display: flex;text-decoration: none;">
+                    <a href="gradeSearchStd.html" style="display: flex;text-decoration: none;">
 						<span>成绩查询</span>
 						<div class="hidden"></div>
 						<i class="fa fa-chevron-right nav-more f" id="nav_icon1" ></i>
@@ -46,7 +45,7 @@
                 </li>
                 <li class="nav-item"></li>
                 <li class="nav-item">
-                    <a href="javascript:;" style="display: flex;;text-decoration: none;">
+                    <a href="evaluteStudent.html" style="display: flex;;text-decoration: none;">
 						<span>成绩评定</span>
 						<div class="hidden"></div>
 						<i class="fa fa-chevron-right nav-more f" id="nav_icon1" ></i>
@@ -54,7 +53,7 @@
                 </li>
                 <li class="nav-item"></li>
                 <li class="nav-item has-chosen">
-                    <a href="javascript:;" style="display: flex;;text-decoration: none;">
+                    <a href="pwdChange.html" style="display: flex;;text-decoration: none;">
 						<span>修改密码</span>
 						<div class="hidden"></div>
 						<i class="fa fa-chevron-right nav-more f" id="nav_icon1" ></i>
@@ -75,13 +74,13 @@
                 <div class="pwdCon">
                     <form id="pwdForm" method="get" action="">
                         <div class="form-group">
-                            <input class="form-control" id="password" name="password" type="password" placeholder="请输入新密码">
+                            <input class="form-control" id="password" type="password" placeholder="请输入新密码">
                         </div>
                         <div class="form-group">
-                            <input class="form-control" id="confirm_password" name="confirm_password" type="password" placeholder="请确认新密码">
+                            <input class="form-control" id="confirm_password" type="password" placeholder="请确认新密码">
                         </div>
                         <div class="form-group">
-                            <button class="btn btn-primary btn-emphasis btn-block submit-btn" type="submit" value="提交">完成</button>
+                            <button class="btn btn-primary btn-emphasis btn-block submit-btn" type="submit" value="提交" onClick="get()">完成</button>
                         </div>
                     </form>
                 </div>
@@ -89,6 +88,6 @@
             </div>
         </div>
     </div>
-
+    <script type="text/javascript" src="../sys/js/pwdChange.js"></script>
 </body>
 </html>
