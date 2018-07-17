@@ -19,7 +19,7 @@ if ($class == "" || $title == "" || $time== "" || $wd == "" || $pt == "" || $vd 
 
          );
         $response = CodeUtil::jsons_encode($response);
-        header("Content-Type:text/html;charset=utf-8");
+      //  header("Content-Type:text/html;charset=utf-8");
         echo urldecode(json_encode($response));
 } 
 else {

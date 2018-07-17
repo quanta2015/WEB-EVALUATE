@@ -48,7 +48,9 @@ $("#submit").click(function () {
         url: '../php/publish.php',
         type: "POST",
         data: $('#content-main').serialize(),
+
         success: function (data) {
+            console.log(data);
             var obj = JSON.parse(data);
             if (obj.code == 0) {
                 toastr.success('已成功发布任务');

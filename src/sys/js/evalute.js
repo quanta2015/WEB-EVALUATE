@@ -33,17 +33,17 @@ $(document).ready(function () {
 			console.log(classes); 
      var context;
      if(classes.code == 0){
-     for(var i =0;i<classes.data.length;i++)
-      context = context+"<option>"+classes.data[i].class_name+"</option>";
+       for(var i =0;i<classes.data.length;i++)
+        context = context+"<option>"+classes.data[i].class_name+"</option>";
       context = context+"<option>全部</option>";
       $('#classSlct').html(context);}
 
       else if(classes.code == 77)$('#classSlct').html("没有班级");
- 
 
-		}
 
-	}),
+    }
+
+  }),
    //查找指定班级的所有作业
    $.ajax({
    	url: '../php/task_search.php',
@@ -56,16 +56,17 @@ $(document).ready(function () {
    		console.log(homeworks);
      //渲染作业列表
      if(homeworks.code == 0){
-     var context;
-     for(var i =0;i<homeworks.data.length;i++)
-     	context = context+"<option>"+homeworks.data[i].task_title+"</option>";
-       context = context+"<option>全部</option>";
-     $('#taskSlct').html(context);}
+       var context;
+       for(var i =0;i<homeworks.data.length;i++)
+        context = context+"<option>"+homeworks.data[i].task_title+"</option>";
+      context = context+"<option>全部</option>";
+      $('#taskSlct').html(context);}
 
-     else   if(homeworks.code == 77)$('#taskSlct').html("<option>没有作业</option>");
+      else   if(homeworks.code == 77)$('#taskSlct').html("<option>没有作业</option>");
 
- }
-});
+    }
+  });
+   //根据班级选择渲染作业列表
 
    $('#classSlct').change(function(){
    	$.ajax({
@@ -77,23 +78,31 @@ $(document).ready(function () {
 
    			homeworks = JSON.parse(data);
    			console.log(homeworks);
-   if(homeworks.code == 0){
-     var context;
-     for(var i =0;i<homeworks.data.length;i++)
-     	context = context+"<option>"+homeworks.data[i].task_title+"</option>";
-       context = context+"<option>全部</option>";
-     $('#taskSlct').html(context);}
+         if(homeworks.code == 0){
+           var context;
+           for(var i =0;i<homeworks.data.length;i++)
+            context = context+"<option>"+homeworks.data[i].task_title+"</option>";
+          context = context+"<option>全部</option>";
+          $('#taskSlct').html(context);}
 
-     else  if(homeworks.code == 77) $('#taskSlct').html("<option>没有作业</option>");
+          else  if(homeworks.code == 77) $('#taskSlct').html("<option>没有作业</option>");  }
+      });
+   });
 
-   		}
+
+ /*  $('.minisearch').click(function(){
+    $.ajax({
+
+      url:''
+    })
 
 
-   		});
+
 
    })
 
+*/
 
-})
+ })
 
 

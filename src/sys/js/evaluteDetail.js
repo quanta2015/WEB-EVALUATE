@@ -64,9 +64,9 @@ var finalTpl = jsRenderTpl(arr);
 $('.box').html(finalTpl);
 
 
-var submit = document.getElementById("submit_grade");
-submit.onclick = function(e) {
-	// var detail_grade = document.getElementsByName('grade');
+//var submit = document.getElementById("submit_grade");
+/*submit.onclick = function(e) {
+	 var detail_grade = document.getElementsByName('grade');
 	// var range = document.getElementsByName('range');
 	// for(var i = 0; i < range.length; i++) {
 	// 	console.log(1);
@@ -81,3 +81,37 @@ submit.onclick = function(e) {
 	}
 	// console.log(total_grade);
 }
+*/
+
+
+
+
+$(function(){
+     $("#submit_grade").click(function(){
+     var detail_grade = document.getElementsByName('grade');
+     var grade = [];
+     for(var i = 0; i < detail_grade.length; i++) {
+		if(detail_grade[i].value != " " && !isNaN(detail_grade[i].value)) {
+			grade[i]= detail_grade[i].value;
+
+			grade.length++;
+		}
+	}
+     console.log(grade);
+      console.log( JSON.stringify(grade));
+     $.ajax({
+         url:'../php/evalute.php',
+         type:"POST",
+         data:{grade:JSON.stringify(grade),type:0,task:1 ,length:grade.length},
+      //   async:false,
+         success: function(data) {
+            console.log(data);
+            // obj = JSON.parse(data);
+          //  consolse.log(obj);
+
+         }
+
+});
+
+})
+});
