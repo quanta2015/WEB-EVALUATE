@@ -3,8 +3,7 @@ function get(){
 	var p2 = document.getElementById("confirm_password").value;
 	if(p1 == p2){
 		alert("修改成功");
-        url = "student.html"
-        window.location.href = url;
+        window.location.href = "student.html";
 	}
 	else{
 		alert("两次密码不一致");
