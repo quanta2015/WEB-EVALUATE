@@ -1,5 +1,5 @@
 .content-main {
-	height: 90%;
+	height: 92%;
 	width: 100%;
 	margin: 0;
 }
@@ -27,8 +27,8 @@ select {
 	margin-top: 0;
 }
 .taskList {
-	height: auto;
-	overflow: scroll;
+	height: 100%;
+	overflow: auto;
 }
 .taskDetail div {
 	width: calc(100% / 6);
