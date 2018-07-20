@@ -204,6 +204,7 @@ a {
 }
 .userControl {
     cursor: pointer;
+    margin-right: 20px;
 }
 
 
@@ -270,4 +271,3 @@ a {
     background-color: #EBEBEB;
     border-color: #ADADAD;
 }
-

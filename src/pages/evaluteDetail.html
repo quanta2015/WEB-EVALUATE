@@ -1,112 +1,123 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>成绩评定/教师</title>
-        <link rel="stylesheet" type="text/css" href="../sys/css/base.css">
-        <link rel="stylesheet" type="text/css" href="../sys/css/evaluteDetail.css">
-        <link rel="stylesheet" type="text/css" href="../lib/font-awesome/css/font-awesome.min.css">
-        <script type="text/javascript" src="../lib/jquery/jquery.min.js"></script>
-        <script type="text/javascript" src="../lib/jsrender/jsrender.js"></script>
-    </head>
-    <body>
-        <div class="g-index">
-            <div class="nav">
-                <div class="nav-top">
-                    <div class="nav-logo"><img src="../img/logo02.png"></div>
-                </div>
-                <ul>
-                    <li class="nav-item">
-                        <a href="task.html" style="display: flex;">
+
+<head>
+    <meta charset="utf-8">
+    <title>成绩评定/教师</title>
+    <link rel="stylesheet" type="text/css" href="../sys/css/base.css">
+    <link rel="stylesheet" type="text/css" href="../sys/css/evalute.css">
+    <link rel="stylesheet" type="text/css" href="../sys/css/evaluteDetail.css">
+    <link rel="stylesheet" type="text/css" href="../lib/font-awesome/css/font-awesome.min.css">
+    <script type="text/javascript" src="../lib/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../lib/jsrender/jsrender.js"></script>
+</head>
+
+<body>
+    <div class="g-index">
+        <div class="nav">
+            <div class="nav-top">
+                <div class="nav-logo"><img src="../img/logo02.png"></div>
+            </div>
+            <ul>
+                <li class="nav-item">
+                    <a href="task.html" style="display: flex;">
                             <span>发布新任务</span>
                             <div class="hidden"></div>
                             <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
                         </a>
-                    </li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item has-chosen">
-                        <a href="javascript:;" style="display: flex;">
+                </li>
+                <li class="nav-item"></li>
+                <li class="nav-item has-chosen">
+                    <a href="javascript:;" style="display: flex;">
                             <span>学生成绩评定</span>
                             <div class="hidden"></div>
                             <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
                         </a>
-                    </li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item">
-                        <a href="javascript:;" style="display: flex;">
+                </li>
+                <li class="nav-item"></li>
+                <li class="nav-item">
+                    <a href="javascript:;" style="display: flex;">
                             <span>学生成绩查询</span>
                             <div class="hidden"></div>
                             <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
                         </a>
-                    </li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item">
-                        <a href="javascript:;" style="display: flex;">
+                </li>
+                <li class="nav-item"></li>
+                <li class="nav-item">
+                    <a href="javascript:;" style="display: flex;">
                             <span>设置评价标准</span>
                             <div class="hidden"></div>
                             <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
                         </a>
-                    </li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item">
-                        <a href="javascript:;" style="display: flex;">
+                </li>
+                <li class="nav-item"></li>
+                <li class="nav-item">
+                    <a href="javascript:;" style="display: flex;">
                             <span>设置模块分数比例</span>
                             <div class="hidden"></div>
                             <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
                         </a>
-                    </li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item">
-                        <a href="javascript:;" style="display: flex;">
+                </li>
+                <li class="nav-item"></li>
+                <li class="nav-item">
+                    <a href="javascript:;" style="display: flex;">
                             <span>设置小组人员</span>
                             <div class="hidden"></div>
                             <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
                         </a>
-                    </li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item">
-                        <a href="password.html" style="display: flex;">
+                </li>
+                <li class="nav-item"></li>
+                <li class="nav-item">
+                    <a href="password.html" style="display: flex;">
                             <span>修改密码</span>
                             <div class="hidden"></div>
                             <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
                         </a>
-                    </li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item">
-                        <a href="classManagement.html" style="display: flex;">
+                </li>
+                <li class="nav-item"></li>
+                <li class="nav-item">
+                    <a href="classManagement.html" style="display: flex;">
                             <span>班级管理</span>
                             <div class="hidden"></div>
                             <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
                         </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="content">
-                <div class="content-top">
-                    <a class="userControl" style="display: flex; align-items: center;">
+                </li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="content-top">
+                <a class="userControl" style="display: flex; align-items: center;">
                         <span class="userCotrol-title">个人面板&nbsp;&nbsp;&nbsp;&nbsp;</span>
                         <i class="fa fa-power-off nav-more fa-2x" id="nav_icon2" style="color: rgb(32, 142, 251);"></i>
                     </a>
+            </div>
+            <div class="task_urls" style="display: flex;">
+                <div style="width: 50%;">
+                    <span class="taskTitle">作业一</span>
                 </div>
-                <div class="task_urls" style="display: flex;">
-                    <div class="left">
-                        <span class="taskTitle">作业一</span>
-                    </div>
-                    <div class="dropdown">
-                        <button class="dropbtn">查看作业</button>
-                        <div class="dropdown-content">
-                            <a href="...">教学设计(Word)</a>
-                            <a href="...">多媒体课件(PPT)</a>
-                            <a href="...">即席演讲(MP4)</a>
-                        </div>
-                    </div>
-                    <div class="right">
-                        <button type="submit" class="button_submit" id="submit_grade">提交评分</button>
-                    </div>
+                <div style="width: 50%; display: flex; justify-content: flex-end; margin-right: 50px;">
+                    <a href="evalute.html">
+                        <button class="btn" style="width: 100px;">返回</button>
+                    </a>
                 </div>
-                <div class="content-main" id="gradeDetail" style="display: flex; flex-direction: column;">
-                    <div class="box"></div>
-                    <script id="theTmpl" type="text/x-jsrender">
+            </div>
+            <div class="task_urls" style="display: flex;">
+                <div style="width: 50%; display: flex; align-items: center;">
+                    <div class="seeTask">
+                        <span>查看作业: </span>
+                    </div>
+                    <a href=" "><img src="../img/word.png" style="width: 70px; height: 70px; margin-left: 25px;"></a>
+                    <a href=" "><img src="../img/ppt.png" style="width: 70px; height: 70px; margin-left: 15px;"></a>
+                    <a href=" "><img src="../img/video.png" style="width: 45px; height: 45px; margin-left: 25px;"></a>
+                </div>
+                <div style="width: 50%; display: flex; justify-content: flex-end; margin-right: 50px;">
+                    <button type="submit" class="button_submit btn" id="submit_grade" style="width: 100px;">提交评分</button>
+                </div>
+            </div>
+            <div class="content-main" id="gradeDetail" style="display: flex; flex-direction: column;">
+                <div class="box"></div>
+                <script id="theTmpl" type="text/x-jsrender">
+                    <div class="evaluteStandard">
                         <ul style="width: 100%;">
                             {{for}}
                             <li style="width: 100%;">
@@ -120,32 +131,44 @@
                                 <div class="contentList" style="display: flex; width: 100%;">
                                     <ul style="width: 15%;">
                                         {{for content}}
-                                        <li><div class="cntList-left">{{:#data}}</div></li>
+                                        <li>
+                                            <div class="cntList-left">{{:#data}}</div>
+                                        </li>
                                         {{/for}}
                                     </ul>
                                     <ul style="width: 55%;">
                                         {{for standard}}
-                                        <li><div class="cntList-middle"><span style="padding: 10px;">{{:#data}}</span></div></li>
+                                        <li>
+                                            <div class="cntList-middle"><span style="padding: 10px;">{{:#data}}</span></div>
+                                        </li>
                                         {{/for}}
                                     </ul>
                                     <ul style="width: 15%;">
                                         {{for grade}}
-                                        <li><div class="cntList-right">{{:#data}}</div></li>
+                                        <li>
+                                            <div class="cntList-right grade">{{:#data}}</div>
+                                        </li>
                                         {{/for}}
                                     </ul>
                                     <ul style="width: 15%;">
                                         {{for grade}}
-                                        <li><div class="cntList-right"><input type="text" name="grade" value=" {{:#data}}" requied></div></li>
+                                        <li>
+                                            <div class="cntList-right">
+                                                <input type="text" name="grade" requied>
+                                            </div>
+                                        </li>
                                         {{/for}}
                                     </ul>
                                 </div>
                             </li>
                             {{/for}}
                         </ul>
-                    </script>
-                </div>
+                    </div>
+                </script>
             </div>
         </div>
-    </body>
-    <script type="text/javascript" src="../sys/js/evaluteDetail.js"></script>
+    </div>
+</body>
+<script type="text/javascript" src="../sys/js/evaluteDetail.js"></script>
+
 </html>
