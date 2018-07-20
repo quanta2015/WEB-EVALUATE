@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>修改密码/老师</title>
+    <link rel="stylesheet" type="text/css" href="../sys/css/homework.css">
+    <link rel="stylesheet" type="text/css" href="../lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../lib/toastr-master/toastr.css">
+    <link rel="stylesheet" type="text/css" href="../sys/css/pwdChange.css">
+
+    <script type="text/javascript" src="../lib/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../lib/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../lib/jsrender/jsrender.js"></script>
+    <script type="text/javascript" src="../lib/jquery/jquery.params.js"></script>
+    <script type="text/javascript" src="../lib/toastr-master/toastr.js"></script>
+    <script type="text/javascript" src="../lib/jquery-validation/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="../lib/jquery-validation/js/localization/messages_zh.min.js"></script>
+    <script type="text/javascript" src="../lib/jquery-validation/js/additional-methods.min.js"></script>
+</head>
+
+<body>
+    <div class="g-index">
+        <div class="nav">
+            <div class="nav-top">
+                <div class="nav-logo"><img src="../img/logo02.png"></div>
+                <i class="fa fa-chevron-right nav-more" id="nav_icon3" style="display: none;"></i>
+            </div>
+            <!-- 导航栏内容开始 -->
+            <ul>
+                <li class="nav-item">
+                    <a href="task.html" style="display: flex;text-decoration: none;">
+                        <span class="word">发布新任务</span>
+                        <i class="fa fa-chevron-right nav-more icon" id="nav_icon1"></i>
+                    </a>
+                </li>
+                <li class="nav-item"></li>
+                <li class="nav-item">
+                    <a href="evalute.html" style="display: flex;text-decoration: none;">
+                        <span class="word">学生成绩评定</span>
+                        <div class="hidden"></div>
+                        <i class="fa fa-chevron-right nav-more icon" id="nav_icon1" ></i>
+                    </a>
+                </li>
+                <li class="nav-item"></li>
+                <li class="nav-item">
+                    <a href="gradeSearch.html" style="display: flex;;text-decoration: none;">
+                        <span class="word">学生成绩查询</span>
+                        <div class="hidden"></div>
+                        <i class="fa fa-chevron-right nav-more icon" id="nav_icon1" ></i>
+                    </a>
+                </li>
+                <li class="nav-item"></li>
+                <li class="nav-item">
+                    <a href="#" style="display: flex;;text-decoration: none;">
+                        <span class="word">设置评价标准</span>
+                        <div class="hidden"></div>
+                        <i class="fa fa-chevron-right nav-more icon" id="nav_icon1" ></i>
+                    </a>
+                </li>
+                <li class="nav-item"></li>
+                <li class="nav-item">
+                    <a href="#" style="display: flex;;text-decoration: none;">
+                        <span class="word">设置模块分数比例</span>
+                        <div class="hidden"></div>
+                        <i class="fa fa-chevron-right nav-more icon" id="nav_icon1" ></i>
+                    </a>
+                </li>
+                <li class="nav-item"></li>
+                <li class="nav-item">
+                    <a href="#" style="display: flex;;text-decoration: none;">
+                        <span class="word">设置小组人员</span>
+                        <div class="hidden"></div>
+                        <i class="fa fa-chevron-right nav-more icon" id="nav_icon1" ></i>
+                    </a>
+                </li>
+                <li class="nav-item"></li>
+                <li class="nav-item">
+                    <a href="pwdChange.html" style="display: flex;;text-decoration: none;">
+                        <span class="word">修改密码</span>
+                        <div class="hidden"></div>
+                        <i class="fa fa-chevron-right nav-more icon" id="nav_icon1" ></i>
+                    </a>
+                </li>
+                <li class="nav-item"></li>
+                <li class="nav-item has-chosen">
+                    <a href="#" style="display: flex;;text-decoration: none;">
+                        <span class="word">班级管理</span>
+                        <div class="hidden"></div>
+                        <i class="fa fa-chevron-right nav-more icon" id="nav_icon1" ></i>
+                    </a>
+                </li>
+                <li class="nav-item"></li>
+            </ul>
+            <!-- 导航栏内容结束 -->
+        </div>
+        <div class="content" style="height: 100%;">
+            <div class="content-top">
+                <a class="userControl" style="display: flex; align-items: center;text-decoration: none;">
+                    <span class="userCotrol-title">个人面板&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <i class="fa fa-power-off nav-more fa-2x" id="nav_icon2" style="color: rgb(32, 142, 251);"></i>
+                </a>
+            </div>
+            <div class="content-main">
+                <div class="pwdCon">
+                    <form id="pwdForm" method="post" action="../php/pwdChange.php">
+                        <div class="form-group">
+                            <input class="form-control" id="password" type="password" placeholder="请输入新密码" name="newpassword">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" id="confirm_password" type="password" placeholder="请确认新密码" name="newpasswordconfirm">
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-emphasis btn-block submit-btn" type="button" value="提交" onClick="getT()">完成</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="../sys/js/pwdChange.js"></script>
+</body>
+</html>
