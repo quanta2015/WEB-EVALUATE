@@ -1,100 +1,100 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>成绩评定/学生</title>
-        <link rel="stylesheet" type="text/css" href="../sys/css/base.css">
-        <link rel="stylesheet" type="text/css" href="../sys/css/evalute.css">
-        <link rel="stylesheet" type="text/css" href="../lib/font-awesome/css/font-awesome.min.css">
-        <script type="text/javascript" src="../lib/jquery/jquery.min.js"></script>
-        <script type="text/javascript" src="../lib/jsrender/jsrender.js"></script>
-    </head>
-    <body>
-        <div class="g-index">
-            <div class="nav">
-                <div class="nav-top">
-                    <div class="nav-logo"><img src="../img/logo02.png"></div>
-                </div>
-                <ul>
-                    <li class="nav-item">
-                        <a href="student.html" style="display: flex;">
+
+<head>
+    <meta charset="utf-8">
+    <title>成绩评定/学生</title>
+    <link rel="stylesheet" type="text/css" href="../sys/css/base.css">
+    <link rel="stylesheet" type="text/css" href="../sys/css/evalute.css">
+    <link rel="stylesheet" type="text/css" href="../lib/font-awesome/css/font-awesome.min.css">
+    <script type="text/javascript" src="../lib/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../lib/jsrender/jsrender.js"></script>
+</head>
+
+<body>
+    <div class="g-index">
+        <div class="nav">
+            <div class="nav-top">
+                <div class="nav-logo"><img src="../img/logo02.png"></div>
+            </div>
+            <ul>
+                <li class="nav-item">
+                    <a href="student.html" style="display: flex;">
                             <span>我的作业</span>
                             <div class="hidden"></div>
                             <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
                         </a>
-                    </li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item">
-                        <a href="gradeSearchStd.html" style="display: flex;">
+                </li>
+                <li class="nav-item"></li>
+                <li class="nav-item">
+                    <a href="gradeSearchStd.html" style="display: flex;">
                             <span>成绩查询</span>
                             <div class="hidden"></div>
                             <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
                         </a>
-                    </li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item has-chosen">
-                        <a href="evaluteStd.html" style="display: flex;">
+                </li>
+                <li class="nav-item"></li>
+                <li class="nav-item has-chosen">
+                    <a href="evaluteStd.html" style="display: flex;">
                             <span>成绩评定</span>
                             <div class="hidden"></div>
                             <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
                         </a>
-                    </li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item">
-                        <a href="pwdChange.html" style="display: flex;">
+                </li>
+                <li class="nav-item"></li>
+                <li class="nav-item">
+                    <a href="pwdChange.html" style="display: flex;">
                             <span>修改密码</span>
                             <div class="hidden"></div>
                             <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
                         </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="content">
-                <div class="content-top">
-                    <a class="userControl" style="display: flex; align-items: center;">
+                </li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="content-top">
+                <a class="userControl" style="display: flex; align-items: center;">
                         <span class="userCotrol-title">个人面板&nbsp;&nbsp;&nbsp;&nbsp;</span>
                         <i class="fa fa-power-off nav-more fa-2x" id="nav_icon2" style="color: rgb(32, 142, 251);"></i>
                     </a>
+            </div>
+            <div class="content-main" style="display: flex; flex-direction: column;">
+                <div class="content-main-top" style="display: flex; align-items: center;">
+                    <span>选择作业:</span>
+                    <select id="taskSlct">
+                        <option>作业1</option>
+                        <option>全部</option>
+                    </select>
+                    <button class="minisearch btn" style="margin-left: 11%;">查询</button>
                 </div>
-                <div class="content-main" style="display: flex; flex-direction: column;">
-                    <div class="content-main-top" style="display: flex; align-items: center;">
-                        <span>选择作业:</span>
-                        <select id = "taskSlct">
-                            <option>作业1</option>
-                            <option>全部</option>
-                        </select>
-                        <button class="minisearch" style="margin-left: 11%;">查询</button>
-                    </div>
-                    <ul class="taskList" style="width: 100%; height: calc(100% - 10% - 7.5%);">
-                        <li style="width: 100%;">
-                            <div class="taskDetail" style="display: flex; align-items: center;">
-                                <div><span class="smltitle">作业编号</span></div>
-                                <div><span class="smltitle">ID</span></div>
-                                <div><span class="smltitle">班级</span></div>
-                                <div><span class="smltitle">姓名</span></div>
-                                <div><span class="smltitle">评价状态</span></div>
-                                <div><span class="smltitle">评价</span></div>
-                            </div>
-                        </li>
-                        <div class="box"></div>
-                        <script type="text/x-jsrender" id="theTmpl">
+                <ul class="taskList" style="width: 100%; height: calc(100% - 10% - 7.5%);">
+                    <li style="width: 100%;">
+                        <div class="taskDetail" style="display: flex; align-items: center;">
+                            <div class="attribute"><span class="smltitle ">作业</span></div>
+                            <div class="attribute"><span class="smltitle ">ID</span></div>
+                            <div class="attribute"><span class="smltitle ">班级</span></div>
+                            <div class="attribute"><span class="smltitle ">姓名</span></div>
+                            <div class="attribute"><span class="smltitle ">评价</span></div>
+                        </div>
+                    </li>
+                    <div class="box"></div>
+                    <script type="text/x-jsrender" id="theTmpl">
                         {{for}}
                         <li style="width: 100%;">
                             <div class="taskDetail" style="display: flex; align-items: center;">
-                                <div><span>{{:taskID}}</span></div>
-                                <div><span>{{:stdID}}</span></div>
-                                <div><span>{{:class}}</span></div>
-                                <div><span>{{:name}}</span></div>
-                                <div><span>{{if isEvalute == 0}}否{{else}}是{{/if}}</span></div>
-                                <div class="comment"><a href="evaluteDetailStd.html">{{if isEvalute == 0}}去评价{{else}}查看评价{{/if}}</a></div>
+                                <div style="background: {{if isEvalute == 1}}rgb(248, 247, 255){{else}}white{{/if}}"><span>{{:taskID}}</span></div>
+                                <div style="background: {{if isEvalute == 1}}rgb(248, 247, 255){{else}}white{{/if}}"><span>{{:stdID}}</span></div>
+                                <div style="background: {{if isEvalute == 1}}rgb(248, 247, 255){{else}}white{{/if}}"><span>{{:class}}</span></div>
+                                <div style="background: {{if isEvalute == 1}}rgb(248, 247, 255){{else}}white{{/if}}"><span>{{:name}}</span></div>
+                                <div class="comment" style="background: {{if isEvalute == 1}}rgb(248, 247, 255){{else}}white{{/if}}"><a href="evaluteDetail.html">{{if isEvalute == 0}}去评价{{else}}查看评价{{/if}}</a></div>
                             </div>
                         </li>
                         {{/for}}
-                        </script>
-                    </ul>
-                </div>
+                    </script>
+                </ul>
             </div>
         </div>
-    </body>
-    <script type="text/javascript" src="../sys/js/evaluteStudent.js"></script>
+    </div>
+</body>
+<script type="text/javascript" src="../sys/js/evaluteStudent.js"></script>
 </html>
