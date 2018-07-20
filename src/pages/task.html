@@ -109,36 +109,38 @@
                         <i class="fa fa-power-off fa-2x" id="nav_icon2" style="color: rgb(32, 142, 251);"></i>
                     </a>
             </div>
-            <div class="content-main" style="">
+            <div class="content-main">
                 <form action='../php/publish.php' method='post'>
                     <div class="head row" style="padding-top:10px;">
-                        <form class="form-inline border-bottom">
+                        <div>
                             <div class="form-group col-md-6">
-                                <label style="margin:5px;">班级</label>
+                                <div> <label>班级</label></div>
+
                                 <select class="form-control" id="clsCh" name="class" style="width:150px; height:30px; font-size:2px;"> </select>
                             </div>
 
                             <div class="form-group col-md-6">
-                                <label style="margin:5px;">时间</label>
+                                <div> <label>时间</label></div>
+
                                 <input type="text" name="daterange" class="form-control" data-value="{{old('daterange')}}" style="width:350px; height:30px" placeholder="请输入提交时间" />
                             </div>
-                        </form>
+                        </div>
 
                     </div>
                     <div class="body row">
-                        <form class="col-md-6">
+                        <div class="col-md-6">
                             <div class="form-group">
-                                <label class="col-md-12" style="margin-left:-10px;">作业主题</label>
+                                <label class="col-md-12" style="margin-left:-15px;">作业主题</label>
                                 <textarea id="taskTitle" class="form-group taskTitle" name="title" placeholder="&nbsp;&nbsp;请输入作业主题..."></textarea>
 
                             </div>
-                        </form>
-                        <form class="col-md-6">
+                        </div>
+                        <div class="col-md-6">
                             <div class=form-group>
-                                <label class="col-md-12" style="margin-left:-10px;">作业要求</label>
+                                <label class="col-md-12" style="margin-left:-15px;">作业要求</label>
                                 <textarea id="taskRequest" class="form-group taskRequest" name="task_wd" placeholder="&nbsp;&nbsp;请输入作业要求..."></textarea>
                             </div>
-                        </form>
+                        </div>
                     </div>
                     <div class="bottom row" style="padding-top:20px">
                         <div class="form-group col-md-offset-10">
