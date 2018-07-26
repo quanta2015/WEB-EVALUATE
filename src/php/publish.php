@@ -7,12 +7,10 @@ session_start();
 $class = $_POST["class"];
 $title = $_POST["title"];
 $time = $_POST["daterange"];
-$wd = $_POST["task_wd"];
-$pt = $_POST["task_pt"];
-$vd = $_POST["task_vd"];
-$publisher = $_SESSION['name'];
-   //echo $class. $title. $begin. $end. $wd. $pt. $vd. $publisher;
-if ($class == "" || $title == "" || $time== "" || $wd == "" || $pt == "" || $vd == "") {
+$task = $_POST["task"];
+$publisher = $_SESSION['id'];
+   //echo $class. $title. $begin. $end. $task. $publisher;
+if ($class == "" || $title == "" || $time== "" || $task == "") {
     $response = array(
          'code' => 80,
          "msg"=>"existempty",
@@ -21,7 +19,9 @@ if ($class == "" || $title == "" || $time== "" || $wd == "" || $pt == "" || $vd 
         $response = CodeUtil::jsons_encode($response);
       //  header("Content-Type:text/html;charset=utf-8");
         echo urldecode(json_encode($response));
+
 } 
+
 else {
     $time= explode(" - ", $time);
     $begin=date_format(date_create($time[0]), 'Y-m-d H:i:s');
@@ -38,7 +38,7 @@ else {
         header("Content-Type:text/html;charset=utf-8");
         die (urldecode(json_encode($response)));
     }
-    $insert_sql = "insert into task(publish_class,task_title,publish_date,end_date,task_content_wd,task_content_pt,task_content_vd,publisher)values('{$class}','{$title}','{$begin}','{$end}','{$wd}','{$pt}','{$vd}','{$publisher}')";
+    $insert_sql = "insert into task(publish_class,task_title,publish_date,end_date,task_content,publisher)values('{$class}','{$title}','{$begin}','{$end}','{$task}','{$publisher}')";
     
    // print_r($insert_sql);
    if(1==mysqli_query($conn,$insert_sql)){
