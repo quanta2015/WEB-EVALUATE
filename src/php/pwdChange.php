@@ -38,3 +38,5 @@ else { //   两次密码不一致
         $response = CodeUtil::jsons_encode($response);
         echo urldecode(json_encode($response));
 }
+
+?>

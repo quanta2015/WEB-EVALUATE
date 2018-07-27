@@ -16,7 +16,7 @@ function getT(){//老师
 	var p2 = document.getElementById("confirm_password").value;
 	if(p1 == p2){
 		alert("修改成功");
-        window.location.href = "student.html";
+        window.location.href = "task.html";
 	}
 	else{
 		alert("两次密码不一致");
