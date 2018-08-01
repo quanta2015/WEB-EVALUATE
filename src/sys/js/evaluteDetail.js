@@ -94,18 +94,21 @@ $(function() {
     $("#submit_grade").click(function() {
         var detail_grade = document.getElementsByName('grade');
         var grade = [];
+        var total = 0;
         for (var i = 0; i < detail_grade.length; i++) {
             if (detail_grade[i].value != " " && !isNaN(detail_grade[i].value)) {
                 grade[i] = detail_grade[i].value;
+                total = total + Number(detail_grade[i].value);
                 grade.length++;
             }
         }
-        console.log(grade);
+        grade[i] = total;
+        console.log(total);
         console.log(JSON.stringify(grade));
         $.ajax({
             url: '../php/evalute.php',
             type: "POST",
-            data: { grade: JSON.stringify(grade), type: 0, task: 1, length: grade.length },
+            data: { grade: JSON.stringify(grade), role: 0, dotask: 1, length: grade.length },
             //   async:false,
             success: function(data) {
                 console.log(data);

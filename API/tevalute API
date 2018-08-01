@@ -1,0 +1,8 @@
+
+教师学生成绩评定页面学生评定情况查询
+
+//没有信息
+{"code":77,"msg":"emptytask"}
+
+//成功返回
+{"code":0,"msg":"success","data":[{"task_id":"1","user_id":"61","user_class":"\u8f6f\u5de5162","user_name":"\u8521\u96c5\u6d01","t_grade":"12"},{"task_id":"2","user_id":"61","user_class":"\u8f6f\u5de5162","user_name":"\u8521\u96c5\u6d01","t_grade":null},{"task_id":"1","user_id":"47","user_class":"\u8f6f\u5de5162","user_name":"\u53f6\u8273\u6d01","t_grade":null}]}

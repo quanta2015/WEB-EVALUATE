@@ -140,7 +140,10 @@ CREATE TABLE `task`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `totalgrade`;
 CREATE TABLE `totalgrade`  (
-  `doTask_id` int(15) NOT NULL COMMENT '做任务编号',
+  `dotask_id` int(15) NOT NULL COMMENT '做任务编号',
+  `t_grade`   int(11) NOT NULL COMMENT '老师评分',
+  `s_grade`   int(11) NOT NULL COMMENT '自评',
+  `g_grade`   int(11) NOT NULL COMMENT '组评',
   `totalGrade` int(11) NOT NULL COMMENT '任务总成绩'
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
