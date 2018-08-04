@@ -19,3 +19,8 @@ input.error {
     border: 2px solid #EE6363;
 
 }
+
+.content-main {
+
+    border: 0;
+}
