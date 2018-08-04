@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../lib/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../lib/toastr-master/toastr.css">
-      <link rel="stylesheet" type="text/css" href="../lib/pace/pace.css">
+    <link rel="stylesheet" type="text/css" href="../lib/pace/pace.css">
     <link rel="stylesheet" type="text/css" href="../sys/css/task.css">
     <link rel="stylesheet" type="text/css" href="../sys/css/classManagement.css">
 
@@ -17,7 +17,7 @@
     <script type="text/javascript" src="../lib/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../lib/bootbox/bootbox.min.js"></script>
     <script type="text/javascript" src="../lib/jsrender/jsrender.js"></script>
-     <script type="text/javascript" src="../lib/pace/pace.min.js"></script>
+    <script type="text/javascript" src="../lib/pace/pace.min.js"></script>
 
 </head>
 
@@ -84,7 +84,7 @@
                 </li>
                 <li id="nav-item"></li>
                 <li id="nav-item">
-                    <a href="password.html" style="display: flex;">
+                    <a href="pwdChangeT.html" style="display: flex;">
                         <!--<i class="fa fa-check-square-o nav-icon"></i>-->
                         <span>修改密码</span>
                         <div id="hidden"></div>
@@ -92,7 +92,7 @@
                     </a>
                 </li>
                 <li id="nav-item"></li>
-                <li id="nav-item">
+                <li id="nav-item" class="has-chosen">
                     <a href="classManagement.html" style="display: flex;">
                         <!--<i class="fa fa-check-square-o nav-icon"></i>-->
                         <span>班级管理</span>
@@ -118,7 +118,7 @@
                         </h3>
                         <h3 class="panel-title clsName flex ">班级名称
                         </h3>
-                        <h3 class="panel-title clsMan flex"><i class="fa fa-plus-square" style="color:rgb(51, 122, 183)"></i></h3>
+                        <h3 class="panel-title clsMan flex"><i class="fa fa-plus-square" style="color:rgb(51, 122, 183)" onclick="clsAdd()"></i></h3>
                     </div>
                     <div id="list"></div>
 
@@ -180,7 +180,7 @@
         <div class="panel-body flex" id="cls-items">
             <div class="clsCh flex" id="{{:#getIndex()+1}}"><input type="checkbox" /></div>
             <div class="clsId flex">{{:#getIndex()+1}}</div>
-            <div class="clsName flex"><a href="#">{{:name}}</a></div>
+            <div class="clsName flex"><a href="studentManagement.html">{{:name}}</a></div>
             <div class="clsMan flex">
                 <i type="button" class="fa fa-minus-square" style="color:rgb(51, 122, 183)" onclick="clsRemove({{:#getIndex()+1}})">
                                 
