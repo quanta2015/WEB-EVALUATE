@@ -3,104 +3,112 @@
 
 <head>
     <meta charset="utf-8">
-    <title>修改密码/老师</title>
-    <link rel="stylesheet" type="text/css" href="../sys/css/homework.css">
-    <link rel="stylesheet" type="text/css" href="../lib/font-awesome/css/font-awesome.min.css">
+    <title>教师管理页面</title>
     <link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../lib/bootstrap-daterangepicker/daterangepicker.min.css">
     <link rel="stylesheet" type="text/css" href="../lib/toastr-master/toastr.css">
+    <link rel="stylesheet" type="text/css" href="./../sys/css/task.css">
     <link rel="stylesheet" type="text/css" href="../sys/css/pwdChange.css">
 
     <script type="text/javascript" src="../lib/jquery/jquery.min.js"></script>
-    <script type="text/javascript" src="../lib/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../lib/jsrender/jsrender.js"></script>
-    <script type="text/javascript" src="../lib/jquery/jquery.params.js"></script>
     <script type="text/javascript" src="../lib/toastr-master/toastr.js"></script>
-    <script type="text/javascript" src="../lib/jquery-validation/js/jquery.validate.min.js"></script>
-    <script type="text/javascript" src="../lib/jquery-validation/js/localization/messages_zh.min.js"></script>
-    <script type="text/javascript" src="../lib/jquery-validation/js/additional-methods.min.js"></script>
+    <script type="text/javascript" src="../lib/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../lib/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript" src="../lib/bootstrap-daterangepicker/moment.min.js"></script>
+    <script type="text/javascript" src="../lib/bootstrap-daterangepicker/daterangepicker.min.js"></script>
+
+
+
 </head>
 
 <body>
-    <div class="g-index">
-        <div class="nav">
-            <div class="nav-top">
-                <div class="nav-logo"><img src="../img/logo02.png"></div>
+    <div id="g-index">
+        <div id="nav">
+            <div id="nav-top">
+                <div id="nav-logo"><img src="../img/logo02.png"></div>
                 <i class="fa fa-chevron-right nav-more" id="nav_icon3" style="display: none;"></i>
             </div>
-            <!-- 导航栏内容开始 -->
             <ul>
-                <li class="nav-item">
-                    <a href="task.html" style="display: flex;text-decoration: none;">
-                        <span class="word">发布新任务</span>
-                        <i class="fa fa-chevron-right nav-more icon" id="nav_icon1"></i>
+                <li id="nav-item">
+                    <a href="javascript:;" style="display: flex;">
+                        <!--<i class="fa fa-file-text nav-icon"></i>-->
+                        <span>发布新任务</span>
+                        <div id="hidden"></div>
+                        <i class="fa fa-chevron-right nav-more" id="nav_icon1"></i>
                     </a>
                 </li>
-                <li class="nav-item"></li>
-                <li class="nav-item">
-                    <a href="evalute.html" style="display: flex;text-decoration: none;">
-                        <span class="word">学生成绩评定</span>
-                        <div class="hidden"></div>
-                        <i class="fa fa-chevron-right nav-more icon" id="nav_icon1" ></i>
+                <li id="nav-item"></li>
+                <li id="nav-item">
+                    <a href="javascript:;" style="display: flex;">
+                        <!--<i class="fa fa-search nav-icon"></i>-->
+                        <span>学生成绩评定</span>
+                        <div id="hidden"></div>
+                        <i class="fa fa-chevron-right nav-more" id="nav_icon1"></i>
                     </a>
                 </li>
-                <li class="nav-item"></li>
-                <li class="nav-item">
-                    <a href="gradeSearch.html" style="display: flex;;text-decoration: none;">
-                        <span class="word">学生成绩查询</span>
-                        <div class="hidden"></div>
-                        <i class="fa fa-chevron-right nav-more icon" id="nav_icon1" ></i>
+                <li id="nav-item"></li>
+                <li id="nav-item">
+                    <a href="javascript:;" style="display: flex;">
+                        <!--<i class="fa fa-check-square-o nav-icon"></i>-->
+                        <span>学生成绩查询</span>
+                        <div id="hidden"></div>
+                        <i class="fa fa-chevron-right nav-more" id="nav_icon1"></i>
                     </a>
                 </li>
-                <li class="nav-item"></li>
-                <li class="nav-item">
-                    <a href="#" style="display: flex;;text-decoration: none;">
-                        <span class="word">设置评价标准</span>
-                        <div class="hidden"></div>
-                        <i class="fa fa-chevron-right nav-more icon" id="nav_icon1" ></i>
+                <li id="nav-item"></li>
+                <li id="nav-item">
+                    <a href="javascript:;" style="display: flex;">
+                        <!--<i class="fa fa-check-square-o nav-icon"></i>-->
+                        <span>设置评价标准</span>
+                        <div id="hidden"></div>
+                        <i class="fa fa-chevron-right nav-more" id="nav_icon1"></i>
                     </a>
                 </li>
-                <li class="nav-item"></li>
-                <li class="nav-item">
-                    <a href="#" style="display: flex;;text-decoration: none;">
-                        <span class="word">设置模块分数比例</span>
-                        <div class="hidden"></div>
-                        <i class="fa fa-chevron-right nav-more icon" id="nav_icon1" ></i>
+                <li id="nav-item"></li>
+                <li id="nav-item">
+                    <a href="javascript:;" style="display: flex;">
+                        <!--<i class="fa fa-check-square-o nav-icon"></i>-->
+                        <span>设置模块分数比例</span>
+                        <div id="hidden"></div>
+                        <i class="fa fa-chevron-right nav-more" id="nav_icon1"></i>
                     </a>
                 </li>
-                <li class="nav-item"></li>
-                <li class="nav-item">
-                    <a href="#" style="display: flex;;text-decoration: none;">
-                        <span class="word">设置小组人员</span>
-                        <div class="hidden"></div>
-                        <i class="fa fa-chevron-right nav-more icon" id="nav_icon1" ></i>
+                <li id="nav-item"></li>
+                <li id="nav-item">
+                    <a href="javascript:;" style="display: flex;">
+                        <!--<i class="fa fa-check-square-o nav-icon"></i>-->
+                        <span>设置小组人员</span>
+                        <div id="hidden"></div>
+                        <i class="fa fa-chevron-right nav-more" id="nav_icon1"></i>
                     </a>
                 </li>
-                <li class="nav-item"></li>
-                <li class="nav-item">
-                    <a href="pwdChange.html" style="display: flex;;text-decoration: none;">
-                        <span class="word">修改密码</span>
-                        <div class="hidden"></div>
-                        <i class="fa fa-chevron-right nav-more icon" id="nav_icon1" ></i>
+                <li id="nav-item"></li>
+                <li id="nav-item" class="has-chosen">
+                    <a href="pwdChangeT.html" style="display: flex;">
+                        <!--<i class="fa fa-check-square-o nav-icon"></i>-->
+                        <span>修改密码</span>
+                        <div id="hidden"></div>
+                        <i class="fa fa-chevron-right nav-more" id="nav_icon1"></i>
                     </a>
                 </li>
-                <li class="nav-item"></li>
-                <li class="nav-item has-chosen">
-                    <a href="#" style="display: flex;;text-decoration: none;">
-                        <span class="word">班级管理</span>
-                        <div class="hidden"></div>
-                        <i class="fa fa-chevron-right nav-more icon" id="nav_icon1" ></i>
+                <li id="nav-item"></li>
+                <li id="nav-item">
+                    <a href="classManagement.html" style="display: flex;">
+                        <!--<i class="fa fa-check-square-o nav-icon"></i>-->
+                        <span>班级管理</span>
+                        <div id="hidden"></div>
+                        <i class="fa fa-chevron-right nav-more" id="nav_icon1"></i>
                     </a>
                 </li>
-                <li class="nav-item"></li>
             </ul>
-            <!-- 导航栏内容结束 -->
         </div>
-        <div class="content" style="height: 100%;">
-            <div class="content-top">
-                <a class="userControl" style="display: flex; align-items: center;text-decoration: none;">
-                    <span class="userCotrol-title">个人面板&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                    <i class="fa fa-power-off nav-more fa-2x" id="nav_icon2" style="color: rgb(32, 142, 251);"></i>
-                </a>
+        <div id="content" style="height: 100%;">
+            <div id="content-top">
+                <a id="userControl" style="display: flex; align-items: center;">
+                        <span id="userCotrol-title">个人面板&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <i class="fa fa-power-off fa-2x" id="nav_icon2" style="color: rgb(32, 142, 251);"></i>
+                    </a>
             </div>
             <div class="content-main">
                 <div class="pwdCon">
@@ -116,10 +124,10 @@
                         </div>
                     </form>
                 </div>
-
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="../sys/js/pwdChange.js"></script>
+    <script type="text/javascript " src="../sys/js/pwdChange.js"></script>
 </body>
+
 </html>
