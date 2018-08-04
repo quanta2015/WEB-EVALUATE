@@ -155,7 +155,7 @@ textarea {
     transition: all .3s;
 }
 
-#has-chosen {
+.has-chosen {
     background: rgb(223, 237, 251);
 }
 
