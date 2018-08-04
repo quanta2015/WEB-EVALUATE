@@ -1,0 +1,65 @@
+a:link,
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+
+    color: crimson;
+}
+
+.btn-dis {
+    margin-right: 20px;
+}
+
+.stdCon {
+    width: 80%;
+    margin-top: 5%;
+    margin-left: 10%;
+}
+
+.inline {
+    display: inline-block;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stdCh {
+    width: 15%;
+    height: 20px;
+    padding: 1%;
+
+}
+
+.stdId {
+    width: 15%;
+    height: 20px;
+    padding: 1%;
+}
+
+.stdNum {
+    width: 25%;
+    height: 20px;
+    padding: 1%;
+
+}
+
+.stdName {
+    width: 30%;
+    height: 20px;
+    padding: 1%;
+}
+
+.stdMan {
+    width: 15%;
+    height: 20px;
+    padding: 1%;
+}
+
+.panel-body {
+    border: 1px solid rgb(224, 235, 249);
+}
