@@ -29,35 +29,35 @@
             </div>
             <!-- 导航栏内容开始 -->
             <ul>
-                <li class="nav-item has-chosen">
-                    <a href="student.html" style="display: flex;text-decoration: none;" onClick="back()">
-                        <span class="word">我的作业</span>
-                        <i class="fa fa-chevron-right nav-more icon" id="nav_icon1"></i>
-                    </a>
+                <li class="nav-item">
+                    <a href="student.html" style="display: flex;text-decoration: none;">
+						<span>我的作业</span>
+						<i class="fa fa-chevron-right nav-more f" id="nav_icon1"></i>
+					</a>
                 </li>
                 <li class="nav-item"></li>
                 <li class="nav-item">
                     <a href="gradeSearchStd.html" style="display: flex;text-decoration: none;">
-                        <span class="word">成绩查询</span>
-                        <div class="hidden"></div>
-                        <i class="fa fa-chevron-right nav-more icon" id="nav_icon1" ></i>
-                    </a>
+						<span>成绩查询</span>
+						<div class="hidden"></div>
+						<i class="fa fa-chevron-right nav-more f" id="nav_icon1" ></i>
+					</a>
                 </li>
                 <li class="nav-item"></li>
                 <li class="nav-item">
                     <a href="evaluteStudent.html" style="display: flex;;text-decoration: none;">
-                        <span class="word">成绩评定</span>
-                        <div class="hidden"></div>
-                        <i class="fa fa-chevron-right nav-more icon" id="nav_icon1" ></i>
-                    </a>
+						<span>成绩评定</span>
+						<div class="hidden"></div>
+						<i class="fa fa-chevron-right nav-more f" id="nav_icon1" ></i>
+					</a>
                 </li>
                 <li class="nav-item"></li>
-                <li class="nav-item">
+                <li class="nav-item has-chosen">
                     <a href="pwdChange.html" style="display: flex;;text-decoration: none;">
-                        <span class="word">个人设置</span>
-                        <div class="hidden"></div>
-                        <i class="fa fa-chevron-right nav-more icon" id="nav_icon1" ></i>
-                    </a>
+						<span>修改密码</span>
+						<div class="hidden"></div>
+						<i class="fa fa-chevron-right nav-more f" id="nav_icon1" ></i>
+					</a>
                 </li>
                 <li class="nav-item"></li>
             </ul>
@@ -72,15 +72,16 @@
             </div>
             <div class="content-main">
                 <div class="pwdCon">
-                    <form id="pwdForm" method="post" action="../php/pwdChange.php">
+                    <form id="pwdForm" method="get" action="">
                         <div class="form-group">
-                            <input class="form-control" id="password" type="password" placeholder="请输入新密码" name="newpassword">
+                            <input class="form-control" id="password" name="password" type="password" placeholder="请输入新密码">
                         </div>
                         <div class="form-group">
-                            <input class="form-control" id="confirm_password" type="password" placeholder="请确认新密码" name="newpasswordconfirm">
+                            <input class="form-control" id="confirm_password" name="confirm_password" type="password" placeholder="请确认新密码">
                         </div>
+
                         <div class="form-group">
-                            <button class="btn btn-primary btn-emphasis btn-block submit-btn" type="submit" value="提交" onClick="get()">完成</button>
+                            <button class="btn btn-primary btn-emphasis btn-block submit-btn" type="submit" value="提交">完成</button>
                         </div>
                     </form>
                 </div>
@@ -88,6 +89,9 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="../sys/js/pwdChange.js"></script>
+
 </body>
+<script type="text/javascript" src="../sys/js/student.js"></script>
+<script type="text/javascript" src="../sys/js/pwdChange.js"></script>
+
 </html>
