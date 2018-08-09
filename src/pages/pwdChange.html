@@ -72,16 +72,15 @@
             </div>
             <div class="content-main">
                 <div class="pwdCon">
-                    <form id="pwdForm" method="get" action="">
+                    <form id="pwdForm" method="post">
                         <div class="form-group">
-                            <input class="form-control" id="password" name="password" type="password" placeholder="请输入新密码">
+                            <input class="form-control" id="password" type="password" placeholder="请输入新密码" name="newpassword">
                         </div>
                         <div class="form-group">
-                            <input class="form-control" id="confirm_password" name="confirm_password" type="password" placeholder="请确认新密码">
+                            <input class="form-control" id="confirm_password" type="password" placeholder="请确认新密码" name="newpasswordconfirm">
                         </div>
-
                         <div class="form-group">
-                            <button class="btn btn-primary btn-emphasis btn-block submit-btn" type="submit" value="提交">完成</button>
+                            <button class="btn btn-primary btn-emphasis btn-block submit-btn" id="submit" type="submit" value="提交" onClick="get()">完成</button>
                         </div>
                     </form>
                 </div>
@@ -89,9 +88,9 @@
             </div>
         </div>
     </div>
-
+    <script type="text/javascript" src="../sys/js/pwdChange.js"></script>
 </body>
-<script type="text/javascript" src="../sys/js/student.js"></script>
-<script type="text/javascript" src="../sys/js/pwdChange.js"></script>
+
+
 
 </html>
