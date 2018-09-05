@@ -15,6 +15,7 @@
 .secondTitle {
 	width: 100%;
 	color: rgb(140, 144, 153);
+	font-size: 15px;
 }
 .secondTitle div {
 	height: 50px;
@@ -33,19 +34,16 @@
 	border-right: solid 1px rgb(230, 233, 241);
 }
 .cntList-middle {
-	height: 80px;  
+	height: 80px; 
+	width: 100%; 
 	display: flex;
-	align-items: center;
-	border-bottom: solid 1px rgb(230, 233, 241);
-	border-right: solid 1px rgb(230, 233, 241);
+	padding: 10px;
 }
 .cntList-right {
 	height: 80px;
 	display: flex;
-	align-items: center;
-	justify-content: center;
-	border-bottom: solid 1px rgb(230, 233, 241);
-	border-right: solid 1px rgb(230, 233, 241);
+	text-align: center;
+	line-height: 70px;
 } 
 li {
 	color: rgb(74, 74, 74);
@@ -62,4 +60,14 @@ li {
 .formblock{
 	margin-top: 10px;
 	margin-right: 20px
+}
+
+.third{
+	margin-top: 10px;
+	height: 400px;
+	border: solid 1px rgb(230, 233, 241);  
+}
+.btn{
+	margin-top: 15px;
+	margin-left: 95%;
 }
