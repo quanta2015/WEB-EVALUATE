@@ -1,0 +1,14 @@
+signout API
+POST 提交 name pwd；
+返回：
+{
+	code:
+	msg:
+
+}
+
+//成功实例
+{"code":0,"msg":"success"}
+
+//账号错误
+{"code":70,"msg":"fail"}
