@@ -29,13 +29,13 @@ if (!$conn) {
  if($_SESSION['role']==0){
     $CLASS = $_POST['class'];
     if($CLASS == '全部' )
-     $sql4 = "select task_title,publish_date,end_date,user.user_name  from task,user where publisher = user.user_number";
+     $sql4 = "select task_id,task_title,publish_date,end_date,user.user_name  from task,user where publisher = user.user_number";
    else 
-     $sql4 = "select task_title,publish_date,end_date,user.user_name  from task,user where publish_class = '{$CLASS}' and publisher = user.user_number";
+     $sql4 = "select task_id,task_title,publish_date,end_date,user.user_name  from task,user where publish_class = '{$CLASS}' and publisher = user.user_number";
  }
 else {
   $CLASS = $_SESSION['class'];
-  $sql4 = "select task_title,publish_date,end_date,user.user_name,total_tag from task,user,dotask where publish_class = '{$CLASS}' and user.user_number = publisher and dotask.user_id = '{$id}' and dotask.task_id = task.task_id";
+  $sql4 = "select task_id,task_title,publish_date,end_date,user.user_name,total_tag from task,user,dotask where publish_class = '{$CLASS}' and user.user_number = publisher and dotask.user_id = '{$id}' and dotask.task_id = task.task_id";
 
 }
   

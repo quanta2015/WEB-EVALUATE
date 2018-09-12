@@ -1,12 +1,24 @@
 $(document).ready(function () {
     //班级下拉菜单设置
-    var clsname = ['软工162', '软工161', '物联网161', '物联网162'];
-    var clsval;
+    //查找老师所有的班级
+    $.ajax({
+        url: '../php/class_search.php',
+        type: "POST",
+        async: false,
+        success: function(data) {
 
-    for (i = 0, len = clsname.length; i < len; i++) {
-        clsval = clsname[i];
-        $("#clsCh").append("<option>" + clsval + "</option>");
-    }
+            classes = JSON.parse(data);
+            console.log(classes);
+            var context;
+            if (classes.code == 0) {
+                for (var i = 0; i < classes.data.length; i++)
+                $("#clsCh").append("<option>" + classes.data[i].class_name + "</option>");
+            } else if (classes.code == 77)  $("#clsCh").append("<option> 没有班级 </option>");
+
+
+        }
+
+    })
     //开始时间和截止时间设置
     $('input[name="daterange"]').daterangepicker({
         locale: {
@@ -35,19 +47,18 @@ $(document).ready(function () {
         format: 'YYYY/MM/DD HH:mm:ss', //控件中from和to 显示的日期格式MM/DD/YYYY
         separator: '-',
         defaultDate: new Date(),
-    });
+    })
 
-
-});
 
 
 
 $("#submit").click(function () {
+    console.log("按了一下");
 
     $.ajax({
         url: '../php/publish.php',
         type: "POST",
-        data: $('#content-main').serialize(),
+        data: {class:$("#clsCh").val(),title:$("#taskTitle").val(),daterange:$("#daterange").val(),task:$("#taskRequest").val()},
 
         success: function (data) {
             console.log(data);
@@ -64,6 +75,12 @@ $("#submit").click(function () {
             }
 
         }
-    });
+    })
+})
+
+
+
+
 });
+
 

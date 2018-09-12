@@ -88,13 +88,13 @@ $('.box').html(finalTpl);
 */
 
 
-
-
 $(function() {
-    $("#submit_grade").click(function() {
+
+ $("#submit_grade").click(function() {
         var detail_grade = document.getElementsByName('grade');
         var grade = [];
         var total = 0;
+        var id = GetQueryString("dotask_id");
         for (var i = 0; i < detail_grade.length; i++) {
             if (detail_grade[i].value != " " && !isNaN(detail_grade[i].value)) {
                 grade[i] = detail_grade[i].value;
@@ -108,7 +108,7 @@ $(function() {
         $.ajax({
             url: '../php/evalute.php',
             type: "POST",
-            data: { grade: JSON.stringify(grade), role: 0, dotask: 1, length: grade.length },
+            data: { grade: JSON.stringify(grade), role: 0, dotask: id, length: grade.length },
             //   async:false,
             success: function(data) {
                 console.log(data);
@@ -119,3 +119,14 @@ $(function() {
         });
     })
 });
+
+
+
+
+
+function GetQueryString(name)
+{
+     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+     var r = window.location.search.substr(1).match(reg);
+     if(r!=null)return  unescape(r[2]); return null;
+}

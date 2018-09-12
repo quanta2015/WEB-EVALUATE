@@ -125,6 +125,7 @@ $(document).ready(function() {
         })
 
         $('#minisearch').click(function(){
+         
             $.ajax({
                 url: '../php/tevalute_search.php',
                 type:"POST",

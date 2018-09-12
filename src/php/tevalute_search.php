@@ -8,17 +8,17 @@ $class = $_POST["class"];
 $title = $_POST["title"];
 
 if($class == '全部' && $title =='全部'){
-	$sql = "select task_id,user_id,user_class,user_name,t_grade from dotask,totalgrade,user where totalgrade.dotask_id = dotask.id and user.user_number = dotask.user_id";
+	$sql = "select dotask.id,task_id,user_id,user_class,user_name,t_grade from dotask,totalgrade,user where totalgrade.dotask_id = dotask.id and user.user_number = dotask.user_id";
 }
 if($class != '全部' && $title =='全部'){
-   $sql = "select task_id,user_id,user_class,user_name,t_grade from dotask,totalgrade,user where totalgrade.dotask_id = dotask.id and user.user_number = dotask.user_id and user.user_class = '{$class}'";
+   $sql = "select  dotask.id,task_id,user_id,user_class,user_name,t_grade from dotask,totalgrade,user where totalgrade.dotask_id = dotask.id and user.user_number = dotask.user_id and user.user_class = '{$class}'";
 }
 if($class == '全部' && $title !='全部'){
-   $sql = "select task_id,user_id,user_class,user_name,t_grade from dotask,totalgrade,user where totalgrade.dotask_id = dotask.id and user.user_number = dotask.user_id and dotask.task_id IN (select task_id from task where task_title  = '{$title}')";
+   $sql = "select  dotask.id,task_id,user_id,user_class,user_name,t_grade from dotask,totalgrade,user where totalgrade.dotask_id = dotask.id and user.user_number = dotask.user_id and dotask.task_id IN (select task_id from task where task_title  = '{$title}')";
 }
 
 if($class != '全部' && $title !='全部'){
-   $sql = "select task_id,user_id,user_class,user_name,t_grade from dotask,totalgrade,user where totalgrade.dotask_id = dotask.id and user.user_number = dotask.user_id and dotask.task_id IN (select task_id from task where task_title  = '{$title}') and user.user_class = '{$class}'";
+   $sql = "select  dotask.id,task_id,user_id,user_class,user_name,t_grade from dotask,totalgrade,user where totalgrade.dotask_id = dotask.id and user.user_number = dotask.user_id and dotask.task_id IN (select task_id from task where task_title  = '{$title}') and user.user_class = '{$class}'";
 }
 
    $result = $conn->query($sql);
