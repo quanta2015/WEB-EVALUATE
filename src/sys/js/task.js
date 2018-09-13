@@ -5,20 +5,34 @@ $(document).ready(function () {
         url: '../php/class_search.php',
         type: "POST",
         async: false,
-        success: function(data) {
+        success: function (data) {
 
             classes = JSON.parse(data);
             console.log(classes);
             var context;
             if (classes.code == 0) {
                 for (var i = 0; i < classes.data.length; i++)
-                $("#clsCh").append("<option>" + classes.data[i].class_name + "</option>");
-            } else if (classes.code == 77)  $("#clsCh").append("<option> 没有班级 </option>");
+                    $("#clsCh").append("<option>" + classes.data[i].class_name + "</option>");
+            } else if (classes.code == 77) $("#clsCh").append("<option> 没有班级 </option>");
 
 
         }
 
-    })
+    });
+    //退出登录
+    //    $.ajax({
+    //        url: '../php/signouts.php',
+    //        type: "POST",
+    //        success: function (data) {
+    //            result = JSON.parse(data);
+    //            if (result.code == 0) {
+    //                alert("退出成功！")
+    //            } else if {
+    //
+    //            };
+    //
+    //        }
+    //    });
     //开始时间和截止时间设置
     $('input[name="daterange"]').daterangepicker({
         locale: {
@@ -52,35 +66,40 @@ $(document).ready(function () {
 
 
 
-$("#submit").click(function () {
-    console.log("按了一下");
+    $("#submit").click(function () {
+        console.log("按了一下");
 
-    $.ajax({
-        url: '../php/publish.php',
-        type: "POST",
-        data: {class:$("#clsCh").val(),title:$("#taskTitle").val(),daterange:$("#daterange").val(),task:$("#taskRequest").val()},
+        $.ajax({
+            url: '../php/publish.php',
+            type: "POST",
+            data: {
+                class: $("#clsCh").val(),
+                title: $("#taskTitle").val(),
+                daterange: $("#daterange").val(),
+                task: $("#taskRequest").val()
+            },
 
-        success: function (data) {
-            console.log(data);
-            var obj = JSON.parse(data);
-            if (obj.code == 0) {
-                toastr.success('已成功发布任务');
-            } else if (obj.code == 80) {
-                toastr.warning('存在空输入');
-            } else if (obj.code == 20) {
-                toastr.waring('发布失败');
+            success: function (data) {
+                console.log(data);
+                var obj = JSON.parse(data);
+                if (obj.code == 0) {
+                    toastr.success('已成功发布任务');
+                } else if (obj.code == 80) {
+                    toastr.warning('存在空输入');
+                } else if (obj.code == 20) {
+                    toastr.waring('发布失败');
 
-            } else if (obj.code == 55) {
-                toastr.error('数据库连接失败');
+                } else if (obj.code == 55) {
+                    toastr.error('数据库连接失败');
+                }
+
             }
-
-        }
-    })
-})
-
-
+        })
+    });
 
 
 });
 
-
+function cancel() {
+    alert('退出登录成功！');
+}
