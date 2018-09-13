@@ -57,9 +57,7 @@ textarea {
 .evaluteStandard {
     margin: 40px;
     width: calc(100% - 80px);
-    border: solid 1px rgb(230, 233, 241);
     border-bottom: none;
-    box-shadow: rgb(230, 230, 230) 0 0 20px;
     height: 70%;
 }
 
