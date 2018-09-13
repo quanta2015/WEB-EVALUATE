@@ -86,7 +86,7 @@
                                 <div style="background: {{if isEvalute == 1}}rgb(248, 247, 255){{else}}white{{/if}}"><span>{{:stdID}}</span></div>
                                 <div style="background: {{if isEvalute == 1}}rgb(248, 247, 255){{else}}white{{/if}}"><span>{{:class}}</span></div>
                                 <div style="background: {{if isEvalute == 1}}rgb(248, 247, 255){{else}}white{{/if}}"><span>{{:name}}</span></div>
-                                <div class="comment" style="background: {{if isEvalute == 1}}rgb(248, 247, 255){{else}}white{{/if}}"><a href="evaluteDetailStd.html">{{if isEvalute == 0}}去评价{{else}}查看评价{{/if}}</a></div>
+                                <div class="comment" style="background: {{if isEvalute == 1}}rgb(248, 247, 255){{else}}white{{/if}}"><a href="evaluteDetailStd.html?dotask_id={{:id}}">{{if isEvalute == 0}}去评价{{else}}查看评价{{/if}}</a></div>
                             </div>
                         </li>
                         {{/for}}

@@ -1,6 +1,3 @@
-
-
-
 $(function(){
      var obj;
      $.ajax({
