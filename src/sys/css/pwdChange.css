@@ -1,26 +1,90 @@
-.pwdCon {
-    width: 300px;
-    margin-top: 17%;
-    margin-left: 35%;
+.final {
+    /*
+    border: rgb(149, 201, 255) solid 1px;
+    background-color: rgb(245, 250, 255);
+*/
+    border: rgb(5, 127, 254) solid 2.3px;
+    background-color: rgb(5, 127, 254);
+    border-radius: 3px;
+    /*    color: rgb(5, 127, 254);*/
+    width: 100px;
+    height: 36px;
+    font-size: 120%;
+    margin-left: 8%;
+    font-weight: thin;
+    color: white;
 }
 
-input {
-    width: 200px;
-    height: 30px;
-    border-width: 2px;
-    border-radius: 1px;
+.final:hover {
+    border: rgb(149, 201, 255) solid 2.3px;
+    background-color: #F0F8FF;
+    color: rgb(5, 127, 254);
+
+    /*    color: white;*/
 }
 
-.error {
-    color: #EE6363;
+
+textarea {
+    border: 1px rgb(219, 219, 219) solid;
+    border-radius: 5px;
 }
 
-input.error {
-    border: 2px solid #EE6363;
-
+.taskTitle {
+    width: 100%;
+    height: 300px;
 }
 
-.content-main {
+.taskRequest {
+    width: 100%;
+    height: 300px;
+}
 
-    border: 0;
+#submit {
+    /*
+    height: 5%;
+    border-style: none;
+    width: 17%;
+    font-size: 120%;
+    color: white;
+    background: rgb(0, 152, 242);
+    border-radius: 3px;
+    text-align: center;
+    margin-top: 3%;
+    margin-left: 76%;
+*/
+}
+
+.evaluteStandard {
+    margin: 40px;
+    width: calc(100% - 80px);
+    border: solid 1px rgb(230, 233, 241);
+    border-bottom: none;
+    box-shadow: rgb(230, 230, 230) 0 0 20px;
+    height: 70%;
+}
+
+html {
+    min-width: 1200px;
+    min-height: 800px;
+}
+
+
+
+select,
+input,
+textarea {
+    appearance: none;
+    -moz-appearance: none;
+    background: transparent;
+    border: solid 2.3px rgb(221, 237, 252);
+    color: rgb(140, 144, 153);
+    font-size: 100%;
+    outline: none;
+    resize: none;
+    border-radius: 5px;
+}
+
+.search_input::-webkit-input-placeholder {
+    color: #b6b6b6;
+    font-size: 110%;
 }
