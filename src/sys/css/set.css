@@ -62,7 +62,7 @@ li {
 	margin-right: 20px
 }
 
-.third{
+/*.third{
 	margin-top: 10px;
 	height: 400px;
 	border: solid 1px rgb(230, 233, 241);  
@@ -70,4 +70,67 @@ li {
 .btn{
 	margin-top: 15px;
 	margin-left: 95%;
+}*/
+.basicInputStyle {
+	background: transparent;
+	appearance: none;
+    -moz-appearance: none;
+    border: solid 1.3px rgb(221, 237, 252);
+    color: rgb(140, 144, 153);
+    font-size: 100%;
+    outline: none;
+    resize: none;
+    border-radius: 5px;
+    height: 30px;
+    width: 150px;
+    box-shadow: rgb(221, 237, 252) 0 0 3px;
+}
+.fstTitle {
+	color: rgb(140, 144, 135);
+	font-size: 120%;
+}
+.sedTitle {
+	color: rgb(111, 111, 111);
+	font-size: 105%;
+	margin-right: 1%;
+}
+.outter {
+	margin-top: 2%;
+}
+.content-main-topbox,.content-main-middlebox {
+	margin-left: 5%;
+	margin-top: 3%;
+	margin-left: 30px;
+	margin-right: 30px;
+	width: calc(100% - 60px);
+	padding-bottom: 3%;
+	border-bottom: dashed 2px rgb(230, 233, 241);
+}
+.content-main-buttombox {
+	margin-left: 5%;
+	margin-top: 3%;
+	margin-left: 30px;
+	margin-right: 30px;
+	width: calc(100% - 60px);
+}
+.basicbtn {
+	border: rgb(149, 201, 255) solid 1px;
+	background-color: rgb(245, 250, 255);
+	border-radius: 18px;
+	color: rgb(5, 127, 254);
+	width: 68px;
+	height: 33px;
+	font-size: 100%;
+	margin-right: 3%;
+	font-weight: thin;
+	right: 0;
+}
+.basicbtn:hover {
+	border: rgb(5, 127, 254) solid 1px;
+	background-color: rgb(5, 127, 254);
+	color: white;
+}
+.hiddenbox {
+	content: " ";
+	flex-grow: 5;
 }

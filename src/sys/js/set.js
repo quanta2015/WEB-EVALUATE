@@ -23,13 +23,28 @@ $(function() {
 	}); 
 });
 
-/*      
-                        document.getElementById("click1").onclick=function(){
-                            var text=document.getElementById("t1");
-                            var val=text.innerHTML;
-                            text.innerHTML="<input type='text' id='m' value="+val+" />";
-                            document.getElementById("m").addEventListener("blur",function(e){
-                                text.innerHTML=document.getElementById("m").value;
-                            });
-                        };
-                        */                       
+$("#pectSure").click(function() {
+	var teaPect = document.getElementByID('teacherPect').value;
+	var grpPect = document.getElementByID('groupPect').value;
+	var myPect = document.getElementByID('selfPect').value;
+	$.ajax({
+		url:"../php/set.php",
+		type: "POST",
+		data: {teacherPect: JSON.stringify(teaPect), groupPect: JSON.stringify(grpPect), selfPect: JSON.stringify(myPect)},
+		success: function(data) {
+			console.log(data);
+		}
+	});
+});
+
+$("#groupnumSure").click(function() {
+	var grpnum = document.getElementByID('groupNum').value;
+	$.ajax({
+		url:"../php/set.php",
+		type: "POST",
+		data: {groupNum: JSON.stringify(grpnum)},
+		success: function(data) {
+			console.log(data);
+		}
+	});
+});           
