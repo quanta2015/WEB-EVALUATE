@@ -36,11 +36,6 @@ a{text-decoration:none;color:#202020;}
 	background-color: rgb(5, 127, 254);
 	color: white;
 }
-.btn_detail{
-	border-radius: 10px;
-	border:none;
-	text-decoration: none;
-}
 .container{}
 .f{margin-left: 113px;}
 .block{
@@ -79,4 +74,23 @@ a{text-decoration:none;color:#202020;}
 	color: rgb(74, 74, 74);
 }
 
-
+#content{
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	width: 280px;
+	cursor: pointer;
+}
+#float_box{
+	width: 240px;
+	height: 50px;
+	background-color: rgb(245, 247, 250);
+	border: 1px solid #ddd;
+	border-radius: 10px;
+	position: absolute;
+	left: 80px;
+	top:65px;
+	overflow: scroll;
+	overflow-x: hidden;
+	display: none;
+}
