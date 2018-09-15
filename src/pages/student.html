@@ -3,12 +3,13 @@
 <head>
 	<meta charset="utf-8">
 	<title>学生作业管理</title>
-<link rel="stylesheet" type="text/css" href="../sys/css/homework.css">
-<link rel="stylesheet" type="text/css" href="../lib/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="../sys/css/homework.css">
+	<link rel="stylesheet" type="text/css" href="../lib/font-awesome/css/font-awesome.min.css">
 
-<script type="text/javascript" src="../lib/jquery/jquery.min.js"></script>
-<script type="text/javascript" src="../lib/jsrender/jsrender.js"></script>
-<script type="text/javascript" src="../lib/jquery/jquery.params.js"></script>
+	<script type="text/javascript" src="../lib/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="../lib/jsrender/jsrender.js"></script>
+	<script type="text/javascript" src="../lib/jquery/jquery.params.js"></script>
+	<script type="text/javascript" src="../lib/bootstrap-daterangepicker/moment.min.js"></script>
 </head>
 <body>
 	<div class="g-index">
@@ -70,26 +71,26 @@
 						<script type="text/x-jsrender" id="testTmpl">
 							<li class="lookLi">	
 								<div class="titTxt">
-									<p style="padding-top: 11px;"><a>作业
+									
+									<p style="padding-top: 10px;"><a>作业
 										<a id="head" name="{{:#index+1}}">{{:#index+1}}</a></a>
 									</p>
-									<!-- <div id="details"><h5 class="demand">作业要求：</h5><div class="demand_detail">{{:content}}</div></div> -->
-									<span>作业内容：</span>
-									<span><div style="display: inline;" id="short{{:#index}}">{{:task_title.substr(0,10)}}...</div></span>
-									<span><div style="display: none;" id="detail{{:#index}}">{{:task_title}}</div></span>
-									<span><button id="demoBtn" class="btn_detail" name="{{:#index}}" >详情</button></span>
+		
+									<span id="content" onmouseover="display()" onmouseout="disappear()">作业内容：{{:task_title}}</span>
+									<div id="float_box" onmouseover="display()" onmouseout="disappear()">{{:task_title}}</div>
 
 									<div title="" class="pt5"><span class="f1">发布老师：</span><span>{{:user_name}}</span></div>
 									<div title="" class="pt5"><span class="f1">开始时间：</span><span>{{:publish_date}}</span></div>
-									<div title="" class="pt5"><span class="f1">截止时间：</span><span>{{:end_date}}</span></div>
+									<div title="" class="pt5"><span class="f1">截止时间：</span><span id="endtime">{{:end_date}}</span></div>
+									<div title="" class="pt5"><span class="f1">剩余时间：</span><span id="nowtime"></span></div>
 									<div id="tit" title="" class="pt5"><span class="f1"></span>作业状态：<strong>
-										{{if total_tag == 0}}已完成
-										{{else}}未完成
+										{{if total_tag == 0}}<span style="color:green"">已完成</span>
+										{{else}}<span style="color:red"">未完成</span>
 										{{/if}}
 									</strong></div>
 								</div>
 								<div class="titOper">
-									<p class="clearfix">							
+									<p class="clearfix">						
 										<button id="ac" class="Btn_blue" name="{{:#index+1}}">
 											{{if total_tag == 0}}查看
 											{{else}}去完成

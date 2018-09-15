@@ -3,15 +3,19 @@
 
 <head>
     <meta charset="utf-8">
-    <title>教师管理页面</title>
-    <link rel="stylesheet" type="text/css" href="./../sys/css/base.css">
-    <link rel="stylesheet" type="text/css" href="../lib/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../lib/pace/pace.css">
+    <title>成绩评定/教师</title>
     <link rel="stylesheet" type="text/css" href="../lib/toastr-master/toastr.css">
-    <link rel="stylesheet" type="text/css" href="../sys/css/pwdChange.css">
+    <link rel="stylesheet" type="text/css" href="../lib/pace/pace.css">
+    <link rel="stylesheet" type="text/css" href="../sys/css/base.css">
+    <link rel="stylesheet" type="text/css" href="../sys/css/evalute.css">
+    <link rel="stylesheet" type="text/css" href="../sys/css/taskManage.css">
+    <link rel="stylesheet" type="text/css" href="../lib/font-awesome/css/font-awesome.min.css">
 
+    <script type="text/javascript" src="../lib/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="../lib/pace/pace.min.js"></script>
-    <script type="text/javascript" src="../sys/js/pwdChange.js"></script>
+    <script type="text/javascript" src="../lib/toastr-master/toastr.js"></script>
+    <script type="text/javascript" src="../lib/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../lib/jsrender/jsrender.js"></script>
 </head>
 
 <body>
@@ -24,6 +28,14 @@
                 <li class="nav-item">
                     <a href="task.html" style="display: flex;">
                             <span>发布新任务</span>
+                            <div class="hidden"></div>
+                            <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
+                        </a>
+                </li>
+                <li class="nav-item"></li>
+                <li class="nav-item has-chosen">
+                    <a href="gradeSearch.html" style="display: flex;">
+                            <span>任务管理</span>
                             <div class="hidden"></div>
                             <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
                         </a>
@@ -53,8 +65,8 @@
                     </a>
                 </li>
                 <li class="nav-item"></li>
-                <li class="nav-item has-chosen">
-                    <a href="pwdChangeT.html" style="display: flex;">
+                <li class="nav-item">
+                    <a href="passwordT.html" style="display: flex;">
                             <span>修改密码</span>
                             <div class="hidden"></div>
                             <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
@@ -71,29 +83,29 @@
             </ul>
         </div>
         <div class="content">
-            <div class="content-top">
-                <a class="userControl" style="display: flex; align-items: center;" href="../index.html" onClick="cancel()">
-                        <i class="fa fa-power-off nav-more fa-2x" id="nav_icon2" style="color: rgb(32, 142, 251);"  onClick="cancel()"></i>
+            <div class="content-top"> 
+                <a class="userControl" style="display: flex; align-items: center;">
+                        <!-- <span class="userCotrol-title">个人面板&nbsp;&nbsp;&nbsp;&nbsp;</span> -->
+                        <i class="fa fa-power-off nav-more fa-2x" id="nav_icon2" style="color: rgb(32, 142, 251);"></i>
                     </a>
             </div>
-            <div class="content-main">
-                <div class="evaluteStandard">
-                    <form id="pwdForm" method="post">
-                        <div style="margin-top:12%;">
-                            <input style="width:24%;height:35px;margin-left:38%;" id=" password " type="password" placeholder="&nbsp;&nbsp;请输入新密码 " name="newpassword ">
-                        </div>
-                        <div style="margin-top:1%;">
-                            <input style="width:24%;height:35px;margin-left:38%;" id="confirm_password " type="password" placeholder="&nbsp;&nbsp;请确认新密码 " name="newpasswordconfirm ">
-                        </div>
-                        <div style="margin-top:1%">
-                            <button class="final" style="width:24.5%;height:35px;margin-left:38%;" id="submit " type="submit " value="提交 " onClick="get() ">完成</button>
-                        </div>
-                    </form>
+            <div class="content-main" style="display: flex; flex-direction: column;">
+                <div class="content-main-top" style="display: flex; align-items: center; border-bottom: none;">
+                    <span>选择班级:</span>
+                    <select id="classSlct">
+                        <option>软工161</option>
+                        <option>软工162</option>
+                        <option>全部</option>
+                    </select>
+                    <button class="minisearch btn" id="minisearch">查询</button>
+                </div>
+                <div class="editTask">
+                    
                 </div>
             </div>
         </div>
     </div>
-    <script type="text/javascript " src="../sys/js/pwdChange.js"></script>
 </body>
+<script type="text/javascript" src="../sys/js/evalute.js"></script>
 
 </html>

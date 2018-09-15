@@ -1,224 +1,15 @@
-@charset "utf-8";
-
-
-body,
-html {
-    height: 100%;
-}
-
-body,
-ul {
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font: 14px "微软雅黑", "宋体", "Arial Narrow", HELVETICA;
-    -webkit-text-size-adjust: 100%;
-}
-
-li {
-    list-style: none;
-}
-
-a {
-    text-decoration: none;
-}
-
-input,
-button,
-select,
-textarea {
-    outline: none
-}
-
-textarea {
-    resize: none
-}
-
-.content-main {
-    margin: 1% 3% 1% 3%;
-    border: 1px solid rgb(219, 219, 219);
-}
-
-.content-main.head {}
-
-#g-index {
-    width: 100%;
-    height: 100%;
-    display: flex;
-}
-
-#nav {
-    position: relative;
-    width: 250px;
-    height: 100%;
-    background: rgb(245, 247, 250);
-    border-right: solid rgb(230, 233, 240) 1px;
-    transition: all .3s;
-}
-
-#nav-top {
-    width: 100%;
-    height: 15%;
-    display: flex;
-    align-items: center;
-    border-bottom: solid rgb(230, 233, 240) 1px;
-}
-
-#nav-logo img {
-    margin-left: 10px;
-    width: 80%;
-    height: 90%;
-}
-
-#nav a {
-    display: block;
-    overflow: hidden;
-    padding-left: 20px;
-    line-height: 50px;
-    max-height: 50px;
-    color: rgb(141, 145, 153);
-    transition: all .3s;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-}
-
-#nav a span {
-    margin-left: 30px;
-    text-decoration: none;
-}
-
-#nav-item {
-    position: relative;
-    margin-bottom: 5px;
-}
-
-#nav-item ul {
-    display: none;
-    background: rgb(223, 237, 251);
-}
-
-#nav-item .nav-show ul {
-    display: block;
-    margin-bottom: 5px;
-}
-
-#nav-item > a:before {
-    content: "";
-    position: absolute;
-    left: 0px;
-    width: 4px;
-    height: 50px;
-    background: rgb(50, 149, 247);
-    opacity: 0;
-    transition: all .3s;
-    text-decoration: none;
-}
-
-#nav .nav-icon {
-    font-size: 20px;
-    position: absolute;
-    margin-left: -1px;
-}
-
-.nav-more {
-    float: right;
-    margin-right: 20px;
-    font-size: 12px;
-    transition: transform .3s;
-}
-
-#nav-show .nav-more {
-    transform: rotate(90deg);
-}
-
-#nav-show,
-#nav-item > a:hover {
-    background: rgb(223, 237, 251);
-}
-
-#nav-show > a:before,
-#nav-item > a:hover:before {
-    opacity: 1;
-}
-
-#has-chosen:before {
-    content: "";
-    position: absolute;
-    left: 0px;
-    width: 4px;
-    height: 50px;
-    background: rgb(50, 149, 247);
-    opacity: 1;
-    transition: all .3s;
-}
-
-.has-chosen {
-    background: rgb(223, 237, 251);
-}
-
-#nav-item li:hover a {
-    color: black;
-}
-
-#hidden {
-    flex-grow: 1;
-}
-
-#content {
-    width: calc(100% - 250px);
-    height: 100%;
-    transition: all .3s;
-}
-
-#content-top {
-    width: 100%;
-    height: 12%;
-    display: flex;
-    align-items: center;
-    border-bottom: solid rgb(230, 233, 240) 1px;
-    justify-content: flex-end;
-}
-
-#userCotrol-title,
-#userName,
-#userID {
-    color: rgb(141, 145, 153);
-}
-
-#userControl {
-    text-decoration-line: none;
-    margin-right: 40px;
-}
-
-.content-main .head {
-    margin-left: 2%;
-    margin-top: 2%;
-}
-
-.content-main .body {
-
-    margin-left: 2%;
-}
-
-.content-main .bottom {
-    margin-top: 3%;
-}
-
 textarea {
     border: 1px rgb(219, 219, 219) solid;
     border-radius: 5px;
 }
 
 .taskTitle {
-    width: 400px;
+    width: 100%;
     height: 300px;
 }
 
 .taskRequest {
-    width: 400px;
+    width: 100%;
     height: 300px;
 }
 
@@ -236,3 +27,64 @@ textarea {
     margin-left: 76%;
 */
 }
+
+.evaluteStandard {
+    margin: 40px;
+    width: calc(100% - 80px);
+    border: solid 1px rgb(230, 233, 241);
+    border-bottom: none;
+    box-shadow: rgb(230, 230, 230) 0 0 20px;
+    height: 70%;
+}
+
+html {
+    min-width: 1200px;
+    min-height: 800px;
+}
+
+.final {
+    border: rgb(149, 201, 255) solid 1px;
+    background-color: rgb(245, 250, 255);
+    border-radius: 18px;
+    color: rgb(5, 127, 254);
+    width: 100px;
+    height: 36px;
+    font-size: 120%;
+    margin-left: 8%;
+    font-weight: thin;
+}
+
+.final:hover {
+    border: rgb(5, 127, 254) solid 2px;
+    background-color: rgb(5, 127, 254);
+    color: white;
+}
+
+select,
+input,
+textarea {
+    appearance: none;
+    -moz-appearance: none;
+    background: transparent;
+    border: solid 2.3px rgb(221, 237, 252);
+    color: rgb(140, 144, 153);
+    font-size: 100%;
+    outline: none;
+    resize: none;
+    border-radius: 5px;
+}
+
+.search_input::-webkit-input-placeholder {
+    color: #b6b6b6;
+    font-size: 110%;
+}
+
+
+
+
+
+
+
+
+
+
