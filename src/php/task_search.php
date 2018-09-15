@@ -35,7 +35,7 @@ if (!$conn) {
  }
 else {
   $CLASS = $_SESSION['class'];
-  $sql4 = "select task_id,task_title,publish_date,end_date,user.user_name,total_tag from task,user,dotask where publish_class = '{$CLASS}' and user.user_number = publisher and dotask.user_id = '{$id}' and dotask.task_id = task.task_id";
+  $sql4 = "select task.task_id,task_title,publish_date,end_date,user.user_name,total_tag from task,user,dotask where publish_class = '{$CLASS}' and user.user_number = publisher and dotask.user_id = '{$id}' and dotask.task_id = task.task_id";
 
 }
   
