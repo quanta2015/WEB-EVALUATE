@@ -7,8 +7,6 @@ session_start();
 
 $id                 = $_SESSION['id'];
 $newpassword        = $_POST['newpassword'];
-$newpasswordconfirm = $_POST['newpasswordconfirm'];
-
 if (!$conn) {
     $response = array(
         'code' => 55,
@@ -19,9 +17,7 @@ if (!$conn) {
     die(urldecode(json_encode($response)));
 } 
 
-else if ($newpassword == $newpasswordconfirm) {
-    $sql    = "UPDATE user SET user_password = '$newpassword
-                          ' WHERE user_number = '$id'";
+    $sql    = "UPDATE user SET user_password = '$newpassword' WHERE user_number = '$id'";
     $result = mysqli_query($conn, $sql);
 
     if ($result) { //   密码修改成功
@@ -41,16 +37,6 @@ else if ($newpassword == $newpasswordconfirm) {
         $response = CodeUtil::jsons_encode($response);
         echo urldecode(json_encode($response));
     }
-} 
-
-else { //   两次密码不一致
-    $response = array(
-        'code' => 1,
-        "msg"  => "confirmfail"
-    );
-    $response = CodeUtil::jsons_encode($response);
-    echo urldecode(json_encode($response));
-}
 
 mysqli_close($conn);
 
