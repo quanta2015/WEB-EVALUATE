@@ -86,35 +86,33 @@
                     </a>
             </div>
 
-            <div class="stdCon well">
-                <div class="panel panel-info">
-                    <div class="panel-heading flex">
-                        <h3 class="panel-title stdCh flex">选择</h3>
-                        <h3 class="panel-title stdId flex">序号
-                        </h3>
-                        <h3 class="panel-title stdNum flex ">学号
-                        </h3>
-                        <h3 class="panel-title stdName flex ">姓名
-                        </h3>
-                        <h3 class="panel-title stdMan flex"><i class="fa fa-plus-square" style="color:rgb(51, 122, 183)"></i></h3>
-                    </div>
-                    <div id="list"></div>
+            <div style=" width: 80%;margin-top: 5%;margin-left: 10%;border: solid 1px rgb(230, 233, 241);border-bottom: none;box-shadow: rgb(230, 230, 230) 0 0 20px;">
+
+                <div class="flex">
+                    <h3 class="stdCh flex" style="font-size:15px;font-weight:bold;">选择</h3>
+                    <h3 class="stdId flex" style="font-size:15px;font-weight:bold;">序号
+                    </h3>
+                    <h3 class="stdNum flex " style="font-size:15px;font-weight:bold;">学号
+                    </h3>
+                    <h3 class="stdName flex " style="font-size:15px;font-weight:bold;">姓名
+                    </h3>
+                    <h3 class="stdMan flex" style="font-size:15px;font-weight:bold;"><i class="fa fa-plus-square" style="color:#46a3ff " onclick="stdAdd()"></i></h3>
+                </div>
+                <div id="list"></div>
 
 
-                    <div class="panel-body flex">
-                        <div class="stdCh flex">
-                            <button type="button" class="btn btn-kv  btn-xs btn-normal" onclick="swapCheck()">
+                <div class="flex" style="height:40px;border-top: solid 1px rgb(230, 233, 241);">
+                    <div class="stdCh flex">
+                        <button type="button" class="btn btn-kv  btn-xs btn-normal" onclick="swapCheck()">
                                 全选
                             </button></div>
-                        <div class="stdNum"></div>
-                        <div class="stdId flex"></div>
-                        <div class="stdName flex"></div>
-                        <div class="stdMan flex">
-                            <button type="button" class="btn btn-kv  btn-xs btn-normal" onclick="stdMulRemove()">
+                    <div class="stdNum"></div>
+                    <div class="stdId flex"></div>
+                    <div class="stdName flex"></div>
+                    <div class="stdMan flex">
+                        <button type="button" class="btn btn-kv  btn-xs btn-normal" onclick="stdMulRemove()">
                                 批量删除
                             </button>
-                        </div>
-
                     </div>
                 </div>
             </div>
@@ -156,13 +154,13 @@
 
     </div>
     <script id="stdTmpl" type="text/x-jsrender">
-        <div class="panel-body flex" id="std-items">
+        <div class="flex" id="std-items" style="height:40px;border-top: solid 1px rgb(230, 233, 241);">
             <div class="stdCh flex" id="{{:#getIndex()+1}}"><input type="checkbox" /></div>
             <div class="stdId flex">{{:#getIndex()+1}}</div>
             <div class="stdNum flex">{{:number}}</div>
-            <div class="stdName flex"><a href="#">{{:name}}</a></div>
+            <div class="stdName flex"><a href="#" style="color:black">{{:name}}</a></div>
             <div class="stdMan flex">
-                <i type="button" class="fa fa-minus-square" style="color:rgb(51, 122, 183)" onclick="stdRemove({{:#getIndex()+1}})">
+                <i type="button" class="fa fa-minus-square" style="color:#46a3ff " onclick="stdRemove({{:#getIndex()+1}})">
                                 
                             </i>
             </div>
