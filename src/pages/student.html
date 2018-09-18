@@ -9,7 +9,8 @@
 	<script type="text/javascript" src="../lib/jquery/jquery.min.js"></script>
 	<script type="text/javascript" src="../lib/jsrender/jsrender.js"></script>
 	<script type="text/javascript" src="../lib/jquery/jquery.params.js"></script>
-	<script type="text/javascript" src="../lib/bootstrap-daterangepicker/moment.min.js"></script>
+	<!-- <script type="text/javascript" src="../lib/bootstrap-daterangepicker/moment.min.js"></script> -->
+	<script src="https://unpkg.com/dayjs"></script>
 </head>
 <body>
 	<div class="g-index">
@@ -76,8 +77,8 @@
 										<a id="head" name="{{:#index+1}}">{{:#index+1}}</a></a>
 									</p>
 		
-									<span id="content" onmouseover="display()" onmouseout="disappear()">作业内容：{{:task_title}}</span>
-									<div id="float_box" onmouseover="display()" onmouseout="disappear()">{{:task_title}}</div>
+									<span id="content" name="{{:#index+1}}" onmouseover="display()" onmouseout="disappear()">作业内容：{{:task_title}}</span>
+									<div id="float_box"  onmouseover="display()" onmouseout="disappear()">{{:task_title}}</div>
 
 									<div title="" class="pt5"><span class="f1">发布老师：</span><span>{{:user_name}}</span></div>
 									<div title="" class="pt5"><span class="f1">开始时间：</span><span>{{:publish_date}}</span></div>
