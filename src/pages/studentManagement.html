@@ -5,10 +5,11 @@
     <meta charset="utf-8">
     <title>系统管理</title>
     <link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../sys/css/base.css">
+    <link rel="stylesheet" type="text/css" href="../sys/css/task.css">
     <link rel="stylesheet" type="text/css" href="../lib/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../lib/toastr-master/toastr.css">
     <link rel="stylesheet" type="text/css" href="../lib/pace/pace.css">
-    <link rel="stylesheet" type="text/css" href="../sys/css/task.css">
     <link rel="stylesheet" type="text/css" href="../sys/css/studentManagement.css">
 
 
@@ -22,123 +23,96 @@
 </head>
 
 <body>
-    <div id="g-index">
-        <div id="nav">
-            <div id="nav-top">
-                <div id="nav-logo"><img src="../img/logo02.png"></div>
-                <i class="fa fa-chevron-right nav-more" id="nav_icon3" style="display: none;"></i>
+
+    <div class="g-index">
+        <div class="nav">
+            <div class="nav-top">
+                <div class="nav-logo"><img src="../img/logo02.png"></div>
             </div>
             <ul>
+                <li class="nav-item">
+                    <a href="task.html" style="display: flex;">
+                            <span>发布新任务</span>
+                            <div class="hidden"></div>
+                            <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
+                        </a>
+                </li>
+                <li class="nav-item"></li>
+                <li class="nav-item">
+                    <a href="evalute.html" style="display: flex;">
+                            <span>学生成绩评定</span>
+                            <div class="hidden"></div>
+                            <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
+                        </a>
+                </li>
+                <li class="nav-item"></li>
+                <li class="nav-item">
+                    <a href="gradeSearch.html" style="display: flex;">
+                            <span>学生成绩查询</span>
+                            <div class="hidden"></div>
+                            <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
+                        </a>
+                </li>
+                <li class="nav-item"></li>
                 <li id="nav-item">
-                    <a href="javascript:;" style="display: flex;">
-                        <!--<i class="fa fa-file-text nav-icon"></i>-->
-                        <span>发布新任务</span>
-                        <div id="hidden"></div>
+                    <a href="set.html" style="display: flex;">
+                        <span>设置</span>
+                        <div class="hidden"></div>
                         <i class="fa fa-chevron-right nav-more" id="nav_icon1"></i>
                     </a>
                 </li>
-                <li id="nav-item"></li>
-                <li id="nav-item">
-                    <a href="javascript:;" style="display: flex;">
-                        <!--<i class="fa fa-search nav-icon"></i>-->
-                        <span>学生成绩评定</span>
-                        <div id="hidden"></div>
-                        <i class="fa fa-chevron-right nav-more" id="nav_icon1"></i>
-                    </a>
-                </li>
-                <li id="nav-item"></li>
-                <li id="nav-item">
-                    <a href="javascript:;" style="display: flex;">
-                        <!--<i class="fa fa-check-square-o nav-icon"></i>-->
-                        <span>学生成绩查询</span>
-                        <div id="hidden"></div>
-                        <i class="fa fa-chevron-right nav-more" id="nav_icon1"></i>
-                    </a>
-                </li>
-                <li id="nav-item"></li>
-                <li id="nav-item">
-                    <a href="javascript:;" style="display: flex;">
-                        <!--<i class="fa fa-check-square-o nav-icon"></i>-->
-                        <span>设置评价标准</span>
-                        <div id="hidden"></div>
-                        <i class="fa fa-chevron-right nav-more" id="nav_icon1"></i>
-                    </a>
-                </li>
-                <li id="nav-item"></li>
-                <li id="nav-item">
-                    <a href="javascript:;" style="display: flex;">
-                        <!--<i class="fa fa-check-square-o nav-icon"></i>-->
-                        <span>设置模块分数比例</span>
-                        <div id="hidden"></div>
-                        <i class="fa fa-chevron-right nav-more" id="nav_icon1"></i>
-                    </a>
-                </li>
-                <li id="nav-item"></li>
-                <li id="nav-item">
-                    <a href="javascript:;" style="display: flex;">
-                        <!--<i class="fa fa-check-square-o nav-icon"></i>-->
-                        <span>设置小组人员</span>
-                        <div id="hidden"></div>
-                        <i class="fa fa-chevron-right nav-more" id="nav_icon1"></i>
-                    </a>
-                </li>
-                <li id="nav-item"></li>
-                <li id="nav-item">
+                <li class="nav-item"></li>
+                <li class="nav-item">
                     <a href="pwdChangeT.html" style="display: flex;">
-                        <!--<i class="fa fa-check-square-o nav-icon"></i>-->
-                        <span>修改密码</span>
-                        <div id="hidden"></div>
-                        <i class="fa fa-chevron-right nav-more" id="nav_icon1"></i>
-                    </a>
+                            <span>修改密码</span>
+                            <div class="hidden"></div>
+                            <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
+                        </a>
                 </li>
-                <li id="nav-item"></li>
-                <li id="nav-item" class="has-chosen">
+                <li class="nav-item"></li>
+                <li class="nav-item has-chosen">
                     <a href="classManagement.html" style="display: flex;">
-                        <!--<i class="fa fa-check-square-o nav-icon"></i>-->
-                        <span>班级管理</span>
-                        <div id="hidden"></div>
-                        <i class="fa fa-chevron-right nav-more" id="nav_icon1"></i>
-                    </a>
+                            <span>班级管理</span>
+                            <div class="hidden"></div>
+                            <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
+                        </a>
                 </li>
             </ul>
         </div>
-        <div id="content" style="height: 100%;">
-            <div id="content-top">
-                <a id="userControl" style="display: flex; align-items: center;">
-                        <span id="userCotrol-title">个人面板&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                        <i class="fa fa-power-off fa-2x" id="nav_icon2" style="color: rgb(32, 142, 251);"></i>
+        <div class="content">
+            <div class="content-top">
+                <a class="userControl" style="display: flex; align-items: center;" href="../index.html" onClick="cancel()">
+                        <i class="fa fa-power-off nav-more fa-2x" id="nav_icon2" style="color: rgb(32, 142, 251);"></i>
                     </a>
             </div>
 
-            <div class="stdCon well">
-                <div class="panel panel-info">
-                    <div class="panel-heading flex">
-                        <h3 class="panel-title stdCh flex">选择</h3>
-                        <h3 class="panel-title stdId flex">序号
-                        </h3>
-                        <h3 class="panel-title stdNum flex ">学号
-                        </h3>
-                        <h3 class="panel-title stdName flex ">姓名
-                        </h3>
-                        <h3 class="panel-title stdMan flex"><i class="fa fa-plus-square" style="color:rgb(51, 122, 183)"></i></h3>
-                    </div>
-                    <div id="list"></div>
+            <div style=" width: 80%;margin-top: 5%;margin-left: 10%;border: solid 1px rgb(230, 233, 241);border-bottom: none;box-shadow: rgb(230, 230, 230) 0 0 20px;">
+
+                <div class="flex">
+                    <h3 class="stdCh flex" style="font-size:15px;font-weight:bold;">选择</h3>
+                    <h3 class="stdId flex" style="font-size:15px;font-weight:bold;">序号
+                    </h3>
+                    <h3 class="stdNum flex " style="font-size:15px;font-weight:bold;">学号
+                    </h3>
+                    <h3 class="stdName flex " style="font-size:15px;font-weight:bold;">姓名
+                    </h3>
+                    <h3 class="stdMan flex" style="font-size:15px;font-weight:bold;"><i class="fa fa-plus-square" style="color:#46a3ff " onclick="stdAdd()"></i></h3>
+                </div>
+                <div id="list"></div>
 
 
-                    <div class="panel-body flex">
-                        <div class="stdCh flex">
-                            <button type="button" class="btn btn-kv  btn-xs btn-normal" onclick="swapCheck()">
+                <div class="flex" style="height:40px;border-top: solid 1px rgb(230, 233, 241);">
+                    <div class="stdCh flex">
+                        <button type="button" class="btn btn-kv  btn-xs btn-normal" onclick="swapCheck()">
                                 全选
                             </button></div>
-                        <div class="stdNum"></div>
-                        <div class="stdId flex"></div>
-                        <div class="stdName flex"></div>
-                        <div class="stdMan flex">
-                            <button type="button" class="btn btn-kv  btn-xs btn-normal" onclick="stdMulRemove()">
+                    <div class="stdNum"></div>
+                    <div class="stdId flex"></div>
+                    <div class="stdName flex"></div>
+                    <div class="stdMan flex">
+                        <button type="button" class="btn btn-kv  btn-xs btn-normal" onclick="stdMulRemove()">
                                 批量删除
                             </button>
-                        </div>
-
                     </div>
                 </div>
             </div>
@@ -180,13 +154,13 @@
 
     </div>
     <script id="stdTmpl" type="text/x-jsrender">
-        <div class="panel-body flex" id="std-items">
+        <div class="flex" id="std-items" style="height:40px;border-top: solid 1px rgb(230, 233, 241);">
             <div class="stdCh flex" id="{{:#getIndex()+1}}"><input type="checkbox" /></div>
             <div class="stdId flex">{{:#getIndex()+1}}</div>
             <div class="stdNum flex">{{:number}}</div>
-            <div class="stdName flex"><a href="#">{{:name}}</a></div>
+            <div class="stdName flex"><a href="#" style="color:black">{{:name}}</a></div>
             <div class="stdMan flex">
-                <i type="button" class="fa fa-minus-square" style="color:rgb(51, 122, 183)" onclick="stdRemove({{:#getIndex()+1}})">
+                <i type="button" class="fa fa-minus-square" style="color:#46a3ff " onclick="stdRemove({{:#getIndex()+1}})">
                                 
                             </i>
             </div>

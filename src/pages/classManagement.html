@@ -5,10 +5,11 @@
     <meta charset="utf-8">
     <title>系统管理</title>
     <link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../sys/css/base.css">
+    <link rel="stylesheet" type="text/css" href="../sys/css/task.css">
     <link rel="stylesheet" type="text/css" href="../lib/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../lib/toastr-master/toastr.css">
     <link rel="stylesheet" type="text/css" href="../lib/pace/pace.css">
-    <link rel="stylesheet" type="text/css" href="../sys/css/task.css">
     <link rel="stylesheet" type="text/css" href="../sys/css/classManagement.css">
 
 
@@ -22,105 +23,95 @@
 </head>
 
 <body>
-    <div id="g-index">
-        <div id="nav">
-            <div id="nav-top">
-                <div id="nav-logo"><img src="../img/logo02.png"></div>
-                <i class="fa fa-chevron-right nav-more" id="nav_icon3" style="display: none;"></i>
+
+    <div class="g-index">
+        <div class="nav">
+            <div class="nav-top">
+                <div class="nav-logo"><img src="../img/logo02.png"></div>
             </div>
             <ul>
-                <li id="nav-item">
+                <li class="nav-item">
                     <a href="task.html" style="display: flex;">
-                        <!--<i class="fa fa-file-text nav-icon"></i>-->
-                        <span>发布新任务</span>
-                        <div id="hidden"></div>
-                        <i class="fa fa-chevron-right nav-more" id="nav_icon1"></i>
-                    </a>
+                            <span>发布新任务</span>
+                            <div class="hidden"></div>
+                            <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
+                        </a>
                 </li>
-                <li id="nav-item"></li>
-                <li id="nav-item">
+                <li class="nav-item"></li>
+                <li class="nav-item">
                     <a href="evalute.html" style="display: flex;">
-                        <!--<i class="fa fa-search nav-icon"></i>-->
-                        <span>学生成绩评定</span>
-                        <div id="hidden"></div>
-                        <i class="fa fa-chevron-right nav-more" id="nav_icon1"></i>
-                    </a>
+                            <span>学生成绩评定</span>
+                            <div class="hidden"></div>
+                            <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
+                        </a>
                 </li>
-                <li id="nav-item"></li>
-                <li id="nav-item">
+                <li class="nav-item"></li>
+                <li class="nav-item">
                     <a href="gradeSearch.html" style="display: flex;">
-                        <!--<i class="fa fa-check-square-o nav-icon"></i>-->
-                        <span>学生成绩查询</span>
-                        <div id="hidden"></div>
-                        <i class="fa fa-chevron-right nav-more" id="nav_icon1"></i>
-                    </a>
+                            <span>学生成绩查询</span>
+                            <div class="hidden"></div>
+                            <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
+                        </a>
                 </li>
-                <li id="nav-item"></li>
+                <li class="nav-item"></li>
                 <li id="nav-item">
                     <a href="set.html" style="display: flex;">
                         <span>设置</span>
-                        <div id="hidden"></div>
+                        <div class="hidden"></div>
                         <i class="fa fa-chevron-right nav-more" id="nav_icon1"></i>
                     </a>
                 </li>
-                <li id="nav-item"></li>
-                <li id="nav-item">
+                <li class="nav-item"></li>
+                <li class="nav-item">
                     <a href="pwdChangeT.html" style="display: flex;">
-                        <!--<i class="fa fa-check-square-o nav-icon"></i>-->
-                        <span>修改密码</span>
-                        <div id="hidden"></div>
-                        <i class="fa fa-chevron-right nav-more" id="nav_icon1"></i>
-                    </a>
+                            <span>修改密码</span>
+                            <div class="hidden"></div>
+                            <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
+                        </a>
                 </li>
-                <li id="nav-item"></li>
-                <li id="nav-item" class="has-chosen">
+                <li class="nav-item"></li>
+                <li class="nav-item has-chosen">
                     <a href="classManagement.html" style="display: flex;">
-                        <!--<i class="fa fa-check-square-o nav-icon"></i>-->
-                        <span>班级管理</span>
-                        <div id="hidden"></div>
-                        <i class="fa fa-chevron-right nav-more" id="nav_icon1"></i>
-                    </a>
+                            <span>班级管理</span>
+                            <div class="hidden"></div>
+                            <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
+                        </a>
                 </li>
             </ul>
         </div>
-        <div id="content" style="height: 100%;">
-            <div id="content-top">
-                <a id="userControl" style="display: flex; align-items: center;">
-                        <span id="userCotrol-title">个人面板&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                        <i class="fa fa-power-off fa-2x" id="nav_icon2" style="color: rgb(32, 142, 251);"></i>
+        <div class="content">
+            <div class="content-top">
+                <a class="userControl" style="display: flex; align-items: center;" href="../index.html" onClick="cancel()">
+                        <i class="fa fa-power-off nav-more fa-2x" id="nav_icon2" style="color: rgb(32, 142, 251);"></i>
                     </a>
             </div>
+            <div style=" width: 80%;margin-top: 5%;margin-left: 10%;border: solid 1px rgb(230, 233, 241);border-bottom: none;box-shadow: rgb(230, 230, 230) 0 0 20px;">
 
-            <div class="clsCon well">
-                <div class="panel panel-info">
-                    <div class="panel-heading flex">
-                        <h3 class="panel-title clsCh flex">选择</h3>
-                        <h3 class="panel-title clsId flex">序号
-                        </h3>
-                        <h3 class="panel-title clsName flex ">班级名称
-                        </h3>
-                        <h3 class="panel-title clsMan flex"><i class="fa fa-plus-square" style="color:rgb(51, 122, 183)" onclick="clsAdd()"></i></h3>
-                    </div>
-                    <div id="list"></div>
+                <div class="flex">
+                    <h3 class="clsCh flex" style="font-size:15px;font-weight:bold;">选择</h3>
+                    <h3 class=" clsId flex" style="font-size:15px;font-weight:bold;">序号
+                    </h3>
+                    <h3 class=" clsName flex " style="font-size:15px;font-weight:bold;">班级名称
+                    </h3>
+                    <h3 class=" clsMan flex" style="font-size:15px;font-weight:bold;"><i class="fa fa-plus-square" style="color:#46a3ff " onclick="clsAdd()"></i></h3>
+                </div>
+                <div id="list"></div>
 
 
-                    <div class="panel-body flex">
-                        <div class="clsCh flex">
-                            <button type="button" class="btn btn-kv  btn-xs btn-normal" onclick="swapCheck()">
+                <div class="flex" style="height:40px;border-top: solid 1px rgb(230, 233, 241);">
+                    <div class="clsCh flex">
+                        <button type="button" class="btn btn-kv  btn-xs btn-normal" onclick="swapCheck()">
                                 全选
                             </button></div>
-                        <div class="clsId flex"></div>
-                        <div class="clsName flex"></div>
-                        <div class="clsMan flex">
-                            <button type="button" class="btn btn-kv  btn-xs btn-normal" onclick="clsMulRemove()">
+                    <div class="clsId flex"></div>
+                    <div class="clsName flex"></div>
+                    <div class="clsMan flex">
+                        <button type="button" class="btn btn-kv btn-xs btn-normal" onclick="clsMulRemove()">
                                 批量删除
                             </button>
-                        </div>
-
                     </div>
                 </div>
             </div>
-
 
 
 
@@ -158,19 +149,18 @@
 
     </div>
     <script id="clsTmpl" type="text/x-jsrender">
-        <div class="panel-body flex" id="cls-items">
+        <div class="flex" id="cls-items" style="height:40px;border-top: solid 1px rgb(230, 233, 241);">
             <div class="clsCh flex" id="{{:#getIndex()+1}}"><input type="checkbox" /></div>
             <div class="clsId flex">{{:#getIndex()+1}}</div>
-            <div class="clsName flex"><a href="studentManagement.html">{{:name}}</a></div>
-            <div class="clsMan flex">
-                <i type="button" class="fa fa-minus-square" style="color:rgb(51, 122, 183)" onclick="clsRemove({{:#getIndex()+1}})">
-                                
-                            </i>
+            <div class="clsName flex">
+                <a href="studentManagement.html" style="color:rgb(5, 127, 254);">{{:name}}</a></div>
+            <div class=" clsMan flex ">
+                <i type="button " class="fa fa-minus-square " style="color:#46a3ff " onclick="clsRemove({{:#getIndex()+1}}) "></i>
             </div>
         </div>
 
     </script>
-    <script type="text/javascript" src="../sys/js/classManagement.js"></script>
+    <script type="text/javascript " src="../sys/js/classManagement.js "></script>
 
 </body>
 
