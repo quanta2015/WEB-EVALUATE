@@ -1,6 +1,6 @@
 $("#submit").click(function () {
 
-        if($('#password').val()==$('#confirm_password').val()){
+        if($('#password').val()==$('#confirm_password').val() && $('#password').val() ){
           $.ajax({
         url: '../php/pwdChange.php',
         type: "POST",
@@ -19,7 +19,9 @@ $("#submit").click(function () {
         }
     });
     }
-
+     else if (!($('#password').val())){
+          alert("密码不能为空！");
+     }
     else{
          alert("两次密码不一致");
     }
