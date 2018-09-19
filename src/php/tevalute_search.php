@@ -4,13 +4,12 @@ require_once 'conn.php';
 require_once 'common.php';
 header("Content-type: text/html; charset=utf-8");
 
-$class = $_POST["class"];
-$title = $_POST["title"];
+$id = $_SESSION["id"];
 
-if($class == '全部' && $title =='全部'){
-	$sql = "select dotask.id,task_id,user_id,user_class,user_name,t_grade from dotask,totalgrade,user where totalgrade.dotask_id = dotask.id and user.user_number = dotask.user_id";
-}
-if($class != '全部' && $title =='全部'){
+//if($class == '全部' && $title =='全部'){
+	$sql = "select task_title,dotask.id,task.task_id,user_id,user_class,user_name,t_grade from dotask,totalgrade,user,task where task.task_id = dotask.task_id and totalgrade.dotask_id = dotask.id and user.user_number = dotask.user_id ";
+//}
+/*if($class != '全部' && $title =='全部'){
    $sql = "select  dotask.id,task_id,user_id,user_class,user_name,t_grade from dotask,totalgrade,user where totalgrade.dotask_id = dotask.id and user.user_number = dotask.user_id and user.user_class = '{$class}'";
 }
 if($class == '全部' && $title !='全部'){
@@ -19,7 +18,7 @@ if($class == '全部' && $title !='全部'){
 
 if($class != '全部' && $title !='全部'){
    $sql = "select  dotask.id,task_id,user_id,user_class,user_name,t_grade from dotask,totalgrade,user where totalgrade.dotask_id = dotask.id and user.user_number = dotask.user_id and dotask.task_id IN (select task_id from task where task_title  = '{$title}') and user.user_class = '{$class}'";
-}
+}*/
 
    $result = $conn->query($sql);
    header("Content-type: text/html; charset=utf-8");

@@ -1,2 +1,4 @@
 //成功
-{"code":0,"msg":"successclass","data":[["47","\u53f6\u8273\u6d01"],["61","\u8521\u96c5\u6d01"],null]}
+{"code":0,"msg":"successclass","data":[[{"id":"1","task_title":"xxxxx","user_number":"16","user_name":"xxx","user_class":"xxx","g_grade":"13"},{"id":"2","task_title":"xxx","user_number":"16","user_name":"xx","user_class":"xxx","g_grade":"13"}],[{"id":"2","task_title":"xxx","user_number":"61","user_name":"xx","user_class":"xxx","g_grade":"13"},{"id":"1","xxxx","user_number":"61","user_name":"\u8521\u96c5\u6d01","user_class":"\u8f6f\u5de5162","g_grade":null}]]}
+
+//以一个小组有两个学生为例。（id是dotask.id 在页面上不显示，用来学生点击“去评分按钮后”把该参数带到评分页面，当学生提交评分结果，该参数需要传输到后端，使后端知道该学生对哪条dotask进行了评分。学生的学号是“user_number”,该示例中，data[0]里面是学号为16学生的查询结果，data[1]是学号为61的学生。
