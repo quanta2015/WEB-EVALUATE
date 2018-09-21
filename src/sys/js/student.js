@@ -1,4 +1,3 @@
-
 var arr = [{
     'task_title': '今天也宇宙无敌百无禁忌万夫莫敌超级喜欢你Today, the universe is invincible, and the enemy is super fond of you.朱正廷XTHEO-朱正廷',
     'user_name':'毛婕老师',
@@ -10,7 +9,7 @@ var arr = [{
     'task_title': 'the enemy is super fond of you.朱正廷XTHEO-朱正廷',
     'user_name':'毛婕老师',
     'publish_date': '2018-09-04 00:00:00',
-    'end_date': '2018-09-20 00:00:00',
+    'end_date': '2018-09-21 22:00:00',
     'total_tag':'1'  
     }
     ]
@@ -116,26 +115,44 @@ function disappear(){
 
 
 function showTime(){
-    const date1 = dayjs(document.getElementById('endtime').innerHTML);
-    var date2 = dayjs().format("YYYY-MM-DD HH:mm:ss");
-    var months = date1.diff(date2, 'months');
-    var days = date1.diff(date2, 'days'); 
-    var hours = date1.diff(date2, 'hours')-days*24;
-    var minutes = date1.diff(date2, 'minutes')-days*24*60-hours*60;
-    var seconds = date1.diff(date2, 'second')-days*24*3600-hours*3600-minutes*60;
+    // const date1 = dayjs(document.getElementById('endtime').innerHTML);
+    for(var i=0;i<arr.length;++i){
+    var date1 = dayjs(arr[i].end_date);
+    var date2 = dayjs(arr[i].publish_date);
+    var date3 = dayjs().format("YYYY-MM-DD HH:mm:ss");
+    // var months = date1.diff(date2, 'months');
+    var days1 = date1.diff(date3, 'days'); 
+    var days2 = -date2.diff(date3, 'days'); 
+    var hours1 = date1.diff(date3, 'hours')-days1*24;
+    var hours2 = -date2.diff(date3, 'hours')-days1*24;
 
-    document.getElementById("nowtime").innerHTML = days+"days  "+("0"+hours).substr(-2)+":"+("0"+minutes).substr(-2)+":"+("0"+seconds).substr(-2);
-    
+    // document.getElementById("nowtime").innerHTML = days+"days  "+("0"+hours).substr(-2)+":"+("0"+minutes).substr(-2)+":"+("0"+seconds).substr(-2);
+    if(days2 == 0){
+        document.getElementById("starttime").innerHTML = "已经发布 "+hours2+" 小时";
+    }
+    else{
+        document.getElementById("starttime").innerHTML = "已经发布 "+days2+" 天";
+    }
+    if(days1 == 0){
+        document.getElementById("endtime").innerHTML = "还剩 "+hours1+" 小时";
+        if(hours1 <= 0){
+            document.getElementById("endtime").innerHTML = "已截止";
+        }
+    }
+    else{
+        document.getElementById("endtime").innerHTML = "还剩 "+days1+" 天";
+    }
+    }
 }
-setInterval("showTime()",1000);
+// setInterval("showTime()",1000);
+showTime();
 
 
+// var arr2 = new Array();//作业内容数组
+// for(var i=0;i<arr.length;++i){
+//     arr2[i] = arr[i].task_title;
 
-var arr2 = new Array();//作业内容数组
-for(var i=0;i<arr.length;++i){
-    arr2[i] = arr[i].task_title;
-
-} 
+// } 
 
 // for(var j=0;j<arr.length;++j){
 //     $("#content").mouseover(function(){
