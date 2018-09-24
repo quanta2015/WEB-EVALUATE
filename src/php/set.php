@@ -36,7 +36,7 @@ $response = array(
    "msg" => "success",
    'data' => $row1   
 );
-var_dump($row1);
+//var_dump($row1);
 $response = CodeUtil::jsons_encode($response);
 echo urldecode(json_encode($response));
 
