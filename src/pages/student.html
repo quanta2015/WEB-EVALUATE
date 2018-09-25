@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<!-- <meta http-equiv="refresh" content="30">每隔30秒刷新页面-->
 	<title>学生作业管理</title>
 	<link rel="stylesheet" type="text/css" href="../sys/css/homework.css">
 	<link rel="stylesheet" type="text/css" href="../lib/font-awesome/css/font-awesome.min.css">
@@ -9,7 +10,6 @@
 	<script type="text/javascript" src="../lib/jquery/jquery.min.js"></script>
 	<script type="text/javascript" src="../lib/jsrender/jsrender.js"></script>
 	<script type="text/javascript" src="../lib/jquery/jquery.params.js"></script>
-	<!-- <script type="text/javascript" src="../lib/bootstrap-daterangepicker/moment.min.js"></script> -->
 	<script src="https://unpkg.com/dayjs"></script>
 </head>
 <body>
@@ -71,18 +71,17 @@
 						<!-- 定义JsRender模版 -->  
 						<script type="text/x-jsrender" id="testTmpl">
 							<li class="lookLi">	
-								<div class="titTxt">
-									
+								<div class="titTxt">	
+
 									<p style="padding-top: 10px;"><a>作业
 										<a id="head" name="{{:#index+1}}">{{:#index+1}}</a></a>
 									</p>
-		
+									
 									<span id="content" name="{{:#index+1}}" onmouseover="display()" onmouseout="disappear()">作业内容：{{:task_title}}</span>
-									<div id="float_box"  onmouseover="display()" onmouseout="disappear()">{{:task_title}}</div>
-
+									<div name="float_box" class="fff" onmouseover="display()" onmouseout="disappear()">{{:task_title}}</div> 
 									<div title="" class="pt5"><span class="f1">发布老师：</span><span>{{:user_name}}</span></div>
-									<div title="" class="pt5"><span class="f1">开始时间：</span><span id="starttime"></span></div>
-									<div title="" class="pt5"><span class="f1">截止时间：</span><span id="endtime"</span></div>
+									<div title="" class="pt5"><span class="f1">开始时间：{{:publish_date}}</span></div>
+									<div title="" class="pt5"><span class="f1">截止时间：{{:end_date}}</span></div>
 									<div id="tit" title="" class="pt5"><span class="f1"></span>作业状态：<strong>
 										{{if total_tag == 0}}<span style="color:green"">已完成</span>
 										{{else}}<span style="color:red"">未完成</span>
