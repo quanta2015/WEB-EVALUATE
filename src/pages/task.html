@@ -84,24 +84,27 @@
                         <i class="fa fa-power-off nav-more fa-2x" id="nav_icon2" style="color: rgb(32, 142, 251);"></i>
                     </a>
             </div>
-
             <div class=" evaluteStandard">
+                <div style="width:100%;height:85%;margin-top:3%;">
+                    <div style="width:50%;height:100%;float:left">
+                        <select id="clsCh" name="class" style="width:80%; height:50px; margin-left:7%; margin-top:5%;"></select>
+                        <input type="text" id="daterange" class="datePicker" name="daterange" data-value="{{old('daterange')}}" style="width:80%; height:50px;margin-left: 7%;margin-top:5%" />
+                        <input type="text" id="teacherPect" style="width:80%; height:50px;margin-left: 7%;margin-top:5%" placeholder="&nbsp;&nbsp;请输入教师评价所占百分比" />
+                        <input type="text" id="selfPect" style="width:80%; height:50px;margin-left: 7%;margin-top:5%" placeholder="&nbsp;&nbsp;请输入自我评价所占百分比" />
+                        <input type="text" id="groupPect" style="width:80%; height:50px;margin-left: 7%;margin-top:5%" placeholder="&nbsp;&nbsp;请输入组员评价所占百分比" />
 
-
-                <div style="width:100%;height:20%;">
-                    <select id="clsCh" name="class" style="width:43%; height:50px; margin-left:5%; margin-top:3%;"></select>
-                    <input type="text" id="daterange" class="datePicker" name="daterange" data-value="{{old('daterange')}}" style="width:43%; height:50px;margin-left: 5%;margin-top:3%" />
-
-                </div>
-                <div style="width:100%;height:70%;display: flex">
-                    <div style="width:43%; height:50px; margin-left:5%; margin-top:3%;">
-                        <textarea id="taskTitle" class="taskTitle" name="title" placeholder="&nbsp;&nbsp;请输入作业主题..."></textarea>
                     </div>
-                    <div style="width:43%; height:50px; margin-left:5%; margin-top:3%;">
-                        <textarea id="taskRequest" class="taskRequest" name="task" placeholder="&nbsp;&nbsp;请输入作业要求..."></textarea>
+                    <div style="width:50%;height:100%;white-space: nowrap;">
+                        <div style="width:90%; height:200px; margin-left:5%;">
+                            <textarea id="taskTitle" class="taskTitle" name="title" placeholder="&nbsp;&nbsp;请输入作业主题..."></textarea>
+                        </div>
+                        <div style="width:90%; height:200px; margin-left:5%;">
+                            <textarea id="taskRequest" class="taskRequest" name="task" placeholder="&nbsp;&nbsp;请输入作业要求..."></textarea>
+                        </div>
                     </div>
                 </div>
-                <div style="width:100%;height:10%;display: flex;justify-content: flex-end;align-items: center">
+
+                <div style="width:100%;height:7%;display: flex;justify-content: flex-end;align-items: center">
                     <div style="width:10%;height:50%"><button class="final">发布任务</button></div>
                 </div>
             </div>
