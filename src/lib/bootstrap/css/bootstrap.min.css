@@ -173,7 +173,8 @@ select,
 textarea {
     color: inherit;
     font: inherit;
-    margin: 0
+    margin: 0;
+    box-sizing: border-box
 }
 
 button {
@@ -1413,12 +1414,11 @@ body {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box
-}
+}html {
 */
 
-html {
-    font-size: 10px;
-    -webkit-tap-highlight-color: transparent
+font-size: 10px;
+-webkit-tap-highlight-color: transparent
 }
 
 body {
