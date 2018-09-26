@@ -75,9 +75,10 @@ $(document).ready(function () {
                 title: $("#taskTitle").val(),
                 daterange: $("#daterange").val(),
                 task: $("#taskRequest").val(),
-                s_percent: $("s_percent").val(),
-                g_percent: $("g_percent").val(),
-                t_percent: $("t_percent").val()
+                s_percent: $("#s_percent").val(),
+                g_percent: $("#g_percent").val(),
+                t_percent: $("#t_percent").val(),
+                group_num: $("#group_num").val()
 
             },
 
@@ -89,7 +90,7 @@ $(document).ready(function () {
                 } else if (obj.code == 80) {
                     toastr.warning('存在空输入');
                 } else if (obj.code == 20) {
-                    toastr.waring('发布失败');
+                    toastr.warning('发布失败');
 
                 } else if (obj.code == 55) {
                     toastr.error('数据库连接失败');
@@ -104,14 +105,14 @@ $(document).ready(function () {
 
 function cancel() {
     $.ajax({
-        url: '../php/signouts.php',
+        url: '../php/signout.php',
         type: "POST",
         success: function (data) {
             result = JSON.parse(data);
             if (result.code == 0) {
                 alert("退出成功");
-                window.location.href = "http://127.0.0.1:1591/WEB-EVALUATE-master/src/index.html";
-            } else if {
+                window.location.href = "../index.html";
+            } else {
                 alert("退出失败！");
             };
 
