@@ -67,8 +67,6 @@ $(document).ready(function () {
 
 
     $("#submit").click(function () {
-        console.log("按了一下");
-
         $.ajax({
             url: '../php/publish.php',
             type: "POST",
@@ -76,7 +74,11 @@ $(document).ready(function () {
                 class: $("#clsCh").val(),
                 title: $("#taskTitle").val(),
                 daterange: $("#daterange").val(),
-                task: $("#taskRequest").val()
+                task: $("#taskRequest").val(),
+                s_percent: $("s_percent").val(),
+                g_percent: $("g_percent").val(),
+                t_percent: $("t_percent").val()
+
             },
 
             success: function (data) {
@@ -101,5 +103,20 @@ $(document).ready(function () {
 });
 
 function cancel() {
-    alert('退出登录成功！');
+    $.ajax({
+        url: '../php/signouts.php',
+        type: "POST",
+        success: function (data) {
+            result = JSON.parse(data);
+            if (result.code == 0) {
+                alert("退出成功");
+                window.location.href = "http://127.0.0.1:1591/WEB-EVALUATE-master/src/index.html";
+            } else if {
+                alert("退出失败！");
+            };
+
+        }
+
+    })
+
 }
