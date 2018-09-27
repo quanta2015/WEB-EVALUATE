@@ -1,0 +1,27 @@
+9.27 发布任务与查询评分对象php使用说明：
+
+一、关于publish.php发布作业
+前端传回数据应包含
+class，title，daterange，task，s_percent，g_percent，t_percent，id，group_num
+
+分组算法原理：
+老师发布作业->获取该班每位学生id数组ids->将获取的id数组放入一个二维数组中id_flag{（"id"：01，"flag"：$groupnum）}->随机排序id_flag->为该班级每位学生的该项作业创建一条dotask数据（开始循环）->从打乱的id_flag数组中提取一个id->以id_flag中的id作为evalute_user在totalgrade表中插入一条数据，该id_flag['flag']-- ->当ids到最后一个数据循环结束
+
+
+二、关于tevalute_search.php 查询被评分对象
+
+该页面可提供给老师的评分选择界面与学生的小组评分界面以及自评任务查询使用;
+前端传回数据应包含：role (role 可取值为1,2,3 1:老师查询 2：小组查询 3:自评查询)
+
+返回的JSON数据里的data里面会包含以下数据：
+
+task_id,task_title,dotask_id,role,totalGrade,evalute_user,user_name,user_number,total_tag;
+个别数据说明：
+role: 评分者的角色信息（1老师，2自己,3组员）前端可无视该条数据;
+totalGrade：评分者对该条dotask_id的评价总分，若未曾评价为null，前端据此判断评价状态;
+evalute_user:评分者id,前端可无视;
+user_name:被评者姓名;
+user_number:被评者id;
+total_tag : 任务完成状态（完成0 未完成1） 前端据此判断是否需要显示;
+
+

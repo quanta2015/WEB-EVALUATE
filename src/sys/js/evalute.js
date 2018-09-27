@@ -7,6 +7,7 @@ $(document).ready(function() {
         async: false,
         success: function(data) {
             //获取学生数据
+            console.log(data);
             stdObj = JSON.parse(data);
             console.log(stdObj.data);
             //获取模版
@@ -22,6 +23,7 @@ $(document).ready(function() {
         async: false,
         success: function(data) {
             //获取所有班级
+            console.log(data);
             classes = JSON.parse(data);
             console.log(classes);
             var context;
