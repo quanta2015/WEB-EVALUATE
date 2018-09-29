@@ -5,7 +5,7 @@ $("#groupnumSure").click(function() {
 });
 //初始化渲染
 $(document).ready(function() {
-	//选择作业框选项初始化
+	选择作业框选项初始化
 	$.ajax({
         url: '../php/task_search.php',
         type: 'get',
@@ -24,22 +24,39 @@ $(document).ready(function() {
         }
     });
     // promise('../php/task_search.php', 'get', false, " ", getAllClass);
-    // 渲染学生任务
+    //渲染学生任务
+    // $.ajax({
+    // 	url: '../php/randgroup.php',
+    // 	type: 'get',
+    // 	async: false,
+    // 	success: function(data) {
+    //         stdstdObj = JSON.parse(data);
+    //         console.log(stdstdObj.data);
+    //         //获取模版
+    //         var jsRenderTpl = $.templates('#theTmpl');
+    //         //模版与数据结合
+    //         var finalTpl = jsRenderTpl(stdstdObj.data);
+    //         $('.box').html(finalTpl);
+    // 	}
+    // })
+    // promise('../php/tevalute_search.php', 'POST', false, {role: "1"}, evaluteInit);
     $.ajax({
-    	url: '../php/randgroup.php',
-    	type: 'get',
-    	async: false,
-    	success: function(data) {
-            stdstdObj = JSON.parse(data);
-            console.log(stdstdObj.data);
+        url: '../php/tevalute_search.php',
+        type: 'POST',
+        async: false,
+        data: {role: "2"},
+        success: function(data) {
+            //获取学生数据
+            console.log(data);
+            stdObj = JSON.parse(data);
+            console.log(stdObj.data);
             //获取模版
             var jsRenderTpl = $.templates('#theTmpl');
             //模版与数据结合
-            var finalTpl = jsRenderTpl(stdstdObj.data);
+            var finalTpl = jsRenderTpl(stdObj.data);
             $('.box').html(finalTpl);
-    	}
-    })
-    // promise('../php/tevalute_search.php', 'POST', false, {role: "1"}, evaluteInit);
+        }
+    });
 });
 
 //查询效果
