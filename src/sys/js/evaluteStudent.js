@@ -1,4 +1,3 @@
-document.write("<script language=javascript src='base.js'></script>");
 var groupNumber, stdstdObj;
 
 $("#groupnumSure").click(function() {
