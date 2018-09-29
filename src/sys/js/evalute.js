@@ -77,8 +77,8 @@ $("#classSlct").change(function() {
 });
 
 //查询
-$("minisearch").click(function() {
-    var newstdObj;
+$("#minisearch").click(function() {
+    var newstdObj = [];
     if ($("#classSlct").val() == "全部班级" && $("#taskSlct").val() == "全部作业") {
         newstdObj = stdObj.data;
     } else if ($("#classSlct").val() == "全部班级" && $("#taskSlct").val() != "全部作业") {

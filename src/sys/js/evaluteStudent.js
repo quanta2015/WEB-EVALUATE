@@ -24,12 +24,30 @@ $(document).ready(function() {
         }
     });
     // promise('../php/task_search.php', 'get', false, " ", getAllClass);
-    渲染学生任务
+    //渲染学生任务
+    // $.ajax({
+    // 	url: '../php/randgroup.php',
+    // 	type: 'get',
+    // 	async: false,
+    // 	success: function(data) {
+    //         stdstdObj = JSON.parse(data);
+    //         console.log(stdstdObj.data);
+    //         //获取模版
+    //         var jsRenderTpl = $.templates('#theTmpl');
+    //         //模版与数据结合
+    //         var finalTpl = jsRenderTpl(stdstdObj.data);
+    //         $('.box').html(finalTpl);
+    // 	}
+    // })
+    // promise('../php/tevalute_search.php', 'POST', false, {role: "1"}, evaluteInit);
     $.ajax({
-    	url: '../php/randgroup.php',
-    	type: 'get',
-    	async: false,
-    	success: function(data) {
+        url: '../php/tevalute_search.php',
+        type: 'POST',
+        async: false,
+        data: {role: "2"},
+        success: function(data) {
+            //获取学生数据
+            console.log(data);
             stdstdObj = JSON.parse(data);
             console.log(stdstdObj.data);
             //获取模版
@@ -37,19 +55,18 @@ $(document).ready(function() {
             //模版与数据结合
             var finalTpl = jsRenderTpl(stdstdObj.data);
             $('.box').html(finalTpl);
-    	}
-    })
-    // promise('../php/tevalute_search.php', 'POST', false, {role: "1"}, evaluteInit);
+        }
+    });
 });
 
 //查询效果
 $("#minisearch").click(function() {
-	var newstdstdObj;
+	var newstdstdObj = [];
 	for(var i = 0; i < stdstdObj.data.length; i++) {
 		if(stdstdObj.data[i].task_title == $("#taskSlct").val())
 			newstdstdObj.push(stdstdObj.data[i]);
 	}
-    重新渲染
+    //重新渲染
     console.log(newstdstdObj);
     //获取模版
     var jsRenderTpl = $.templates('#theTmpl');
