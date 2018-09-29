@@ -5,7 +5,7 @@ $("#groupnumSure").click(function() {
 });
 //初始化渲染
 $(document).ready(function() {
-	选择作业框选项初始化
+	//选择作业框选项初始化
 	$.ajax({
         url: '../php/task_search.php',
         type: 'get',
@@ -66,7 +66,7 @@ $("#minisearch").click(function() {
 		if(stdstdObj.data[i].task_title == $("#taskSlct").val())
 			newstdstdObj.push(stdstdObj.data[i]);
 	}
-    重新渲染
+    //重新渲染
     console.log(newstdstdObj);
     //获取模版
     var jsRenderTpl = $.templates('#theTmpl');
