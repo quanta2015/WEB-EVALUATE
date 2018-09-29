@@ -48,12 +48,12 @@ $(document).ready(function() {
         success: function(data) {
             //获取学生数据
             console.log(data);
-            stdObj = JSON.parse(data);
-            console.log(stdObj.data);
+            stdstdObj = JSON.parse(data);
+            console.log(stdstdObj.data);
             //获取模版
             var jsRenderTpl = $.templates('#theTmpl');
             //模版与数据结合
-            var finalTpl = jsRenderTpl(stdObj.data);
+            var finalTpl = jsRenderTpl(stdstdObj.data);
             $('.box').html(finalTpl);
         }
     });
