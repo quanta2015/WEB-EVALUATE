@@ -7,7 +7,7 @@ LoginCheck::checklogin();
 $id = $_SESSION['id'];
 if (!$conn) connfail();
 
-  $sql = "select  class_name from class where teacher_num = {$id}";
+  $sql = "select class_name from class where teacher_num = {$id}";
   $result = $conn->query($sql);
 
  if (0 == mysqli_num_rows($result))existempty();
