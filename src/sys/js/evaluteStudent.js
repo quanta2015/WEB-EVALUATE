@@ -61,7 +61,7 @@ $(document).ready(function() {
 
 //查询效果
 $("#minisearch").click(function() {
-	var newstdstdObj;
+	var newstdstdObj = [];
 	for(var i = 0; i < stdstdObj.data.length; i++) {
 		if(stdstdObj.data[i].task_title == $("#taskSlct").val())
 			newstdstdObj.push(stdstdObj.data[i]);
