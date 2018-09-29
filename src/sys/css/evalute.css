@@ -47,6 +47,9 @@ select {
 	color: rgb(140, 144, 153);
 	border-bottom:solid 1px rgb(230, 233, 241);
 }
+.special {
+	width: 25%;
+}
 .smltitle {
 	color: rgb(74, 74, 74);
 	font-size: 120%;
