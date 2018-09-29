@@ -38,7 +38,7 @@ select {
 	border-bottom: 1px rgb(230, 233, 241);
 }
 .taskDetail div {
-	width: calc(100% / 5);
+	/*width: calc(100% / 5);*/
 	border-right: solid 1px rgb(230, 233, 241);
 	height: 54.5px;
 	display: flex;
