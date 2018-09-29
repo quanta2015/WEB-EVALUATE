@@ -3,8 +3,9 @@ var stdObj, classes, homeworks;
 $(document).ready(function() {
     $.ajax({
         url: '../php/tevalute_search.php',
-        type: 'get',
+        type: 'POST',
         async: false,
+        data: {role: "1"},
         success: function(data) {
             //获取学生数据
             console.log(data);
