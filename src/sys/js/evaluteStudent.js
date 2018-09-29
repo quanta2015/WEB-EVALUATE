@@ -24,7 +24,7 @@ $(document).ready(function() {
         }
     });
     // promise('../php/task_search.php', 'get', false, " ", getAllClass);
-    渲染学生任务
+    // 渲染学生任务
     $.ajax({
     	url: '../php/randgroup.php',
     	type: 'get',
