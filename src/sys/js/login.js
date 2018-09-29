@@ -1,3 +1,4 @@
+var nowclass;
 $("#login-button").click(function() {
   document.getElementById('pwd').style.display = 'none';
   document.getElementById('number').style.display = 'none';
@@ -13,6 +14,7 @@ $("#login-button").click(function() {
           window.location.href = 'pages/task.html';
         if (obj.data.user_role == 1)
           window.location.href = 'pages/student.html';
+          nowclass = obj.data.user_class;
       }
       if (obj.code == 70) {
         document.getElementById('number').style.display = 'inline';

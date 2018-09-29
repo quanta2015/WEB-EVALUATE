@@ -16,9 +16,11 @@ $(document).ready(function() {
             console.log(homeworks);
             if (homeworks.code == 0) {
                 var context;
-                for (var i = 0; i < homeworks.data.length; i++)
-                    context = context + "<option>" + homeworks.data[i].task_title + "</option>";
-                context = context + "<option>全部作业</option>";
+                for (var i = 0; i < homeworks.data.length; i++){
+                    if(homeworks.data[i].publish_class == nowclass)
+                        context = context + "<option>" + homeworks.data[i].task_title + "</option>";
+                }
+                context = context + "<option selected=\"select\">全部作业</option>";
                 $("#taskSlct").html(context);
             } else if (homeworks.code == 77) $("#taskSlct").html("<option>没有作业</option>");
         }
@@ -44,7 +46,7 @@ $(document).ready(function() {
         url: '../php/tevalute_search.php',
         type: 'POST',
         async: false,
-        data: {role: "2"},
+        data: {role: 2},
         success: function(data) {
             //获取学生数据
             console.log(data);
