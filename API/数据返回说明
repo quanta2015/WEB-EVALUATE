@@ -1,4 +1,13 @@
-9.27 发布任务与查询评分对象php使用说明：
+9.29 php使用说明：
+
+返回数据格式：{"code": ,"msg"：,"data":}
+常见格式：
+成功{"code":0,"msg"：success,"data":$data};
+连接失败{"code":10,"msg"：connectfail,"data":''};
+存在空输入 {"code":77,"msg"：empty,"data":''};
+错误 {"code":$erocode,"msg"：$msg,"data":''};
+
+
 
 一、关于publish.php发布作业
 前端传回数据应包含
@@ -15,7 +24,7 @@ class，title，daterange，task，s_percent，g_percent，t_percent，id，grou
 
 返回的JSON数据里的data里面会包含以下数据：
 
-task_id,task_title,dotask_id,role,totalGrade,evalute_user,user_name,user_number,total_tag;
+task_id,task_title,dotask_id,role,totalGrade,evalute_user,user_name,user.user_class,user_number,total_tag;
 个别数据说明：
 role: 评分者的角色信息（1老师，2自己,3组员）前端可无视该条数据;
 totalGrade：评分者对该条dotask_id的评价总分，若未曾评价为null，前端据此判断评价状态;
@@ -23,5 +32,46 @@ evalute_user:评分者id,前端可无视;
 user_name:被评者姓名;
 user_number:被评者id;
 total_tag : 任务完成状态（完成0 未完成1） 前端据此判断是否需要显示;
+
+三、关于task_search.php 查询任务
+该页面可供学生查询老师布置的作业以及老师查询已布置的作业；
+
+返回的JSON数据里的data会包含以下数据：
+老师页面：
+task_id	publisher	publish_class	task_title	task_content	publish_date	end_date	task_url	s_percent	t_percent	g_percent	group_num
+
+
+学生页面：
+task_id	publisher	publish_class	task_title	task_content	publish_date	end_date	task_url	s_percent	t_percent	g_percent	group_num	user_name total_tag
+
+
+个别数据说明：
+total_tag :该学生该条任务完成情况
+
+四、关于evalute.php 提交评分成绩
+该页面用于学生与老师的自评、组评、师评
+前端提交数据：
+role (1师评 2自评 3组评)
+dotask 该条作业的dotask_id;
+grade = 评分数组 最后一项是总分
+length = 数组元素个数
+
+
+五、login.php 登录页面
+前端需完成判空，确认无空输入后提交 name(即用户id)和 pwd(密码);
+
+六、评分细则查询 detail_search.php
+返回的JSON数据data中包含所有评分细则信息：
+id tid table_name item_order item_title item_content item_point
+注意事项：id 为自增主键，考虑到删改问题，若删除某条数据而后再插入数据，id不连续（例如原先有id为1-5的五条数据，删除id为5的数据后，新插入数据的id将自动标记为6，因此输出12346）前端当在页面显示js排序后的编号而非直接渲染id;
+
+
+七、评分细则修改 set_detail.php
+前端需传入数组
+id content{"tid":xx ,"table_name":xx,"item_title":xx,"item_content":xx,"item_point"} operate(1改 2增 3删);
+//增加数据id可为空 删除数据context可空，但传输的格式不变，即id:'' ，contex:''
+//小提示：context作为数组传输需要json化 即content：JSON.stringify(content) 详见evaluteDetail.js中的传输成绩
+//如果选择修改数据 不建议修改tid和table_name 两项（如有需要请告知后端）
+
 
 
