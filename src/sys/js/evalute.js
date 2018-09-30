@@ -31,7 +31,7 @@ $(document).ready(function() {
             if (classes.code == 0) {
                 for (var i = 0; i < classes.data.length; i++)
                     context = context + "<option>" + classes.data[i].class_name + "</option>";
-                context = context + "<option>全部班级</option>";
+                context = context + "<option selected=\"select\">全部班级</option>";
                 $("#classSlct").html(context);
             } else if (classes.code == 77) $("#classSlct").html("<option>没有班级</option>");
         }
@@ -44,36 +44,44 @@ $(document).ready(function() {
             //获取所有作业
             homeworks = JSON.parse(data);
             console.log(homeworks);
-            if (homeworks.code == 0) {
-                var context;
-                for (var i = 0; i < homeworks.data.length; i++)
-                    context = context + "<option>" + homeworks.data[i].task_title + "</option>";
-                context = context + "<option>全部作业</option>";
-                $("#taskSlct").html(context);
-            } else if (homeworks.code == 77) $("#taskSlct").html("<option>没有作业</option>");
+            // if (homeworks.code == 0) {
+            //     var context;
+            //     for (var i = 0; i < homeworks.data.length; i++)
+            //         context = context + "<option>" + homeworks.data[i].task_title + "</option>";
+            //     context = context + "<option selected=\"select\">全部作业</option>";
+            //     $("#taskSlct").html(context);
+            // } else if (homeworks.code == 77) $("#taskSlct").html("<option>没有作业</option>");
         }
     });
 });
 
 //二级联动
 $("#classSlct").change(function() {
-    $.ajax({
-        url: '../php/task_search.php',
-        type: "POST",
-        async: false,
-        data: { class: $("#classSlct").val() },
-        success: function(data) {
-            homeworks = JSON.parse(data);
-            console.log(homeworks);
-            if (homeworks.code == 0) {
-                var context;
-                for (var i = 0; i < homeworks.data.length; i++)
-                    context = context + "<option>" + homeworks.data[i].task_title + "</option>";
-                context = context + "<option>全部作业</option>";
-                $("#taskSlct").html(context);
-            } else if (homeworks.code == 77) $("#taskSlct").html("<option>没有作业</option>");
+    // $.ajax({
+    //     url: '../php/task_search.php',
+    //     type: "POST",
+    //     async: false,
+    //     data: { class: $("#classSlct").val() },
+    //     success: function(data) {
+    //         homeworks = JSON.parse(data);
+    //         console.log(homeworks);
+    //         if (homeworks.code == 0) {
+    //             var context;
+    //             for (var i = 0; i < homeworks.data.length; i++)
+    //                 context = context + "<option>" + homeworks.data[i].task_title + "</option>";
+    //             context = context + "<option>全部作业</option>";
+    //             $("#taskSlct").html(context);
+    //         } else if (homeworks.code == 77) $("#taskSlct").html("<option>没有作业</option>");
+    //     }
+    // });
+    var context;
+    for(var i = 0; i < homeworks.data.length; i++) {
+        if(homeworks.data[i].publish_class == $("#classSlct").val()){
+            context = context + "<option>" + homeworks.data[i].task_title + "</option>";
         }
-    });
+    }
+    context = context + "<option selected=\"select\">全部作业</option>";
+    $("#taskSlct").html(context);
 });
 
 //查询
