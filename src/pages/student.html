@@ -66,20 +66,19 @@
 			<div class="content-main">
 				<!-- 列表内容开始 -->
 				<div class="ulDiv">
-					<ul class="clearfix" style="width:1100px;" id="list">
-						<div class="box" id="b"></div>
+					<ul class="clearfix" style="width:1100px;">
+						<div class="boxx"  id="b"></div>
 						<!-- 定义JsRender模版 -->  
-						<script type="text/x-jsrender" id="testTmpl">
-							
-							<li class="lookLi" id="l">	
+						<script type="text/x-jsrender" id="testTmpl">	
+							<li class="lookLi">	
 								<div class="titTxt">	
 
 									<p style="padding-top: 10px;"><a>作业
 										<a id="head" name="{{:#index+1}}">{{:task_title}}</a></a>
 									</p>
 									
-									<span id="content" name="{{:#index+1}}" >作业内容：{{:task_content}}</span>
-									<!-- <div name="float_box" class="fff" onmouseover="display()" onmouseout="disappear()">{{:task_content}}</div> -->
+									<span id="content" name="{{:#index+1}}">作业内容：{{:task_content}}</span>
+									<!-- <div name="float_box" class="fff" onmouseover="display()" onmouseout="disappear()">{{:task_content}}</div>  -->
 									<div title="" class="pt5"><span class="f1">发布老师：</span><span>{{:user_name}}</span></div>
 									<div title="" class="pt5"><span class="f1">开始时间：{{:publish_date}}</span></div>
 									<div title="" class="pt5"><span class="f1">截止时间：{{:end_date}}</span></div>

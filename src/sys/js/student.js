@@ -3,7 +3,7 @@ var arr = [{
     'task_content': '今天也宇宙无敌百无禁忌万夫莫敌超级喜欢你Today, the universe is invincible, and the enemy is super fond of you.今天也宇宙无敌百无禁忌万夫莫敌超级喜欢你',
     'user_name':'毛婕老师',
     'publish_date': '2018-09-04 00:00:00',
-    'end_date': '2018-09-30 00:00:00',
+    'end_date': '2018-10-30 00:00:00',
     'total_tag':'1'
     },
     {
@@ -27,7 +27,7 @@ var arr = [{
     'task_content': '你会不会突然的出现，在转角的偶然遇见...你会不会突然的出现，在转角的偶然遇见...你会不会突然的出现，在转角的偶然遇见...你会不会突然的出现，在转角的偶然遇见...你会不会突然的出现，在转角的偶然遇见...',
     'user_name':'毛婕老师',
     'publish_date': '2018-09-26 00:00:00',
-    'end_date': '2018-10-01 00:00:00',
+    'end_date': '2018-10-11 00:00:00',
     'total_tag':'1'  
     },
     {
@@ -35,17 +35,16 @@ var arr = [{
     'task_content': '床前明月光，疑是地上霜，举头望明月，低头思故乡',
     'user_name':'李阳老师',
     'publish_date': '2018-09-06 00:00:00',
-    'end_date': '2018-10-02 00:00:00',
+    'end_date': '2018-10-12 00:00:00',
     'total_tag':'1'  
     }
-    ]
+    ];
     
-
 //获取模版
 var jsRenderTpl = $.templates('#testTmpl');
 //模版与数据结合
 var finalTpl = jsRenderTpl(arr);
-$('.box').html(finalTpl);
+$('.boxx').html(finalTpl);
 
 
 // document.getElementById("list").onmouseover = function(e){
@@ -86,26 +85,26 @@ $('.box').html(finalTpl);
 //     console.log(i);
 // })
 
-// document.getElementById("b").onmouseover = function(e){
-//     var target1 = e.currentTarget;
-//     console.log(target1);
-//     var target2 = e.target;
-//     console.log(target2);
-//     // var bol = $(e.target).parents().is("float_boxid");
-//     var children = this.children;
-//     console.log(children[0]);
-//     var i = $(target2).attr("name");
-//     console.log(i);
-//     console.log($(this).attr("name"));
-//     console.log($(this).val());
-//     console.log($(this).index());
-//     for(var i=0;i<children.length;i++){
-//         if(target2 == children[i]){
-//             console.log(i);
-//             return;
-//         }
-//     }
-// }
+document.getElementById("b").onmouseover = function(e){
+    var target1 = e.currentTarget;
+    console.log(target1);
+    var target2 = e.target;
+    console.log(target2);
+    // var bol = $(e.target).parents().is("float_boxid");
+    var children = this.children;
+    console.log(children[0]);
+    var i = $(target2).attr("name");
+    console.log(i);
+    console.log($(this).attr("name"));
+    console.log($(this).val());
+    console.log($(this).index());
+    for(var i=0;i<children.length;i++){
+        if(target2 == children[i]){
+            console.log(i);
+            return;
+        }
+    }
+}
 
 //漂浮框形式
 // var all = document.getElementsByName("float_box");
@@ -165,7 +164,7 @@ $(function(){
     showTime();
     var jsRenderTpl = $.templates('#testTmpl');
     var finalTpl = jsRenderTpl(arr);
-    $('.box').html(finalTpl);
+    $('.boxx').html(finalTpl);
 })
 
 
@@ -182,7 +181,7 @@ $(function(){
             console.log(obj);
             var template = $.templates('#testTmpl');
             htmlOutput = template.render(obj.data);
-            $(".box").html(htmlOutput);
+            $(".boxx").html(htmlOutput);
         }   
     });
 
