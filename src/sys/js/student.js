@@ -1,133 +1,23 @@
-var arr = [{
-    'task_title':1,
-    'task_content': '今天也宇宙无敌百无禁忌万夫莫敌超级喜欢你Today, the universe is invincible, and the enemy is super fond of you.今天也宇宙无敌百无禁忌万夫莫敌超级喜欢你',
-    'user_name':'毛婕老师',
-    'publish_date': '2018-09-04 00:00:00',
-    'end_date': '2018-10-30 00:00:00',
-    'total_tag':'1'
-    },
-    {
-    'task_title':2,
-    'task_content': 'the enemy is super fond of you.',
-    'user_name':'毛婕老师',
-    'publish_date': '2018-09-04 00:00:00',
-    'end_date': '2018-9-21 22:00:00',
-    'total_tag':'1'  
-    },
-    {
-    'task_title':3,
-    'task_content': '要和你 跋涉红尘 看山清水秀 要和你 淋暴雨倾盆 也听风雨细柔',
-    'user_name':'李阳老师',
-    'publish_date': '2018-09-06 00:00:00',
-    'end_date': '2018-9-27 00:00:00',
-    'total_tag':'1'  
-    },
-    {
-    'task_title':4,
-    'task_content': '你会不会突然的出现，在转角的偶然遇见...你会不会突然的出现，在转角的偶然遇见...你会不会突然的出现，在转角的偶然遇见...你会不会突然的出现，在转角的偶然遇见...你会不会突然的出现，在转角的偶然遇见...',
-    'user_name':'毛婕老师',
-    'publish_date': '2018-09-26 00:00:00',
-    'end_date': '2018-10-11 00:00:00',
-    'total_tag':'1'  
-    },
-    {
-    'task_title':5,
-    'task_content': '床前明月光，疑是地上霜，举头望明月，低头思故乡',
-    'user_name':'李阳老师',
-    'publish_date': '2018-09-06 00:00:00',
-    'end_date': '2018-10-12 00:00:00',
-    'total_tag':'1'  
-    }
-    ];
-    
-//获取模版
-var jsRenderTpl = $.templates('#testTmpl');
-//模版与数据结合
-var finalTpl = jsRenderTpl(arr);
-$('.boxx').html(finalTpl);
 
-
-// document.getElementById("list").onmouseover = function(e){
-//     e = e || window.event;
-//     var target = e.srcElement || e.target;
-//     console.log(target);
-//     console.log(target.tagName);
-//     console.log($(this).index());
-//     console.log($(this).attr("name"));
-//     console.log($(this).val());
-//     var ul=target.parentNode;
-//     var liList = ul.getElementsByTagName("li");
-//     // console.log(liList[0]);
-//     var j = document.getElementsByName("head");
-//     // console.log(j);
-//     var children;
-//     if(target.tagName.toLowerCase() === "li") {
-//         console.log(1);
-//         children = this.children;
-//         console.log(children.length);
-        
-//         var i = 0;
-//         var len  = children.length;
-//         for(;i<len;i++){
-//             if(target == children[i]) {
-//                 console.log(i);
-//                 return;
-//             }
-//         }
-//     }
-// }
-
-// $("#b").mouseenter(function(){
-//     console.log($(this).index());
-// })
-// $(".lookLi").mouseover(function(){
-//     var i = $(this).attr("name");
-//     console.log(i);
-// })
-
+//飘浮框
+var j=0;
 document.getElementById("b").onmouseover = function(e){
-    var target1 = e.currentTarget;
-    console.log(target1);
     var target2 = e.target;
-    console.log(target2);
     // var bol = $(e.target).parents().is("float_boxid");
     var children = this.children;
-    console.log(children[0]);
-    var i = $(target2).attr("name");
-    console.log(i);
-    console.log($(this).attr("name"));
-    console.log($(this).val());
-    console.log($(this).index());
     for(var i=0;i<children.length;i++){
         if(target2 == children[i]){
-            console.log(i);
+            j = i;
             return;
         }
     }
+    var all = document.getElementsByName("float_box");
+    all[j].style.display="block";
 }
-
-//漂浮框形式
-// var all = document.getElementsByName("float_box");
-// function display(){  
-//     for(var i=0;i<arr.length;i++)
-
-//         all[i].style.display="block";
-// }
-// function disappear(){
-//      for(var i=0;i<arr.length;i++)
-//         // i = $("#content").val($(this)).attr("name"); 
-//         all[i].style.display="none";
-// }
-
-
-
-// for(var j=0;j<arr.length;++j){
-//     $("#content").mouseover(function(){
-//         j = $(this).attr("name");
-//         console.log(j);
-//         console.log(arr2[j-1]);
-//     }) 
-// }
+document.getElementById("b").onmouseout = function(e){
+    var all = document.getElementsByName("float_box");
+    all[j].style.display="none";
+}
 
 
 //显示开始与截止时间
@@ -163,11 +53,12 @@ function showTime(){
 $(function(){
     showTime();
     var jsRenderTpl = $.templates('#testTmpl');
-    var finalTpl = jsRenderTpl(arr);
+    var finalTpl = jsRenderTpl(obj.data);
     $('.boxx').html(finalTpl);
 })
 
 
+//后端传输数据
 $(function(){
     var obj;
     $.ajax({
@@ -187,7 +78,7 @@ $(function(){
 
     $(".Btn_blue").click(function() {
         var i = $(this).attr("name");
-        url = "homework.html?i="+i;//此处拼接内容
+        url = "homework.html?i="+i+"&task_content="+arr[j].task_content;//此处拼接内容
         window.location.href = url;
     });       
     //按钮点击事件

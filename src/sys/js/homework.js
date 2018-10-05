@@ -45,11 +45,13 @@ $(function(){
 function getData(){
     var i = $.query.get("i");
     var s = $.query.get("s");
+    var task_content = $.query.get("task_content");
 
     for(var j=0;j<((s.length+1)/2);++j){
         arr[j] = s[(j+1)*2-2];
     }
     $("#head").text(i);
+    $("#txt1").text(task_content);
 }
 
 

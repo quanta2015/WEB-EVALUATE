@@ -77,12 +77,12 @@
 										<a id="head" name="{{:#index+1}}">{{:task_title}}</a></a>
 									</p>
 									
-									<span id="content" name="{{:#index+1}}">作业内容：{{:task_content}}</span>
-									<!-- <div name="float_box" class="fff" onmouseover="display()" onmouseout="disappear()">{{:task_content}}</div>  -->
-									<div title="" class="pt5"><span class="f1">发布老师：</span><span>{{:user_name}}</span></div>
-									<div title="" class="pt5"><span class="f1">开始时间：{{:publish_date}}</span></div>
-									<div title="" class="pt5"><span class="f1">截止时间：{{:end_date}}</span></div>
-									<div id="tit" title="" class="pt5"><span class="f1"></span>作业状态：<strong>
+									<div id="content" class="pt5">作业内容：{{:task_content}}</div>
+									<div name="float_box" class="fff">{{:task_content}}</div>
+									<div class="pt5"><span class="f1">发布老师：</span><span>{{:user_name}}</span></div>
+									<div class="pt5"><span class="f1">开始时间：{{:publish_date}}</span></div>
+									<div class="pt5"><span class="f1">截止时间：{{:end_date}}</span></div>
+									<div id="tit" class="pt5"><span class="f1"></span>作业状态：<strong>
 										{{if total_tag == 0}}<span style="color:green"">已完成</span>
 										{{else}}<span style="color:red"">未完成</span>
 										{{/if}}
@@ -90,7 +90,7 @@
 								</div>
 								<div class="titOper">
 									<p class="clearfix">						
-										<button id="ac" class="Btn_blue" name="{{:#index+1}}">
+										<button id="ac" class="Btn_blue" name="{{:task_title}}">
 											{{if total_tag == 0}}查看
 											{{else}}去完成
 											{{/if}}
