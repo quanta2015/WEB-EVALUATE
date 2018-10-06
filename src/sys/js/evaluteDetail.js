@@ -130,3 +130,23 @@ function GetQueryString(name)
      var r = window.location.search.substr(1).match(reg);
      if(r!=null)return  unescape(r[2]); return null;
 }
+
+function cancel() {
+    $.ajax({
+        url: '../php/signout.php',
+        type: "POST",
+        success: function (data) {
+            result = JSON.parse(data);
+            if (result.code == 0) {
+                alert("退出成功");
+                window.location.href = "../index.html";
+            } else {
+                alert("退出失败！");
+            };
+
+        }
+
+    })
+
+}
+
