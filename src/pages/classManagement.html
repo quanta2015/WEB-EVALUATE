@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>系统管理</title>
+    <title>班级管理/教师</title>
     <link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../sys/css/base.css">
     <link rel="stylesheet" type="text/css" href="../sys/css/task.css">
@@ -23,7 +23,6 @@
 </head>
 
 <body>
-
     <div class="g-index">
         <div class="nav">
             <div class="nav-top">
@@ -33,6 +32,14 @@
                 <li class="nav-item">
                     <a href="task.html" style="display: flex;">
                             <span>发布新任务</span>
+                            <div class="hidden"></div>
+                            <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
+                        </a>
+                </li>
+                <li class="nav-item"></li>
+                <li class="nav-item">
+                    <a href="taskManage.html" style="display: flex;">
+                            <span>任务管理</span>
                             <div class="hidden"></div>
                             <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
                         </a>
@@ -54,7 +61,7 @@
                         </a>
                 </li>
                 <li class="nav-item"></li>
-                <li id="nav-item">
+                <li class="nav-item">
                     <a href="set.html" style="display: flex;">
                         <span>设置评分标准</span>
                         <div class="hidden"></div>
