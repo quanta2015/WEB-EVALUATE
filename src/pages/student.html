@@ -1,110 +1,112 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<!-- <meta http-equiv="refresh" content="30">每隔30秒刷新页面-->
-	<title>学生作业管理</title>
-	<link rel="stylesheet" type="text/css" href="../sys/css/homework.css">
-	<link rel="stylesheet" type="text/css" href="../lib/font-awesome/css/font-awesome.min.css">
+    <meta charset="utf-8">
+    <!-- <meta http-equiv="refresh" content="30">每隔30秒刷新页面-->
+    <title>学生作业管理</title>
+    <link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../sys/css/homework.css">
+    <link rel="stylesheet" type="text/css" href="../sys/css/base.css">
+    <link rel="stylesheet" type="text/css" href="../sys/css/task.css">
 
-	<script type="text/javascript" src="../lib/jquery/jquery.min.js"></script>
-	<script type="text/javascript" src="../lib/jsrender/jsrender.js"></script>
-	<script type="text/javascript" src="../lib/jquery/jquery.params.js"></script>
-	<script src="https://unpkg.com/dayjs"></script>
+    <link rel="stylesheet" type="text/css" href="../lib/font-awesome/css/font-awesome.min.css">
+
+    <script type="text/javascript" src="../lib/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../lib/jsrender/jsrender.js"></script>
+    <script type="text/javascript" src="../lib/jquery/jquery.params.js"></script>
+    <script src="https://unpkg.com/dayjs"></script>
 </head>
-<body>
-	<div class="g-index">
-		<div class="nav" style="font-size: 14px;">
-			<div class="nav-top">
-				<div class="nav-logo"><img src="../img/logo02.png"></div>
-				<i class="fa fa-chevron-right nav-more" id="nav_icon3" style="display: none;"></i>
-			</div>
-			<!-- 导航栏内容开始 -->
-			<ul>
-				<li class="nav-item has-chosen">
-					<a href="student.html" style="display: flex;">
-						<span>我的作业</span>
-						<div class="hidden"></div>
-						<i class="fa fa-chevron-right nav-more" id="nav_icon1"></i>
-					</a>
-				</li>
-				<li class="nav-item"></li>
-				<li class="nav-item">
-					<a href="gradeSearchStd.html" style="display: flex;">
-						<span>成绩查询</span>
-						<div class="hidden"></div>
-						<i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
-					</a>
-				</li>
-				<li class="nav-item"></li>
-				<li class="nav-item">
-					<a href="evaluteStudent.html" style="display: flex;">
-						<span>成绩评定</span>
-						<div class="hidden"></div>
-						<i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
-					</a>
-				</li>
-				<li class="nav-item"></li>
-				<li class="nav-item">
-					<a href="pwdChange.html" style="display: flex;">
-						<span>修改密码</span>
-						<div class="hidden"></div>
-						<i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
-					</a>
-				</li>
-				<li class="nav-item"></li>
-			</ul>
-			<!-- 导航栏内容结束 -->
-		</div>
-		<div class="content" style="height: 100%;">
-			<div class="content-top">
-				<a class="userControl" style="display: flex; align-items: center;font-size: 14px;">
-					<span class="userCotrol-title">个人面板&nbsp;&nbsp;&nbsp;&nbsp;</span>
-					<i class="fa fa-power-off nav-more fa-2x" id="nav_icon2" style="color: rgb(32, 142, 251);"></i>
-				</a>
-			</div>
-			<div class="content-main">
-				<!-- 列表内容开始 -->
-				<div class="ulDiv">
-					<ul class="clearfix" style="width:1100px;">
-						<div class="boxx"  id="b"></div>
-						<!-- 定义JsRender模版 -->  
-						<script type="text/x-jsrender" id="testTmpl">	
-							<li class="lookLi">	
-								<div class="titTxt">	
 
-									<p style="padding-top: 10px;"><a>作业
+<body>
+
+    <div class="g-index">
+        <div class="nav">
+            <div class="nav-top">
+                <div class="nav-logo"><img src="../img/logo02.png"></div>
+            </div>
+            <ul>
+                <li class="nav-item has-chosen">
+                    <a href="student.html" style="display: flex;">
+                            <span>我的作业</span>
+                            <div class="hidden"></div>
+                            <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
+                        </a>
+                </li>
+                <li class="nav-item"></li>
+                <li class="nav-item">
+                    <a href="gradeSearchStd.html" style="display: flex;">
+                            <span>成绩查询</span>
+                            <div class="hidden"></div>
+                            <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
+                        </a>
+                </li>
+                <li class="nav-item"></li>
+                <li class="nav-item">
+                    <a href="evaluteStudent.html" style="display: flex;">
+                            <span>成绩评定</span>
+                            <div class="hidden"></div>
+                            <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
+                        </a>
+                </li>
+                <li class="nav-item"></li>
+                <li class="nav-item">
+                    <a href="pwdChange.html" style="display: flex;">
+                        <span>修改密码</span>
+                        <div class="hidden"></div>
+                        <i class="fa fa-chevron-right nav-more" id="nav_icon1"></i>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+        <div class="content">
+            <div class="content-top">
+                <a class="userControl" style="display: flex; align-items: center;" onClick="cancel()">
+                        <i class="fa fa-power-off nav-more fa-2x" id="nav_icon2" style="color: rgb(32, 142, 251);"></i>
+                    </a>
+            </div>
+            <div class="content-main">
+                <!-- 列表内容开始 -->
+                <div class="ulDiv">
+                    <ul class="clearfix" style="width:1100px;">
+                        <div class="boxx" id="b"></div>
+                        <!-- 定义JsRender模版 -->
+                        <script type="text/x-jsrender" id="testTmpl">
+                            <li class="lookLi">
+                                <div class="titTxt">
+
+                                    <p style="padding-top: 10px;"><a>作业
 										<a id="head" name="{{:#index+1}}">{{:task_title}}</a></a>
-									</p>
-									
-									<div id="content" class="pt5">作业内容：{{:task_content}}</div>
-									<div name="float_box" class="fff">{{:task_content}}</div>
-									<div class="pt5"><span class="f1">发布老师：</span><span>{{:user_name}}</span></div>
-									<div class="pt5"><span class="f1">开始时间：{{:publish_date}}</span></div>
-									<div class="pt5"><span class="f1">截止时间：{{:end_date}}</span></div>
-									<div id="tit" class="pt5"><span class="f1"></span>作业状态：<strong>
+                                    </p>
+
+                                    <div id="content" class="pt5">作业内容：{{:task_content}}</div>
+                                    <div name="float_box" class="fff">{{:task_content}}</div>
+                                    <div class="pt5"><span class="f1">发布老师：</span><span>{{:user_name}}</span></div>
+                                    <div class="pt5"><span class="f1">开始时间：{{:publish_date}}</span></div>
+                                    <div class="pt5"><span class="f1">截止时间：{{:end_date}}</span></div>
+                                    <div id="tit" class="pt5"><span class="f1"></span>作业状态：<strong>
 										{{if total_tag == 0}}<span style="color:green"">已完成</span>
 										{{else}}<span style="color:red"">未完成</span>
 										{{/if}}
 									</strong></div>
-								</div>
-								<div class="titOper">
-									<p class="clearfix">						
-										<button id="ac" class="Btn_blue" name="{{:task_title}}">
+                                </div>
+                                <div class="titOper">
+                                    <p class="clearfix">
+                                        <button id="ac" class="Btn_blue" name="{{:task_title}}">
 											{{if total_tag == 0}}查看
 											{{else}}去完成
 											{{/if}}
-										</button>		
-									</p>
-								</div>
-							</li>
-						</script>
-					</ul>
-				</div>
-				<!-- 列表内容结束 -->
-			</div>
-		</div>
-	</div>
+										</button>
+                                    </p>
+                                </div>
+                            </li>
+                        </script>
+                    </ul>
+                </div>
+                <!-- 列表内容结束 -->
+            </div>
+        </div>
+    </div>
 </body>
 <script type="text/javascript" src="../sys/js/student.js"></script> 
 </html>
