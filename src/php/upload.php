@@ -23,25 +23,26 @@ for( $i = 0;$i < count($_FILES['file']['error']);$i++ ){
         echo "上传错误";
         switch($_FILES['file']['error'][$i]){
         
-            case 1:// die('第'.($i+1).'个文件上传文件大小超出了PHP配置文件中的约定值：upload_max_filesize');
-                    ero('27','第'{$i+1}'个文件上传文件大小超出了PHP配置文件中的约定值');
-                    exit();
+            case 1: 
+                   die('第'.($i+1).'个文件上传文件大小超出了PHP配置文件中的约定值：upload_max_filesize');
+                    //ero('27','第'{$i+1}'个文件上传文件大小超出了PHP配置文件中的约定值');
+                    //exit();
                     break;
-            case 2: //die('上传第'.($i+1).'个文件大小超出了表单中的约定值：MAX_FILE_SIZE');
-                    ero('30','上传第'($i+1)'个文件大小超出了表单中的约定值：MAX_FILE_SIZE');
-                    exit();
+            case 2: die('上传第'.($i+1).'个文件大小超出了表单中的约定值：MAX_FILE_SIZE');
+                    //ero('30','上传第'($i+1)'个文件大小超出了表单中的约定值：MAX_FILE_SIZE');
+                    //exit();
                     break;
-            case 3: //die('第'.($i+1).'个文件只被部分上传');
-                    ero('33','第'($i+1)'个文件只被部分上传');
-                    exit();
+            case 3: die('第'.($i+1).'个文件只被部分上传');
+                    //ero('33','第'($i+1)'个文件只被部分上传');
+                    //exit();
                     break;
-            case 4: //die('第'.($i+1).'个文件没有上传');
-                    ero('36','第'($i+1)'个文件没有上传');
-                    exit();
+            case 4: die('第'.($i+1).'个文件没有上传');
+                    //ero('36','第'($i+1)'个文件没有上传');
+                    //exit();
                     break;
-            default: //die('未知错误');
+            default: die('未知错误');
                      ero('39','未知错误');
-                     exit();
+                     //exit();
                      break;
         }
     }
