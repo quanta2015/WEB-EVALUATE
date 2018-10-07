@@ -23,11 +23,12 @@
 //             {id:14, tid:2, table_name:'多媒体课件制作', item_order:2, item_title:'教育性', item_content:'课件设计新颖，能体现教学设计思想；知识点结构清晰，能调动学生的学习热情', item_point:6}]
 
 var changeArr = [];
+var evastandard;
 
 function setInit(data) {
     changeArr.splice(0, changeArr.length);
     evastandard = JSON.parse(data);
-    var arr1, arr2, arr3, arr4;
+    var arr1 = [], arr2 = [], arr3 = [], arr4 = [];
     for (var i = 0; i < evastandard.data.length; i++) {
         if (evastandard.data[i].tid == 1) {
             arr1.push(evastandard.data[i]);
@@ -36,10 +37,10 @@ function setInit(data) {
             arr2.push(evastandard.data[i]);
         }
         if (evastandard.data[i].tid == 3) {
-            arr2.push(evastandard.data[i]);
+            arr3.push(evastandard.data[i]);
         }
         if (evastandard.data[i].tid == 4) {
-            arr2.push(evastandard.data[i]);
+            arr4.push(evastandard.data[i]);
         }
     }
     var jsRenderTpl = $.templates('#theTmpl1');
@@ -65,12 +66,16 @@ $(document).ready(function() {
         url: '../php/detail_search.php',
         type: 'get',
         async: false,
-        success: setInit(data);
+        success: function(data) {
+            setInit(data);
+            //console.log(evastandard);
+        }
     });
 });
 
 $(".savenowbtn").click(function() {
     var i = $(this).attr("id");
+    console.log(i);
     var changeCont = new Object();
     changeCont.tid = i;
     for(var k = 0; k < evastandard.length; k++) {
@@ -81,7 +86,7 @@ $(".savenowbtn").click(function() {
     }
     changeCont.item_content = $("#content"+i).val();
     changeCont.item_point = $("#point"+i).val();
-    // console.log(changeCont);
+    console.log(changeCont);
     var changeObj = new Object();
     changeObj.id = i;
     changeObj.content = changeCont;
@@ -96,7 +101,7 @@ $("#standardSure").click(function() {
         url: '../php/set_detail.php',
         type: 'POST',
         async: false,
-        data: JSON.stringify(changeArr);
+        data: JSON.stringify(changeArr),
         success: function(data) {
             console.log(data);
         }
