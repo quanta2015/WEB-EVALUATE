@@ -79,7 +79,7 @@ for( $i = 0;$i < count($_FILES['file']['error']);$i++ ){
     $filesize[$i] = $_FILES['file']['size'][$i]/1024;
     $success++;
     $newPath[$i] = $path.'/'.$filename[$i];
-    echo $newPath;
+    echo $newPath.'<br/>';
 }
 
 if($success ==3){
