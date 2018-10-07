@@ -1,6 +1,5 @@
 
 //飘浮框
-var j=0;
 document.getElementById("b").onmouseover = function(e){
     var target2 = e.target;
     // var bol = $(e.target).parents().is("float_boxid");
@@ -70,24 +69,25 @@ $(function(){
         }   
     });
 
-    $(".Btn_blue").click(function() {
-        var i = $(this).attr("name");
-        url = "homework.html?i="+i+"&task_content="+arr[j].task_content;//此处拼接内容
-        window.location.href = url;
-    });    
-
-
     showTime(obj);
     var jsRenderTpl = $.templates('#testTmpl');
     var finalTpl = jsRenderTpl(obj.data);
     $('.boxx').html(finalTpl);
 
-    //按钮点击事件
-    /*function jump(){
-    url = "homework.html?i="+i+"&s="+s;//此处拼接内容
-    window.location.href = url;
-    }*/
+
+    var j=0;
+
+
+ $(".Btn_blue").click(function() {
+     
+        var i = $(this).attr("name");
+           console.log(obj.data[i]);
+        url = "homework.html?i="+i+"&task_content="+obj.data[i]["task_content"];//此处拼接内容
+      window.location.href = url;
+    });  
 });
+
+
 function cancel() {
     $.ajax({
         url: '../php/signout.php',

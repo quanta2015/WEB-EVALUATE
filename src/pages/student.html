@@ -69,7 +69,7 @@
                 <!-- 列表内容开始 -->
                 <div class="ulDiv">
                     <ul class="clearfix" style="width:1100px;">
-                        <div class="boxx" id="b"></div>
+                       <div class="boxx" id="b"></div>
                         <!-- 定义JsRender模版 -->
                         <script type="text/x-jsrender" id="testTmpl">
                             <li class="lookLi">
@@ -79,7 +79,7 @@
 										<a id="head" name="{{:#index+1}}">{{:task_title}}</a></a>
                                     </p>
 
-                                    <div id="content" class="pt5">作业内容：{{:task_content}}</div>
+                                    <div id="content" class="pt5" >作业内容：{{:task_content}}</div>
                                     <div name="float_box" class="fff">{{:task_content}}</div>
                                     <div class="pt5"><span class="f1">发布老师：</span><span>{{:user_name}}</span></div>
                                     <div class="pt5"><span class="f1">开始时间：{{:publish_date}}</span></div>
@@ -92,7 +92,7 @@
                                 </div>
                                 <div class="titOper">
                                     <p class="clearfix">
-                                        <button id="ac" class="Btn_blue" name="{{:task_title}}">
+                                        <button id="ac" class="Btn_blue" name="{{:#index}}">
 											{{if total_tag == 0}}查看
 											{{else}}去完成
 											{{/if}}
