@@ -21,7 +21,7 @@ document.getElementById("b").onmouseout = function(e){
 
 
 //显示开始与截止时间
-function showTime(){
+function showTime(arr){
     for(var i=0;i<arr.length;++i){
         var date1 = dayjs(arr[i].end_date);
         var date2 = dayjs(arr[i].publish_date);
@@ -50,12 +50,6 @@ function showTime(){
         }
     }
 }
-$(function(){
-    showTime();
-    var jsRenderTpl = $.templates('#testTmpl');
-    var finalTpl = jsRenderTpl(obj.data);
-    $('.boxx').html(finalTpl);
-})
 
 
 //后端传输数据
@@ -80,7 +74,14 @@ $(function(){
         var i = $(this).attr("name");
         url = "homework.html?i="+i+"&task_content="+arr[j].task_content;//此处拼接内容
         window.location.href = url;
-    });       
+    });    
+
+
+    showTime(obj);
+    var jsRenderTpl = $.templates('#testTmpl');
+    var finalTpl = jsRenderTpl(obj.data);
+    $('.boxx').html(finalTpl);
+
     //按钮点击事件
     /*function jump(){
     url = "homework.html?i="+i+"&s="+s;//此处拼接内容
