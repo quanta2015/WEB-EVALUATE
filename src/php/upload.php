@@ -23,11 +23,26 @@ for( $i = 0;$i < count($_FILES['file']['error']);$i++ ){
         echo "上传错误";
         switch($_FILES['file']['error'][$i]){
         
-            case 1: die('第'.($i+1).'个文件上传文件大小超出了PHP配置文件中的约定值：upload_max_filesize');
-            case 2: die('上传第'.($i+1).'个文件大小超出了表单中的约定值：MAX_FILE_SIZE');
-            case 3: die('第'.($i+1).'个文件只被部分上传');
-            case 4: die('第'.($i+1).'个文件没有上传');
-            default: die('未知错误');
+            case 1:// die('第'.($i+1).'个文件上传文件大小超出了PHP配置文件中的约定值：upload_max_filesize');
+                    ero('27','第'{$i+1}'个文件上传文件大小超出了PHP配置文件中的约定值');
+                    exit();
+                    break;
+            case 2: //die('上传第'.($i+1).'个文件大小超出了表单中的约定值：MAX_FILE_SIZE');
+                    ero('30','上传第'($i+1)'个文件大小超出了表单中的约定值：MAX_FILE_SIZE');
+                    exit();
+                    break;
+            case 3: //die('第'.($i+1).'个文件只被部分上传');
+                    ero('33','第'($i+1)'个文件只被部分上传');
+                    exit();
+                    break;
+            case 4: //die('第'.($i+1).'个文件没有上传');
+                    ero('36','第'($i+1)'个文件没有上传');
+                    exit();
+                    break;
+            default: //die('未知错误');
+                     ero('39','未知错误');
+                     exit();
+                     break;
         }
     }
 
@@ -79,19 +94,27 @@ for( $i = 0;$i < count($_FILES['file']['error']);$i++ ){
     $filesize[$i] = $_FILES['file']['size'][$i]/1024;
     $success++;
     $newPath[$i] = $path.'/'.$filename[$i];
-    echo $newPath.'<br/>';
+    //echo $newPath.'<br/>';
 }
 
 if($success ==3){
     $sql = "INSERT into 'dotask' (doc_url,ppt_url,vedio_url) VALUES ('{$newpath[0]}','{$newPath[1]}','{$newPath[2]}') where id = '{$id}'";
-    $result = $conn->query($sql);
-    if(0 == mysqli_num_rows($result)) {
+   $result = mysqli_query($conn, $sql2);
+   if(1==$result2){
+       success('');
+       alert("上传成功！")；
+       echo "<script>windows.location.href='../html/student.html';</script>";
+   }
+   else{ 
+       ero('20','unkonwfail');
+   }
+   /*  if(0 == mysqli_num_rows($result)) {
        existempty();
     }
+
     else{
         $row1 = mysqli_fetch_all($result,MYSQLI_ASSOC);
         success($row1);
     }
-   // alert("上传成功！")；
-    //echo "<script>windows.location.href='../html/student.html';</script>";
+    */
 }
