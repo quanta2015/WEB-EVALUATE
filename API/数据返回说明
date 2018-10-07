@@ -75,3 +75,6 @@ id content{"tid":xx ,"table_name":xx,"item_title":xx,"item_content":xx,"item_poi
 
 
 
+八、班级管理 class_set.php
+提供班级的增删操作
+前端传入 do(删1 增0) class(增加的班级名字) del_id(要删除的id数组)；
