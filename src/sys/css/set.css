@@ -1,6 +1,6 @@
-.firstTitle {
+/*.firstTitle {
 	width: 100%;
-	color: rgb(50, 160, 222);
+	color: rgb(50, 170, 222);
 	padding-left: 35px;
 	font-size: 120%;
 	height: 80px;
@@ -47,31 +47,23 @@
 } 
 li {
 	color: rgb(74, 74, 74);
-}
+}*/
 
-.evaluteStandard {
+/*.evaluteStandard {
 	margin: 40px;
 	margin-top: 10px;
 	width: calc(100% - 80px);
 	border: solid 1px rgb(230, 233, 241);
 	border-bottom: none;
 	box-shadow: rgb(230, 230, 230) 0 0 20px;
-}
-.formblock{
+}*/
+/*.formblock{
 	margin-top: 10px;
 	margin-right: 20px
-}
-
-/*.third{
-	margin-top: 10px;
-	height: 400px;
-	border: solid 1px rgb(230, 233, 241);  
-}
-.btn{
-	margin-top: 15px;
-	margin-left: 95%;
 }*/
-.basicInputStyle {
+
+
+/*.basicInputStyle {
 	background: transparent;
 	appearance: none;
     -moz-appearance: none;
@@ -84,20 +76,24 @@ li {
     height: 30px;
     width: 150px;
     box-shadow: rgb(221, 237, 252) 0 0 3px;
-}
+}*/
 .fstTitle {
 	color: rgb(140, 144, 135);
-	font-size: 120%;
+	font-size: 150%;
 }
-.sedTitle {
+.hiddenbox {
+	content: " ";
+	flex-grow: 5;
+}
+/*.sedTitle {
 	color: rgb(111, 111, 111);
 	font-size: 105%;
 	margin-right: 1%;
-}
-.outter {
+}*/
+/*.outter {
 	margin-top: 2%;
-}
-.content-main-topbox,.content-main-middlebox {
+}*/
+/*.content-main-topbox,.content-main-middlebox {
 	margin-left: 5%;
 	margin-top: 3%;
 	margin-left: 30px;
@@ -105,7 +101,7 @@ li {
 	width: calc(100% - 60px);
 	padding-bottom: 3%;
 	border-bottom: dashed 2px rgb(230, 233, 241);
-}
+}*/
 .content-main-buttombox {
 	margin-left: 5%;
 	margin-top: 3%;
@@ -130,7 +126,103 @@ li {
 	background-color: rgb(5, 127, 254);
 	color: white;
 }
-.hiddenbox {
-	content: " ";
-	flex-grow: 5;
+
+.tab-group {
+  width: 97%;
+  position: relative;
+  border: 1px solid #eee;
+  border-bottom: none;
+  margin-top: 4em;
+}
+.tab-group section {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transition: opacity 0.4s ease, height 0.4s ease;
+}
+.tab-group section.active {
+  opacity: 1;
+  height: auto;
+  overflow: visible;
+}
+
+.tab-nav {
+  list-style: none;
+  margin: -2.5em -1px 0 0;
+  padding: 0;
+  height: 2.5em;
+  overflow: hidden;
+}
+.tab-nav li {
+  display: inline;
+}
+.tab-nav li a {
+  top: 1px;
+  position: relative;
+  display: block;
+  float: left;
+  border-radius: 10px 10px 0 0;
+  background: #eee;
+  line-height: 2em;
+  padding: 0 1em;
+  text-decoration: none;
+  color: grey;
+  margin-top: .5em;
+  margin-right: 1px;
+  transition: background .2s ease, line-height .2s ease, margin .2s ease;
+}
+.tab-nav li.active a {
+  background: rgb(141, 199, 255);
+  color: white;
+  font-size: 120%;
+  line-height: 2.2em;
+  margin-top: 0;
+}
+.standardbox {
+	display: flex;
+	border-bottom: 1px solid #eee;
+}
+.item_title, .savenow {
+	width: 100%;
+	height: 70px;
+}
+.item_title div {
+	display: flex;
+	justify-content: center;
+	height: 70px;
+	line-height: 70px;
+	color: rgb(74, 74, 74);
+	font-size: 112%;
+	border-right: 1px solid #eee;
+}
+.item_content textarea, .item_point textarea {
+	width: 100%;
+	font-size: 100%;
+	border-style: none;
+	background-color: transparent;
+	color: rgb(74, 74, 74);
+}
+.item_point textarea {
+	text-align: center;
+	color: red;
+	font-size: 120%;
+}
+.item_content, .item_point{
+	border-right: 1px solid #eee;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.savenowbtn {
+	width: 100%;
+	height: 100%;
+	border-style: none;
+	background-color: rgba(245, 247, 250, .5);
+	color: grey;
+	font-size: 100%;
+	font-weight: thin;
+}
+.savenowbtn:hover {
+	background: rgb(141, 199, 255);
+  	color: white;
 }

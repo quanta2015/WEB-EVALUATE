@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html>
-    <head>
+
+<head>
     <meta charset="utf-8">
-    <title>成绩查询/教师</title>
+    <title>成绩评定/教师</title>
     <link rel="stylesheet" type="text/css" href="../sys/css/base.css">
     <link rel="stylesheet" type="text/css" href="../sys/css/set.css">
     <link rel="stylesheet" type="text/css" href="../lib/font-awesome/css/font-awesome.min.css">
+    <!-- <script type="text/javascript" src="../sys/js/evaluteStudent.js"></script> -->
     <script type="text/javascript" src="../lib/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="../lib/jsrender/jsrender.js"></script>
+    <script src="../lib/jquery-tab/prefixfree.min.js"></script>
+    <script type="text/javascript" src="../lib/jquery-tab/jquery-tab.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        // Calling the plugin
+        $('.tab-group').tabify();
+    })
+    </script> 
 </head>
 
 <body>
@@ -20,14 +30,6 @@
                 <li class="nav-item">
                     <a href="task.html" style="display: flex;">
                             <span>发布新任务</span>
-                            <div class="hidden"></div>
-                            <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
-                        </a>
-                </li>
-                <li class="nav-item"></li>
-                <li class="nav-item">
-                    <a href="taskManage.html" style="display: flex;">
-                            <span>任务管理</span>
                             <div class="hidden"></div>
                             <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
                         </a>
@@ -58,7 +60,7 @@
                 </li>
                 <li class="nav-item"></li>
                 <li class="nav-item">
-                    <a href="pwdChangeT.html" style="display: flex;">
+                    <a href="passwordT.html" style="display: flex;">
                             <span>修改密码</span>
                             <div class="hidden"></div>
                             <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
@@ -76,80 +78,92 @@
         </div>
         <div class="content">
             <div class="content-top">
-                <a class="userControl" style="display: flex; align-items: center;" onClick="cancel()">
+                <a class="userControl" style="display: flex; align-items: center;" href="../index.html">
                         <i class="fa fa-power-off nav-more fa-2x" id="nav_icon2" style="color: rgb(32, 142, 251);"></i>
                     </a>
             </div>
             <div class="content-main" style="display: flex; flex-direction: column;">
-                <div class="content-main-topbox" style="display: flex; flex-direction: column;">
-                    <span class="fstTitle">一、设置模块分数比例（%）</span>
-                    <div class="outter" style="display: flex; align-items: center;">
-                        <span class="sedTitle">老师评价:</span>
-                        <input type="text" name="teacherPect" id="teacherPect" class="basicInputStyle">
-                        <span class="sedTitle" style="margin-left: 2.5%;">小组评价:</span>
-                        <input type="text" name="groupPect" id="groupPect" class="basicInputStyle">
-                        <span class="sedTitle" style="margin-left: 2.5%;">自我评价:</span>
-                        <input type="text" name="selfPect" id="selfPect" class="basicInputStyle">
+                <div class="content-main-buttombox" style="display: flex; flex-direction: column;">
+                    <div style="display: flex;">
+                        <span class="fstTitle">设置评价标准</span>
                         <div class="hiddenbox"> </div>
-                        <button class="basicbtn" id="pectSure" type="submit">确定</button>
+                        <button class="basicbtn" id="standardSure" type="submit">确定</button>
                     </div>
-                </div>
-                <div class="content-main-middlebox" style="display: flex; flex-direction: column;">
-                    <span class="fstTitle">一、设置小组成员数</span>
-                    <div class="outter" style="display: flex; align-items: center;">
-                        <span class="sedTitle">小组数量:</span>
-                        <input type="text" name="groupNum" id="groupNum" class="basicInputStyle">
-                        <div class="hiddenbox"> </div>
-                        <button class="basicbtn" id="groupnumSure" type="submit">确定</button>
+                    <div class="tab-group">
+                        <section id="tab1" title="教学设计">
+                            <div class="box1"></div>
+                            <script id="theTmpl1" type="text/x-jsrender">
+                                <ul>
+                                    {{for}}
+                                    <li>
+                                        <div class="standardbox">
+                                            <div class="item_title" style="width: 15%"><div>{{:item_title}}</div></div>
+                                            <div class="item_content" style="width: 60%"><textarea id="content{{:id}}">{{:item_content}}</textarea></div>
+                                            <div class="item_point" style="width: 15%"><textarea id="point{{:id}}">{{:item_point}}</textarea></div>
+                                            <div class="savenow" style="width: 10%"><button id="{{:id}}" class="savenowbtn">保存修改</button></div>
+                                        </div>
+                                    </li>
+                                    {{/for}}
+                                </ul>
+                            </script>
+                        </section>
+                        <section id="tab2" title="多媒体课件制作">
+                            <div class="box2"></div>
+                            <script id="theTmpl2" type="text/x-jsrender">
+                                <ul>
+                                    {{for}}
+                                    <li>
+                                        <div class="standardbox">
+                                            <div class="item_title" style="width: 15%"><div>{{:item_title}}</div></div>
+                                            <div class="item_content" style="width: 60%"><textarea id="content{{:id}}">{{:item_content}}</textarea></div>
+                                            <div class="item_point" style="width: 15%"><textarea id="point{{:id}}">{{:item_point}}</textarea></div>
+                                            <div class="savenow" style="width: 10%"><button id="{{:id}}" class="savenowbtn">保存修改</button></div>
+                                        </div>
+                                    </li>
+                                    {{/for}}
+                                </ul>
+                            </script>
+                        </section>
+                        <section id="tab3" title="即席演讲">
+                            <div class="box3"></div>
+                            <script id="theTmpl3" type="text/x-jsrender">
+                                <ul>
+                                    {{for}}
+                                    <li>
+                                        <div class="standardbox">
+                                            <div class="item_title" style="width: 15%"><div>{{:item_title}}</div></div>
+                                            <div class="item_content" style="width: 60%"><textarea id="content{{:id}}">{{:item_content}}</textarea></div>
+                                            <div class="item_point" style="width: 15%"><textarea id="point{{:id}}">{{:item_point}}</textarea></div>
+                                            <div class="savenow" style="width: 10%"><button id="{{:id}}" class="savenowbtn">保存修改</button></div>
+                                        </div>
+                                    </li>
+                                    {{/for}}
+                                </ul>
+                            </script>
+                        </section>
+                        <section id="tab4" title="模拟上课板书设计">
+                            <div class="box4"></div>
+                            <script id="theTmpl4" type="text/x-jsrender">
+                                <ul>
+                                    {{for}}
+                                    <li>
+                                        <div class="standardbox">
+                                            <div class="item_title" style="width: 15%"><div>{{:item_title}}</div></div>
+                                            <div class="item_content" style="width: 60%"><textarea id="content{{:id}}">{{:item_content}}</textarea></div>
+                                            <div class="item_point" style="width: 15%"><textarea id="point{{:id}}">{{:item_point}}</textarea></div>
+                                            <div class="savenow" style="width: 10%"><button id="{{:id}}" class="savenowbtn">保存修改</button></div>
+                                        </div>
+                                    </li>
+                                    {{/for}}
+                                </ul>
+                            </script>
+                        </section>
                     </div>
-                </div>
-                <div class="content-main-buttombox">
-                    <span class="fstTitle">三、设置评价标准</span>
-                    <div class="box"></div>
-                    <script id="theTmpl" type="text/x-jsrender">
-                        <div class="evaluteStandard">
-                            <ul style="width: 100%;">
-                                {{for}}
-                                <li style="width: 100%;">
-                                    <div class="firstTitle">{{:part}}</div>
-                                    <div class="secondTitle" style="display: flex;">
-                                        <div style="width: 25%;">评价内容</div>
-                                        <div style="width: 65%;">评价标准</div>
-                                        <div style="width: 15%;">分值</div>
-                                    </div>
-                                    <div class="contentList" style="display: flex; width: 100%;">
-                                        <ul style="width: 15%;">
-                                            {{for content}}
-                                            <li>
-                                                <div class="cntList-left">{{:#data}}</div>
-                                            </li>
-                                            {{/for}}
-                                        </ul>
-                                        <ul style="width: 65%;">
-                                            {{for standard}}
-                                            <li>
-                                                <textarea class="cntList-middle">{{:#data}}</textarea>
-                                            </li>
-                                            {{/for}}
-                                        </ul>
-                                        <ul style="width: 15%;">
-                                            {{for grade}}
-                                            <li>
-                                                <textarea class="cntList-right grade">{{:#data}}</textarea>
-                                            </li>
-                                            {{/for}}
-                                        </ul>
-                                    </div>
-                                </li>
-                                {{/for}}
-                            </ul>
-                        </div>
-                    </script>
                 </div>
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="../sys/js/evaluteDetail.js"></script>
+    <script type="text/javascript" src="../sys/js/set.js"></script>
 </body>
 
 </html>
