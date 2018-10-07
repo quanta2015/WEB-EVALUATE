@@ -1,12 +1,16 @@
 <?php
 include 'conn.php';
+include 'common.php';
+
+$id = $_SESSION["id"];
 
 //允许上传的文件格式
 $allowtype = array("doc", "docx", "pdf", "ppt", "pptx", "mp4", "avi","flv", "wmv","mov","zip","rar","7z"); 
 
-$size = 100000000; //设置允许大小10M以内的文件
+$size = 100000000; //设置允许大小100M以内的文件
 $path = "../../upload"; //设置上传后保存文件的路径
-
+$success = 0; //记录成功的次数
+$newPath = array(); //上传文件的放置路径
 
 //判断文件是否可以上传到服务器 $_FILES['myfile'][error]为0表示成功
 //循环
@@ -32,7 +36,9 @@ for( $i = 0;$i < count($_FILES['file']['error']);$i++ ){
     //判断上传的文件是否为允许的文件类型，通过文件的后缀名
     //array_pop 弹出并返回数组中的最后一个元素，并将array的长度减1
     $file = explode(".",$_FILES['file']['name'][$i]);
+    var_dump($file);
     $hz[$i] = array_pop($file);
+    print_r($hz[$i]);
     if(!in_array(strtolower($hz[$i]),$allowtype)){
 
         die("第".($i+1)."个文件后缀是<b>{$hz}</b>,不是允许的文件类型！");
@@ -71,7 +77,21 @@ for( $i = 0;$i < count($_FILES['file']['error']);$i++ ){
 
     //如果文件上传成功
     $filesize[$i] = $_FILES['file']['size'][$i]/1024;
-    //$sql = "inser into dotask(doc_url,ppt_url,vedio_url) values ($path,$path,$path);";
-    //mysql_query(conn,$sql);
-    echo "文件{$upfile[$i]}上传成功，保存在目录{$path}中，文件大小为{$filesize[$i]}KB<br>";
+    $success++;
+    $newPath[$i] = $path.'/'.$filename[$i];
+    echo $newPath;
+}
+
+if($success ==3){
+    $sql = "INSERT into 'dotask' (doc_url,ppt_url,vedio_url) VALUES ('{$newpath[0]}','{$newPath[1]}','{$newPath[2]}') where id = '{$id}'";
+    $result = $conn->query($sql);
+    if(0 == mysqli_num_rows($result)) {
+       existempty();
+    }
+    else{
+        $row1 = mysqli_fetch_all($result,MYSQLI_ASSOC);
+        success($row1);
+    }
+   // alert("上传成功！")；
+    //echo "<script>windows.location.href='../html/student.html';</script>";
 }
