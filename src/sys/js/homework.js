@@ -8,7 +8,29 @@ $(document).ready(function(){
             buttons: {
                 confirm: {
                     label: 'Yes',
-                    className: 'btn-success'
+                    className: 'btn-success'.
+                    $.ajax({
+                        type:"POST",
+                        url: '../php/upload.php',
+                        data: {
+                            task_id: $("#head").val()
+
+                        },
+
+                        success: function (data) {
+                            console.log(data);
+                            var obj = JSON.parse(data);
+                            if (obj.code == 0) {
+                                toastr.success('已成功提交作业');
+                            } else if (obj.code == 80) {
+                                toastr.warning('存在空输入');
+                            } else if (obj.code == 20) {
+                                toastr.warning('提交失败');
+                            } else if (obj.code == 55) {
+                                toastr.error('数据库连接失败');
+                            }
+                        }
+                    })
                 },
                 cancel: {
                     label: 'No',
