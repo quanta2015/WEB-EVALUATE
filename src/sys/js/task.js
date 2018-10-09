@@ -1,3 +1,4 @@
+  toastr.options.positionClass = 'toastr-top-left';
 $(document).ready(function () {
     //班级下拉菜单设置
     //查找老师所有的班级
