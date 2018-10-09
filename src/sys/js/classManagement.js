@@ -4,7 +4,7 @@
     var clsNm = [];
     var clsId = [];
     var selcId = [];
-    toastr.options.positionClass = 'toast-bottom-left';
+     toastr.options.positionClass = 'toastr-top-left';
 
 
     $(document).ready(function () {
