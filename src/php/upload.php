@@ -86,17 +86,19 @@ if ($success == 3) {
     if (1 == $result) {
         success('');
         echo "<script>alert('上传成功');</script>";
-        // header("Refresh:1;url=../pages/homework.html");
+         header("Refresh:1;url=../pages/homework.html");
         
     } else {
         echo "<script>alert('上传失败');</script>";
         ero(88, '入库失败！');
+          header("Refresh:1;url=../pages/homework.html");
         //exit();
         
     }
 } else {
     echo "<script>alert('上传失败');</script>";
     ero(115, 'unkonwfail');
+      header("Refresh:1;url=../pages/homework.html");
     //exit();
     
 }
