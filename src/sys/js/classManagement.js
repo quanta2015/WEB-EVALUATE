@@ -2,19 +2,21 @@
     var ckNum = 0;
     //定义数组
     var clsInfor = [{
+        id: '1',
         name: "软工161"
         }, {
-
+        id: '2',
         name: "软工162"
         }, {
+        id: '3',
         name: "物联网162"
         }];
     var html = $("#clsTmpl").render(clsInfor);
     $("#list").append(html);
     //全选
     var isCheckAll = false;
-//     //悬浮框的位置
-//     toastr.options.positionClass = 'toast-bottom-right';
+    //     //悬浮框的位置
+    //     toastr.options.positionClass = 'toast-bottom-right';
 
 
     function clsAdd() {
@@ -173,22 +175,22 @@
 
 
     }
-function cancel() {
-    $.ajax({
-        url: '../php/signout.php',
-        type: "POST",
-        success: function (data) {
-            result = JSON.parse(data);
-            if (result.code == 0) {
-                alert("退出成功");
-                window.location.href = "../index.html";
-            } else {
-                alert("退出失败！");
-            };
 
-        }
+    function cancel() {
+        $.ajax({
+            url: '../php/signout.php',
+            type: "POST",
+            success: function (data) {
+                result = JSON.parse(data);
+                if (result.code == 0) {
+                    alert("退出成功");
+                    window.location.href = "../index.html";
+                } else {
+                    alert("退出失败！");
+                };
 
-    })
+            }
 
-}
+        })
 
+    }

@@ -1,4 +1,5 @@
-$("#submit").click(function () {
+  toastr.options.positionClass = 'toastr-top-left';
+$(".final").click(function () {
 
         if($('#password').val()==$('#confirm_password').val() && $('#password').val() ){
           $.ajax({
