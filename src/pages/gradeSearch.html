@@ -83,45 +83,42 @@
                 <div class="content-main" style="display: flex; flex-direction: column;">
                     <div class="content-main-top" style="display: flex; align-items: center;">
                         <span>选择班级:</span>
-                        <select id = "classSlct">
-                            <option>软工162</option>
-                            <option>软工161</option>
-                            <option>全部</option>
-                        </select>
+                        <select id = "classSlct"></select>
                         <span>选择作业:</span>
-                        <select id = "taskSlct">
-                            <option>作业1</option>
-                            <option>作业2</option>
-                            <option>全部</option>
-                        </select>
+                        <select id = "taskSlct"></select>
                     </div>
                     <ul class="taskList" style="width: 100%; height: calc(100% - 10% - 7.5%);">
-                        <li style="width: 100%;">
-                            <div class="taskDetail" style="display: flex; align-items: center;">
-                                <div><span class="smltitle">ID</span></div>
-                                <div><span class="smltitle">姓名</span></div>
-                                <div><span class="smltitle">自评</span></div>
-                                <div><span class="smltitle">小组评</span></div>
-                                <div><span class="smltitle">老师评</span></div>
-                                <div><span class="smltitle">总分</span></div>
-                            </div>
-                        </li>
-                        <div class="box"></div>
-                        <script type="text/x-jsrender" id="theTmpl">
+                    <li style="width: 100%;">
+                        <div class="taskDetail" style="display: flex; align-items: center;">
+
+                            <div class="attribute" style="width: 12.5%;"><span class="smltitle ">作业</span></div>
+                            <div class="attribute" style="width: 12.5%;"><span class="smltitle ">学生ID</span></div>
+                            <div class="attribute" style="width: 12.5%;"><span class="smltitle ">班级</span></div>
+                            <div class="attribute" style="width: 12.5%;"><span class="smltitle ">姓名</span></div>
+                            <div class="attribute" style="width: 12.5%;"><span class="smltitle ">自评</span></div>
+                            <div class="attribute" style="width: 12.5%;"><span class="smltitle ">小组评</span></div>
+                            <div class="attribute" style="width: 12.5%;"><span class="smltitle ">老师评</span></div>
+                            <div class="attribute" style="width: 12.5%;"><span class="smltitle ">总评</span></div>
+                        </div>
+                    </li>
+                    <div class="box"></div>
+                    <script type="text/x-jsrender" id="theTmpl">
                         {{for}}
                         <li style="width: 100%;">
                             <div class="taskDetail" style="display: flex; align-items: center;">
-                                <div><span>{{:stdID}}</span></div>
-                                <div><span>{{:name}}</span></div>
-                                <div><span>{{:grade_self}}</span></div>
-                                <div><span>{{:grade_team}}</span></div>
-                                <div><span>{{:grade_teacher}}</span></div>
-                                <div><span>{{:score}}</span></div>
+                                <div style="width: 12.5%; background: {{if totalGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{:task_title}}</span></div>
+                                <div style="width: 12.5%; background: {{if totalGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{:user_num}}</span></div>
+                                <div style="width: 12.5%; background: {{if totalGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{:user_class}}</span></div>
+                                <div style="width: 12.5%; background: {{if totalGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{:user_name}}</span></div>
+                                <div style="width: 12.5%; background: {{if totalGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{if selfGrade}}{{:selfGrade}}{{else}}暂无评价{{/if}}</span></div>
+                                <div style="width: 12.5%; background: {{if totalGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{if groupGrade}}{{:groupGrade}}{{else}}暂无评价{{/if}}</span></div>
+                                <div style="width: 12.5%; background: {{if totalGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{if teacherGrade}}{{:teacherGrade}}{{else}}暂无评价{{/if}}</span></div>
+                                <div style="width: 12.5%; background: {{if totalGrade}}white{{else}}rgb(248, 247, 255){{/if}}; color:{{if totalGrade}}red{{else}}black{{/if}};"><a href="" style="width:100%; height;100%; background: transparent;">{{if totalGrade}}{{:totalGrade}}{{else}}暂无评价{{/if}}</a></div>
                             </div>
                         </li>
                         {{/for}}
-                        </script>
-                    </ul>
+                    </script>
+                </ul>
                 </div>
             </div>
         </div>

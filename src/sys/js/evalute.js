@@ -57,23 +57,6 @@ $(document).ready(function() {
 
 //二级联动
 $("#classSlct").change(function() {
-    // $.ajax({
-    //     url: '../php/task_search.php',
-    //     type: "POST",
-    //     async: false,
-    //     data: { class: $("#classSlct").val() },
-    //     success: function(data) {
-    //         homeworks = JSON.parse(data);
-    //         console.log(homeworks);
-    //         if (homeworks.code == 0) {
-    //             var context;
-    //             for (var i = 0; i < homeworks.data.length; i++)
-    //                 context = context + "<option>" + homeworks.data[i].task_title + "</option>";
-    //             context = context + "<option>全部作业</option>";
-    //             $("#taskSlct").html(context);
-    //         } else if (homeworks.code == 77) $("#taskSlct").html("<option>没有作业</option>");
-    //     }
-    // });
     var context;
     for(var i = 0; i < homeworks.data.length; i++) {
         if(homeworks.data[i].publish_class == $("#classSlct").val()){
@@ -108,6 +91,7 @@ $("#minisearch").click(function() {
     var finalTpl = jsRenderTpl(newstdObj);
     $('.box').html(finalTpl);
 });
+
 function cancel() {
     $.ajax({
         url: '../php/signout.php',
