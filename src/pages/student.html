@@ -2,13 +2,12 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <!-- <meta http-equiv="refresh" content="30">每隔30秒刷新页面-->
+    <meta http-equiv="refresh" content="30"><!-- 每隔30秒刷新页面 -->
     <title>学生作业管理</title>
     <link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../sys/css/homework.css">
     <link rel="stylesheet" type="text/css" href="../sys/css/base.css">
     <link rel="stylesheet" type="text/css" href="../sys/css/task.css">
-
     <link rel="stylesheet" type="text/css" href="../lib/font-awesome/css/font-awesome.min.css">
 
     <script type="text/javascript" src="../lib/jquery/jquery.min.js"></script>
@@ -75,7 +74,7 @@
                             <li class="lookLi">
                                 <div class="titTxt">
 
-                                    <p style="padding-top: 10px;"><a>作业
+                                    <p style="padding-top: 10px;">
 										<a id="head" name="{{:#index+1}}">{{:task_title}}</a></a>
                                     </p>
 
@@ -91,11 +90,14 @@
 									</strong></div>
                                 </div>
                                 <div class="titOper">
-                                    <p class="clearfix">
+                                    <p class="clearfix">  	
                                         <button id="ac" class="Btn_blue" name="{{:id}}">
 											{{if total_tag == 0}}查看
 											{{else}}去完成
 											{{/if}}
+										</button>
+										<button id="ac" class="Btn_evalute" name="{{:id}}">
+											自评
 										</button>
                                     </p>
                                 </div>

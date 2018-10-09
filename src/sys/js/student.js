@@ -1,4 +1,3 @@
-
 //飘浮框
 document.getElementById("b").onmouseover = function(e){
     var target2 = e.target;
@@ -69,7 +68,7 @@ $(function(){
         }   
     });
 
-    showTime(obj);
+    showTime(obj.data);
     var jsRenderTpl = $.templates('#testTmpl');
     var finalTpl = jsRenderTpl(obj.data);
     $('.boxx').html(finalTpl);
@@ -78,17 +77,27 @@ $(function(){
     var j=0;
 
 
- $(".Btn_blue").click(function() {
+    $(".Btn_blue").click(function() {
         var i =0;
         var id = $(this).attr("name");
-           console.log(obj.data[i]);
-           for(i=0;i<obj.data.length;i++){
+        console.log(obj.data[i]);
+        for(i=0;i<obj.data.length;i++){
             if(id == obj.data[i]["id"])
                 break;
-           }
-        url = "homework.html?i="+i+"&task_content="+obj.data[i]["task_content"] + "&dotask="+obj.data[i]["id"] ;//此处拼接内容
-      window.location.href = url;
+        }
+        url = "homework.html?i="+i+"&task_content="+obj.data[i]["task_content"] + "&dotask_id="+obj.data[i]["id"] +"&task_title="+obj.data[i]["task_title"];//此处拼接内容
+        window.location.href = url;
     });  
+    $(".Btn_evalute").click(function(){
+        var i =0;
+        var id = $(this).attr("name");
+        for(i=0;i<obj.data.length;i++){
+            if(id == obj.data[i]["id"])
+                break;
+        }
+        url = "evaluteDetailStd.html?dotask_id="+obj.data[i]["id"];
+        window.location.href = url;
+    });
 });
 
 
@@ -104,9 +113,6 @@ function cancel() {
             } else {
                 alert("退出失败！");
             };
-
         }
-
     })
-
 }

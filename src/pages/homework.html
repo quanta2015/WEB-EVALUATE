@@ -4,10 +4,12 @@
 <head>
 	<meta charset="utf-8">
 	<title>学生作业</title>
-	<link rel="stylesheet" type="text/css" href="../sys/css/homework.css">
-	<link rel="stylesheet" type="text/css" href="../lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../sys/css/homework.css">
+	<link rel="stylesheet" type="text/css" href="../sys/css/base.css">
+	<link rel="stylesheet" type="text/css" href="../lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="../lib/bootstrap-fileinput/bootstrap-fileinput.css">
+
 	<script type="text/javascript" src="../lib/jquery/jquery.min.js"></script>
 	<script type="text/javascript" src="../lib/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../lib/jsrender/jsrender.js"></script>
@@ -26,31 +28,32 @@
 			<!-- 导航栏内容开始 -->
 			<ul>
 				<li class="nav-item has-chosen">
-					<a href="student.html" style="display: flex;text-decoration: none;" onClick="back()">
-						<span class="word">我的作业</span>
+					<a href="student.html" style="display: flex;" onClick="back()">
+						<span>我的作业</span>
+						<div class="hidden"></div>
 						<i class="fa fa-chevron-right nav-more icon" id="nav_icon1"></i>
 					</a>
 				</li>
 				<li class="nav-item"></li>
 				<li class="nav-item">
-					<a href="gradeSearchStd.html" style="display: flex;text-decoration: none;">
-						<span class="word">成绩查询</span>
+					<a href="gradeSearchStd.html" style="display: flex;">
+						<span>成绩查询</span>
 						<div class="hidden"></div>
 						<i class="fa fa-chevron-right nav-more icon" id="nav_icon1" ></i>
 					</a>
 				</li>
 				<li class="nav-item"></li>
 				<li class="nav-item">
-					<a href="evaluteStudent.html" style="display: flex;;text-decoration: none;">
-						<span class="word">成绩评定</span>
+					<a href="evaluteStudent.html" style="display: flex;">
+						<span>成绩评定</span>
 						<div class="hidden"></div>
 						<i class="fa fa-chevron-right nav-more icon" id="nav_icon1" ></i>
 					</a>
 				</li>
 				<li class="nav-item"></li>
 				<li class="nav-item">
-					<a href="pwdChange.html" style="display: flex;;text-decoration: none;">
-						<span class="word">个人设置</span>
+					<a href="pwdChange.html" style="display: flex;">
+						<span>修改密码</span>
 						<div class="hidden"></div>
 						<i class="fa fa-chevron-right nav-more icon" id="nav_icon1" ></i>
 					</a>
@@ -68,7 +71,7 @@
 			</div>
 			<div class="content-main">
 				<div class="container-fluid">
-					<div class="container-top">作业<span id="head"></span></div>
+					<div class="container-top"><span id="head"></span></div>
 					<form class="block" action="../php/upload.php" method="post" enctype="multipart/form-data">
 						<div class="col-md-6" style="margin-left: 20px;">
 							<label class="control-label" style="font-size: 150%" >作业要求:</label>
@@ -79,7 +82,7 @@
 						<div class="col-md-5">
 							<div class="fileinput fileinput-new col-md-12" data-provides="fileinput" style="margin-top: 40px;">
 								<label class="control-label k">一、教学设计(请提交Word文档)</label>
-								<div class="fileinput-preview thumbnail k col-md-10" data-trigger="fileinput" style=" height: 30px;margin-top: 10px;line-height: 30px; border-color: rgb(230, 233, 241); border-width: 2px;"onmouseover="this.style.cssText='border-color: rgb(169, 169, 169);height: 30px;margin-top: 10px; border-width: 2px;'" onmouseout="this.style.cssText='height: 30px;margin-top: 10px; border-color: rgb(230, 233, 241); border-width: 2px;'"> </div>
+								<div id="doc" class="fileinput-preview thumbnail k col-md-10" data-trigger="fileinput" style=" height: 30px;margin-top: 10px;line-height: 30px; border-color: rgb(230, 233, 241); border-width: 2px;"onmouseover="this.style.cssText='border-color: rgb(169, 169, 169);height: 30px;margin-top: 10px; border-width: 2px;'" onmouseout="this.style.cssText='height: 30px;margin-top: 10px; border-color: rgb(230, 233, 241); border-width: 2px;'"> </div>
 								<div class="k">
 									<span class="btn btn-primary btn-outline btn-file">
 										<span class="fileinput-new"> 上传文件 </span>
@@ -92,7 +95,7 @@
 							</div>
 							<div class="fileinput fileinput-new col-md-12" data-provides="fileinput">
 								<label class="control-label k">二、多媒体课件(请提交PPT)</label>
-								<div class="fileinput-preview thumbnail k col-md-10" data-trigger="fileinput" style=" height: 30px;margin-top: 10px;line-height: 30px; border-color: rgb(230, 233, 241); border-width: 2px;"onmouseover="this.style.cssText='border-color: rgb(169, 169, 169);height: 30px;margin-top: 10px; border-width: 2px;'" onmouseout="this.style.cssText='height: 30px;margin-top: 10px; border-color: rgb(230, 233, 241); border-width: 2px;'"> </div>
+								<div id="ppt" class="fileinput-preview thumbnail k col-md-10" data-trigger="fileinput" style=" height: 30px;margin-top: 10px;line-height: 30px; border-color: rgb(230, 233, 241); border-width: 2px;"onmouseover="this.style.cssText='border-color: rgb(169, 169, 169);height: 30px;margin-top: 10px; border-width: 2px;'" onmouseout="this.style.cssText='height: 30px;margin-top: 10px; border-color: rgb(230, 233, 241); border-width: 2px;'"> </div>
 								<div class="k">
 									<span class="btn btn-primary btn-outline btn-file">
 										<span class="fileinput-new"> 上传文件 </span>
@@ -105,7 +108,7 @@
 							</div>
 							<div class="fileinput fileinput-new col-md-12" data-provides="fileinput">
 								<label class="control-label k">三、即席讲演(请提交视频压缩文件)</label>
-								<div class="fileinput-preview thumbnail k col-md-10" data-trigger="fileinput" style=" height: 30px;margin-top: 10px;line-height: 30px; border-color: rgb(230, 233, 241); border-width: 2px;"onmouseover="this.style.cssText='border-color: rgb(169, 169, 169);height: 30px;margin-top: 10px; border-width: 2px;'" onmouseout="this.style.cssText='height: 30px;margin-top: 10px; border-color: rgb(230, 233, 241); border-width: 2px;'"> </div>
+								<div id="mp4" class="fileinput-preview thumbnail k col-md-10" data-trigger="fileinput" style=" height: 30px;margin-top: 10px;line-height: 30px; border-color: rgb(230, 233, 241); border-width: 2px;"onmouseover="this.style.cssText='border-color: rgb(169, 169, 169);height: 30px;margin-top: 10px; border-width: 2px;'" onmouseout="this.style.cssText='height: 30px;margin-top: 10px; border-color: rgb(230, 233, 241); border-width: 2px;'"> </div>
 								<div class="k">
 									<span class="btn btn-primary btn-outline btn-file">
 										<span class="fileinput-new"> 上传文件 </span>

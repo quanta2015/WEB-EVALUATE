@@ -67,6 +67,7 @@ $(document).ready(function () {
 
 
     $("#submit").click(function () {
+        alert("上传成功");
         $.ajax({
             url: '../php/publish.php',
             type: "POST",

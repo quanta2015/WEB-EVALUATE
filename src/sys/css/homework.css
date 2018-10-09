@@ -36,6 +36,26 @@ a{text-decoration:none;color:#202020;}
 	background-color: rgb(5, 127, 254);
 	color: white;
 }
+.Btn_evalute{
+	width: 70px;
+	height:30px;
+	margin-right: 5px;
+	border: 1px solid rgb(149, 201, 255);
+	background-color: rgb(245, 250, 255);
+	border-radius: 18px;
+	color: rgb(5, 127, 254);
+	float: right;
+	font-size: 120%;
+	font-weight: bold;
+	line-height: 25px;
+	text-align: center;
+	text-decoration: none;
+}
+.Btn_evalute:hover {
+	border: 1px solid rgb(5, 127, 254);
+	background-color: rgb(5, 127, 254);
+	color: white;
+}
 .container{}
 .f{margin-left: 113px;}
 .block{
@@ -91,7 +111,7 @@ a{text-decoration:none;color:#202020;}
 	box-shadow:5px -5px 5px #808A87 inset;
 	position: absolute;
 	left: 70px;
-	top: 60px;
+	top: 40px;
 	overflow: scroll;
 	overflow-x: hidden;
 	display: none;
