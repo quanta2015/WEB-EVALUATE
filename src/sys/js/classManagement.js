@@ -2,13 +2,11 @@
     var ckNum = 0;
     //定义数组
     var clsInfor = [{
-        id: '1',
         name: "软工161"
         }, {
-        id: '2',
+
         name: "软工162"
         }, {
-        id: '3',
         name: "物联网162"
         }];
     var html = $("#clsTmpl").render(clsInfor);
@@ -16,7 +14,7 @@
     //全选
     var isCheckAll = false;
     //     //悬浮框的位置
-    //     toastr.options.positionClass = 'toast-bottom-right';
+    toastr.options.positionClass = 'toast-top-left';
 
 
     function clsAdd() {
