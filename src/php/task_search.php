@@ -13,7 +13,7 @@ if (!$conn) connfail();
      $sql = "select * from task where publisher = {$id}";
 
 else 
-  $sql = "select task.*,user.user_name,total_tag from task,user,dotask where publish_class = '{$CLASS}' and user.user_number = publisher and dotask.user_id = '{$id}' and dotask.task_id = task.task_id";
+  $sql = "select task.*,user.user_name,total_tag,dotask.id from task,user,dotask where publish_class = '{$CLASS}' and user.user_number = publisher and dotask.user_id = '{$id}' and dotask.task_id = task.task_id";
 
 
  $result = $conn->query($sql);

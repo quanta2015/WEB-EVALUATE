@@ -42,7 +42,7 @@ task_id	publisher	publish_class	task_title	task_content	publish_date	end_date	ta
 
 
 学生页面：
-task_id	publisher	publish_class	task_title	task_content	publish_date	end_date	task_url	s_percent	t_percent	g_percent	group_num	user_name total_tag
+task_id	publisher	publish_class	task_title	task_content	publish_date	end_date	task_url	s_percent	t_percent	g_percent	group_num	user_name total_tag    id(dotask_id)
 
 
 个别数据说明：
