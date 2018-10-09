@@ -79,10 +79,14 @@ $(function(){
 
 
  $(".Btn_blue").click(function() {
-     
-        var i = $(this).attr("name");
+        var i =0;
+        var id = $(this).attr("name");
            console.log(obj.data[i]);
-        url = "homework.html?i="+i+"&task_content="+obj.data[i]["task_content"];//此处拼接内容
+           for(i=0;i<obj.data.length;i++){
+            if(id == obj.data[i]["id"])
+                break;
+           }
+        url = "homework.html?i="+i+"&task_content="+obj.data[i]["task_content"] + "&dotask="+obj.data[i]["id"] ;//此处拼接内容
       window.location.href = url;
     });  
 });
