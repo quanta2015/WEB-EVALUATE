@@ -8,7 +8,6 @@ $(document).ready(function() {
         data: {role: "1"},
         success: function(data) {
             //获取学生数据
-            console.log(data);
             stdObj = JSON.parse(data);
             console.log(stdObj.data);
             //获取模版
@@ -24,9 +23,7 @@ $(document).ready(function() {
         async: false,
         success: function(data) {
             //获取所有班级
-            console.log(data);
             classes = JSON.parse(data);
-            console.log(classes);
             var context;
             if (classes.code == 0) {
                 for (var i = 0; i < classes.data.length; i++)
@@ -43,7 +40,6 @@ $(document).ready(function() {
         success: function(data) {
             //获取所有作业
             homeworks = JSON.parse(data);
-            console.log(homeworks);
             // if (homeworks.code == 0) {
             //     var context;
             //     for (var i = 0; i < homeworks.data.length; i++)
@@ -110,3 +106,11 @@ function cancel() {
     })
 
 }
+
+function method() {
+    var doTask_id = $(this).attr("id");
+    console.log($(this).attr("id"));
+    url = "evaluteDetail.html?dotask_id="+doTask_id;
+    window.location.href = url;
+    console.log(doTask_id);
+}; 
