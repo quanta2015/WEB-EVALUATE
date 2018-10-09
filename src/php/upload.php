@@ -23,6 +23,8 @@ $success = 0;
 $newPath1;
 $newPath2;
 $newPath3;
+
+
 //判断文件是否可以上传到服务器 $_FILES['myfile'][error]为0表示成功
 //循环
 for ($i = 0; $i < count($_FILES['file']['error']); $i++) {
@@ -59,8 +61,11 @@ for ($i = 0; $i < count($_FILES['file']['error']); $i++) {
     if ($_FILES['file']['size'][$i] > $size) {
         ero(68, "文件超过了允许的大小");
     }
-    //为了系统安全，同时也为了同名文件不被覆盖，上传后将文件名使用系统定义
-    $filename[$i] = date("YmdHis") . rand(100, 999) . "." . $hz[$i];
+
+    //学号加姓名加作业号
+    $filename[$i] = $id."+".$name. "+" $task_id. ".".$hz[$i];
+
+
     //判断是否为上传文件
     if (is_uploaded_file($_FILES['file']['tmp_name'][$i])) {
         if (!move_uploaded_file($_FILES['file']['tmp_name'][$i], $path . '/' . $filename[$i])) {
@@ -77,6 +82,8 @@ for ($i = 0; $i < count($_FILES['file']['error']); $i++) {
     //echo $newPath.'<br/>';
     
 }
+
+
 if ($success == 3) {
     $newPath1 = $newPath[0];
     $newPath2 = $newPath[1];
@@ -96,9 +103,9 @@ if ($success == 3) {
         
     }
 } else {
-    echo "<script>alert('上传失败');</script>";
     ero(115, 'unkonwfail');
-      header("Refresh:1;url=../pages/homework.html");
+    echo "<script>alert('上传失败');</script>";
+    header("Refresh:1;url=../pages/homework.html");
     //exit();
     
 }
