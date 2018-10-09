@@ -2,7 +2,6 @@
 require_once 'conn.php';
 require_once 'common.php';
 $id = $_SESSION["id"];
-echo $id;
 $allowtype = array("doc", "docx", "pdf", "ppt", "pptx", "mp4", "avi","flv", "wmv","mov","zip","rar","7z");  //允许上传的文件格式
 $size = 100000000; //设置允许大小100M以内的文件
 $path = "./upload"; //设置上传后保存文件的路径
