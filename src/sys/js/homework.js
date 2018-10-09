@@ -56,9 +56,9 @@ $(document).ready(function(){
                         */
                     });
                 } 
-            }
-        });
-    });
+           // }
+        //});
+    //});
     //点击返回按钮
     $("#return_s").click(function(e){
         i = $("#head").text();
