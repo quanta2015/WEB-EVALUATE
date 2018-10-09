@@ -5,6 +5,7 @@ $(document).ready(function(){
 
     //点击提交按钮
     $("#submit").click(function(e){
+        console.log(id);
         bootbox.confirm({
             message: "确认提交作业？",
             buttons: {
@@ -28,27 +29,28 @@ $(document).ready(function(){
                         url: '../php/upload.php',
                         data: {
                             id: id,//dotask_id
-                            doc_url: $("#doc").val(),
-                            ppt_url: $("#ppt").val(),
-                            video_url: $("#mp4").val(),
+                            // doc_url: $("#doc").val(),
+                            // ppt_url: $("#ppt").val(),
+                            // video_url: $("#mp4").val(),
                         },
 
                         success: function (data) {
                             console.log(data);
                             var obj = JSON.parse(data);
-                            if (obj.code == 0) {
-                                toastr.success('已成功提交作业');
-                            } else if (obj.code == 35) {
-                                toastr.warning('存在空输入');
-                            } else if (obj.code == 20) {
-                                toastr.warning('提交失败');
-                            } else if (obj.code == 55) {
-                                toastr.error('数据库连接失败');
-                            } else if (obj.code == 53) {
-                                toastr.error('不是允许的文件类型');
-                            } else if (obj.code == 68) {
-                                toastr.error('文件超过允许的大小');
-                            }
+                            console.log(obj);
+                            // if (obj.code == 0) {
+                            //     toastr.success('已成功提交作业');
+                            // } else if (obj.code == 35) {
+                            //     toastr.warning('存在空输入');
+                            // } else if (obj.code == 20) {
+                            //     toastr.warning('提交失败');
+                            // } else if (obj.code == 55) {
+                            //     toastr.error('数据库连接失败');
+                            // } else if (obj.code == 53) {
+                            //     toastr.error('不是允许的文件类型');
+                            // } else if (obj.code == 68) {
+                            //     toastr.error('文件超过允许的大小');
+                            // }
                         }
                     });
                 } 
@@ -69,6 +71,7 @@ function back(){
 
 
 function getData(){
+
     var task_content = $.query.get("task_content");
     var dotask_id = $.query.get("dotask_id");
     var title = $.query.get("task_title");
