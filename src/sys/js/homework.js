@@ -18,6 +18,7 @@ $(document).ready(function(){
                     className: 'btn-myStyle'
                 }
             },
+            /*
             callback: function(result) {
                 if(result) {
                     url = "student.html";//此处拼接内容
@@ -52,6 +53,7 @@ $(document).ready(function(){
                             //     toastr.error('文件超过允许的大小');
                             // }
                         }
+                        */
                     });
                 } 
             }
