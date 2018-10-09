@@ -86,8 +86,6 @@ $('.box').html(finalTpl);
 	// console.log(total_grade);
 }
 */
-
-
 $(function() {
 
  $("#submit_grade").click(function() {
@@ -103,6 +101,7 @@ $(function() {
             }
         }
         grade[i] = total;
+        console.log(1);
         console.log(total);
         console.log(JSON.stringify(grade));
         $.ajax({
@@ -119,9 +118,6 @@ $(function() {
         });
     })
 });
-
-
-
 
 
 function GetQueryString(name)
