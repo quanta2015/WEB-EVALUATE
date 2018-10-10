@@ -1,3 +1,5 @@
+     toastr.options.positionClass = 'toast-top-left';
+
     //check框选中数量
     var ckNum = 0;
     //定义数组
