@@ -1,4 +1,5 @@
 var groupNumber, stdstdObj;
+var role = 3;
 
 $("#groupnumSure").click(function() {
 	groupNumber = document.getElementById('groupNum').value;
@@ -75,7 +76,8 @@ $("#minisearch").click(function() {
     //模版与数据结合
     var finalTpl = jsRenderTpl(newstdstdObj);
     $('.box').html(finalTpl);
-})
+});
+
 function cancel() {
     $.ajax({
         url: '../php/signout.php',
@@ -93,4 +95,12 @@ function cancel() {
 
     })
 
-}
+};
+
+function method() {
+    var doTask_id = $(this).attr("id");
+    console.log($(this).attr("id"));
+    url = "evaluteDetail.html?dotask_id="+doTask_id+"&role="+role;
+    window.location.href = url;
+    console.log(doTask_id);
+}; 

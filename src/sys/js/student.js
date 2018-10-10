@@ -1,3 +1,4 @@
+var role = 2;
 //飘浮框
 document.getElementById("b").onmouseover = function(e){
     var target2 = e.target;
@@ -49,7 +50,6 @@ function showTime(arr){
     }
 }
 
-
 //后端传输数据
 $(function(){
     var obj;
@@ -85,7 +85,7 @@ $(function(){
             if(id == obj.data[i]["id"])
                 break;
         }
-        url = "homework.html?i="+i+"&task_content="+obj.data[i]["task_content"] + "&dotask_id="+obj.data[i]["id"] +"&task_title="+obj.data[i]["task_title"];//此处拼接内容
+        url = "homework.html?i="+i+"&task_content="+obj.data[i]["task_content"] + "&dotask_id="+obj.data[i]["id"] +"&task_title="+obj.data[i]["task_title"]+"&role="+role;//此处拼接内容
         window.location.href = url;
     });  
     $(".Btn_evalute").click(function(){

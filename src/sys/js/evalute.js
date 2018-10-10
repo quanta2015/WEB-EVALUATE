@@ -1,4 +1,5 @@
 var stdObj, classes, homeworks;
+var role = 1;
 //初始化渲染
 $(document).ready(function() {
     $.ajax({
@@ -110,7 +111,7 @@ function cancel() {
 function method() {
     var doTask_id = $(this).attr("id");
     console.log($(this).attr("id"));
-    url = "evaluteDetail.html?dotask_id="+doTask_id;
+    url = "evaluteDetail.html?dotask_id="+doTask_id+"&role="+role;
     window.location.href = url;
     console.log(doTask_id);
 }; 

@@ -84,8 +84,8 @@
                                 <div style="width: 25%; background: {{if totalGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{:task_title}}</span></div>
                                 <div style="width: 25%; background: {{if totalGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{:user_number}}</span></div>
                                 <div style="width: 25%; background: {{if totalGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{:user_name}}</span></div>
-                                <div class="comment" style="width: 25%; background:{{if totalGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><a href="evaluteDetail.html?dotask_id={{:dotask_id}}">{{if totalGrade }}查看评价{{else}}去评价{{/if}}</a></div>
-                            </div>
+                                <div class="comment" style="width: 20%; background:{{if totalGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><a id="{{:doTask_id}}" onclick="method.call(this)">{{if totalGrade }}查看评价{{else}}去评价{{/if}}</a></div>
+                            </div> 
                         </li>
                         {{/for}}
                     </script>
