@@ -1,4 +1,5 @@
 var role = 2;
+var j = 0;
 //飘浮框
 document.getElementById("b").onmouseover = function(e){
     var target2 = e.target;

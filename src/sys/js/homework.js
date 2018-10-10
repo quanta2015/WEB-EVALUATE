@@ -18,7 +18,6 @@ $(document).ready(function(){
                     className: 'btn-myStyle'
                 }
             },
-            /*
             callback: function(result) {
                 if(result) {
                     url = "student.html";//此处拼接内容
@@ -30,9 +29,9 @@ $(document).ready(function(){
                         url: '../php/upload.php',
                         data: {
                             id: id,//dotask_id
-                            // doc_url: $("#doc").val(),
-                            // ppt_url: $("#ppt").val(),
-                            // video_url: $("#mp4").val(),
+                            doc_url: $("#doc").val(),
+                            ppt_url: $("#ppt").val(),
+                            video_url: $("#mp4").val()
                         },
 
                         success: function (data) {
@@ -53,12 +52,11 @@ $(document).ready(function(){
                             //     toastr.error('文件超过允许的大小');
                             // }
                         }
-                        */
                     });
                 } 
-           // }
-        //});
-    //});
+            }
+        });
+    });
     //点击返回按钮
     $("#return_s").click(function(e){
         i = $("#head").text();
