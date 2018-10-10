@@ -149,11 +149,11 @@
     <script id="clsTmpl" type="text/x-jsrender">
         <div class="flex" id="cls-items" style="height:40px;border-top: solid 1px rgb(230, 233, 241);">
             <div class="clsCh flex" id="{{:#getIndex()+1}}"><input type="checkbox" /></div>
-            <div class="clsId flex">{{:class_id}}</div>
+            <div class="clsId flex">{{:#getIndex()+1}}</div>
             <div class="clsName flex">
-                <a href="studentManagement.html" style="color:rgb(5, 127, 254);">{{:class_name}}</a></div>
+                <a href="studentManagement.html" style="color:rgb(5, 127, 254);">{{:name}}</a></div>
             <div class=" clsMan flex ">
-                <i type="button " class="fa fa-minus-square " style="color:#46a3ff " onclick="clsRemove({{:class_id}}) "></i>
+                <i type="button " class="fa fa-minus-square " style="color:#46a3ff " onclick="clsRemove({{:#getIndex()+1}}) "></i>
             </div>
         </div>
 
