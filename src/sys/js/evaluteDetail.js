@@ -107,7 +107,7 @@ $(function() {
         $.ajax({
             url: '../php/evalute.php',
             type: "POST",
-            data: { grade: JSON.stringify(grade), role: 0, dotask: id, length: grade.length },
+            data: { grade: JSON.stringify(grade), role: 1, dotask: id, length: grade.length },
             //   async:false,
             success: function(data) {
                 console.log(data);

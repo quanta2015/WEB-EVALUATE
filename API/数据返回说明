@@ -77,8 +77,8 @@ id content{"tid":xx ,"table_name":xx,"item_title":xx,"item_content":xx,"item_poi
 八、班级管理 class_set.php
 提供班级的增删操作
 前端传入 do(删1 增0) class(增加的班级名字) del_id(要删除的id数组)；
-
+中
 九、成绩查询 final_search.php
+返回: doTask_id | teacher | student | group | s_percent | t_percent | g_percent | task_id | task_title             | user_number | user_class | user_name
 
-返回: doTask_id  teacher  student  group（已经是平均值)  s_percent  t_percent  g_percent  task_id
 

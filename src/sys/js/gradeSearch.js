@@ -1,50 +1,50 @@
-var arr = [
-{
-    'task_title':'作业1',
-    'user_num':'1',
-    'user_class':'软工162',
-    'user_name':'陶娣',
-    'selfGrade':98,
-    'groupGrade':85,
-    'teacherGrade':90,
-    'totalGrade':90
-},
-{
-    'task_title':'作业2',
-    'user_num':'1',
-    'user_class':'软工162',
-    'user_name':'陶娣',
-    'selfGrade':98,
-    'groupGrade':85,
-    'teacherGrade':90,
-    'totalGrade':90
-},
-{
-    'task_title':'作业1',
-    'user_num':'2',
-    'user_class':'软工161',
-    'user_name':'叶艳洁',
-    'selfGrade':98,
-    'groupGrade':85,
-    'teacherGrade':90,
-    'totalGrade':90
-},
-{
-    'task_title':'作业2',
-    'user_num':'2',
-    'user_class':'软工161',
-    'user_name':'叶艳洁',
-    'selfGrade':"",
-    'groupGrade':"",
-    'teacherGrade':90,
-    'totalGrade':""
-},
-]
-//获取模版
-var jsRenderTpl = $.templates('#theTmpl');
-//模版与数据结合
-var finalTpl = jsRenderTpl(arr);
-$('.box').html(finalTpl);
+// var arr = [
+// {
+//     'task_title':'作业1',
+//     'user_num':'1',
+//     'user_class':'软工162',
+//     'user_name':'陶娣',
+//     'selfGrade':98,
+//     'groupGrade':85,
+//     'teacherGrade':90,
+//     'totalGrade':90
+// },
+// {
+//     'task_title':'作业2',
+//     'user_num':'1',
+//     'user_class':'软工162',
+//     'user_name':'陶娣',
+//     'selfGrade':98,
+//     'groupGrade':85,
+//     'teacherGrade':90,
+//     'totalGrade':90
+// },
+// {
+//     'task_title':'作业1',
+//     'user_num':'2',
+//     'user_class':'软工161',
+//     'user_name':'叶艳洁',
+//     'selfGrade':98,
+//     'groupGrade':85,
+//     'teacherGrade':90,
+//     'totalGrade':90
+// },
+// {
+//     'task_title':'作业2',
+//     'user_num':'2',
+//     'user_class':'软工161',
+//     'user_name':'叶艳洁',
+//     'selfGrade':"",
+//     'groupGrade':"",
+//     'teacherGrade':90,
+//     'totalGrade':""
+// },
+// ]
+// //获取模版
+// var jsRenderTpl = $.templates('#theTmpl');
+// //模版与数据结合
+// var finalTpl = jsRenderTpl(arr);
+// $('.box').html(finalTpl);
 
 
 
@@ -144,10 +144,9 @@ var stdObj, classes, homeworks;
 //初始化渲染
 $(document).ready(function() {
     $.ajax({
-        url: '../php/t_search.php',
-        type: 'POST',
+        url: '../php/final_search.php',
+        type: 'get',
         async: false,
-        data: {role: "1"},
         success: function(data) {
             //获取学生数据
             console.log(data);
