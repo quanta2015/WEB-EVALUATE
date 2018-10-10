@@ -147,6 +147,7 @@ $(document).ready(function() {
         url: '../php/final_search.php',
         type: 'get',
         async: false,
+        data: {role: "1"},
         success: function(data) {
             //获取学生数据
             console.log(data);
@@ -185,13 +186,6 @@ $(document).ready(function() {
             //获取所有作业
             homeworks = JSON.parse(data);
             console.log(homeworks);
-            // if (homeworks.code == 0) {
-            //     var context;
-            //     for (var i = 0; i < homeworks.data.length; i++)
-            //         context = context + "<option>" + homeworks.data[i].task_title + "</option>";
-            //     context = context + "<option selected=\"select\">全部作业</option>";
-            //     $("#taskSlct").html(context);
-            // } else if (homeworks.code == 77) $("#taskSlct").html("<option>没有作业</option>");
         }
     });
 });

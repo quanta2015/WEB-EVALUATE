@@ -93,6 +93,7 @@ $(function() {
         var grade = [];
         var total = 0;
         var id = GetQueryString("dotask_id");
+        var role = GetQueryString("role");
         for (var i = 0; i < detail_grade.length; i++) {
             if (detail_grade[i].value != " " && !isNaN(detail_grade[i].value)) {
                 grade[i] = detail_grade[i].value;
@@ -107,7 +108,7 @@ $(function() {
         $.ajax({
             url: '../php/evalute.php',
             type: "POST",
-            data: { grade: JSON.stringify(grade), role: 1, dotask: id, length: grade.length },
+            data: { grade: JSON.stringify(grade), role: role, dotask: id, length: grade.length },
             //   async:false,
             success: function(data) {
                 console.log(data);
