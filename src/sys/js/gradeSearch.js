@@ -23,7 +23,6 @@ $(document).ready(function() {
         url: '../php/final_search.php',
         type: 'get',
         async: false,
-        data: { role: "1" },
         success: function(data) {
             //获取学生数据
             console.log(data);
