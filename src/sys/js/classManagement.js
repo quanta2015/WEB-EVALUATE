@@ -14,7 +14,7 @@
     //全选
     var isCheckAll = false;
     //     //悬浮框的位置
-    toastr.options.positionClass = 'toast-bottom-right';
+    toastr.options.positionClass = 'toast-top-left';
 
 
     function clsAdd() {
