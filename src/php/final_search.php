@@ -7,10 +7,10 @@ $id = $_SESSION['id'];
 $role = $_SESSION['role'];
 if (!$conn) connfail();
 
-$sql1 = "create or replace view b AS select a.doTask_id,AVG(a.totalGrade) as `group` from totalgrade a where role = 3 GROUP BY doTask_id";
-$sql2 = "create or replace view c AS select doTask_id,totalGrade as `teacher` from totalgrade where role = 1 ";
-$sql3 = " create or replace view a AS select doTask_id,totalGrade as `student` from totalgrade where role = 2 ";
-$sql4 =" create or replace view d AS select a.doTask_id ,teacher,student,`group` from a,b,c where a.doTask_id = b.doTask_id and c.doTask_id = a.doTask_id";
+$sql1 = "create or replace view b AS select a.doTask_id,AVG(a.totalGrade) as `groupGrade` from totalgrade a where role = 3 GROUP BY doTask_id";
+$sql2 = "create or replace view c AS select doTask_id,totalGrade as `teacherGrade` from totalgrade where role = 1 ";
+$sql3 = " create or replace view a AS select doTask_id,totalGrade as `selfGrade` from totalgrade where role = 2 ";
+$sql4 =" create or replace view d AS select a.doTask_id ,teacherGrade,selfGrade,`groupGrade` from a,b,c where a.doTask_id = b.doTask_id and c.doTask_id = a.doTask_id";
 mysqli_query($conn, $sql1);
 mysqli_query($conn, $sql2);
 mysqli_query($conn, $sql3);
