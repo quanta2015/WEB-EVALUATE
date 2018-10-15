@@ -87,12 +87,30 @@ $('.box').html(finalTpl);
 }
 */
 $(function() {
+        var id = GetQueryString("dotask_id");
+        $.ajax({
+            url: '../php/evalute_search.php',
+            type: "POST",
+            data:{ dotask_id: id},
+            //   async:false,
+            success: function(data) {
+    
+              obj = JSON.parse(data);
+                     if(obj.code == 0){
+              nowgrade = JSON.parse(obj.data[0].grade);
+              var detail_grade = document.getElementsByName('grade');
+         for (var i = 0; i < detail_grade.length; i++)
+          detail_grade[i].value= nowgrade[i];
+            }
+        }
+            
+        });
 
  $("#submit_grade").click(function() {
         var detail_grade = document.getElementsByName('grade');
         var grade = [];
         var total = 0;
-        var id = GetQueryString("dotask_id");
+
         var role = GetQueryString("role");
         for (var i = 0; i < detail_grade.length; i++) {
             if (detail_grade[i].value != " " && !isNaN(detail_grade[i].value)) {
