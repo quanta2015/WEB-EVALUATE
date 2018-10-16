@@ -20,15 +20,13 @@ $(document).ready(function(){
             },
             callback: function(result) {
                 if(result) {
-                    url = "student.html";//此处拼接内容
-                    window.location.href = url;
-
                     //向后端传值
                     $.ajax({
                         type:"POST",
                         url: '../php/upload.php',
                         data: {
-                            id: id,//dotask_id
+                            console.log(id);
+                            dotask_id: id,//dotask_id
                             doc_url: $("#doc").val(),
                             ppt_url: $("#ppt").val(),
                             video_url: $("#mp4").val()
@@ -53,6 +51,9 @@ $(document).ready(function(){
                             // }
                         }
                     });
+
+                    url = "student.html";//此处拼接内容
+                    window.location.href = url;
                 } 
             }
         });
@@ -60,7 +61,7 @@ $(document).ready(function(){
     //点击返回按钮
     $("#return_s").click(function(e){
         i = $("#head").text();
-        window.location.href="student.html?state=1"+"&i="+i+"&a=1"+"&arr="+arr;;
+        window.location.href="student.html?state=1"+"&i="+i+"&a=1"+"&arr="+arr;
     });
 })
 
@@ -101,8 +102,8 @@ function cancel() {
 
 
 $("#doc").fileinput({
-    uploadUrl:'/../../homework',//上传的地址
-    alloweFileExtensions:['doc','docx','pdf','ppt','pptx','mp4','avi','flv','wmv','mov','zip','rar','7z'],//后缀
+    // uploadUrl:'/../../homework',//上传的地址
+    alloweFileExtensions:['doc','docx','zip','rar','7z'],//后缀
     enctype: 'multipart/form-data',
     dropZoneTitle: "请通过拖拽文件放到这里"
 }).on("fileuploaded",function(event,data,previewId,index){
@@ -117,8 +118,8 @@ $("#doc").fileinput({
     $(this).fileinput("upload");
 });
 $("#ppt").fileinput({
-    uploadUrl:'/../../homework',//上传的地址
-    alloweFileExtensions:['doc','docx','pdf','ppt','pptx','mp4','avi','flv','wmv','mov','zip','rar','7z'],//后缀
+    // uploadUrl:'/../../homework',//上传的地址
+    alloweFileExtensions:['pdf','ppt','pptx','zip','rar','7z'],//后缀
     enctype: 'multipart/form-data',
     dropZoneTitle: "请通过拖拽文件放到这里"
 }).on("fileuploaded",function(event,data,previewId,index){
@@ -133,8 +134,8 @@ $("#ppt").fileinput({
     $(this).fileinput("upload");
 });
 $("#mp4").fileinput({
-    uploadUrl:'/../../homework',//上传的地址
-    alloweFileExtensions:['doc','docx','pdf','ppt','pptx','mp4','avi','flv','wmv','mov','zip','rar','7z'],//后缀
+    // uploadUrl:'/../../homework',//上传的地址
+    alloweFileExtensions:['mp4','avi','flv','wmv','mov','zip','rar','7z'],//后缀
     enctype: 'multipart/form-data',
     dropZoneTitle: "请通过拖拽文件放到这里"
 }).on("fileuploaded",function(event,data,previewId,index){
