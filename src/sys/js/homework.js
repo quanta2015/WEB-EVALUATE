@@ -100,7 +100,7 @@ function cancel() {
 
 
 
-$("#doc").fileinput({
+$("#url").fileinput({
     uploadUrl:'/../../homework',//上传的地址
     alloweFileExtensions:['doc','docx','pdf','ppt','pptx','mp4','avi','flv','wmv','mov','zip','rar','7z'],//后缀
     enctype: 'multipart/form-data',
