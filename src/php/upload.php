@@ -2,30 +2,45 @@
 require_once 'conn.php';
 require_once 'common.php';
 $id = $_SESSION["id"];
-$allowtype = array(
-    "doc",
-    "docx",
-    "pdf",
-    "ppt",
-    "pptx",
-    "mp4",
-    "avi",
-    "flv",
-    "wmv",
-    "mov",
-    "zip",
-    "rar",
-    "7z"
-); //允许上传的文件格式
+echo $id."<br/>";
+$dotask_id = $POST['dotask_id'];
+echo $dotask_id."hhhhh"."<br/>";
 $size = 100000000; //设置允许大小100M以内的文件
-$path = "./upload"; //设置上传后保存文件的路径
+$path = "./homework"; //设置上传后保存文件的路径
 $success = 0;
-$newPath1;
-$newPath2;
-$newPath3;
+    if(IS_AJAX)
+    {
+        $postfix = '';
+        foreach($_FILES['file']['tmp_name'] as$k=>$v)
+        {
+            //获取文件名后缀
+            $file = explode(".", $_FILES['file']['name'][$k]);
+            $postfix = array_pop($file);
+
+            //判断文件类型是否正确
+        
+            //文件名转码
+            $name = iconv("UTF-8", "gb2312", $_FILES['file']['name'][$k]);
+
+            //保存文件
+            move_uploaded_file($v,$path.'/'.$name); //文件名，地址
+               
+            echo $k." ".$_FILES['file']['name'][$k]." ".$postfix." ";
+
+            
+        }
+        success($dotask_id);
+
+    }
+    else{
+        echo "<script>alert('上传失败');</script>";
+    }
+  
 
 
-//判断文件是否可以上传到服务器 $_FILES['myfile'][error]为0表示成功
+
+/*
+//判断文件是否可以上传到服务器 
 //循环
 for ($i = 0; $i < count($_FILES['file']['error']); $i++) {
     $upfile[$i] = $_FILES['file']['name'][$i];
@@ -110,3 +125,4 @@ if ($success == 3) {
     
 }
 
+*/
