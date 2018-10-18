@@ -72,7 +72,7 @@
 			<div class="content-main">
 				<div class="container-fluid">
 					<div class="container-top"><span id="head"></span></div>
-					<form  action="../php/upload.php" method="post" enctype="multipart/form-data" class="block">
+					<form id="uploadForm" enctype="multipart/form-data" class="block">
 						<div class="col-md-6" style="margin-left: 20px;">
 							<label class="control-label" style="font-size: 150%" >作业要求:</label>
 							<div>
@@ -87,7 +87,7 @@
 									<span class="btn btn-primary btn-outline btn-file">
 										<span class="fileinput-new"> 上传文件 </span>
 										<span class="fileinput-exists"> 更改文件 </span>
-										<input  id="doc" type="file" name="file[]">
+										<input  id="doc" type="file" name="file">
 									</span>
 									<a href="javascript:;" class="btn btn-primary fileinput-exists" data-dismiss="fileinput"> 删除文件 </a>
 									<button type="button" class="btn btn-primary">保存修改</button>
@@ -100,7 +100,7 @@
 									<span class="btn btn-primary btn-outline btn-file">
 										<span class="fileinput-new"> 上传文件 </span>
 										<span class="fileinput-exists"> 更改文件 </span>
-										<input id="ppt" type="file" name="file[]">
+										<input id="ppt" type="file" name="file">
 									</span>
 									<a href="javascript:;" class="btn btn-primary fileinput-exists" data-dismiss="fileinput"> 删除文件 </a>
 									<button type="button" class="btn btn-primary">保存修改</button>
@@ -113,7 +113,7 @@
 									<span class="btn btn-primary btn-outline btn-file">
 										<span class="fileinput-new"> 上传文件 </span>
 										<span class="fileinput-exists"> 更改文件 </span>
-										<input  id="mp4" type="file" name="file[]">
+										<input  id="mp4" type="file" name="file">
 									</span>
 									<a href="javascript:;" class="btn btn-primary fileinput-exists" data-dismiss="fileinput"> 删除文件 </a>
 									<button type="button" class="btn btn-primary">保存修改</button>

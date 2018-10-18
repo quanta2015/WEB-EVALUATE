@@ -20,18 +20,23 @@ $(document).ready(function(){
             },
             callback: function(result) {
                 if(result) {
+
+                    var formData = new FormData();
+                    formData.append("fileupload[]",$('#doc')[0].files[0]);
+                    formData.append("fileupload[]",$('#ppt')[0].files[0]);
+                    formData.append("fileupload[]",$('#mp4')[0].files[0]);
+                    formData.append("dotask_id",id);
+
                     //向后端传值
                     $.ajax({
                         type:"POST",
                         url: '../php/upload.php',
-                        data: {
-                            console.log(id);
-                            dotask_id: id,//dotask_id
-                            doc_url: $("#doc").val(),
-                            ppt_url: $("#ppt").val(),
-                            video_url: $("#mp4").val()
-                        },
-
+                        data: formData,
+                        cache: false,
+                        processData: false,
+                        contentType: false,
+                        async: false,
+                        dataType: 'json',
                         success: function (data) {
                             console.log(data);
                             var obj = JSON.parse(data);
@@ -51,6 +56,7 @@ $(document).ready(function(){
                             // }
                         }
                     });
+
 
                     url = "student.html";//此处拼接内容
                     window.location.href = url;
@@ -101,52 +107,4 @@ function cancel() {
 
 
 
-$("#doc").fileinput({
-    // uploadUrl:'/../../homework',//上传的地址
-    alloweFileExtensions:['doc','docx','zip','rar','7z'],//后缀
-    enctype: 'multipart/form-data',
-    dropZoneTitle: "请通过拖拽文件放到这里"
-}).on("fileuploaded",function(event,data,previewId,index){
-    $("#modal1").modal("hide");
-    var data = data.response.lstOrderImport;
-    if(data==undefined){
-        toastr.error('文件格式类型不正确');
-        return;
-    }
-})
-.on("filebatchselected",function(event,files){
-    $(this).fileinput("upload");
-});
-$("#ppt").fileinput({
-    // uploadUrl:'/../../homework',//上传的地址
-    alloweFileExtensions:['pdf','ppt','pptx','zip','rar','7z'],//后缀
-    enctype: 'multipart/form-data',
-    dropZoneTitle: "请通过拖拽文件放到这里"
-}).on("fileuploaded",function(event,data,previewId,index){
-    $("#modal1").modal("hide");
-    var data = data.response.lstOrderImport;
-    if(data==undefined){
-        toastr.error('文件格式类型不正确');
-        return;
-    }
-})
-.on("filebatchselected",function(event,files){
-    $(this).fileinput("upload");
-});
-$("#mp4").fileinput({
-    // uploadUrl:'/../../homework',//上传的地址
-    alloweFileExtensions:['mp4','avi','flv','wmv','mov','zip','rar','7z'],//后缀
-    enctype: 'multipart/form-data',
-    dropZoneTitle: "请通过拖拽文件放到这里"
-}).on("fileuploaded",function(event,data,previewId,index){
-    $("#modal1").modal("hide");
-    var data = data.response.lstOrderImport;
-    if(data==undefined){
-        toastr.error('文件格式类型不正确');
-        return;
-    }
-})
-.on("filebatchselected",function(event,files){
-    $(this).fileinput("upload");
-});
 
