@@ -30,28 +30,20 @@ if (IS_AJAX) {
             case '0':
                 $sql = "UPDATE dotask SET doc_url ='{$newPath}' WHERE user_id = '{$id}'";
                 break;
-            case '1':
+            case '01':
                 $sql = "UPDATE dotask SET ppt_url = '{$newPath}' WHERE user_id = '{$id}'";
                 break;
-            case '2':
+            case '02':
                 $sql = "UPDATE dotask SET video_url = '$newPath' WHERE user_id = '{$id}'";
                 break;
             default:
                 break;
         }
+        $result = mysqli_query($conn, $sql);
     }
-    $result = mysqli_query($conn, $sql);
     if (1 == $result) {
         success('');
-    } 
-    else {
+    } else {
         ero(99, 'fail');
     }
 }
-
-/*
-
-//学号加姓名加作业号
-$filename[$i] = $id."+".$name. "+" $task_id. ".".$hz[$i];
-
- */
