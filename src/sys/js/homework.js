@@ -2,30 +2,32 @@ var id = 0;
 
 $(document).ready(function(){
     getData();
-
+    
     //点击提交按钮
     $("#submit").click(function(e){
-        console.log(id);
-        bootbox.confirm({
-            message: "确认提交作业？",
-            buttons: {
-                confirm: {
-                    label: 'Yes',
-                    className: 'btn-success'
+        if($('#doc')[0].files[0]==null||$('#ppt')[0].files[0]==null||$('#mp4')[0].files[0]==null)
+            alert("必须完成三项才能提交作业");
+        else{
+            bootbox.confirm({
+                message: "确认提交作业？",
+                buttons: {
+                    confirm: {
+                        label: 'Yes',
+                        className: 'btn-success'
+                    },
+                    cancel: {
+                        label: 'No',
+                        className: 'btn-myStyle'
+                    }
                 },
-                cancel: {
-                    label: 'No',
-                    className: 'btn-myStyle'
-                }
-            },
-            callback: function(result) {
-                if(result) {
+                callback: function(result) {
+                    if(result) {
 
-                    var formData = new FormData();
-                    formData.append("fileupload[]",$('#doc')[0].files[0]);
-                    formData.append("fileupload[]",$('#ppt')[0].files[0]);
-                    formData.append("fileupload[]",$('#mp4')[0].files[0]);
-                    formData.append("dotask_id",id);
+                        var formData = new FormData();
+                        formData.append("fileupload[]",$('#doc')[0].files[0]);
+                        formData.append("fileupload[]",$('#ppt')[0].files[0]);
+                        formData.append("fileupload[]",$('#mp4')[0].files[0]);
+                        formData.append("dotask_id",id);
 
                     //向后端传值
                     $.ajax({
@@ -41,19 +43,6 @@ $(document).ready(function(){
                             console.log(data);
                             var obj = JSON.parse(data);
                             console.log(obj);
-                            // if (obj.code == 0) {
-                            //     toastr.success('已成功提交作业');
-                            // } else if (obj.code == 35) {
-                            //     toastr.warning('存在空输入');
-                            // } else if (obj.code == 20) {
-                            //     toastr.warning('提交失败');
-                            // } else if (obj.code == 55) {
-                            //     toastr.error('数据库连接失败');
-                            // } else if (obj.code == 53) {
-                            //     toastr.error('不是允许的文件类型');
-                            // } else if (obj.code == 68) {
-                            //     toastr.error('文件超过允许的大小');
-                            // }
                         }
                     });
 
@@ -63,6 +52,7 @@ $(document).ready(function(){
                 } 
             }
         });
+        }
     });
     //点击返回按钮
     $("#return_s").click(function(e){
