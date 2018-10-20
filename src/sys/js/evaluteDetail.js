@@ -89,6 +89,17 @@ $('.box').html(finalTpl);
 $(function() {
         var id = GetQueryString("dotask_id");
         $.ajax({
+            url: 'url_search.php',
+            type: "POST",
+            data:{dotask_id: id},
+            success: function(data) {
+                url_arr = JSON.parse(data);
+                document.getElementById('word_url').href = url_arr.data.word_url;
+                document.getElementById('ppt_url').href = url_arr.data.ppt_url;
+                document.getElementById('video_url').href = url_arr.data.video_url;
+            }
+        });
+        $.ajax({
             url: '../php/evalute_search.php',
             type: "POST",
             data:{ dotask_id: id},
