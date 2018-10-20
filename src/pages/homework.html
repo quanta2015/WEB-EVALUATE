@@ -72,7 +72,7 @@
 			<div class="content-main">
 				<div class="container-fluid">
 					<div class="container-top"><span id="head"></span></div>
-					<form id="uploadForm" enctype="multipart/form-data" class="block">
+					<form action="../php/upload.php" method="post"  enctype="multipart/form-data" class="block">
 						<div class="col-md-6" style="margin-left: 20px;">
 							<label class="control-label" style="font-size: 150%" >作业要求:</label>
 							<div>
@@ -87,7 +87,7 @@
 									<span class="btn btn-primary btn-outline btn-file">
 										<span class="fileinput-new"> 上传文件 </span>
 										<span class="fileinput-exists"> 更改文件 </span>
-										<input  id="doc" type="file" name="file" accept=".doc,.docx,.zip,.rar,.7z"
+										<input  id="doc" type="file" name="doc" accept=".doc,.docx,.zip,.rar,.7z">
 									</span>
 									<a href="javascript:;" class="btn btn-primary fileinput-exists" data-dismiss="fileinput"> 删除文件 </a>
 									<button type="button" class="btn btn-primary">保存修改</button>
@@ -100,7 +100,7 @@
 									<span class="btn btn-primary btn-outline btn-file">
 										<span class="fileinput-new"> 上传文件 </span>
 										<span class="fileinput-exists"> 更改文件 </span>
-										<input id="ppt" type="file" name="file" accept=".pdf,.ppt,.pptx,.zip,.rar,.7z">
+										<input id="ppt" type="file" name="ppt" accept=".pdf,.ppt,.pptx,.zip,.rar,.7z">
 									</span>
 									<a href="javascript:;" class="btn btn-primary fileinput-exists" data-dismiss="fileinput"> 删除文件 </a>
 									<button type="button" class="btn btn-primary">保存修改</button>
@@ -113,17 +113,18 @@
 									<span class="btn btn-primary btn-outline btn-file">
 										<span class="fileinput-new"> 上传文件 </span>
 										<span class="fileinput-exists"> 更改文件 </span>
-										<input  id="mp4" type="file" name="file" accpet=".mp4,.avi,.flv,.wmv,.mov,.zip,.rar,.rar,.7a">
+										<input  id="mp4" type="file" name="video" accpet=".mp4,.avi,.flv,.wmv,.mov,.zip,.rar,.rar,.7a">
 									</span>
 									<a href="javascript:;" class="btn btn-primary fileinput-exists" data-dismiss="fileinput"> 删除文件 </a>
 									<button type="button" class="btn btn-primary">保存修改</button>
 								</div>
+								<input id = "dotask" name = "dotask_id" type="hidden" value= :id>
 							</div>
 						</div>
-						
+						<button id="submit" type="submit" class="btn b-s">提交作业</button>
 					</form>
 					<span>
-						<button id="submit" type="submit" class="btn b-s">提交作业</button>
+						
 						<button id="return_s" type="button" class="btn b-s" style="margin-left: 20px">返回</button>
 					</span>
 				</div>	

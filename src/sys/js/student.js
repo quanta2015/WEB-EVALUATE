@@ -1,23 +1,6 @@
 var role = 2;
 var j = 0;
 //飘浮框
-document.getElementById("b").onmouseover = function(e){
-    var target2 = e.target;
-    // var bol = $(e.target).parents().is("float_boxid");
-    var children = this.children;
-    for(var i=0;i<children.length;i++){
-        if(target2 == children[i]){
-            j = i;
-            return;
-        }
-    }
-    var all = document.getElementsByName("float_box");
-    all[j].style.display="block";
-}
-document.getElementById("b").onmouseout = function(e){
-    var all = document.getElementsByName("float_box");
-    all[j].style.display="none";
-}
 
 
 //显示开始与截止时间
@@ -53,6 +36,7 @@ function showTime(arr){
 
 //后端传输数据
 $(function(){
+
     var obj;
     $.ajax({
         url:'../php/task_search.php',
@@ -99,6 +83,26 @@ $(function(){
         url = "evaluteDetailStd.html?dotask_id="+obj.data[i]["id"];
         window.location.href = url;
     });
+
+
+    document.getElementById("b").onmouseover = function(e){
+    var target2 = e.target;
+    // var bol = $(e.target).parents().is("float_boxid");
+    var children = this.children;
+    for(var i=0;i<children.length;i++){
+        if(target2 == children[i]){
+            j = i;
+            return;
+        }
+    }
+    var all = document.getElementsByName("float_box");
+    all[j].style.display="block";
+}
+document.getElementById("b").onmouseout = function(e){
+    var all = document.getElementsByName("float_box");
+    all[j].style.display="none";
+}
+
 });
 
 

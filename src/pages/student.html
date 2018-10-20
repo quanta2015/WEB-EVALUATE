@@ -75,7 +75,7 @@
                                 <div class="titTxt">
 
                                     <p style="padding-top: 10px;">
-										<a id="head" name="{{:#index+1}}">{{:task_title}}</a></a>
+                                        <a id="head" name="{{:#index+1}}">{{:task_title}}</a></a>
                                     </p>
 
                                     <div id="content" class="pt5" >作业内容：{{:task_content}}</div>
@@ -84,21 +84,21 @@
                                     <div class="pt5"><span class="f1">开始时间：{{:publish_date}}</span></div>
                                     <div class="pt5"><span class="f1">截止时间：{{:end_date}}</span></div>
                                     <div id="tit" class="pt5"><span class="f1"></span>作业状态：<strong>
-										{{if total_tag == 0}}<span style="color:green"">已完成</span>
-										{{else}}<span style="color:red"">未完成</span>
-										{{/if}}
-									</strong></div>
+                                        {{if total_tag == 0}}<span style="color:green"">已完成</span>
+                                        {{else}}<span style="color:red"">未完成</span>
+                                        {{/if}}
+                                    </strong></div>
                                 </div>
                                 <div class="titOper">
-                                    <p class="clearfix">  	
+                                    <p class="clearfix">    
                                         <button id="ac" class="Btn_blue" name="{{:id}}">
-											{{if total_tag == 0}}查看
-											{{else}}去完成
-											{{/if}}
-										</button>
-										<button id="ac" class="Btn_evalute" name="{{:id}}">
-											自评
-										</button>
+                                            {{if total_tag == 0}}查看
+                                            {{else}}去完成
+                                            {{/if}}
+                                        </button>
+                                        <button id="ac" class="Btn_evalute" name="{{:id}}">
+                                            自评
+                                        </button>
                                     </p>
                                 </div>
                             </li>

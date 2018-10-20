@@ -89,14 +89,15 @@ $('.box').html(finalTpl);
 $(function() {
         var id = GetQueryString("dotask_id");
         $.ajax({
-            url: 'url_search.php',
+            url: '../php/dotaskurl_search.php',
             type: "POST",
             data:{dotask_id: id},
             success: function(data) {
+                console.log(data);
                 url_arr = JSON.parse(data);
-                document.getElementById('word_url').href = url_arr.data.word_url;
-                document.getElementById('ppt_url').href = url_arr.data.ppt_url;
-                document.getElementById('video_url').href = url_arr.data.video_url;
+                document.getElementById('word_url').href = "../php/"+url_arr.data[0].doc_url;
+                document.getElementById('ppt_url').href = "../php/"+url_arr.data[0].ppt_url;
+                document.getElementById('video_url').href = "../php/"+url_arr.data[0].video_url;
             }
         });
         $.ajax({

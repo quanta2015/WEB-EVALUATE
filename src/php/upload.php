@@ -2,48 +2,61 @@
 require_once 'conn.php';
 require_once 'common.php';
 $id = $_SESSION["id"];
-echo $id . "<br/>";
-$dotask_id = $POST['dotask_id'];
-// echo $dotask_id . "hhhhh" . "<br/>";
-$size    = 100000000; //设置允许大小100M以内的文件
-$path    = "./upload"; //设置上传后保存文件的路径
-$success = 0;
-if (IS_AJAX) {
-    $postfix = '';
-    foreach ($_FILES['file']['tmp_name'] as $k => $v) {
-        //获取文件名后缀
-        $file    = explode(".", $_FILES['file']['name'][$k]);
-        $postfix = array_pop($file);
 
-        //判断文件类型是否正确
-
-        //文件名转码
-        $name = iconv("UTF-8", "gb2312", $_FILES['file']['name'][$k]);
-
-        //保存文件
-        move_uploaded_file($v, $path . '/' . $name); //文件名，地址
-
-        echo $k . " " . $_FILES['file']['name'][$k] . "<br/>";
-        $newPath = $path . '/' . $_FILES['file']['name'][$k];
-        echo $newPath . "<br/>";
-        switch ($k) {
-            case '0':
-                $sql = "UPDATE dotask SET doc_url ='{$newPath}' WHERE user_id = '{$id}'";
-                break;
-            case '01':
-                $sql = "UPDATE dotask SET ppt_url = '{$newPath}' WHERE user_id = '{$id}'";
-                break;
-            case '02':
-                $sql = "UPDATE dotask SET video_url = '$newPath' WHERE user_id = '{$id}'";
-                break;
-            default:
-                break;
-        }
-        $result = mysqli_query($conn, $sql);
-    }
-    if (1 == $result) {
-        success('');
-    } else {
-        ero(99, 'fail');
-    }
+$multi_info=$_FILES;  
+$dotask_id = $_POST["dotask_id"];
+foreach($multi_info as $name=>$up_info){
+  fileupload($up_info,$dotask_id,$name,$conn);
 }
+ header("refresh:3;url=../pages/student.html"); print('<br>3秒后自动跳转。'); 
+
+
+
+function fileupload($up_info,$dotask_id,$name,$conn){
+$allowedExts = array("doc","docx","mp4","mpeg","ppt","pptx","zip");
+
+$temp = explode(".", $up_info["name"]);
+
+$extension = end($temp);     // 获取文件后缀名
+if ( ($up_info["size"] < 204800)   // 小于 200 kb
+&& in_array($extension, $allowedExts))
+{
+    if ($up_info["error"] > 0)
+    {
+        echo "错误：: " . $up_info["error"] . "<br>";
+    }
+    else
+    {    
+        // 判断当期目录下的 upload 目录是否存在该文件
+        // 如果没有 upload 目录，你需要创建它，upload 目录权限为 777
+         $dir ="upload/dotask/".$dotask_id;
+        if (!file_exists($dir))
+            mkdir ($dir,0777,true);
+    $url = "upload/dotask/" .$dotask_id."/" .$dotask_id.".".$extension;
+    // 如果 upload 目录不存在该文件则将文件上传到 upload 目录下
+            move_uploaded_file($up_info["tmp_name"], $url);
+
+
+            switch($name){
+                case 'doc':
+                $sql = "UPDATE dotask SET doc_url ='{$url}' WHERE id = '{$dotask_id}'";
+                break;
+                case 'ppt':
+                $sql = "UPDATE dotask SET ppt_url ='{$url}' WHERE id = '{$dotask_id}'";
+                break;
+                case 'video':
+                $sql = "UPDATE dotask SET video_url = '{$url}' WHERE id = '{$dotask_id}'";
+                break;
+            }
+
+             $result = mysqli_query($conn, $sql);
+             if(1==$result)
+                echo "上传成功".$name;
+        else  echo("错误描述: " . mysqli_error($conn)); 
+        
+    
+}}
+else
+    echo "非法的文件格式";
+}
+?>
