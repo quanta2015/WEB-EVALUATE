@@ -1,9 +1,0 @@
-.editTask {
-	margin: 40px;
-	margin-top: 10px;
-	height: 80%;
-	width: calc(100% - 80px);
-	border: solid 1px rgb(230, 233, 241);
-	border-bottom: none;
-	box-shadow: rgb(240, 240, 240) 0 0 15px;
-}
