@@ -6,15 +6,12 @@ $(document).ready(function(){
     });
     //点击返回按钮
     $("#return_s").click(function(e){
-        i = $("#head").text();
-        //  window.location.href =../php/upload.php;
-        //window.location.href="student.html?state=1"+"&i="+i+"&a=1"+"&arr="+arr;
+        window.location.href="student.html";
     });
 
 
 function back(){
-    i = $("#head").text();
- //   window.location.href="student.html?state=1"+"&i="+i+"&a=1"+"&arr="+arr;
+    window.location.href="student.html";
 }
 
 
