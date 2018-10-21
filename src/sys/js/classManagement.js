@@ -109,17 +109,18 @@
                         }
                     },
                     callback: function (result) {
-                        for (i = 0, tmp = classes.data.length; i < tmp; i++) {
-                                $("#cls-items").remove();
-                                selcId[i]=classes.data[i].class_id;
-                                console.log(selcId[i]);
-                                classes.data.splice(i,1);
-                            }
+
 
                         if (!result) {
                             toastr.success('已成功取消');
 
                         } else {
+                            for (i = 0, tmp = classes.data.length; i < tmp; i++) {
+                                $("#cls-items").remove();
+                                selcId[i]=classes.data[i].class_id;
+                                console.log(selcId[i]);
+                                classes.data.splice(i,1);
+                            }
                             $.ajax({
                                 url: '../php/class_set.php',
                                 type: "POST",
