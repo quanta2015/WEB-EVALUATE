@@ -226,7 +226,7 @@
                         url: '../php/class_set.php',
                         type: "POST",
                         data: {
-                            dp: '1',
+                            do: '1',
                             class_id: n
                         },
                         success: function (data) {
