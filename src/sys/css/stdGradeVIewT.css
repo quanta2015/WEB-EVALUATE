@@ -1,0 +1,93 @@
+.boxB {
+    width: 300px;
+    height: 150px;
+    border: 1px solid rgb(230, 230, 230);
+    margin: 2% 0 0 1%;
+}
+
+.hwTitle {
+
+    width: 98%;
+    height: 25px;
+    padding: 1% 0 0 2%;
+    border: 1px solid rgb(230, 230, 230);
+    font-size: 15px;
+    color: rgb(99, 106, 98);
+
+}
+
+
+
+.stdName {
+    display: inline-block;
+    width: 40%;
+    height: 25px;
+    padding: 1% 0 0 2%;
+    font-size: 15px;
+    color: rgb(99, 106, 98);
+
+
+}
+
+.stdTotalScore {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.stdNum {
+    width: 50%;
+    display: inline-block;
+    font-size: 15px;
+    padding: 1% 0 1% 2%;
+    color: rgb(99, 106, 98);
+
+
+}
+
+.stdEveryScore {
+    display: inline-block;
+
+}
+
+.teaName {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 100px;
+    margin: 1% 0 1% 2%;
+    background-color: brown;
+    color: white;
+    font-size: 10px;
+}
+
+.Score {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 40px;
+    color: red;
+    font-weight: bold;
+}
+
+.selfName {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin: 1% 0 1% 2%;
+    width: 100px;
+    background-color: blue;
+    color: white;
+    font-size: 10px;
+}
+
+.groupName {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 100px;
+    margin: 1% 0 1% 2%;
+    background-color: cadetblue;
+    color: white;
+    font-size: 10px;
+}
