@@ -111,6 +111,8 @@
                     callback: function (result) {
                         for (i = 0, tmp = classes.data.length; i < tmp; i++) {
                                 $("#cls-items").remove();
+                                selcId[i]=classes.data[i].class_id;
+                                console.log(selcId[i]);
                                 classes.data.splice(i,1);
                             }
 
@@ -123,7 +125,7 @@
                                 type: "POST",
                                 data: {
                                     do: '1',
-                                    class_id: 1
+                                    class_id: selcId
                                 },
                                 success: function () {
                                     
