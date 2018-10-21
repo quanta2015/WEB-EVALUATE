@@ -62,9 +62,9 @@
                             //                            clsId.push({
                             //                                id: clsId.length
                             //                            })
-                            for (i = 0, tmp = classes.data.length; i < tmp; i++) {
-                                $("#cls-items").remove();
-                            }
+                            // for (i = 0, tmp = classes.data.length; i < tmp; i++) {
+                            //     $("#cls-items").remove();
+                            // }
                             var html = $("#clsTmpl").render(classes.data);
                             $("#list").append(html);
 
