@@ -4,7 +4,9 @@
     //  var clsNm = [];
     //  var clsId = [];
     var selcId = [];
-    var selcNum=[];
+    var selcNum = [];
+
+    var clsName;
     toastr.options.positionClass = 'toastr-top-left';
 
 
@@ -58,14 +60,14 @@
                         },
                         success: function (data) {
                             console.log(data);
-                           classes.data.push({
-                            class_id:data,
-                            class_name:result
-                        });
+                            classes.data.push({
+                                class_id: data,
+                                class_name: result
+                            });
 
-                        var html = $("#clsTmpl").render(classes.data);
-                        $("#list").append(html);
-                            
+                            var html = $("#clsTmpl").render(classes.data);
+                            $("#list").append(html);
+
                         }
                     })
 
@@ -111,12 +113,12 @@
                             toastr.success('已成功取消');
 
                         } else {
-                               $("div#cls-items").remove();
-                            for (i =0, tmp = classes.data.length; i <tmp; i++) {
+                            $("div#cls-items").remove();
+                            for (i = 0, tmp = classes.data.length; i < tmp; i++) {
                                 selcId.push(classes.data[i].class_id);
-                                
+
                             }
-                            classes.data.splice(0,classes.data.length);
+                            classes.data.splice(0, classes.data.length);
                             $.ajax({
                                 url: '../php/class_set.php',
                                 type: "POST",
@@ -125,9 +127,9 @@
                                     class_id: selcId
                                 },
                                 success: function () {
-                                     selcId.splice(0,selcId.length);
+                                    selcId.splice(0, selcId.length);
                                     toastr.success('已成功删除');
-                                    isCheckAll=false;
+                                    isCheckAll = false;
                                 }
                             })
                         }
@@ -167,14 +169,14 @@
                                     if (this.checked) {
                                         tmp = $(this).parent().next().text();
                                         console.log(tmp);
-                                        selcId.push(classes.data[tmp-1].class_id);
-                                        selcNum.push(tmp-1);
+                                        selcId.push(classes.data[tmp - 1].class_id);
+                                        selcNum.push(tmp - 1);
                                         num++;
-                                        
+
                                     }
                                 });
-                                for(var k=(selcNum.length-1);k>=0;k--){
-                                    classes.data.splice(selcNum[k],1);
+                                for (var k = (selcNum.length - 1); k >= 0; k--) {
+                                    classes.data.splice(selcNum[k], 1);
                                 }
 
 
@@ -188,14 +190,14 @@
                                     },
                                     success: function (data) {
                                         console.log(data);
-                                        
+
                                         $("div#cls-items").remove();
                                         toastr.success('已成功删除');
 
                                         html = $("#clsTmpl").render(classes.data);
                                         $("#list").append(html);
-                                         selcId.splice(0,selcId.length);
-                                         selcNum.splice(0,selcNum.length);
+                                        selcId.splice(0, selcId.length);
+                                        selcNum.splice(0, selcNum.length);
 
                                     }
                                 })
@@ -233,11 +235,11 @@
 
                 } else {
 
-                                $("div#cls-items").remove();
-                            selcId[0]=classes.data[n-1].class_id;
-                    classes.data.splice(n-1,1);
-                     html = $("#clsTmpl").render(classes.data);
-                                $("#list").append(html);
+                    $("div#cls-items").remove();
+                    selcId[0] = classes.data[n - 1].class_id;
+                    classes.data.splice(n - 1, 1);
+                    html = $("#clsTmpl").render(classes.data);
+                    $("#list").append(html);
                     $.ajax({
                         url: '../php/class_set.php',
                         type: "POST",
@@ -248,9 +250,9 @@
                         success: function (data) {
                             console.log(data);
                             if (data.code == 0) {
-                                selcId.splice(0,selcId.length);
+                                selcId.splice(0, selcId.length);
                                 toastr.success('已成功删除');
-                               
+
                             } else
                                 toastr.success('删除失败');
 
@@ -263,4 +265,8 @@
 
 
         })
+    }
+
+    function turnToOtherWeb(clsName) {
+        window.location = ('studentManagement.html?clsName' + clsName);
     }
