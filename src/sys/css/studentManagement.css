@@ -1,12 +1,4 @@
-a:link,
-a:visited {
-    text-decoration: none;
-}
 
-a:hover {
-
-    color: crimson;
-}
 
 .btn-dis {
     margin-right: 20px;

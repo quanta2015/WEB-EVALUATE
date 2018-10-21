@@ -74,7 +74,7 @@ function cancel() {
 function method() {
     var doTask_id = $(this).attr("id");
     console.log($(this).attr("id"));
-    url = "evaluteDetail.html?dotask_id="+doTask_id+"&role="+role;
+    url = "evaluteDetailStd.html?dotask_id="+doTask_id+"&role="+role;
     window.location.href = url;
     console.log(doTask_id);
 }; 
