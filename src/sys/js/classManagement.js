@@ -111,7 +111,7 @@
                         } else {
                                $("div#cls-items").remove();
                             for (i =0, tmp = classes.data.length; i <tmp; i++) {
-                                selcId[i]=classes.data[i].class_id;
+                                selcId[i].push(classes.data[i].class_id);
                                 console.log(selcId[i]);
                                 
                             }
@@ -164,7 +164,6 @@
                                     if (this.checked) {
                                         tmp = $(this).parent().next().text();
                                         selcId.push(classes.data[tmp-num-1].class_id);
-
                                          classes.data.splice(tmp - num - 1, 1);
                                         num++;
                                         
