@@ -109,6 +109,10 @@
                         }
                     },
                     callback: function (result) {
+                        for (i = 0, tmp = classes.data.length; i < tmp; i++) {
+                                $("#cls-items").remove();
+                                classes.data.splice(i,1);
+                            }
 
                         if (!result) {
                             toastr.success('已成功取消');
@@ -122,7 +126,7 @@
                                     class_id: 1
                                 },
                                 success: function () {
-                                    $("#cls-items").remove();
+                                    
                                     //  clsNm.splice(0, clsNm.length);
                                     //  clsId.splice(0, clsId.length);
                                     toastr.success('已成功删除');
