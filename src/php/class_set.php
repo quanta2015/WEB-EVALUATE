@@ -17,17 +17,17 @@ if($do == 1){
 	for($i=0;$i<$length;$i++){
 		$sql = "DELETE FROM `class` WHERE `class_id` = {$del[$i]} ";
 		$result = mysqli_query($conn, $sql);
-		//echo $result;
+			if(1==$result)  success('');
 	}
   
 }
 else{
 	$sql = "INSERT INTO `class`(`class_name`, `teacher_num`) VALUES ({$add},{$id})";
 	$result = mysqli_query($conn, $sql);
+	$data =mysqli_insert_id($conn);
+	if(1==$result)  success($data);
 }
 
-//if(1==$result)  success('');
-//else ero('20','unkonwfail');
-
+ero('20','unkonwfail');
 
 ?>
