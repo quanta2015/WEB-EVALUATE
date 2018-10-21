@@ -119,8 +119,9 @@
                                 $("#cls-items").remove();
                                 // selcId[i]=classes.data[i].class_id;
                                 // console.log(selcId[i]);
-                                classes.data.splice(i,1);
+                                
                             }
+                            classes.data.splice(0,classes.data.length);
                             $.ajax({
                                 url: '../php/class_set.php',
                                 type: "POST",
