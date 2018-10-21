@@ -46,9 +46,9 @@
             },
             callback: function (result) {
                 console.log(result);
-                 for (i = 0, tmp = classes.data.length; i < tmp; i++) {
-                                $("#cls-items").remove();
-                            }
+                 
+                $("div#cls-items").remove();
+                          
                 classes.data.push({class_name:result});
                 var html = $("#clsTmpl").render(classes.data);
                 $("#list").append(html);
@@ -61,14 +61,13 @@
                             class_name: result,
                         },
                         success: function (data) {
-                            //                            console.log(data);
-                            //                            clsNm.push({
-                            //                                name: result
-                            //                            });
-                            //                            clsId.push({
-                            //                                id: clsId.length
-                            //                            })
-                           
+                           classes.data.push({
+                            class_id:data,
+                            class_name:result
+                        });
+
+                        var html = $("#clsTmpl").render(classes.data);
+                        $("#list").append(html);
                             
                         }
                     })
@@ -115,8 +114,8 @@
                             toastr.success('已成功取消');
 
                         } else {
+                               $("#cls-items").remove();
                             for (i =0, tmp = classes.data.length; i <tmp; i++) {
-                                $("#cls-items").remove();
                                 selcId[i]=classes.data[i].class_id;
                                 console.log(selcId[i]);
                                 
@@ -130,9 +129,7 @@
                                     class_id: selcId
                                 },
                                 success: function () {
-                                    
-                                    //  clsNm.splice(0, clsNm.length);
-                                    //  clsId.splice(0, clsId.length);
+                                     selcId.splice(0,selcId.length);
                                     toastr.success('已成功删除');
                                 }
                             })
@@ -168,16 +165,14 @@
 
                             } else {
                                 var num = 0;
-                                var j = 0;
                                 $("input[type='checkbox']").each(function () {
                                     if (this.checked) {
                                         tmp = $(this).parent().next().text();
-                                        selcId.push(tmp);
+                                        selcId.push(classes.data[tmp-num-1].class_id);
 
                                          classes.data.splice(tmp - num - 1, 1);
-                                        // selcId[j] = clsId.splice(tmp - num - 1, 1);
                                         num++;
-                                        // j++;
+                                        
                                     }
                                 });
 
@@ -196,7 +191,7 @@
 
                                         html = $("#clsTmpl").render(classes.data);
                                         $("#list").append(html);
-                                        //  selcId.splice(0, selcId.length);
+                                         selcId.splice(0,selcId.length);
 
                                     }
                                 })
@@ -233,9 +228,9 @@
                     toastr.success('已成功取消');
 
                 } else {
-                    for (i = 0, tmp = classes.data.length; i < tmp; i++) {
+
                                 $("#cls-items").remove();
-                            }
+                            selcId[0]=classes.data[n-1].class_id;
                     classes.data.splice(n-1,1);
                      html = $("#clsTmpl").render(classes.data);
                                 $("#list").append(html);
@@ -244,12 +239,12 @@
                         type: "POST",
                         data: {
                             do: '1',
-                            class_id: n
+                            class_id: selcId
                         },
                         success: function (data) {
                             console.log(data);
                             if (data.code == 0) {
-                                $("div#cls-items").remove();
+                                selcId.splice(0,selcId.length);
                                 toastr.success('已成功删除');
                                
                             } else
