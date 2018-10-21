@@ -46,12 +46,7 @@
             },
             callback: function (result) {
                 console.log(result);
-                 
                 $("div#cls-items").remove();
-                          
-                classes.data.push({class_name:result});
-                var html = $("#clsTmpl").render(classes.data);
-                $("#list").append(html);
                 if (result) {
                     $.ajax({
                         url: '../php/class_set.php',
@@ -114,7 +109,7 @@
                             toastr.success('已成功取消');
 
                         } else {
-                               $("#cls-items").remove();
+                               $("div#cls-items").remove();
                             for (i =0, tmp = classes.data.length; i <tmp; i++) {
                                 selcId[i]=classes.data[i].class_id;
                                 console.log(selcId[i]);
@@ -229,7 +224,7 @@
 
                 } else {
 
-                                $("#cls-items").remove();
+                                $("div#cls-items").remove();
                             selcId[0]=classes.data[n-1].class_id;
                     classes.data.splice(n-1,1);
                      html = $("#clsTmpl").render(classes.data);
