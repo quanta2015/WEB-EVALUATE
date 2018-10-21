@@ -27,8 +27,8 @@ $student_name = $_POST["student_name"];
 
 	$sql = "INSERT INTO `user`(`user_number`,`user_name`,`user_class`,`user_role`, `user_password`) VALUES ({$student_num},{$student_name},{$class},{$id},1,'123456')";
 	$result = mysqli_query($conn, $sql);
-	$data =mysqli_insert_id($conn);
-	if(1==$result)  success($data);
+//	$data =mysqli_insert_id($conn);
+	if(1==$result)  success('');
 }
 
 ero('20',mysqli_error($conn));

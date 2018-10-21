@@ -53,10 +53,11 @@
                         url: '../php/class_set.php',
                         type: "POST",
                         data: {
-                            do: '0',
+                            do: 0,
                             class_name: result,
                         },
                         success: function (data) {
+                            console.log(data);
                            classes.data.push({
                             class_id:data,
                             class_name:result

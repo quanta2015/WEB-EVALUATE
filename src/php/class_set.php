@@ -22,7 +22,7 @@ if($do == 1){
   if(1==$result)  success('');
 }
 else{
-	$sql = "INSERT INTO `class`(`class_name`, `teacher_num`) VALUES ({$add},{$id})";
+	$sql = "INSERT INTO `class`(`class_name`, `teacher_num`) VALUES ('{$add}',{$id})";
 	$result = mysqli_query($conn, $sql);
 	$data =mysqli_insert_id($conn);
 	if(1==$result)  success($data);
