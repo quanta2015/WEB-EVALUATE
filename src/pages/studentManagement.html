@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="../sys/css/task.css">
     <link rel="stylesheet" type="text/css" href="../lib/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../lib/toastr-master/toastr.css">
+    <link rel="stylesheet" type="text/css" href="../lib/pace/pace.css">
     <link rel="stylesheet" type="text/css" href="../sys/css/studentManagement.css">
 
 
@@ -31,6 +32,14 @@
                 <li class="nav-item">
                     <a href="task.html" style="display: flex;">
                             <span>发布新任务</span>
+                            <div class="hidden"></div>
+                            <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
+                        </a>
+                </li>
+                <li class="nav-item"></li>
+                <li class="nav-item">
+                    <a href="taskManage.html" style="display: flex;">
+                            <span>任务管理</span>
                             <div class="hidden"></div>
                             <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
                         </a>
@@ -94,7 +103,7 @@
                     </h3>
                     <h3 class="stdName flex " style="font-size:15px;font-weight:bold;">姓名
                     </h3>
-                    <h3 class="stdMan flex" style="font-size:15px;font-weight:bold;"><i class="fa fa-plus-square" style="color:#46a3ff " onclick="stdAdd()"></i></h3>
+                    <h3 class="stdMan flex" style="font-size:15px;font-weight:bold;"><i id="btn_add" class="fa fa-plus-square" style="color:#46a3ff "></i></h3>
                 </div>
                 <div id="list"></div>
 
@@ -114,7 +123,35 @@
                     </div>
                 </div>
             </div>
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">学生信息</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="txt_parentdepartment">班级</label>
+                                <input type="text" name="txt_parentdepartment" class="form-control" id="class_name" placeholder="请输入对应班级">
+                            </div>
+                            <div class="form-group">
+                                <label for="txt_departmentname">学号</label>
+                                <input type="text" name="txt_departmentname" class="form-control" id="std_num" placeholder="请输入学生学号">
+                            </div>
+                            <div class="form-group">
+                                <label for="txt_parentdepartment">姓名</label>
+                                <input type="text" name="txt_parentdepartment" class="form-control" id="std_name" placeholder="请输入学生姓名">
+                            </div>
 
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭</button>
+                            <button type="button" id="std_add" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
 
@@ -155,7 +192,7 @@
         <div class="flex" id="std-items" style="height:40px;border-top: solid 1px rgb(230, 233, 241);">
             <div class="stdCh flex" id="{{:#getIndex()+1}}"><input type="checkbox" /></div>
             <div class="stdId flex">{{:#getIndex()+1}}</div>
-            <div class="stdNum flex">{{:number}}</div>
+            <div class="stdNum flex">{{:id}}</div>
             <div class="stdName flex"><a href="#" style="color:black">{{:name}}</a></div>
             <div class="stdMan flex">
                 <i type="button" class="fa fa-minus-square" style="color:#46a3ff " onclick="stdRemove({{:#getIndex()+1}})">
