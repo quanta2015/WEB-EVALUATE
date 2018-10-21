@@ -117,8 +117,8 @@
                         } else {
                             for (i =0, tmp = classes.data.length; i <tmp; i++) {
                                 $("#cls-items").remove();
-                                // selcId[i]=classes.data[i].class_id;
-                                // console.log(selcId[i]);
+                                selcId[i]=classes.data[i].class_id;
+                                console.log(selcId[i]);
                                 
                             }
                             classes.data.splice(0,classes.data.length);
@@ -174,7 +174,7 @@
                                         tmp = $(this).parent().next().text();
                                         selcId.push(tmp);
 
-                                        //  clsNm.splice(tmp - num - 1, 1);
+                                         classes.data.splice(tmp - num - 1, 1);
                                         // selcId[j] = clsId.splice(tmp - num - 1, 1);
                                         num++;
                                         // j++;
