@@ -103,13 +103,13 @@
                         <i class="fa fa-power-off nav-more fa-2x" id="nav_icon2" style="color: rgb(32, 142, 251);"></i>
                     </a>
             </div>
-            <div style="height:35px;width:94%;margin:1% 0 0 3%;">
+            <div style="height:35px;width:94%;margin:2.5% 0 0 3%;">
                 <span>选择班级&nbsp;</span>
-                <select id="clsCh" name="class" style="width:30%; height:35px;border-color:rgb(230, 230, 230)；"></select>
+                <select id="clsCh" name="class" style="width:200px; height:35px;border-color:rgb(221, 237, 252);"></select>
                 <span style="margin-left:10%;">选择任务&nbsp;</span>
-                <select id="taskSlct" style="width:30%; height:35px;border-color:rgb(230, 230, 230)"></select>
+                <select id="taskSlct" style="width:200px; height:35px;border-color:rgb(221, 237, 252);"></select>
             </div>
-            <div class="content-main" style=" width: 94%;margin-left:3%;">
+            <div class="content-main" style=" width: 94%;margin-left:3%;margin-top: 1%;">
                 <div class="tab-group">
                     <section id="tab1" title="成绩列表">
                         <div style="height: 90%;width: 100%;margin: 0;display: flex; flex-direction: column;">
@@ -134,7 +134,7 @@
                                     <li style="width: 100%;">
                                         <div class="taskDetail" style="display: flex; align-items: center;">
                                             <div style="width: 12.5%; background: {{if totalGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{:task_title}}</span></div>
-                                            <div style="width: 12.5%; background: {{if totalGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{:user_num}}</span></div>
+                                            <div style="width: 12.5%; background: {{if totalGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{:user_number}}</span></div>
                                             <div style="width: 12.5%; background: {{if totalGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{:user_class}}</span></div>
                                             <div style="width: 12.5%; background: {{if totalGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{:user_name}}</span></div>
                                             <div style="width: 12.5%; background: {{if totalGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{if selfGrade}}{{:selfGrade}}{{else}}暂无评价{{/if}}</span></div>
