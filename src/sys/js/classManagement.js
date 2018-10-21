@@ -46,6 +46,12 @@
             },
             callback: function (result) {
                 console.log(result);
+                 for (i = 0, tmp = classes.data.length; i < tmp; i++) {
+                                $("#cls-items").remove();
+                            }
+                            classes.data.push({class_name:result});
+                              var html = $("#clsTmpl").render(classes.data);
+                $("#list").append(html);
                 if (result) {
                     $.ajax({
                         url: '../php/class_set.php',
@@ -62,11 +68,8 @@
                             //                            clsId.push({
                             //                                id: clsId.length
                             //                            })
-                            // for (i = 0, tmp = classes.data.length; i < tmp; i++) {
-                            //     $("#cls-items").remove();
-                            // }
-                              window.location.reload();
-
+                           
+                            
                         }
                     })
 
