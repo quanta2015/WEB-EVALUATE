@@ -4,6 +4,7 @@
     //  var clsNm = [];
     //  var clsId = [];
     var selcId = [];
+    var selcNum=[];
     toastr.options.positionClass = 'toastr-top-left';
 
 
@@ -111,8 +112,7 @@
                         } else {
                                $("div#cls-items").remove();
                             for (i =0, tmp = classes.data.length; i <tmp; i++) {
-                                selcId[i].push(classes.data[i].class_id);
-                                console.log(selcId[i]);
+                                selcId.push(classes.data[i].class_id);
                                 
                             }
                             classes.data.splice(0,classes.data.length);
@@ -126,6 +126,7 @@
                                 success: function () {
                                      selcId.splice(0,selcId.length);
                                     toastr.success('已成功删除');
+                                    isCheckAll=false;
                                 }
                             })
                         }
@@ -139,6 +140,7 @@
                         ckNum++;
                     }
                 });
+                console.log(ckNum);
                 if (ckNum == 0) {
                     toastr.warning('未选中任何班级');
                 } else {
@@ -163,12 +165,18 @@
                                 $("input[type='checkbox']").each(function () {
                                     if (this.checked) {
                                         tmp = $(this).parent().next().text();
-                                        selcId.push(classes.data[tmp-num-1].class_id);
-                                         classes.data.splice(tmp - num - 1, 1);
+                                        console.log(tmp);
+                                        selcId.push(classes.data[tmp-1].class_id);
+                                        selcNum.push(tmp-1);
                                         num++;
                                         
                                     }
                                 });
+                                for(var k=(selcNum.length-1);k>=0;k--){
+                                    classes.data.splice(selcNum[k],1);
+                                }
+
+
 
                                 $.ajax({
                                     url: '../php/class_set.php',
@@ -178,14 +186,14 @@
                                         class_id: selcId
                                     },
                                     success: function (data) {
-                                        console.log(selcId);
-                                        console.log(data);
+                                        
                                         $("div#cls-items").remove();
                                         toastr.success('已成功删除');
 
                                         html = $("#clsTmpl").render(classes.data);
                                         $("#list").append(html);
                                          selcId.splice(0,selcId.length);
+                                         selcNum.splice(0,selcNum.length);
 
                                     }
                                 })
