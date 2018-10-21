@@ -90,12 +90,10 @@
                                     </strong></div>
                                 </div>
                                 <div class="titOper">
-                                    <p class="clearfix">    
-                                        <button id="ac" class="Btn_blue" name="{{:id}}">
-                                            {{if total_tag == 0}}查看
-                                            {{else}}去完成
-                                            {{/if}}
-                                        </button>
+                                    <p class="clearfix"> 
+                                        {{if total_tag == 0}}<button id="ac" class="Btn_grey" name="{{:id}}">去完成</button> 
+                                        {{else}}<button id="ac" class="Btn_blue" name="{{:id}}">去完成</button>
+                                        {{/if}}  
                                         <button id="ac" class="Btn_evalute" name="{{:id}}">
                                             自评
                                         </button>
