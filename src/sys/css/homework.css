@@ -36,6 +36,20 @@ a{text-decoration:none;color:#202020;}
 	background-color: rgb(5, 127, 254);
 	color: white;
 }
+.Btn_grey{
+	width: 70px;
+	height:30px;
+	border: 1px solid #aaa;
+	background-color: lightgrey;
+	border-radius: 18px;
+	color: #aaa;
+	float: right;
+	font-size: 120%;
+	font-weight: bold;
+	line-height: 25px;
+	text-align: center;
+	text-decoration: none;
+}
 .Btn_evalute{
 	width: 70px;
 	height:30px;
@@ -74,7 +88,7 @@ a{text-decoration:none;color:#202020;}
 	font-size: 120%;
 	font-weight: bold;
 	margin-top:20px;
-	margin-left: 900px;
+	margin-left: 950px;
 	border: 1px solid rgb(149, 201, 255);
 	background-color: rgb(245, 250, 255);
 	border-radius: 20px;
@@ -82,7 +96,7 @@ a{text-decoration:none;color:#202020;}
 }
 .b-s:hover {
 	margin-top:20px;
-	margin-left: 900px;
+	margin-left: 950px;
 	border: 1px solid rgb(5, 127, 254);
 	background-color: rgb(5, 127, 254);
 	color: white;
