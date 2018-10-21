@@ -115,7 +115,7 @@
                             toastr.success('已成功取消');
 
                         } else {
-                            for (i = (tmp-1), tmp = classes.data.length; i >=0; i--) {
+                            for (i =0, tmp = classes.data.length; i <tmp; i++) {
                                 $("#cls-items").remove();
                                 // selcId[i]=classes.data[i].class_id;
                                 // console.log(selcId[i]);
