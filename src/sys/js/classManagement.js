@@ -49,8 +49,8 @@
                  for (i = 0, tmp = classes.data.length; i < tmp; i++) {
                                 $("#cls-items").remove();
                             }
-                            classes.data.push({class_name:result});
-                              var html = $("#clsTmpl").render(classes.data);
+                classes.data.push({class_name:result});
+                var html = $("#clsTmpl").render(classes.data);
                 $("#list").append(html);
                 if (result) {
                     $.ajax({
@@ -225,6 +225,12 @@
                     toastr.success('已成功取消');
 
                 } else {
+                    for (i = 0, tmp = classes.data.length; i < tmp; i++) {
+                                $("#cls-items").remove();
+                            }
+                    classes.data.splice(n-1,1);
+                     html = $("#clsTmpl").render(classes.data);
+                                $("#list").append(html);
                     $.ajax({
                         url: '../php/class_set.php',
                         type: "POST",
@@ -237,8 +243,7 @@
                             if (data.code == 0) {
                                 $("div#cls-items").remove();
                                 toastr.success('已成功删除');
-                                html = $("#clsTmpl").render(classes.data);
-                                $("#list").append(html);
+                               
                             } else
                                 toastr.success('删除失败');
 
