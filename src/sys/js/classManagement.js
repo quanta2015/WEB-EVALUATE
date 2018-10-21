@@ -186,6 +186,7 @@
                                         class_id: selcId
                                     },
                                     success: function (data) {
+                                        console.log(data);
                                         
                                         $("div#cls-items").remove();
                                         toastr.success('已成功删除');
