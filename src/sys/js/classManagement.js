@@ -49,8 +49,9 @@
             },
             callback: function (result) {
                 console.log(result);
-                $("div#cls-items").remove();
+                
                 if (result) {
+                    $("div#cls-items").remove();
                     $.ajax({
                         url: '../php/class_set.php',
                         type: "POST",
@@ -267,6 +268,14 @@
         })
     }
 
-    function turnToOtherWeb(clsName) {
-        window.location = ('studentManagement.html?clsName' + clsName);
+    function turnToOtherWeb() {
+        var clsName=$("#turn").text();
+        window.location.href="studentManagement.html?clsName="+ clsName;
+        
     }
+function GetQueryString(name)
+{
+     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+     var r = window.location.search.substr(1).match(reg);
+     if(r!=null)return  unescape(r[2]); return null;
+}

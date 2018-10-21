@@ -7,11 +7,10 @@ LoginCheck::checklogin();
 
 $class = $_POST['class'];
 
-if (!$conn) connfail();
 
-  $sql = "select  * from user where user_role = 1 and user_class = {$class}";
+  $sql = "select  * from user where user_role = 1 and user_class = '{$class}'";
   $result = $conn->query($sql);
-
+echo mysqli_error($conn);
  if (0 == mysqli_num_rows($result))existempty();
   $rows = mysqli_fetch_all($result,MYSQLI_ASSOC);
   success($rows);

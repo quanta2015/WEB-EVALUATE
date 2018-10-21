@@ -10,37 +10,46 @@
 
  //获得传参班级
        
- var url = location.search;      
- var strs = [];      
- var obj = new Object();      
- if (url.indexOf("?") != -1) {         
-     var str = url.substr(1);         
-     strs = str.split("&");         
-     for (var i = 0; i < strs.length; i++) {            
-         obj[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);         
-     }      
- }      
- var clsName = obj.clsName;
-
+ // var url = location.search;      
+ // var strs = [];      
+ // var obj = new Object();      
+ // if (url.indexOf("?") != -1) {         
+ //     var str = url.substr(1);         
+ //     strs = str.split("&");         
+ //     for (var i = 0; i < strs.length; i++) {            
+ //         obj[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);         
+ //     }      
+ // } 
+//  function GetQueryString(name)
+// {
+//      var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+//      var r = window.location.search.substr(1).match(reg);
+//      if(r!=null)return  unescape(r[2]); return null;
+// }
+     
+var clsName = $.query.get("clsName");
+console.log(clsName);
  $(document).ready(function () {
 
      $.ajax({
          url: '../php/student_search.php',
-         type: 'get',
+         type: 'post',
          async: false,
+         data:{class:clsName},
          success: function (data) {
+               console.log(data);
              std = JSON.parse(data);
              console.log(std);
-             for (var i = 0; i < std.data.length; i++) {
-                 if (std.data[i].student_class == clsName) {
+            for (var i = 0; i < std.data.length; i++) {
+             //    if (std.data[i].student_class == clsName) {
                      stdInfor.push({
-                         id: std.data[i].user_num,
+                         id: std.data[i].user_number,
                          name: std.data[i].user_name
                      });
-                 }
-
+            //     }
+//
              }
-             var html = $("#clsTmpl").render(stdInfor.data);
+             var html = $("#stdTmpl").render(stdInfor);
              $("#list").append(html);
 
          }
@@ -137,11 +146,11 @@
                          toastr.success('已成功取消');
 
                      } else {
-                         for (int i = 0; i < stdInfor.length; i++) {
+                         /*for (int i = 0; i < stdInfor.length; i++) {
                              selcId.push(stdInfor[i].id);
                          }
                          stdInfor.splice(0, stdInfor.length);
-
+*/
                          $.ajax({
                              url: '../php/student_set.php',
                              type: "POST",
