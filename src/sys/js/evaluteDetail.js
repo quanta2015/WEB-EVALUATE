@@ -67,7 +67,6 @@ var jsRenderTpl = $.templates('#theTmpl');
 var finalTpl = jsRenderTpl(arr);
 $('.box').html(finalTpl);
 
-
 //var submit = document.getElementById("submit_grade");
 /*submit.onclick = function(e) {
 	 var detail_grade = document.getElementsByName('grade');
@@ -151,6 +150,7 @@ $(function() {
       async:false,
             success: function(data) {
                 console.log(data);
+                toastr.success('评价成功！');
                 remove();
             }
         });

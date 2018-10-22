@@ -17,16 +17,20 @@ if (!$conn) connfail();
 
     if(!(mysqli_fetch_row($result))){
     echo  "grade".$_POST["grade"];
-	$sql3 = "INSERT INTO `grade`(dotask_id,user_id,user_type,grade) values('{$dotask_id}','{$id}','{$type}','{$_POST["grade"]}')";}
-    else 
-    $sql3 = "UPDATE `grade` SET `grade` = '{$_POST["grade"]}' where dotask_id = {$dotask_id} and user_id = {$id} and  user_type = {$type}";
-echo $sql3;
-	$result4 = mysqli_query($conn, $sql3);
-
+	$sql3 = "INSERT INTO `grade`(dotask_id,user_id,user_type,grade) values('{$dotask_id}','{$id}','{$type}','{$_POST["grade"]}')";
 
 	$total = $gradelast[$length-1];
 
-	$sql2 = "INSERT INTO `totalgrade`(dotask_id,`totalGrade`,`role`) values('{$dotask_id}','{$total}',{$type})";
+	$sql2 = "INSERT INTO `totalgrade`(dotask_id,`totalGrade`,`role`) values('{$dotask_id}','{$total}',{$type})";}
+    else {
+    $sql3 = "UPDATE `grade` SET `grade` = '{$_POST["grade"]}' where dotask_id = {$dotask_id} and user_id = {$id} and  user_type = {$type}";
+    $total = $gradelast[$length-1];
+	$sql2 = "UPDATE `totalgrade`SET `totalGrade` = {$total} where dotask_id = {$dotask_id} and evalute_user = {$id} ";
+
+
+}
+
+	$result4 = mysqli_query($conn, $sql3);
 	$result2 = mysqli_query($conn, $sql2);
 if(1==$result2&&1 == $result4 )  success('');
 else ero('20','unkonwfail');

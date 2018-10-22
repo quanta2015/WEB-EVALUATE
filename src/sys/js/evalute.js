@@ -3,22 +3,38 @@ var role = 1;
 //初始化渲染
 $(document).ready(function() {
     $.ajax({
-        url: '../php/tevalute_search.php',
-        type: 'POST',
+        // url: '../php/tevalute_search.php',
+        // type: 'POST',
+        // async: false,
+        // data: {role: "1"},
+        // success: function(data) {
+        //     //获取学生数据
+        //     stdObj = JSON.parse(data);
+        //     console.log(stdObj.data);
+        //     //获取模版
+        //     var jsRenderTpl = $.templates('#theTmpl');
+        //     //模版与数据结合
+        //     var finalTpl = jsRenderTpl(stdObj.data);
+        //     $('.box').html(finalTpl);
+        // }
+        url: '../php/final_search.php',
+        type: 'get',
         async: false,
-        data: {role: "1"},
         success: function(data) {
             //获取学生数据
+            //console.log(data);
             stdObj = JSON.parse(data);
-            console.log(stdObj.data);
+            console.log(stdObj);
             //获取模版
             var jsRenderTpl = $.templates('#theTmpl');
             //模版与数据结合
             var finalTpl = jsRenderTpl(stdObj.data);
             $('.box').html(finalTpl);
-
         }
     });
+    $.ajax({
+
+    })
  $.ajax({
         url: '../php/class_search.php',
         type: 'get',
@@ -44,7 +60,7 @@ $(document).ready(function() {
         data:'',
         async:false,
         success: function(data) {
-            console.log(data);
+        //    console.log(data);
             homeworks = JSON.parse(data);
             console.log( homeworks);
           var context;
