@@ -70,6 +70,20 @@ a{text-decoration:none;color:#202020;}
 	background-color: rgb(5, 127, 254);
 	color: white;
 }
+.Btn_evalutegrey{
+	width: 70px;
+	height:30px;
+	border: 1px solid #aaa;
+	background-color: lightgrey;
+	border-radius: 18px;
+	color: #aaa;
+	float: right;
+	font-size: 120%;
+	font-weight: bold;
+	line-height: 25px;
+	text-align: center;
+	text-decoration: none;
+}
 .container{}
 .f{margin-left: 113px;}
 .block{

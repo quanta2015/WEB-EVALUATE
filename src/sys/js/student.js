@@ -1,6 +1,6 @@
 var role = 2;
 var j = 0;
-//飘浮框
+var state = 1;//是否截止
 
 
 //显示开始与截止时间
@@ -24,8 +24,9 @@ function showTime(arr){
             arr[i].end_date = "还剩 "+hours1+" 小时";
             if(hours1 <= 0){
                 arr[i].end_date = "已截止";
-                arr.splice(i,1);//删除已截止的作业
-                i = i-1;
+                state = 0;
+                // arr.splice(i,1);//删除已截止的作业
+                // i = i-1;
             }
         }
         else{
@@ -72,7 +73,18 @@ $(function(){
         }
         url = "homework.html?i="+i+"&task_content="+obj.data[i]["task_content"] + "&dotask_id="+obj.data[i]["id"] +"&task_title="+obj.data[i]["task_title"]+"&role="+role;//此处拼接内容
         window.location.href = url;
-    });  
+    }); 
+    $(".Btn_grey").click(function() {
+        var i =0;
+        var id = $(this).attr("name");
+        console.log(obj.data[i]);
+        for(i=0;i<obj.data.length;i++){
+            if(id == obj.data[i]["id"])
+                break;
+        }
+        url = "chomework.html?i="+i+"&task_content="+obj.data[i]["task_content"] + "&dotask_id="+obj.data[i]["id"] +"&task_title="+obj.data[i]["task_title"]+"&role="+role;//此处拼接内容
+        window.location.href = url;
+    }); 
     $(".Btn_evalute").click(function(){
         var i =0;
         var id = $(this).attr("name");
@@ -85,23 +97,24 @@ $(function(){
     });
 
 
+
     document.getElementById("b").onmouseover = function(e){
-    var target2 = e.target;
-    // var bol = $(e.target).parents().is("float_boxid");
-    var children = this.children;
-    for(var i=0;i<children.length;i++){
-        if(target2 == children[i]){
-            j = i;
-            return;
+        var target2 = e.target;
+        // var bol = $(e.target).parents().is("float_boxid");
+        var children = this.children;
+        for(var i=0;i<children.length;i++){
+            if(target2 == children[i]){
+                j = i;
+                return;
+            }
         }
+        var all = document.getElementsByName("float_box");
+        all[j].style.display="block";
     }
-    var all = document.getElementsByName("float_box");
-    all[j].style.display="block";
-}
-document.getElementById("b").onmouseout = function(e){
-    var all = document.getElementsByName("float_box");
-    all[j].style.display="none";
-}
+    document.getElementById("b").onmouseout = function(e){
+        var all = document.getElementsByName("float_box");
+        all[j].style.display="none";
+    }
 
 });
 
