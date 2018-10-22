@@ -91,4 +91,5 @@ select {
 }
 .attribute {
 	background: rgb(245, 247, 250);
+	border-top:solid 1px rgb(230, 233, 241);
 }

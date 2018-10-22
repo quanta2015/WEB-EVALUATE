@@ -86,6 +86,14 @@ $('.box').html(finalTpl);
 	// console.log(total_grade);
 }
 */
+// function promise(url, method, data, cb) {
+//     $.ajax({
+//         url: url,
+//         type: method,
+//         data: data,
+//         success: 
+//     })
+// }
 $(function() {
         var id = GetQueryString("dotask_id");
         $.ajax({
@@ -106,7 +114,7 @@ $(function() {
             data:{ dotask_id: id},
             //   async:false,
             success: function(data) {
-    
+    console.log(data);
               obj = JSON.parse(data);
                      if(obj.code == 0){
               nowgrade = JSON.parse(obj.data[0].grade);
@@ -119,6 +127,7 @@ $(function() {
         });
 
  $("#submit_grade").click(function() {
+        mask();
         var detail_grade = document.getElementsByName('grade');
         var grade = [];
         var total = 0;
@@ -139,12 +148,10 @@ $(function() {
             url: '../php/evalute.php',
             type: "POST",
             data: { grade: JSON.stringify(grade), role: role, dotask: id, length: grade.length },
-            //   async:false,
+      async:false,
             success: function(data) {
                 console.log(data);
-                // obj = JSON.parse(data);
-                //  consolse.log(obj);
-
+                remove();
             }
         });
     })
@@ -177,3 +184,10 @@ function cancel() {
 
 }
 
+function mask() {
+    document.querySelector(".mask").style.display = "block";
+}
+
+function remove() {
+    document.querySelector(".mask").style.display = "none";
+}
