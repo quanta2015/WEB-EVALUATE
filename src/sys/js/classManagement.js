@@ -267,9 +267,29 @@
 
         })
     }
+    function cancel() {
+    $.ajax({
+        url: '../php/signout.php',
+        type: "POST",
+        success: function (data) {
+            result = JSON.parse(data);
+            if (result.code == 0) {
+                alert("退出成功");
+                window.location.href = "../index.html";
+            } else {
+                alert("退出失败！");
+            };
+
+        }
+
+    })
+
+}
+
 
     function turnToOtherWeb() {
-        var clsName=$("#turn").text();
+        var clsName = $(this).attr("id");
+        
         window.location.href="studentManagement.html?clsName="+ clsName;
         
     }
