@@ -83,14 +83,16 @@ console.log(clsName);
 
      $("div#std-items").remove();
      $.ajax({
-         url: '../php/student_search.php',
+         url: '../php/student_set.php',
          type: "POST",
          data: {
-             student_class: $("#class_name").val(),
+            do : 0,
+             student_class:clsName,
              student_id: $("#std_num").val(),
              student_name: $("#std_name").val(),
          },
          success: function (data) {
+            console.log(data);
              stdInfor.push({
                  id: $("#std_num").val(),
                  name: $("#std_name").val(),
@@ -128,49 +130,49 @@ console.log(clsName);
  //多选删除
  function stdMulRemove() {
      if (stdInfor.length) {
-         if (isCheckAll) {
-             bootbox.confirm({
-                 message: "确认删除全部学生吗?",
-                 buttons: {
-                     cancel: {
-                         label: '取消',
-                         className: 'btn-success'
-                     },
-                     confirm: {
-                         label: '删除',
-                         className: 'btn-danger'
-                     }
-                 },
-                 callback: function (result) {
-                     if (!result) {
-                         toastr.success('已成功取消');
+         // if (isCheckAll) {
+         //     bootbox.confirm({
+         //         message: "确认删除全部学生吗?",
+         //         buttons: {
+         //             cancel: {
+         //                 label: '取消',
+         //                 className: 'btn-success'
+         //             },
+         //             confirm: {
+         //                 label: '删除',
+         //                 className: 'btn-danger'
+         //             }
+         //         },
+         //         callback: function (result) {
+         //             if (!result) {
+         //                 toastr.success('已成功取消');
 
-                     } else {
-                         /*for (int i = 0; i < stdInfor.length; i++) {
-                             selcId.push(stdInfor[i].id);
-                         }
-                         stdInfor.splice(0, stdInfor.length);
-*/
-                         $.ajax({
-                             url: '../php/student_set.php',
-                             type: "POST",
-                             data: {
-                                 do: '1',
-                                 student_id: selcId
-                             },
-                             success: function () {
-                                 $("div#std-items").remove();
-                                 selcId.splice(0, selcId.length);
-                                 toastr.success('已成功删除');
-                                 isCheckAll = false;
-                             }
-                         })
+         //             } else {
+         //                 for (int i = 0; i < stdInfor.length; i++) {
+         //                     selcId.push(stdInfor[i].id);
+         //                 }
+         //                 stdInfor.splice(0, stdInfor.length);
 
-                     }
-                 }
+         //                 $.ajax({
+         //                     url: '../php/student_set.php',
+         //                     type: "POST",
+         //                     data: {
+         //                         do: '1',
+         //                         student_id: selcId
+         //                     },
+         //                     success: function () {
+         //                         $("div#std-items").remove();
+         //                         selcId.splice(0, selcId.length);
+         //                         toastr.success('已成功删除');
+         //                         isCheckAll = false;
+         //                     }
+         //                 })
 
-             });
-         } else {
+         //             }
+         //         }
+
+         //     });
+         // } else {
              ckNum = 0;
              $("input[type='checkbox']").each(function () {
                  if (this.checked) {
@@ -207,7 +209,7 @@ console.log(clsName);
                                  }
                              });
                              for (var k = (selcIn.length - 1); k >= 0; k--) {
-                                 stdInfor.data.splice(selcIn[k], 1);
+                                 stdInfor.splice(selcIn[k], 1);
                              }
                              $.ajax({
                                  url: '../php/student_set.php',
@@ -236,7 +238,7 @@ console.log(clsName);
              }
 
 
-         }
+         
      }
  }
 
