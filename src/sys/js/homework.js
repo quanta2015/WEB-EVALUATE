@@ -21,7 +21,7 @@ function getData(){
     var dotask_id = $.query.get("dotask_id");
     var title = $.query.get("task_title");
     var dotask = document.getElementById("dotask");
-   dotask.value = dotask_id;
+    dotask.value = dotask_id;
     id = dotask_id;
     $("#head").text(title);
     $("#txt1").text(task_content);

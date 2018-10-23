@@ -1,5 +1,8 @@
 $(function() {
+  var task_content = $.query.get("task_content");
+  var title = $.query.get("task_title");
   var dotask_id = $.query.get("dotask_id");
+  
   $.ajax({
     url: '../php/upload.php',
     type: "POST",
