@@ -65,7 +65,7 @@
 		<div class="content" style="height: 100%;">
 			<div class="content-top">
 				<a class="userControl" style="display: flex; align-items: center;" onClick="cancel()">
-                        <i class="fa fa-power-off nav-more fa-2x" id="nav_icon2" style="color: rgb(32, 142, 251);"></i>
+					<i class="fa fa-power-off nav-more fa-2x" id="nav_icon2" style="color: rgb(32, 142, 251);"></i>
 				</a>
 			</div>
 			<div class="content-main">
@@ -79,55 +79,28 @@
 							</div>
 						</div>
 						<div class="col-md-5">
-							<div class="fileinput fileinput-new col-md-12" data-provides="fileinput" style="margin-top: 40px;">
+							<div class="col-md-12" style="margin-top: 40px;">
 								<label class="control-label k">一、教学设计(请提交Word文档)</label>
-								<div class="fileinput-preview thumbnail k col-md-10" data-trigger="fileinput" style=" height: 30px;margin-top: 10px;line-height: 30px; border-color: rgb(230, 233, 241); border-width: 2px;"onmouseover="this.style.cssText='border-color: rgb(169, 169, 169);height: 30px;margin-top: 10px; border-width: 2px;'" onmouseout="this.style.cssText='height: 30px;margin-top: 10px; border-color: rgb(230, 233, 241); border-width: 2px;'"> </div>
-								<div class="k">
-									<span class="btn btn-primary btn-outline btn-file">
-										<span class="fileinput-new"> 上传文件 </span>
-										<span class="fileinput-exists"> 更改文件 </span>
-										<input  id="doc" type="file" name="doc" accept=".doc,.docx,.zip,.rar,.7z">
-									</span>
-									<a href="javascript:;" class="btn btn-primary fileinput-exists" data-dismiss="fileinput"> 删除文件 </a>
-									<button type="button" class="btn btn-primary">保存修改</button>
-								</div>
+								<div id="doc" class="thumbnail k col-md-10" style=" height: 30px;margin-top: 10px;line-height: 30px; border-color: rgb(230, 233, 241); border-width: 2px;text-align: center"> </div>
 							</div>
-							<div class="fileinput fileinput-new col-md-12" data-provides="fileinput">
+							<div class="col-md-12">
 								<label class="control-label k">二、多媒体课件(请提交PPT)</label>
-								<div class="fileinput-preview thumbnail k col-md-10" data-trigger="fileinput" style=" height: 30px;margin-top: 10px;line-height: 30px; border-color: rgb(230, 233, 241); border-width: 2px;"onmouseover="this.style.cssText='border-color: rgb(169, 169, 169);height: 30px;margin-top: 10px; border-width: 2px;'" onmouseout="this.style.cssText='height: 30px;margin-top: 10px; border-color: rgb(230, 233, 241); border-width: 2px;'"> </div>
-								<div class="k">
-									<span class="btn btn-primary btn-outline btn-file">
-										<span class="fileinput-new"> 上传文件 </span>
-										<span class="fileinput-exists"> 更改文件 </span>
-										<input id="ppt" type="file" name="ppt" accept=".pdf,.ppt,.pptx,.zip,.rar,.7z">
-									</span>
-									<a href="javascript:;" class="btn btn-primary fileinput-exists" data-dismiss="fileinput"> 删除文件 </a>
-									<button type="button" class="btn btn-primary">保存修改</button>
-								</div>
+								<div id="ppt" class="thumbnail k col-md-10" style=" height: 30px;margin-top: 40px;line-height: 30px; border-color: rgb(230, 233, 241); border-width: 2px;text-align: center"> </div>
 							</div>
-							<div class="fileinput fileinput-new col-md-12" data-provides="fileinput">
+							<div class="col-md-12">
 								<label class="control-label k">三、即席讲演(请提交视频压缩文件)</label>
-								<div class="fileinput-preview thumbnail k col-md-10" data-trigger="fileinput" style=" height: 30px;margin-top: 10px;line-height: 30px; border-color: rgb(230, 233, 241); border-width: 2px;"onmouseover="this.style.cssText='border-color: rgb(169, 169, 169);height: 30px;margin-top: 10px; border-width: 2px;'" onmouseout="this.style.cssText='height: 30px;margin-top: 10px; border-color: rgb(230, 233, 241); border-width: 2px;'"> </div>
-								<div class="k">
-									<span class="btn btn-primary btn-outline btn-file">
-										<span class="fileinput-new"> 上传文件 </span>
-										<span class="fileinput-exists"> 更改文件 </span>
-										<input  id="mp4" type="file" name="video" accpet=".mp4,.avi,.flv,.wmv,.mov,.zip,.rar,.rar,.7a">
-									</span>
-									<a href="javascript:;" class="btn btn-primary fileinput-exists" data-dismiss="fileinput"> 删除文件 </a>
-									<button type="button" class="btn btn-primary">保存修改</button>
-								</div>
-								<input id = "dotask" name = "dotask_id" type="hidden" value= :id>
+								<div id="vedio" class="thumbnail k col-md-10" style=" height: 30px;margin-top: 40px;line-height: 30px; border-color: rgb(230, 233, 241); border-width: 2px;text-align: center"> </div>
 							</div>
+							<input id = "dotask" name = "dotask_id" type="hidden" value= :id>
 						</div>
 					</form>
-					<span>						
-						<button id="return_s" type="button" class="btn b-s" style="margin-left: 1060px;margin-top:-50px;">返回</button>
-					</span>
-				</div>	
-			</div>
+				</div>
+				<span>						
+					<button id="return_s" type="button" class="btn b-s" style="margin-left: 1100px;margin-top: 0">返回</button>
+				</span>
+			</div>	
 		</div>
 	</div>
 </body>
-<script type="text/javascript" src="../sys/js/homework.js"></script>
+<script type="text/javascript" src="../sys/js/chomework.js"></script>
 </html>
