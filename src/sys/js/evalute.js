@@ -100,7 +100,6 @@ $("#minisearch").click(function() {
     //模版与数据结合
     var finalTpl = jsRenderTpl(newstdObj);
     $('.box').html(finalTpl);
-    managementPage(100);
 });
 
 function cancel() {
@@ -127,7 +126,7 @@ function method() {
     console.log($(this).attr("id"));
     var task_title;
     for(var i = 0; i < stdObj.data.length; i++) {
-        if(id == stdObj.data[i].doTask_id)
+        if(doTask_id == stdObj.data[i].doTask_id)
             task_title = stdObj.data[i].task_title;
     }
     url = "evaluteDetail.html?dotask_id="+doTask_id+"&role="+role+"&task_title="+task_title;
@@ -135,24 +134,24 @@ function method() {
     console.log(doTask_id);
 };
 
-function managementPage(pagesize) {
-    var obj = $('pagination').twbsPagination({
-        totalPages: pagesize,//总页数
-        startPage: 1,//起始页
-        visiblePages: pagesize>5?5:pagesize,//展示页数，超出5页展示5页，未超出时展示总页数
-        initiateStartPageClick: true,
-        hideOnlyOnePage: true,//只有一页时不展示分页
-        onPageClick:function (event,page) {//点击页面事件，回调函数，只能使用ajax异步加载，暂时未发现能够直接在前端操作data的方法。
-            $(this).addClass("active").siblings().removeClass("active");
+// function managementPage(pagesize) {
+//     var obj = $('pagination').twbsPagination({
+//         totalPages: pagesize,//总页数
+//         startPage: 1,//起始页
+//         visiblePages: pagesize>5?5:pagesize,//展示页数，超出5页展示5页，未超出时展示总页数
+//         initiateStartPageClick: true,
+//         hideOnlyOnePage: true,//只有一页时不展示分页
+//         onPageClick:function (event,page) {//点击页面事件，回调函数，只能使用ajax异步加载，暂时未发现能够直接在前端操作data的方法。
+//             $(this).addClass("active").siblings().removeClass("active");
  
-            var start = (page - 1)*5+1;
-            var end = page*5+1;
-            var param = {
-                'start':start,
-                'end':end
-            };
-            ds.manageSystem(manageSystemUrl,param);//异步加载的方法，主要需要将起始页与结束页带回后台
-        }
-    });
-    obj.data();//加载分页样式
-}
+//             var start = (page - 1)*5+1;
+//             var end = page*5+1;
+//             var param = {
+//                 'start':start,
+//                 'end':end
+//             };
+//             ds.manageSystem(manageSystemUrl,param);//异步加载的方法，主要需要将起始页与结束页带回后台
+//         }
+//     });
+//     obj.data();//加载分页样式
+// }

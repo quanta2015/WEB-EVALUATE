@@ -15,20 +15,17 @@ if (!$conn) connfail();
     $result =mysqli_query($conn, $sql);
      
 
-    if(!(mysqli_fetch_row($result))){
-    echo  "grade".$_POST["grade"];
+    if(!(mysqli_fetch_row($result)))
+
 	$sql3 = "INSERT INTO `grade`(dotask_id,user_id,user_type,grade) values('{$dotask_id}','{$id}','{$type}','{$_POST["grade"]}')";
 
-	$total = $gradelast[$length-1];
-
-	$sql2 = "INSERT INTO `totalgrade`(dotask_id,`totalGrade`,`role`) values('{$dotask_id}','{$total}',{$type})";}
-    else {
+    else 
     $sql3 = "UPDATE `grade` SET `grade` = '{$_POST["grade"]}' where dotask_id = {$dotask_id} and user_id = {$id} and  user_type = {$type}";
+
     $total = $gradelast[$length-1];
 	$sql2 = "UPDATE `totalgrade`SET `totalGrade` = {$total} where dotask_id = {$dotask_id} and evalute_user = {$id} ";
 
 
-}
 
 	$result4 = mysqli_query($conn, $sql3);
 	$result2 = mysqli_query($conn, $sql2);

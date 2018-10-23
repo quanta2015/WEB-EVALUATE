@@ -95,8 +95,9 @@ $('.box').html(finalTpl);
 // }
 $(function() {
         var id = GetQueryString("dotask_id");
-        var task_title = GetQueryString("task_title");
-        $("#task_title").html(task_title);
+        var task_title = $.query.get("task_title");
+        console.log(task_title);
+        document.getElementById('taskTitle').innerHTML=task_title;
         $.ajax({
             url: '../php/dotaskurl_search.php',
             type: "POST",
@@ -184,12 +185,4 @@ function cancel() {
 
     })
 
-}
-
-function mask() {
-    document.querySelector(".mask").style.display = "block";
-}
-
-function remove() {
-    document.querySelector(".mask").style.display = "none";
 }

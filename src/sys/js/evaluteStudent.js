@@ -74,7 +74,12 @@ function cancel() {
 function method() {
     var doTask_id = $(this).attr("id");
     console.log($(this).attr("id"));
-    url = "evaluteDetailStd.html?dotask_id="+doTask_id+"&role="+role;
+    var task_title;
+    for(var i = 0; i < stdstdObj.data.length; i++) {
+        if(doTask_id == stdstdObj.data[i].doTask_id)
+            task_title = stdstdObj.data[i].task_title;
+    }
+    url = "evaluteDetailStd.html?dotask_id="+doTask_id+"&role="+role+"&task_title="+task_title;
     window.location.href = url;
     console.log(doTask_id);
 }; 

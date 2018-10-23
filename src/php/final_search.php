@@ -5,7 +5,6 @@ require_once 'common.php';
 LoginCheck::checklogin();
 $id = $_SESSION['id'];
 $role = $_SESSION['role'];
-if (!$conn) connfail();
 
 $sql1 = "create or replace view b AS select a.doTask_id,AVG(a.totalGrade) as `groupGrade` from totalgrade a where role = 3 GROUP BY doTask_id";
 $sql2 = "create or replace view c AS select doTask_id,totalGrade as `teacherGrade` from totalgrade where role = 1 ";

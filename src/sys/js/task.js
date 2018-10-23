@@ -1,4 +1,3 @@
-  toastr.options.positionClass = 'toast-top-center';
 $(document).ready(function () {
     //班级下拉菜单设置
     //查找老师所有的班级
@@ -69,6 +68,7 @@ $(document).ready(function () {
 
     $("#submit").click(function () {
         mask();
+        toastr.success('已成功发布任务');
         $.ajax({
             url: '../php/publish.php',
             type: "POST",
@@ -88,15 +88,18 @@ $(document).ready(function () {
                 console.log(data);
                 var obj = JSON.parse(data);
                 if (obj.code == 0) {
-                    toastr.success('已成功发布任务');
                     remove();
-                } else if (obj.code == 80) {
+                    toastr.success('已成功发布任务');
+                } else if (obj.code == 77) {
                     toastr.warning('存在空输入');
+                    remove();
                 } else if (obj.code == 20) {
                     toastr.warning('发布失败');
+                    remove();
 
                 } else if (obj.code == 55) {
                     toastr.error('数据库连接失败');
+                    remove();
                 }
 
             }
