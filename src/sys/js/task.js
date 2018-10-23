@@ -68,6 +68,7 @@ $(document).ready(function () {
 
 
     $("#submit").click(function () {
+        mask();
         $.ajax({
             url: '../php/publish.php',
             type: "POST",
@@ -88,6 +89,7 @@ $(document).ready(function () {
                 var obj = JSON.parse(data);
                 if (obj.code == 0) {
                     toastr.success('已成功发布任务');
+                    remove();
                 } else if (obj.code == 80) {
                     toastr.warning('存在空输入');
                 } else if (obj.code == 20) {
