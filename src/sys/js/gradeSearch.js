@@ -30,7 +30,7 @@ $(document).ready(function() {
             console.log(stdObj);
 
             for (var i = 0; i < stdObj.data.length; i++) {
-                var result = stdObj.data[i].student * stdObj.data[i].s_percent / 100 + stdObj.data[i].teacher * stdObj.data[i].t_percent / 100 + stdObj.data[i].group * stdObj.data[i].g_percent / 100;
+                var result = stdObj.data[i].studentGrade * stdObj.data[i].s_percent / 100 + stdObj.data[i].teacherGrade * stdObj.data[i].t_percent / 100 + stdObj.data[i].groupGrade * stdObj.data[i].g_percent / 100;
                 stdObj.data[i].totalGrade = result;
             }
             //获取模版

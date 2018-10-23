@@ -60,7 +60,7 @@ var arr = [{
         ],
         'grade': ['3', '5', '7', '7', '4', '4', '5', '4', '4', '2']
     },
-];
+]; 
 //获取模版
 var jsRenderTpl = $.templates('#theTmpl');
 //模版与数据结合
@@ -95,6 +95,8 @@ $('.box').html(finalTpl);
 // }
 $(function() {
         var id = GetQueryString("dotask_id");
+        var task_title = GetQueryString("task_title");
+        $("#task_title").html(task_title);
         $.ajax({
             url: '../php/dotaskurl_search.php',
             type: "POST",

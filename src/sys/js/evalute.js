@@ -116,7 +116,7 @@ function cancel() {
                 alert("退出失败！");
             };
 
-        }
+        } 
 
     })
 
@@ -125,7 +125,12 @@ function cancel() {
 function method() {
     var doTask_id = $(this).attr("id");
     console.log($(this).attr("id"));
-    url = "evaluteDetail.html?dotask_id="+doTask_id+"&role="+role;
+    var task_title;
+    for(var i = 0; i < stdObj.data.length; i++) {
+        if(id == stdObj.data[i].doTask_id)
+            task_title = stdObj.data[i].task_title;
+    }
+    url = "evaluteDetail.html?dotask_id="+doTask_id+"&role="+role+"&task_title="+task_title;
     window.location.href = url;
     console.log(doTask_id);
 };
