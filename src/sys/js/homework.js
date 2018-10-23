@@ -2,13 +2,12 @@ var id = 0;
 
 $(document).ready(function(){
     getData();
+});
 
-    });
-    //点击返回按钮
-    $("#return_s").click(function(e){
-        window.location.href="student.html";
-    });
-
+//点击返回按钮
+$("#return_s").click(function(e){
+    window.location.href="student.html";
+});
 
 function back(){
     window.location.href="student.html";
@@ -16,7 +15,6 @@ function back(){
 
 
 function getData(){
-
     var task_content = $.query.get("task_content");
     var dotask_id = $.query.get("dotask_id");
     var title = $.query.get("task_title");

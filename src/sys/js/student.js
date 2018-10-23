@@ -48,9 +48,12 @@ $(function(){
             console.log(data);
             obj = JSON.parse(data);
             console.log(obj);
-            var template = $.templates('#testTmpl');
-            htmlOutput = template.render(obj.data);
-            $(".boxx").html(htmlOutput);
+            if(obj.code == 0){
+                $(".boxx").html();
+                // var template = $.templates('#testTmpl');
+                // htmlOutput = template.render(obj.data);
+                // $(".boxx").html(htmlOutput);
+            } 
         }   
     });
 
