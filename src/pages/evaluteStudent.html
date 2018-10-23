@@ -61,15 +61,15 @@
                     </a>
             </div>
             <div class="content-main" style="display: flex; flex-direction: column;">
-                <div class="content-main-top" style="display: flex; align-items: center;">
+                <div class="content-main-top" style="display: flex; align-items: center; border-bottom: none;">
                     <span>选择作业:</span>
                     <select id="taskSlct"></select>
                     <button class="minisearch btn" id="minisearch" style="margin-left: 11%;">查询</button>
                 </div>
-                <ul class="taskList" style="width: 100%; height: calc(100% - 10% - 7.5%);">
+                <ul class="taskList" style="width: 94%; height: calc(100% - 10% - 7.5%); margin: 3%; margin-top: 0;">
                     <li style="width: 100%;">
                         <div class="taskDetail" style="display: flex; align-items: center;">
-                            <div class="attribute" style="width: 25%"><span class="smltitle " id="check">作业</span></div>
+                            <div class="attribute" style="width: 25%; border-left: solid 1px rgb(230, 233, 241);"><span class="smltitle " id="check">作业</span></div>
                             <div class="attribute" style="width: 25%"><span class="smltitle ">ID</span></div>
                             <!-- <div class="attribute"><span class="smltitle ">班级</span></div> -->
                             <div class="attribute" style="width: 25%"><span class="smltitle ">姓名</span></div>
@@ -81,7 +81,7 @@
                         {{for}}
                         <li style="width: 100%;">
                             <div class="taskDetail" style="display: flex; align-items: center;">
-                                <div style="width: 25%; background: {{if totalGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{:task_title}}</span></div>
+                                <div style="width: 25%; border-left: solid 1px rgb(230, 233, 241);background: {{if totalGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{:task_title}}</span></div>
                                 <div style="width: 25%; background: {{if totalGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{:user_number}}</span></div>
                                 <div style="width: 25%; background: {{if totalGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{:user_name}}</span></div>
                                 <div class="comment" style="width: 25%; background:{{if totalGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><a id="{{:doTask_id}}" onclick="method.call(this)">{{if totalGrade }}查看评价{{else}}去评价{{/if}}</a></div>
