@@ -1,4 +1,4 @@
-  toastr.options.positionClass = 'toast-top-left';
+  toastr.options.positionClass = 'toast-top-center';
 $(document).ready(function () {
     //班级下拉菜单设置
     //查找老师所有的班级
