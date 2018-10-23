@@ -92,7 +92,7 @@ $(function(){
             if(id == obj.data[i]["id"])
                 break;
         }
-        url = "evaluteDetailStd.html?dotask_id="+obj.data[i]["id"];
+        url = "evaluteDetailStd.html?dotask_id="+obj.data[i]["id"]+"&task_title="+obj.data[i]["task_title"]+"&role="+role;
         window.location.href = url;
     });
 

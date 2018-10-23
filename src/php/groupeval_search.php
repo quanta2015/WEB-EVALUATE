@@ -11,7 +11,7 @@ if($role ==1)
 
 if (!$conn) connfail();
 
-  $sql = "select distinct totalgrade.*,user.user_name from `totalgrade`,`user` where totalgrade.dotask_id = {$dotask_id}  and user.user_number = totalgrade.evalute_user";
+  $sql = "select distinct totalgrade.*,user.user_name,user.user_number,task.task_title from `totalgrade`,`user` ,`task`,`dotask` where task.task_id and user.user_number = totalgrade.evalute_user and task.task_id = dotask.task_id and dotask.id = totalgrade.doTask_id and task.publisher = {$id}";
   $result = $conn->query($sql);
 
  if (0 == mysqli_num_rows($result))existempty();

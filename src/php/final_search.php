@@ -18,7 +18,7 @@ mysqli_query($conn, $sql4);
 if($role == 1)
  $sql = "select distinct d.*,s_percent,t_percent,g_percent,task.task_id,task.task_title,user.user_number,user.user_class,user.user_name from task,d,user where task.task_id in (select task_id from dotask where dotask.id = doTask_id) and doTask_id in(select id from dotask where user_id = {$id}) and user.user_number = {$id}";
 
-else $sql = "select distinct d.*,s_percent,t_percent,g_percent,task.task_id,task.task_title,user.user_number,user.user_class,user.user_name from task,d,user where task.task_id in (select task_id from dotask where dotask.id = doTask_id) and task.publisher = {$id} and user.user_number in (select user_id from dotask where dotask.id = doTask_id)";
+else $sql = "select distinct d.*,s_percent,t_percent,g_percent,task.task_id,task.task_title,user.user_number,user.user_class,user.user_name from task,d,user where task.task_id in (select task_id from dotask where dotask.id = doTask_id) and task.publisher = {$id} and user.user_number in (select user_id from dotask where dotask.id = doTask_id) ";
 $result = mysqli_query($conn, $sql);
 
 if(!($result))
