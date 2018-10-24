@@ -1,6 +1,6 @@
 .boxB {
-    width: 300px;
-    height: 150px;
+    width: 250px;
+    height: auto;
     border: 1px solid rgb(230, 230, 230);
     margin: 2% 0 0 1%;
 }
@@ -10,7 +10,7 @@
     width: 98%;
     height: 25px;
     padding: 1% 0 0 2%;
-    border: 1px solid rgb(230, 230, 230);
+    border-bottom: 1px solid rgb(230, 230, 230);
     font-size: 15px;
     color: rgb(99, 106, 98);
 
@@ -25,14 +25,14 @@
     padding: 1% 0 0 2%;
     font-size: 15px;
     color: rgb(99, 106, 98);
-
-
 }
 
 .stdTotalScore {
     display: flex;
-    align-content: center;
+    align-items: center;
     justify-content: center;
+    width: 50%;
+    height: 100%;
 }
 
 .stdNum {
@@ -46,7 +46,11 @@
 }
 
 .stdEveryScore {
-    display: inline-block;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3% 0 3% 0;
 
 }
 
@@ -56,7 +60,7 @@
     justify-content: center;
     width: 100px;
     margin: 1% 0 1% 2%;
-    background-color: brown;
+    background-color: #15b7b9;
     color: white;
     font-size: 10px;
 }
@@ -66,7 +70,7 @@
     align-content: center;
     justify-content: center;
     width: 40px;
-    color: red;
+    color: #f73859;
     font-weight: bold;
 }
 
@@ -76,9 +80,9 @@
     justify-content: center;
     margin: 1% 0 1% 2%;
     width: 100px;
-    background-color: blue;
+    background-color: #596c68;
     color: white;
-    font-size: 10px;
+    font-size: 15px;
 }
 
 .groupName {
@@ -87,7 +91,7 @@
     justify-content: center;
     width: 100px;
     margin: 1% 0 1% 2%;
-    background-color: cadetblue;
+    background-color: #95a792;
     color: white;
     font-size: 10px;
 }
