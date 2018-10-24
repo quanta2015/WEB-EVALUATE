@@ -1,6 +1,6 @@
 var role = 2;
 var j = 0;
-var state = 1;//是否截止
+var state = 1;//时间是否截止
 
 
 //显示开始与截止时间
@@ -8,7 +8,7 @@ function showTime(arr){
     for(var i=0;i<arr.length;++i){
         var date1 = dayjs(arr[i].end_date);
         var date2 = dayjs(arr[i].publish_date);
-        var date3 = dayjs().format("YYYY-MM-DD HH:mm:ss");
+        var date3 = dayjs().format("YYYY-MM-DD HH:mm:ss");//现在的时间
         var days1 = date1.diff(date3, 'days'); 
         var days2 = -date2.diff(date3, 'days'); 
         var hours1 = date1.diff(date3, 'hours')-days1*24;
@@ -49,10 +49,9 @@ $(function(){
             obj = JSON.parse(data);
             console.log(obj);
             if(obj.code == 0){
-                $(".boxx").html();
-                // var template = $.templates('#testTmpl');
-                // htmlOutput = template.render(obj.data);
-                // $(".boxx").html(htmlOutput);
+                var template = $.templates('#testTmpl');
+                htmlOutput = template.render(obj.data);
+                $(".boxx").html(htmlOutput);
             } 
         }   
     });
@@ -100,7 +99,7 @@ $(function(){
     });
 
 
-
+    //飘浮框
     document.getElementById("b").onmouseover = function(e){
         var target2 = e.target;
         // var bol = $(e.target).parents().is("float_boxid");

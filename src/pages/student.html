@@ -12,12 +12,11 @@
 
     <script type="text/javascript" src="../lib/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="../lib/jsrender/jsrender.js"></script>
-    <script type="text/javascript" src="../lib/jquery/jquery.params.js"></script>
-    <script src="https://unpkg.com/dayjs"></script>
+    <script type="text/javascript" src="../lib/jquery/jquery.params.js"></script><!--用于页面传值-->
+    <script src="https://unpkg.com/dayjs"></script><!--需连网使用-->
 </head>
 
 <body>
-
     <div class="g-index">
         <div class="nav">
             <div class="nav-top">
@@ -26,26 +25,26 @@
             <ul>
                 <li class="nav-item has-chosen">
                     <a href="student.html" style="display: flex;">
-                            <span>我的作业</span>
-                            <div class="hidden"></div>
-                            <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
-                        </a>
+                        <span>我的作业</span>
+                        <div class="hidden"></div>
+                        <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
+                    </a>
                 </li>
                 <li class="nav-item"></li>
                 <li class="nav-item">
                     <a href="gradeSearchStd.html" style="display: flex;">
-                            <span>成绩查询</span>
-                            <div class="hidden"></div>
-                            <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
-                        </a>
+                        <span>成绩查询</span>
+                        <div class="hidden"></div>
+                        <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
+                    </a>
                 </li>
                 <li class="nav-item"></li>
                 <li class="nav-item">
                     <a href="evaluteStudent.html" style="display: flex;">
-                            <span>成绩评定</span>
-                            <div class="hidden"></div>
-                            <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
-                        </a>
+                        <span>成绩评定</span>
+                        <div class="hidden"></div>
+                        <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
+                    </a>
                 </li>
                 <li class="nav-item"></li>
                 <li class="nav-item">
@@ -60,57 +59,59 @@
         </div>
         <div class="content">
             <div class="content-top">
-                <a class="userControl" style="display: flex; align-items: center;" onClick="cancel()">
-                        <i class="fa fa-power-off nav-more fa-2x" id="nav_icon2" style="color: rgb(32, 142, 251);"></i>
-                    </a>
+                <a class="userControl" style="display: flex; align-items: center;" onClick="cancel()"><!--退出-->
+                    <i class="fa fa-power-off nav-more fa-2x" id="nav_icon2" style="color: rgb(32, 142, 251);"></i>
+                </a>
             </div>
             <div class="content-main">
                 <!-- 列表内容开始 -->
                 <div class="ulDiv">
                     <ul class="clearfix" style="width:1100px;">
-                       <div class="boxx" id="b"></div>
-                        <!-- 定义JsRender模版 -->
-                        <script type="text/x-jsrender" id="testTmpl">
-                            <li class="lookLi">
-                                <div class="titTxt">
+                     <div class="boxx" id="b"></div>
+                     <!-- 定义JsRender模版 -->
+                     <script type="text/x-jsrender" id="testTmpl">
+                        <li class="lookLi">
+                            <div class="titTxt">
 
-                                    <p style="padding-top: 10px;">
-                                        <a id="head" name="{{:#index+1}}">{{:task_title}}</a></a>
-                                    </p>
+                                <p style="padding-top: 10px;">
+                                    <a id="head" name="{{:#index+1}}">{{:task_title}}</a></a>
+                                </p>
 
-                                    <div id="content" class="pt5" >作业内容：{{:task_content}}</div>
-                                    <div name="float_box" class="fff">{{:task_content}}</div>
-                                    <div class="pt5"><span class="f1">发布老师：</span><span>{{:user_name}}</span></div>
-                                    <div class="pt5"><span class="f1">开始时间：{{:publish_date}}</span></div>
-                                    <div class="pt5"><span class="f1">截止时间：{{:end_date}}</span></div>
-                                    <div id="tit" class="pt5"><span class="f1"></span>作业状态：<strong>
-                                        {{if total_tag == 0}}<span style="color:green"">已完成</span>
-                                        {{else}}<span style="color:red"">未完成</span>
-                                        {{/if}}
-                                    </strong></div>
-                                </div>
-                                <div class="titOper">
-                                    <p class="clearfix"> 
-                                        {{if total_tag == 0}}
-                                            <button id="ac" class="Btn_grey" name="{{:id}}">查看</button>
-                                        {{else}}
-                                            <button id="ac" class="Btn_blue" name="{{:id}}">去完成</button>
-                                        {{/if}}  
-                                        {{if state == 0}}
-                                            <button id="ac" class="Btn_evalutegrey" name="{{:id}}">自评</button>
-                                        {{else}}
-                                            <button id="ac" class="Btn_evalute" name="{{:id}}">自评</button>
-                                        {{/if}}
-                                    </p>
-                                </div>
-                            </li>
-                        </script>
-                    </ul>
-                </div>
-                <!-- 列表内容结束 -->
+                                <div id="content" class="pt5" >作业内容：{{:task_content}}</div>
+                                <div name="float_box" class="fff">{{:task_content}}</div>
+                                <div class="pt5"><span class="f1">发布老师：</span><span>{{:user_name}}</span></div>
+                                <div class="pt5"><span class="f1">开始时间：{{:publish_date}}</span></div>
+                                <div class="pt5"><span class="f1">截止时间：{{:end_date}}</span></div>
+                                <div id="tit" class="pt5"><span class="f1"></span>作业状态：<strong>
+                                    {{if total_tag == 0}}
+                                    <span style="color:green"">已完成</span>
+                                    {{else}}
+                                    <span style="color:red"">未完成</span>
+                                    {{/if}}
+                                </strong></div>
+                            </div>
+                            <div class="titOper">
+                                <p class="clearfix"> 
+                                    {{if total_tag == 0}}
+                                    <button id="ac" class="Btn_grey" name="{{:id}}">查看</button>
+                                    {{else}}
+                                    <button id="ac" class="Btn_blue" name="{{:id}}">去完成</button>
+                                    {{/if}}  
+                                    {{if state == 0||total_tag == 1}}
+                                    <button id="ac" class="Btn_evalutegrey" name="{{:id}}">自评</button>
+                                    {{else}}
+                                    <button id="ac" class="Btn_evalute" name="{{:id}}">自评</button>
+                                    {{/if}}
+                                </p>
+                            </div>
+                        </li>
+                    </script>
+                </ul>
             </div>
+            <!-- 列表内容结束 -->
         </div>
     </div>
+</div>
 </body>
 <script type="text/javascript" src="../sys/js/student.js"></script> 
 </html>
