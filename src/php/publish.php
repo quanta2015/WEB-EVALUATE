@@ -46,26 +46,22 @@ for($i=0;$i<$total;$i++){
 	$sql = "INSERT INTO `dotask`(user_id,task_id)values('{$ids[$i][0]}','{$task_id}')";
 	mysqli_query($conn,$sql);
 
-
-
 $dotask_id =  mysqli_insert_id($conn);
  addTotalgrade($dotask_id,1,$publisher,$conn);
  addTotalgrade($dotask_id,2,$ids[$i][0],$conn);
 shuffle($idflags);
-$j = $group_num;
+$j = $group_num-1;
 $k = 0;
 
-while($j){
- while($idflags[$k]['flag'] == 5){
+while($j>0){
 
-if($k == $total-1) $k = 0;
- else $k++;}
-
- if($idflags[$k]['id'] == $ids[$i][0])
- 	$k++;
+while($idflags[$k]['flag'] ==$group_num-1||$idflags[$k]['id'] == $ids[$i][0]){
+ $k++;
+if($k == $total-1) $k=0;
+}
  
- if($k == $total) $k = 0;
  $evalute_user = $idflags[$k]['id'];
+
  addTotalgrade($dotask_id,3,$evalute_user,$conn);
   $idflags[$k]['flag'] ++;
   $k++;
