@@ -470,41 +470,41 @@ $(document).ready(function () {
     type: 'get',
     async: false,
     success: function (data) {
+      console.log
       select= JSON.parse(data); 
-      console.log(select.data);
-      var i = 0,temp,length;
+      console.log(select.data);}
+      
+  });
+  var i = 0,temp,length;
       var final_arr = [];
       var allInfor = new Object();
       while(i < select.data.length) {
 
-        // temp=i;
-        // length=select.data[i].group_num+2+temp;
-      
-         for(i; select.data[i].doTask_id == select.data[i+1].doTask_id; i++){
-          if(select.data[i].role==1){
+        temp=i;
+        num=select.data[i].group_num;
+        length=num+2+temp;
+        for(i; i < length;i++){
+          if(i%num==0){
             allInfor.tea_name=select.data[i].user_name;
             allInfor.tea_grade=select.data[i].totalGrade;
             allInfor.task_title=select.data[i].task_title;
           }
-          if(select.data[i].role==2){
+          else if(i%num==1){
             allInfor.self_name=select.data[i].user_name;
             allInfor.self_grade=select.data[i].totalGrade;
             allInfor.self_id=select.data[i].user_number;
             allInfor.class_name=select.data[i].publish_class;
           } 
-          if(select.data[i].role==3){
+          else{
             var groupmenber = new Object();
             groupmenber.name = select.data[i].user_name;
             groupmenber.grade = select.data[i].totalGrade;
             allInfor.group = [];
             allInfor.group.push(groupmenber);
-          
+          }
         }
-      }
-       
         final_arr.push(allInfor);
       }
       console.log(final_arr);
-    }
-  });
+    
 });
