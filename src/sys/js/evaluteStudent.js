@@ -1,4 +1,5 @@
 var groupNumber, stdstdObj;
+var user_class;
 var role = 3;
 
 $("#groupnumSure").click(function() {
@@ -24,15 +25,32 @@ $(document).ready(function() {
             //模版与数据结合
             var finalTpl = jsRenderTpl(stdstdObj.data);
             $('.box').html(finalTpl);
-        //选择作业框选项初始化 
-         
-                var context;
-                for (var i = 0; i <stdstdObj.data.length; i++)
-            context = context + "<option>" +stdstdObj.data[i].task_title + "</option>";
-      
-                context = context + "<option selected=\"select\">全部作业</option>";
-                $("#taskSlct").html(context);
           }
+    });
+    $.ajax({
+        url: '../php/class_search.php',
+        type: 'get',
+        async: false,
+        success: function(data) {
+            user_class = JSON.parse(data);
+        }
+    })
+    $.ajax({
+        url: '../php/task_search.php',
+        type: 'get',
+        async: false,
+        success: function(data) {
+            console.log(data);
+            var taskArr = JSON.parse(data);
+            var context;
+            for(var i = 0; i < taskArr.data.length; i++) {
+                if(taskArr.data[i].publish_class == user_class.data[0].class_name) {
+                    context = context + "<option>" + taskArr.data[i].task_title + "</option>";
+                    context = context + "<option selected=\"select\">全部作业</option>";
+                    $("#taskSlct").html(context);
+                }
+            }
+        }
     });
 });
 
