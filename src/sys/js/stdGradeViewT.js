@@ -1,86 +1,392 @@
-  var chart = Highcharts.chart('container', {
-      chart: {
-          type: 'bar'
-      },
-      title: {
-          text: '堆叠条形图'
-      },
-      xAxis: {
-          categories: ['章薇', '叶艳洁', '蔡雅洁', '陶娣', '杨德杰']
-      },
-      yAxis: {
-          min: 0,
-          title: {
-              text: ''
-          }
-      },
-      legend: {
-          /* 图例显示顺序反转
-           * 这是因为堆叠的顺序默认是反转的，可以设置 
-           * yAxis.reversedStacks = false 来达到类似的效果 
-           */
-          reversed: true
-      },
-      plotOptions: {
-          series: {
-              stacking: 'normal'
-          }
-      },
-      series: [{
-          name: '自我评价',
-          data: [10, 15, 20, 25, 30]
-            }, {
-          name: '小组评价',
-          data: [10, 15, 20, 25, 30]
-            }, {
-          name: '教师评价',
-          data: [10, 15, 20, 25, 30]
-            }]
-  });
-  toastr.options.positionClass = 'toastr-top-left';
+var total, groupGradeSum = 0;
+var a = {
+
+    'name': ,
+    'grade': ,
+    'id':
+};
+var k = {
+
+    'teacher': ,
+    'student': ,
+    'group': [],
+    'task_title': ,
+    'totalGrade': ''
+}
+var finalSelect = [];
+
+$(document).ready(function () {
+    $.ajax({
+        url: '../php/groupeval_search.php',
+        type: 'get',
+        async: false,
+
+        success: function (data) {
+            allObj = JSON.parse(data);
+
+        }
+
+    });
+});
+
+for (var i = 0; i < select.length; i++) {
+    if (select[i].role == 1) {
+
+        a.grade = select[i].totalGrade;
+        a.id = select[i].evalute_user;
+        a.task_title = select[i].task_title;
+        k.teacher.push(a);
+
+    }
+    if (select[i].role == 2) {
+
+        a.name = select[i].user_name;
+        a.grade = select[i].totalGrade;
+        a.id = select[i].evalute_user;
+        k.student.push(a);
+
+    }
+    if (select[i].role == 3) {
+        sum += a.grade;
+
+        a.name = select[i].user_name;
+        a.grade = select[i].totalGrade;
+        a.id = select[i].evalute_user;
+        k.task_title = select[i].task_title;
+
+        k.group.push(a);
+
+    }
+    if (select[i].dotask_id != select[i + 1].dotask_id) {
+        total = k.teacher.grade * select[i].t_percent + k.student.grade * select[i].s_percent + sum * select[i].g_percent / select[i].group_num;
+        k.totalGrade = total;
+        finalSelect.push(k);
+        sum = 0;
+
+    }
 
 
-  $(document).ready(function () {
-      //班级下拉菜单设置
-      //查找老师所有的班级
-      $.ajax({
-          url: '../php/class_search.php',
-          type: "POST",
-          async: false,
-          success: function (data) {
-
-              classes = JSON.parse(data);
-              console.log(classes);
-              var context;
-              if (classes.code == 0) {
-                  for (var i = 0; i < classes.data.length; i++)
-                      $("#clsCh").append("<option>" + classes.data[i].class_name + "</option>");
-              } else if (classes.code == 77) $("#clsCh").append("<option> 没有班级 </option>");
-
-
-          }
-
-      });
-      $.ajax({
-          url: '../php/task_search.php',
-          type: "POST",
-          async: false,
-          data: {
-              class: $("#classSlct").val()
-          },
-          success: function (data) {
-
-              homeworks = JSON.parse(data);
-              console.log(homeworks);
-              //渲染作业列表
-              if (homeworks.code == 0) {
-                  var context;
-                  for (var i = 0; i < homeworks.data.length; i++)
-                      context = context + "<option>" + homeworks.data[i].task_title + "</option>";
-                  context = context + "<option>全部</option>";
-                  $('#taskSlct').html(context);
-              } else if (homeworks.code == 77) $('#taskSlct').html("<option>没有作业</option>");
-
-          }
-      });
-  });
+}
+//var finalSelect = [{
+//
+//    'teacher': {
+//
+//        'name': '猫姐',
+//        'grade': 90,
+//        'id': 12
+//    },
+//    'student': {
+//
+//        'name': 'zhang',
+//        'grade': 10,
+//        'id': 123
+//    },
+//    'group': [{
+//
+//        'name': 'tao',
+//        'grade': 11,
+//        'id': 123
+//}, {
+//
+//        'name': '蔡雅洁',
+//        'grade': 12,
+//        'id': 123
+//}, {
+//
+//        'name': '叶艳洁',
+//        'grade': 120,
+//        'id': 11
+//}],
+//    'task_title': 'asda1',
+//    'totalGrade': 90
+//}, {
+//
+//    'teacher': {
+//
+//        'name': '猫姐',
+//        'grade': 90,
+//        'id': 12
+//    },
+//    'student': {
+//
+//        'name': 'zhang',
+//        'grade': 10,
+//        'id': 123
+//    },
+//    'group': [{
+//
+//        'name': 'tao',
+//        'grade': 11,
+//        'id': 123
+//}, {
+//
+//        'name': '蔡雅洁',
+//        'grade': 12,
+//        'id': 123
+//}, {
+//
+//        'name': '叶艳洁',
+//        'grade': 120,
+//        'id': 11
+//}],
+//    'task_title': 'asda1',
+//    'totalGrade': 90
+//}, {
+//
+//    'teacher': {
+//
+//        'name': '猫姐',
+//        'grade': 90,
+//        'id': 12
+//    },
+//    'student': {
+//
+//        'name': 'zhang',
+//        'grade': 10,
+//        'id': 123
+//    },
+//    'group': [{
+//
+//        'name': 'tao',
+//        'grade': 11,
+//        'id': 123
+//}, {
+//
+//        'name': '蔡雅洁',
+//        'grade': 12,
+//        'id': 123
+//}, {
+//
+//        'name': '叶艳洁',
+//        'grade': 120,
+//        'id': 11
+//}],
+//    'task_title': 'asda1',
+//    'totalGrade': 90
+//}, {
+//
+//    'teacher': {
+//
+//        'name': '猫姐',
+//        'grade': 90,
+//        'id': 12
+//    },
+//    'student': {
+//
+//        'name': 'zhang',
+//        'grade': 10,
+//        'id': 123
+//    },
+//    'group': [{
+//
+//        'name': 'tao',
+//        'grade': 11,
+//        'id': 123
+//}, {
+//
+//        'name': '蔡雅洁',
+//        'grade': 12,
+//        'id': 123
+//}, {
+//
+//        'name': '叶艳洁',
+//        'grade': 120,
+//        'id': 11
+//}],
+//    'task_title': 'asda1',
+//    'totalGrade': 90
+//}, {
+//
+//    'teacher': {
+//
+//        'name': '猫姐',
+//        'grade': 90,
+//        'id': 12
+//    },
+//    'student': {
+//
+//        'name': 'zhang',
+//        'grade': 10,
+//        'id': 123
+//    },
+//    'group': [{
+//
+//        'name': 'tao',
+//        'grade': 11,
+//        'id': 123
+//}, {
+//
+//        'name': '蔡雅洁',
+//        'grade': 12,
+//        'id': 123
+//}, {
+//
+//        'name': '叶艳洁',
+//        'grade': 120,
+//        'id': 11
+//}],
+//    'task_title': 'asda1',
+//    'totalGrade': 90
+//}, {
+//
+//    'teacher': {
+//
+//        'name': '猫姐',
+//        'grade': 90,
+//        'id': 12
+//    },
+//    'student': {
+//
+//        'name': 'zhang',
+//        'grade': 10,
+//        'id': 123
+//    },
+//    'group': [{
+//
+//        'name': 'tao',
+//        'grade': 11,
+//        'id': 123
+//}, {
+//
+//        'name': '蔡雅洁',
+//        'grade': 12,
+//        'id': 123
+//}, {
+//
+//        'name': '叶艳洁',
+//        'grade': 120,
+//        'id': 11
+//}],
+//    'task_title': 'asda1',
+//    'totalGrade': 90
+//}, {
+//
+//    'teacher': {
+//
+//        'name': '猫姐',
+//        'grade': 90,
+//        'id': 12
+//    },
+//    'student': {
+//
+//        'name': 'zhang',
+//        'grade': 10,
+//        'id': 123
+//    },
+//    'group': [{
+//
+//        'name': 'tao',
+//        'grade': 11,
+//        'id': 123
+//}, {
+//
+//        'name': '蔡雅洁',
+//        'grade': 12,
+//        'id': 123
+//}, {
+//
+//        'name': '叶艳洁',
+//        'grade': 120,
+//        'id': 11
+//}],
+//    'task_title': 'asda1',
+//    'totalGrade': 90
+//}, {
+//
+//    'teacher': {
+//
+//        'name': '猫姐',
+//        'grade': 90,
+//        'id': 12
+//    },
+//    'student': {
+//
+//        'name': 'zhang',
+//        'grade': 10,
+//        'id': 123
+//    },
+//    'group': [{
+//
+//        'name': 'tao',
+//        'grade': 11,
+//        'id': 123
+//}, {
+//
+//        'name': '蔡雅洁',
+//        'grade': 12,
+//        'id': 123
+//}, {
+//
+//        'name': '叶艳洁',
+//        'grade': 120,
+//        'id': 11
+//}],
+//    'task_title': 'asda1',
+//    'totalGrade': 90
+//}, {
+//
+//    'teacher': {
+//
+//        'name': '猫姐',
+//        'grade': 90,
+//        'id': 12
+//    },
+//    'student': {
+//
+//        'name': 'zhang',
+//        'grade': 10,
+//        'id': 123
+//    },
+//    'group': [{
+//
+//        'name': 'tao',
+//        'grade': 11,
+//        'id': 123
+//}, {
+//
+//        'name': '蔡雅洁',
+//        'grade': 12,
+//        'id': 123
+//}, {
+//
+//        'name': '叶艳洁',
+//        'grade': 120,
+//        'id': 11
+//}],
+//    'task_title': 'asda1',
+//    'totalGrade': 90
+//}, {
+//
+//    'teacher': {
+//
+//        'name': '猫姐',
+//        'grade': 90,
+//        'id': 12
+//    },
+//    'student': {
+//
+//        'name': 'zhang',
+//        'grade': 10,
+//        'id': 123
+//    },
+//    'group': [{
+//
+//        'name': 'tao',
+//        'grade': 11,
+//        'id': 123
+//}, {
+//
+//        'name': '蔡雅洁',
+//        'grade': 12,
+//        'id': 123
+//}, {
+//
+//        'name': '叶艳洁',
+//        'grade': 120,
+//        'id': 11
+//}],
+//    'task_title': 'asda1',
+//    'totalGrade': 90
+//}]
+//var html = $("#tmp").render(finalSelect);
+//$("#list").append(html);
