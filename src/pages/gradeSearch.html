@@ -64,7 +64,7 @@
                 </li>
                 <li class="nav-item"></li>
                 <li class="nav-item has-chosen">
-                    <a href="stdGradeView.html" style="display: flex;">
+                    <a href="stdGradeViewT.html" style="display: flex;">
                             <span>学生成绩查询</span>
                             <div class="hidden"></div>
                             <i class="fa fa-chevron-right nav-more" id="nav_icon1" ></i>
@@ -103,17 +103,16 @@
                         <i class="fa fa-power-off nav-more fa-2x" id="nav_icon2" style="color: rgb(32, 142, 251);"></i>
                     </a>
             </div>
-            <div style="height:35px;width:94%;margin:2.5% 0 0 3%;">
+            <div style="height:35px;width:94%;margin:1% 0 0 3%;">
                 <span>选择班级&nbsp;</span>
-                <select id="clsCh" name="class" style="width:200px; height:35px;border-color:rgb(221, 237, 252);"></select>
+                <select id="classSlct" name="class" style="width:30%; height:35px;border-color:rgb(230, 230, 230)；"></select>
                 <span style="margin-left:10%;">选择任务&nbsp;</span>
-                <select id="taskSlct" style="width:200px; height:35px;border-color:rgb(221, 237, 252);"></select>
+                <select id="taskSlct" style="width:30%; height:35px;border-color:rgb(230, 230, 230)"></select>
             </div>
-            <div class="content-main" style=" width: 94%;margin-left:3%;margin-top: 1%;">
+            <div class="content-main" style=" width: 94%;margin-left:3%;">
                 <div class="tab-group">
                     <section id="tab1" title="成绩列表">
                         <div style="height: 90%;width: 100%;margin: 0;display: flex; flex-direction: column;">
-
                             <ul class="taskList" style="width: 100%; height: calc(100% - 10% - 7.5%);">
                                 <li style="width: 100%;">
                                     <div class="taskDetail" style="display: flex; align-items: center;">
@@ -134,7 +133,7 @@
                                     <li style="width: 100%;">
                                         <div class="taskDetail" style="display: flex; align-items: center;">
                                             <div style="width: 12.5%; background: {{if totalGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{:task_title}}</span></div>
-                                            <div style="width: 12.5%; background: {{if totalGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{:user_number}}</span></div>
+                                            <div style="width: 12.5%; background: {{if totalGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{:user_num}}</span></div>
                                             <div style="width: 12.5%; background: {{if totalGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{:user_class}}</span></div>
                                             <div style="width: 12.5%; background: {{if totalGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{:user_name}}</span></div>
                                             <div style="width: 12.5%; background: {{if totalGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{if selfGrade}}{{:selfGrade}}{{else}}暂无评价{{/if}}</span></div>
@@ -152,54 +151,57 @@
                     <section id="tab2" title="成绩分析">
 
 
-                        <div style="display:flex">
-                            <div class="boxB">
-                                <div id="hwTitle" class="hwTitle">作业一 </div>
-                                <div id="stdName" class="stdName">章薇</div>
-                                <div id="stdNum" class="stdNum">2016210405057</div>
-                                <div style="display: inline-block; width: 40%;height: auto;padding: 1% 0 0 2%;">
-                                    <div id="stdTotalScore" class="stdTotalScore">
-                                        <div style=" font-size: 60px;color: red;">90</div>
+                        <div id="list" style="display:flex;flex-wrap: wrap;">
+                            <script type="text/x-jsrender" id="tmp">
+                                {{for}}
+
+                                <div class="boxB">
+                                    <div id="hwTitle" class="hwTitle">{{:task_title}} </div>
+                                    <div style="width:100%;height:auto;border-bottom:1px solid rgb(230, 230, 230)">
+                                        <div id="stdName" class="stdName">{{:student.name}}</div>
+                                        <div id="stdNum" class="stdNum">{{:student.id}}</div>
                                     </div>
 
-                                </div>
-                                <div id="stdEveryScore" class="stdEveryScore">
-                                    <div style="display:flex">
-                                        <div id="teaName" class="teaName">
-                                            <div>李阳</div>
+                                    <div id="stdEveryScore" class="stdEveryScore">
+                                        <div id="stdTotalScore" class="stdTotalScore">
+                                            <div style=" font-size: 60px;color: #f73859;">{{:totalGrade}}</div>
                                         </div>
-                                        <div id="teaScore" class="Score">
-                                            <div>30</div>
-                                        </div>
-                                    </div>
-                                    <div style="display:flex">
-                                        <div id="selfName" class="selfName">
-                                            <div>章薇</div>
-                                        </div>
-                                        <div id="selfScore" class="Score">
-                                            <div>30</div>
-                                        </div>
-                                    </div>
-                                    <div style="display:flex">
-                                        <div id="groupName" class="groupName">
-                                            <div>陶娣</div>
-                                        </div>
-                                        <div id="groupScore" class="Score">
-                                            <div>30</div>
-                                        </div>
-                                    </div>
-                                    <div style="display:flex">
-                                        <div id="groupName" class="groupName">
-                                            <div>杨德杰</div>
-                                        </div>
-                                        <div id="groupScore" class="Score">
-                                            <div>30</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                        <div style="wisth:50%;height:auto;">
+                                            <div style="display:flex">
+                                                <div id="teaName" class="teaName">
+                                                    <div>{{:teacher.name}}</div>
+                                                </div>
+                                                <div id="teaScore" class="Score">
+                                                    <div>{{:teacher.grade}}</div>
+                                                </div>
+                                            </div>
+                                            <div style="display:flex">
+                                                <div id="selfName" class="selfName">
+                                                    <div>自评</div>
+                                                </div>
+                                                <div id="selfScore" class="Score">
+                                                    <div>{{:student.grade}}</div>
+                                                </div>
+                                            </div>
+                                            {{for group}}
+                                            <div style="display:flex">
+                                                <div id="groupName" class="groupName">
+                                                    <div>{{:name}}</div>
+                                                </div>
+                                                <div id="groupScore" class="Score">
+                                                    <div>{{:grade}}</div>
+                                                </div>
+                                            </div>
+                                            {{/for}}
 
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {{/for}}
+                            </script>
                         </div>
+
                     </section>
                     <section id="tab3" title="成绩图表">
                         <div class="box1"></div>
@@ -211,7 +213,6 @@
     </div>
     <script type="text/javascript" src="../sys/js/stdGradeViewT.js"></script>
     <script type="text/javascript" src="../sys/js/gradeSearch.js"></script>
-
 </body>
 
 
