@@ -103,16 +103,16 @@
                         <i class="fa fa-power-off nav-more fa-2x" id="nav_icon2" style="color: rgb(32, 142, 251);"></i>
                     </a>
             </div>
-            <div style="height:35px;width:94%;margin:1% 0 0 3%;">
-                <span>选择班级&nbsp;</span>
-                <select id="classSlct" name="class" style="width:30%; height:35px;border-color:rgb(230, 230, 230)；"></select>
-                <span style="margin-left:10%;">选择任务&nbsp;</span>
-                <select id="taskSlct" style="width:30%; height:35px;border-color:rgb(230, 230, 230)"></select>
+            <div style="height:35px;width:94%;margin:2.5% 0 0 3%;">
+                <span>选择班级:&nbsp;</span>
+                <select id="classSlct" name="class" style="width:200px; height:35px;border-color:rgb(230, 230, 230);"></select>
+                <span style="margin-left:8%;">选择任务:&nbsp;</span>
+                <select id="taskSlct" style="width:200px; height:35px;border-color:rgb(230, 230, 230);"></select>
                 <button class="minisearch btn" id="minisearch">查询</button>
             </div>
-            <div class="content-main" style=" width: 94%;margin-left:3%;">
+            <div class="content-main" style=" width: 94%;margin-left:3%; margin-top: 1%;">
                 <div class="tab-group">
-                    <section id="tab1" title="成绩列表">
+                    <section id="tab1" title="成绩列表" style="height: auto;">
                         <div style="height: 90%;width: 100%;margin: 0;display: flex; flex-direction: column;">
                             <ul class="taskList" style="width: 100%; height: calc(100% - 10% - 7.5%);">
                                 <li style="width: 100%;">
@@ -134,7 +134,7 @@
                                     <li style="width: 100%;">
                                         <div class="taskDetail" style="display: flex; align-items: center;">
                                             <div style="width: 12.5%; background: {{if totalGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{:task_title}}</span></div>
-                                            <div style="width: 12.5%; background: {{if totalGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{:user_num}}</span></div>
+                                            <div style="width: 12.5%; background: {{if totalGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{:user_number}}</span></div>
                                             <div style="width: 12.5%; background: {{if totalGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{:user_class}}</span></div>
                                             <div style="width: 12.5%; background: {{if totalGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{:user_name}}</span></div>
                                             <div style="width: 12.5%; background: {{if totalGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{if selfGrade}}{{:selfGrade}}{{else}}暂无评价{{/if}}</span></div>
@@ -149,7 +149,7 @@
                         </div>
                     </section>
 
-                    <section id="tab2" title="成绩分析">
+                    <section id="tab2" title="成绩分析" style="height: auto;">
 
 
                         <div id="list" style="display:flex;flex-wrap: wrap;">
@@ -189,8 +189,8 @@
                                                 <div id="groupName" class="groupName">
                                                     <div>{{:name}}</div>
                                                 </div>
-                                                <div id="groupScore" class="Score">
-                                                    <div>{{:grade}}</div>
+                                                <div id="groupScore" class="Score" >
+                                                    <div style="text-align: center;">{{:grade}}</div>
                                                 </div>
                                             </div>
                                             {{/for}}
@@ -204,7 +204,7 @@
                         </div>
 
                     </section>
-                    <section id="tab3" title="成绩图表">
+                    <section id="tab3" title="成绩图表" style="height: auto;">
                         <div class="box1"></div>
                         <div id="container" style="min-width:300px;height:600px"></div>
                     </section>
@@ -213,8 +213,8 @@
         </div>
     </div>
     <script type="text/javascript" src="../sys/js/gradeSearchNew.js"></script>
-    <script type="text/javascript" src="../sys/js/stdGradeViewT.js"></script>
-    <script type="text/javascript" src="../sys/js/gradeSearch.js"></script>
+    <!-- <script type="text/javascript" src="../sys/js/stdGradeViewT.js"></script>
+    <script type="text/javascript" src="../sys/js/gradeSearch.js"></script> -->
 </body>
 
 

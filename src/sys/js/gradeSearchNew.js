@@ -25,20 +25,30 @@ $(document).ready(function() {
         async: false,
         success: function(data) {
             //获取学生数据
-            //console.log(data);
+            // console.log(data);
             stdObj = JSON.parse(data);
             console.log(stdObj);
+            stdObj_data = stdObj;
+            // console.log(stdObj_data);
+            // for (var i = 0; i < stdObj_data.data.length; i++) {
+            //     if((stdObj_data.data)[i].groupGrade) (stdObj_data.data)[i].groupGrade = Math.round((stdObj_data.data)[i].groupGrade);
+            //     var result = Math.round((stdObj_data.data)[i].studentGrade * (stdObj_data.data)[i].s_percent*1.0 / 100 + (stdObj_data.data)[i].teacherGrade * (stdObj_data.data)[i].t_percent*1.0 / 100 + (stdObj_data.data)[i].groupGrade * (stdObj_data.data)[i].g_percent*1.0 / 100);
+            //     (stdObj_data.data)[i].totalGrade = Math.round(result);
+            //     console.log((stdObj_data.data)[i]);
+            // }
+            stdObj_data.data.map(item => {
+                item.groupGrade = Math.round(item.groupGrade);
+                item.totalGrade = item.groupGrade * 1.0 * item.g_percent / 100 
+                + item.selfGrade * 1.0 * item.s_percent / 100 
+                + item.teacherGrade * 1.0 * item.t_percent / 100;
+                console.log(item.totalGrade)
+                return item
+            })
 
-            for (var i = 0; i < stdObj.data.length; i++) {
-                if(stdObj.data[i].groupGrade) Math.round(stdObj.data[i].groupGrade);
-                var result = stdObj.data[i].studentGrade * stdObj.data[i].s_percent / 100 + stdObj.data[i].teacherGrade * stdObj.data[i].t_percent / 100 + stdObj.data[i].groupGrade * stdObj.data[i].g_percent / 100;
-                stdObj.data[i].totalGrade = Math.round(result);
-                console.log(stdObj.data[i]);
-            }
             //获取模版
             var jsRenderTpl = $.templates('#theTmpl');
             //模版与数据结合
-            var finalTpl = jsRenderTpl(stdObj.data);
+            var finalTpl = jsRenderTpl(stdObj_data.data);
             $('.box').html(finalTpl);
         }
     });
