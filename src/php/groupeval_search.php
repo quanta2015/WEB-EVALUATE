@@ -13,7 +13,7 @@ $role = $_SESSION['role'];
 $sql = "select distinct totalgrade.*,user.user_name,user.user_number,task.* from `totalgrade`,`user` ,`task`,`dotask` where task.task_id and user.user_number = totalgrade.evalute_user and task.task_id = dotask.task_id and dotask.id = totalgrade.doTask_id and task.publisher ='{$id}'";
 $result = $conn->query($sql);
 
-if (0 == mysqli_num_rows($result))existempty();
+
 $m = array(
 	'teacher'=> array('name' => '',
 		'grade' => '',
