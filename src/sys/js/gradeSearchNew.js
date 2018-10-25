@@ -64,7 +64,15 @@ $(document).ready(function() {
             //模版与数据结合
             var finalTpl = jsRenderTpl(select.data);
             $('#list').html(finalTpl);
-        }
+
+            for(var i = 0; i < select.data.length; i++) {
+  categories.push(select.data[i].student.name);
+  series[0].data.push(select.data[i].s_pgrade);
+  series[1].data.push(select.data[i].g_pgrade);
+  series[2].data.push(select.data[i].t_pgrade);
+
+}
+     console.log(series);     }
     });
     $.ajax({
         url: '../php/class_search.php',
@@ -106,8 +114,35 @@ $(document).ready(function() {
 
 
     });
+var chart = Highcharts.chart('container', {
+    chart: {
+        type: 'bar'
+    },
+    title: {
+        text: '堆叠条形图'
+    },
+    xAxis: {
+        categories
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: ''
+        }
+    },
+    legend: {
+        reversed: true
+    },
+    plotOptions: {
+        series: {
+            stacking: 'normal'
+        }
+    },
+    series
+});
 
 
+});
     //二级联动
 $("#classSlct").change(function() {
     var context;
@@ -119,7 +154,6 @@ $("#classSlct").change(function() {
     }
     context = context + "<option selected=\"select\">全部作业</option>";
     $("#taskSlct").html(context);
-});
 });
 
 
@@ -141,8 +175,37 @@ $("#minisearch").click(function() {
     var finalTpl = jsRenderTpl(newstdObj);
     $('.box').html(finalTpl);
 });
-funtion set1(){
+function set1(){
   var obj=document.getElementById('tab1');
   obj.style.height=0;
 
 }
+
+
+var categories=[];
+var series = [{
+   name: '自我评价',
+   data: []
+           }, {
+   name: '小组评价',
+   data: []
+           }, {
+   name: '教师评价',
+   data: []
+           } 
+]
+
+// var categories = ['章薇', '叶艳洁', '蔡雅洁', '陶娣', '杨德杰', '章薇', '叶艳洁', '蔡雅洁', '陶娣', '杨德杰']
+// var series = [{
+//    name: '自我评价',
+//    data: [10, 15, 20, 25, 30, 10, 15, 20, 25, 30]
+//            }, {
+//    name: '小组评价',
+//    data: [10, 15, 20, 25, 30, 10, 15, 20, 25, 30]
+//            }, {
+//    name: '教师评价',
+//    data: [10, 15, 20, 25, 30, 10, 15, 20, 25, 30]
+//            }]
+
+
+

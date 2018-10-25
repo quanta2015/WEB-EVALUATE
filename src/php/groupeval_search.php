@@ -27,7 +27,11 @@ $m = array(
 	'group'=> array(),
 	'task_title'=>'',
 	'totalGrade'=> '',
-	'user_class'=>''
+	'user_class'=>'',
+	'group_avg'=>'',
+	't_pgrade' =>'',
+	's_pgrade' =>'',
+	'g_pgrade' =>'',
 
 	);
 $k =$m;
@@ -57,7 +61,7 @@ for($i = 0;$i<$length;$i++){
 		$k["student"]["name"]= $rows[$i]["user_name"];
 		$k["student"]["grade"]= $rows[$i]["totalGrade"];
 		$k["student"]["id"] = $rows[$i]["evalute_user"];
-	
+		
 	}
 
 	if($rows[$i]["role"] == 3){
@@ -78,6 +82,11 @@ for($i = 0;$i<$length;$i++){
 			$k["task_title"] =  $rows[$i]["task_title"];
 			$k["user_class"] =  $rows[$i]["publish_class"];
 			$k["totalgrade"] =  $k["teacher"]["grade"]*$rows[$i]["t_percent"]*0.01+ $k["student"]["grade"]*$rows[$i]["s_percent"]*0.01+$sumgroup*$rows[$i]["g_percent"]*0.01/$groupnum;
+			$k["group_avg"] = $sumgroup/$groupnum;
+			$k["t_pgrade"] =  $k["teacher"]["grade"]*$rows[$i]["t_percent"]*0.01;
+			$k["s_pgrade"] = $k["student"]["grade"]*$rows[$i]["s_percent"]*0.01;
+			$k["g_pgrade"] = $sumgroup*$rows[$i]["g_percent"]*0.01/$groupnum;
+			$sumgroup = 0;
 			array_push($final,$k);
 			array_splice($k["group"],0);
 
