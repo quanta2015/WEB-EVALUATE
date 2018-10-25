@@ -82,7 +82,7 @@ for($i = 0;$i<$length;$i++){
 }
 
 //print_r($final);
-
+//if (0 == mysqli_num_rows($result))existempty();
 success($final);
 
 //if (0 == mysqli_num_rows($result))existempty();
