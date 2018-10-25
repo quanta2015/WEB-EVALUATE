@@ -4,12 +4,12 @@ require_once 'common.php';
 
 //获取登录的用户名
 LoginCheck::checklogin();
-//$id=  $_SESSION['id'];
-//$role = $_SESSION['role'];
+$id=  $_SESSION['id'];
+$role = $_SESSION['role'];
 
-$id = 7;
+/*$id = 7;
 $role =0;
-
+*/
 
 $sql = "select distinct totalgrade.*,user.user_name,user.user_number,task.* from `totalgrade`,`user` ,`task`,`dotask` where task.task_id and user.user_number = totalgrade.evalute_user and task.task_id = dotask.task_id and dotask.id = totalgrade.doTask_id and task.publisher ='{$id}'";
 $result = $conn->query($sql);
@@ -42,7 +42,6 @@ $g = array('name' => '',
 $rows = mysqli_fetch_all($result,MYSQLI_ASSOC);
 $final = array();
 $length = sizeof($rows); 
-$sumgroup= 0;
 
 //print_r($rows);
 for($i = 0;$i<$length;$i++){
@@ -86,14 +85,14 @@ for($i = 0;$i<$length;$i++){
 	}
 }
 
-print_r($final);
+//print_r($final);
 
 //if (0 == mysqli_num_rows($result))existempty();
 
-//success($final);
+success($final);
 
 //if (0 == mysqli_num_rows($result))existempty();
-
-//success($rows);
+/*
+success($rows);*/
 
 ?>
