@@ -9,6 +9,7 @@ $role = $_SESSION['role'];
 
 
 
+
 $sql = "select distinct totalgrade.*,user.user_name,user.user_number,task.* from `totalgrade`,`user` ,`task`,`dotask` where task.task_id and user.user_number = totalgrade.evalute_user and task.task_id = dotask.task_id and dotask.id = totalgrade.doTask_id and task.publisher ='{$id}'";
 $result = $conn->query($sql);
 
@@ -40,12 +41,14 @@ $g = array('name' => '',
 $rows = mysqli_fetch_all($result,MYSQLI_ASSOC);
 $final = array();
 $length = sizeof($rows); 
+
+//print_r($rows);
 for($i = 0;$i<$length;$i++){
 
 	if($rows[$i]["role"] == 1){
 		$k["teacher"]["name"]= $rows[$i]["user_name"];
 		$k["teacher"]["grade"]= $rows[$i]["totalGrade"];
-		$k["teacher"]["id"] = $rows[$i]["evalute_user"];
+		//$k["teacher"]["id"] = $rows[$i]["evalute_user"];
 		//echo $k["teacher"]["name"];
 	}
 
@@ -78,7 +81,7 @@ for($i = 0;$i<$length;$i++){
 	}
 }
 
-
+//print_r($final);
 
 success($final);
 
