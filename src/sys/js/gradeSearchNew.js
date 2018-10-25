@@ -16,7 +16,7 @@ function cancel() {
 }
 
 
-var stdObj, classes, homeworks,myclass;
+var stdObj, classes, homeworks, myclass, select;
 //初始化渲染
 $(document).ready(function() {
     $.ajax({
@@ -41,7 +41,6 @@ $(document).ready(function() {
                 item.totalGrade = item.groupGrade * 1.0 * item.g_percent / 100 
                 + item.selfGrade * 1.0 * item.s_percent / 100 
                 + item.teacherGrade * 1.0 * item.t_percent / 100;
-                console.log(item.totalGrade)
                 return item
             })
 
@@ -53,6 +52,21 @@ $(document).ready(function() {
         }
     });
     $.ajax({
+        url: '../php/groupeval_search.php',
+        type: 'get',
+        async: false,
+        success: function (data) {
+            console.log(data);
+            select = JSON.parse(data); 
+            console.log(select.data);
+             //获取模版
+            var jsRenderTpl = $.templates('#tmp');
+            //模版与数据结合
+            var finalTpl = jsRenderTpl(select.data);
+            $('#list').html(finalTpl);
+        }
+    });
+    $.ajax({
         url: '../php/class_search.php',
         type: 'get',
         async: false,
@@ -60,7 +74,7 @@ $(document).ready(function() {
             //获取所有班级
            // console.log(data);
             classes = JSON.parse(data);
-            console.log(classes);
+            // console.log(classes);
             var context;
             if (classes.code == 0) {
                 for (var i = 0; i < classes.data.length; i++)
@@ -79,7 +93,7 @@ $(document).ready(function() {
         success: function(data) {
             //获取所有作业
             homeworks = JSON.parse(data);
-            console.log(homeworks);
+            // console.log(homeworks);
                 var context;
     for (var i = 0; i < homeworks.data.length; i++) 
 
@@ -127,3 +141,8 @@ $("#minisearch").click(function() {
     var finalTpl = jsRenderTpl(newstdObj);
     $('.box').html(finalTpl);
 });
+funtion set1(){
+  var obj=document.getElementById('tab1');
+  obj.style.height=0;
+
+}

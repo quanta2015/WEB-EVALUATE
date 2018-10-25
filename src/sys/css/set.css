@@ -46,6 +46,7 @@
 .tab-group section.active {
   opacity: 1;
   overflow: visible;
+  height: auto;
 }
 
 .tab-nav {
