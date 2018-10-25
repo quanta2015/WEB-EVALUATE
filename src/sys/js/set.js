@@ -45,6 +45,8 @@ function setInit(data) {
     $('.box4').html(finalTpl4);
 }
 
+
+
 $(document).ready(function() {
     console.log(1);
     $.ajax({
@@ -74,6 +76,7 @@ $(document).ready(function() {
             arr4.push(evastandard.data[i]);
         }
     }
+
     var jsRenderTpl = $.templates('#theTmpl1');
     var finalTpl1 = jsRenderTpl(arr1);
     console.log(arr1);
@@ -90,16 +93,15 @@ $(document).ready(function() {
     console.log(arr3);
     $('.box3').html(finalTpl3);
 
-    var jsRenderTpl = $.templates('#theTmpl4');
     var finalTpl4 = jsRenderTpl(arr4);
     console.log(arr4);
     $('.box4').html(finalTpl4);
         }
     });
-});
 
-$(".savenowbtn").click(function() {
-    console.log(1);
+
+   $(document).on('click','.savenowbtn',function(){
+    console.log(1111);
     var i = $(this).attr("id");
     console.log(i);
     var changeCont = new Object();
@@ -119,7 +121,34 @@ $(".savenowbtn").click(function() {
     changeObj.operate = 1;
     console.log(changeObj);
     changeArr.push(changeObj);
+   })
+
+//     $(".savenowbtn").click(function() {
+//     console.log(1111);
+//     var i = $(this).attr("id");
+//     console.log(i);
+//     var changeCont = new Object();
+//     changeCont.tid = i;
+//     for(var k = 0; k < evastandard.length; k++) {
+//         if(evastandard[k].id == i){
+//             changeCont.table_name = evastandard[k].table_name;
+//             changeCont.table_title = evastandard[k].item_title;
+//         }
+//     }
+//     changeCont.item_content = $("#content"+i).val();
+//     changeCont.item_point = $("#point"+i).val();
+//     console.log(changeCont);
+//     var changeObj = new Object();
+//     changeObj.id = i;
+//     changeObj.content = changeCont;
+//     changeObj.operate = 1;
+//     console.log(changeObj);
+//     changeArr.push(changeObj);
+// });
+
 });
+
+
 
 $("#standardSure").click(function() {
     console.log(changeArr);
