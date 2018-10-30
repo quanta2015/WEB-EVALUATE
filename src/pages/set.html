@@ -4,13 +4,16 @@
 <head>
     <meta charset="utf-8">
     <title>成绩评定/教师</title>
+    <link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../sys/css/base.css">
     <link rel="stylesheet" type="text/css" href="../sys/css/set.css">
     <link rel="stylesheet" type="text/css" href="../lib/font-awesome/css/font-awesome.min.css">
     <!-- <script type="text/javascript" src="../sys/js/evaluteStudent.js"></script> -->
     <script type="text/javascript" src="../lib/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../lib/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../lib/jsrender/jsrender.js"></script>
     <script src="../lib/jquery-tab/prefixfree.min.js"></script>
+    <script type="text/javascript" src="../lib/bootbox/bootbox.min.js"></script>
     <script type="text/javascript" src="../lib/jquery-tab/jquery-tab.js"></script>
     <script type="text/javascript">
     $(function() {
@@ -91,16 +94,18 @@
                     </div>
                     <div class="tab-group">
                         <section id="tab1" title="教学设计" style="height:0;">
+                            <div id="add1" style="border: 1px solid #eee; border-top: none;"><button>增加标准</button></div>
                             <div class="box1"></div>
                             <script id="theTmpl1" type="text/x-jsrender">
-                                <ul>
+                                <ul id="ul1">
                                     {{for}}
-                                    <li>
+                                    <li id="only{{:id}}">
                                         <div class="standardbox">
-                                            <div class="item_title" style="width: 15%"><div>{{:item_title}}</div></div>
+                                            <div class="item_title" style="width: 15%"><textarea id="title{{:id}}">{{:item_title}}</textarea></div>
                                             <div class="item_content" style="width: 60%"><textarea id="content{{:id}}">{{:item_content}}</textarea></div>
                                             <div class="item_point" style="width: 15%"><textarea id="point{{:id}}">{{:item_point}}</textarea></div>
                                             <div class="savenow" style="width: 10%"><button id="{{:id}}" class="savenowbtn">保存修改</button></div>
+                                            <div class="deletenow" style="width: 10%"><button id="{{:id}}" class="deletenowbtn">删除</button></div>
                                         </div>
                                     </li>
                                     {{/for}}
@@ -108,16 +113,18 @@
                             </script>
                         </section>
                         <section id="tab2" title="多媒体课件制作" style="height:0;">
+                            <div id="add2" style="border: 1px solid #eee; border-top: none;"><button>增加标准</button></div>
                             <div class="box2"></div>
                             <script id="theTmpl2" type="text/x-jsrender">
-                                <ul>
+                                <ul id="ul2">
                                     {{for}}
-                                    <li>
+                                    <li id="only{{:id}}">
                                         <div class="standardbox">
-                                            <div class="item_title" style="width: 15%"><div>{{:item_title}}</div></div>
+                                            <div class="item_title" style="width: 15%"><textarea id="title{{:id}}">{{:item_title}}</textarea></div>
                                             <div class="item_content" style="width: 60%"><textarea id="content{{:id}}">{{:item_content}}</textarea></div>
                                             <div class="item_point" style="width: 15%"><textarea id="point{{:id}}">{{:item_point}}</textarea></div>
                                             <div class="savenow" style="width: 10%"><button id="{{:id}}" class="savenowbtn">保存修改</button></div>
+                                            <div class="deletenow" style="width: 10%"><button id="{{:id}}" class="deletenowbtn">删除</button></div>
                                         </div>
                                     </li>
                                     {{/for}}
@@ -125,16 +132,18 @@
                             </script>
                         </section>
                         <section id="tab3" title="即席演讲" style="height:0;">
+                            <div id="add3" style="border: 1px solid #eee; border-top: none;"><button>增加标准</button></div>
                             <div class="box3"></div>
                             <script id="theTmpl3" type="text/x-jsrender">
-                                <ul>
+                                <ul id="ul3">
                                     {{for}}
-                                    <li>
+                                    <li id="only{{:id}}">
                                         <div class="standardbox">
-                                            <div class="item_title" style="width: 15%"><div>{{:item_title}}</div></div>
+                                            <div class="item_title" style="width: 15%"><textarea id="title{{:id}}">{{:item_title}}</textarea></div>
                                             <div class="item_content" style="width: 60%"><textarea id="content{{:id}}">{{:item_content}}</textarea></div>
                                             <div class="item_point" style="width: 15%"><textarea id="point{{:id}}">{{:item_point}}</textarea></div>
                                             <div class="savenow" style="width: 10%"><button id="{{:id}}" class="savenowbtn">保存修改</button></div>
+                                            <div class="deletenow" style="width: 10%"><button id="{{:id}}" class="deletenowbtn">删除</button></div>
                                         </div>
                                     </li>
                                     {{/for}}
@@ -142,16 +151,18 @@
                             </script>
                         </section>
                         <section id="tab4" title="模拟上课板书设计" style="height:0;">
+                            <div id="add4" style="border: 1px solid #eee; border-top: none;"><button>增加标准</button></div>
                             <div class="box4"></div>
                             <script id="theTmpl4" type="text/x-jsrender">
-                                <ul>
+                                <ul id="ul4">
                                     {{for}}
-                                    <li>
+                                    <li id="only{{:id}}">
                                         <div class="standardbox">
-                                            <div class="item_title" style="width: 15%"><div>{{:item_title}}</div></div>
+                                            <div class="item_title" style="width: 15%"><textarea id="title{{:id}}">{{:item_title}}</textarea></div>
                                             <div class="item_content" style="width: 60%"><textarea id="content{{:id}}">{{:item_content}}</textarea></div>
                                             <div class="item_point" style="width: 15%"><textarea id="point{{:id}}">{{:item_point}}</textarea></div>
                                             <div class="savenow" style="width: 10%"><button id="{{:id}}" class="savenowbtn">保存修改</button></div>
+                                            <div class="deletenow" style="width: 10%"><button id="{{:id}}" class="deletenowbtn">删除</button></div>
                                         </div>
                                     </li>
                                     {{/for}}
@@ -164,6 +175,121 @@
             </div>
         </div>
     </div>
+            <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel1">教学设计</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="txt_departmentname">评价内容</label>
+                                <input type="text" name="txt_departmentname" class="form-control" id="iitem_title1" placeholder="请输入评价内容">
+                            </div>
+                            <div class="form-group">
+                                <label for="txt_parentdepartment">评价标准</label>
+                                <input type="text" name="txt_parentdepartment" class="form-control" id="iitem_content1" placeholder="请输入评价标准">
+                            </div>
+                            <div class="form-group">
+                                <label for="txt_departmentname">分值</label>
+                                <input type="text" name="txt_departmentname" class="form-control" id="iitem_point1" placeholder="请输入分值">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭</button>
+                            <button type="button" id="item_add1" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>添加</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel2">多媒体课件制作</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="txt_departmentname">评价内容</label>
+                                <input type="text" name="txt_departmentname" class="form-control" id="iitem_title2" placeholder="请输入评价内容">
+                            </div>
+                            <div class="form-group">
+                                <label for="txt_parentdepartment">评价标准</label>
+                                <input type="text" name="txt_parentdepartment" class="form-control" id="iitem_content2" placeholder="请输入评价标准">
+                            </div>
+                            <div class="form-group">
+                                <label for="txt_departmentname">分值</label>
+                                <input type="text" name="txt_departmentname" class="form-control" id="iitem_point2" placeholder="请输入分值">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭</button>
+                            <button type="button" id="item_add2" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>添加</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel3">即席演讲</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="txt_departmentname">评价内容</label>
+                                <input type="text" name="txt_departmentname" class="form-control" id="iitem_title3" placeholder="请输入评价内容">
+                            </div>
+                            <div class="form-group">
+                                <label for="txt_parentdepartment">评价标准</label>
+                                <input type="text" name="txt_parentdepartment" class="form-control" id="iitem_content3" placeholder="请输入评价标准">
+                            </div>
+                            <div class="form-group">
+                                <label for="txt_departmentname">分值</label>
+                                <input type="text" name="txt_departmentname" class="form-control" id="iitem_point3" placeholder="请输入分值">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭</button>
+                            <button type="button" id="item_add3" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>添加</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel4">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel4">模拟上课板书设计</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="txt_departmentname">评价内容</label>
+                                <input type="text" name="txt_departmentname" class="form-control" id="iitem_title4" placeholder="请输入评价内容">
+                            </div>
+                            <div class="form-group">
+                                <label for="txt_parentdepartment">评价标准</label>
+                                <input type="text" name="txt_parentdepartment" class="form-control" id="iitem_content4" placeholder="请输入评价标准">
+                            </div>
+                            <div class="form-group">
+                                <label for="txt_departmentname">分值</label>
+                                <input type="text" name="txt_departmentname" class="form-control" id="iitem_point4" placeholder="请输入分值">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭</button>
+                            <button type="button" id="item_add4" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>添加</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
     <script type="text/javascript" src="../sys/js/set.js"></script>
 </body>
 

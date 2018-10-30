@@ -87,18 +87,27 @@
 	border-left: 1px solid #eee;
 	border-right:1px solid #eee;
 }
-.item_title, .savenow {
+.savenow {
+	border-right: 1px solid #eee;
+}
+.item_title, .savenow, .deletenow {
 	width: 100%;
 	height: 70px;
 }
-.item_title div {
-	display: flex;
-	justify-content: center;
-	height: 70px;
-	line-height: 70px;
-	color: rgb(74, 74, 74);
-	font-size: 112%;
+.item_title {
 	border-right: 1px solid #eee;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.item_title textarea {
+	margin-left: 5%;
+	width: 100%;
+	font-size: 112%;
+	border-style: none;
+	background-color: transparent;
+	color: rgb(74, 74, 74);
+	resize: none;
 }
 .item_content textarea, .item_point textarea {
 	width: 100%;
@@ -106,6 +115,7 @@
 	border-style: none;
 	background-color: transparent;
 	color: rgb(74, 74, 74);
+	resize: none;
 }
 .item_point textarea {
 	text-align: center;
@@ -118,7 +128,7 @@
 	align-items: center;
 	justify-content: center;
 }
-.savenowbtn {
+.savenowbtn, .deletenowbtn {
 	width: 100%;
 	height: 100%;
 	border-style: none;
@@ -127,7 +137,7 @@
 	font-size: 100%;
 	font-weight: thin;
 }
-.savenowbtn:hover {
+.savenowbtn:hover, .deletenowbtn:hover {
 	background: rgb(141, 199, 255);
   	color: white;
 }

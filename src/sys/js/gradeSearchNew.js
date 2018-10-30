@@ -142,7 +142,15 @@ var chart = Highcharts.chart('container', {
         min: 0,
         title: {
             text: ''
+        },
+        stackLabels: { // 堆叠数据标签
+            enabled: true,
+            style: {
+                fontWeight: 'bold',
+                color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+            }
         }
+
     },
     legend: {
         reversed: true
@@ -152,8 +160,30 @@ var chart = Highcharts.chart('container', {
             stacking: 'normal'
         }
     },
+    plotOptions: {
+        series: {
+            stacking: 'normal',
+            dataLabels: {
+                enabled: true,
+                color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
+                style: {
+                    // 如果不需要数据标签阴影，可以将 textOutline 设置为 'none'
+                    textOutline: 'none'
+                }
+            }
+        }
+    },
+
+    tooltip: {
+        formatter: function () {
+            return '<b>' + this.x + '</b><br/>' +
+                this.series.name + ': ' + this.y + '<br/>' +
+                '总分: ' + this.point.stackTotal;
+        }
+    },
     series
 });
+
 
 
 });
@@ -213,7 +243,7 @@ $("#minisearch").click(function() {
   series[2].data.push(newselect[i].t_pgrade);
     }
     console.log(series);
-    var chart = Highcharts.chart('container', {
+  var chart = Highcharts.chart('container', {
     chart: {
         type: 'bar'
     },
@@ -227,7 +257,15 @@ $("#minisearch").click(function() {
         min: 0,
         title: {
             text: ''
+        },
+        stackLabels: { // 堆叠数据标签
+            enabled: true,
+            style: {
+                fontWeight: 'bold',
+                color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+            }
         }
+
     },
     legend: {
         reversed: true
@@ -237,8 +275,30 @@ $("#minisearch").click(function() {
             stacking: 'normal'
         }
     },
+    plotOptions: {
+        series: {
+            stacking: 'normal',
+            dataLabels: {
+                enabled: true,
+                color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
+                style: {
+                    // 如果不需要数据标签阴影，可以将 textOutline 设置为 'none'
+                    textOutline: 'none'
+                }
+            }
+        }
+    },
+
+    tooltip: {
+        formatter: function () {
+            return '<b>' + this.x + '</b><br/>' +
+                this.series.name + ': ' + this.y + '<br/>' +
+                '总分: ' + this.point.stackTotal;
+        }
+    },
     series
 });
+
 
 });
 
