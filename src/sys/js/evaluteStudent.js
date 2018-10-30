@@ -17,9 +17,9 @@ $(document).ready(function() {
         data: {role: 2},
         success: function(data) {
             //获取学生数据
-            console.log(data);
+            //console.log(data);
             stdstdObj = JSON.parse(data);
-            console.log(stdstdObj.data);
+            //console.log(stdstdObj.data);
             //获取模版
             var jsRenderTpl = $.templates('#theTmpl');
             //模版与数据结合
@@ -27,29 +27,32 @@ $(document).ready(function() {
             $('.box').html(finalTpl);
           }
     });
+
     $.ajax({
         url: '../php/class_search.php',
         type: 'get',
         async: false,
         success: function(data) {
             user_class = JSON.parse(data);
+            console.log(user_class);
         }
-    })
+    });
+
     $.ajax({
         url: '../php/task_search.php',
         type: 'get',
         async: false,
         success: function(data) {
-            console.log(data);
+            //console.log(data);
             var taskArr = JSON.parse(data);
             var context;
             for(var i = 0; i < taskArr.data.length; i++) {
-                if(taskArr.data[i].publish_class == user_class.data[0].class_name) {
+                if(taskArr.data[i].publish_class == user_class.msg) {
                     context = context + "<option>" + taskArr.data[i].task_title + "</option>";
-                    context = context + "<option selected=\"select\">全部作业</option>";
-                    $("#taskSlct").html(context);
                 }
             }
+            context = context + "<option selected=\"select\">全部作业</option>";
+            $("#taskSlct").html(context);
         }
     });
 });
