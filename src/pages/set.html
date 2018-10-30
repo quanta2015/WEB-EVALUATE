@@ -91,16 +91,18 @@
                     </div>
                     <div class="tab-group">
                         <section id="tab1" title="教学设计" style="height:0;">
+                            <!-- <div id="add1" style="border: 1px solid #eee; border-top: none;"><button>增加标准</button></div> -->
                             <div class="box1"></div>
                             <script id="theTmpl1" type="text/x-jsrender">
-                                <ul>
+                                <ul id="ul1">
                                     {{for}}
-                                    <li>
+                                    <li id="only{{:id}}">
                                         <div class="standardbox">
-                                            <div class="item_title" style="width: 15%"><div>{{:item_title}}</div></div>
+                                            <div class="item_title" style="width: 15%"><textarea id="title{{:id}}">{{:item_title}}</textarea></div>
                                             <div class="item_content" style="width: 60%"><textarea id="content{{:id}}">{{:item_content}}</textarea></div>
                                             <div class="item_point" style="width: 15%"><textarea id="point{{:id}}">{{:item_point}}</textarea></div>
                                             <div class="savenow" style="width: 10%"><button id="{{:id}}" class="savenowbtn">保存修改</button></div>
+                                            <div class="deletenow" style="width: 10%"><button id="{{:id}}" class="deletenowbtn">删除</button></div>
                                         </div>
                                     </li>
                                     {{/for}}
@@ -110,14 +112,15 @@
                         <section id="tab2" title="多媒体课件制作" style="height:0;">
                             <div class="box2"></div>
                             <script id="theTmpl2" type="text/x-jsrender">
-                                <ul>
+                                <ul id="ul2">
                                     {{for}}
-                                    <li>
+                                    <li id="only{{:id}}">
                                         <div class="standardbox">
-                                            <div class="item_title" style="width: 15%"><div>{{:item_title}}</div></div>
+                                            <div class="item_title" style="width: 15%"><textarea id="title{{:id}}">{{:item_title}}</textarea></div>
                                             <div class="item_content" style="width: 60%"><textarea id="content{{:id}}">{{:item_content}}</textarea></div>
                                             <div class="item_point" style="width: 15%"><textarea id="point{{:id}}">{{:item_point}}</textarea></div>
                                             <div class="savenow" style="width: 10%"><button id="{{:id}}" class="savenowbtn">保存修改</button></div>
+                                            <div class="deletenow" style="width: 10%"><button id="{{:id}}" class="deletenowbtn">删除</button></div>
                                         </div>
                                     </li>
                                     {{/for}}
@@ -127,14 +130,15 @@
                         <section id="tab3" title="即席演讲" style="height:0;">
                             <div class="box3"></div>
                             <script id="theTmpl3" type="text/x-jsrender">
-                                <ul>
+                                <ul id="ul3">
                                     {{for}}
-                                    <li>
+                                    <li id="only{{:id}}">
                                         <div class="standardbox">
-                                            <div class="item_title" style="width: 15%"><div>{{:item_title}}</div></div>
+                                            <div class="item_title" style="width: 15%"><textarea id="title{{:id}}">{{:item_title}}</textarea></div>
                                             <div class="item_content" style="width: 60%"><textarea id="content{{:id}}">{{:item_content}}</textarea></div>
                                             <div class="item_point" style="width: 15%"><textarea id="point{{:id}}">{{:item_point}}</textarea></div>
                                             <div class="savenow" style="width: 10%"><button id="{{:id}}" class="savenowbtn">保存修改</button></div>
+                                            <div class="deletenow" style="width: 10%"><button id="{{:id}}" class="deletenowbtn">删除</button></div>
                                         </div>
                                     </li>
                                     {{/for}}
@@ -144,14 +148,15 @@
                         <section id="tab4" title="模拟上课板书设计" style="height:0;">
                             <div class="box4"></div>
                             <script id="theTmpl4" type="text/x-jsrender">
-                                <ul>
+                                <ul id="ul4">
                                     {{for}}
-                                    <li>
+                                    <li id="only{{:id}}">
                                         <div class="standardbox">
-                                            <div class="item_title" style="width: 15%"><div>{{:item_title}}</div></div>
+                                            <div class="item_title" style="width: 15%"><textarea id="title{{:id}}">{{:item_title}}</textarea></div>
                                             <div class="item_content" style="width: 60%"><textarea id="content{{:id}}">{{:item_content}}</textarea></div>
                                             <div class="item_point" style="width: 15%"><textarea id="point{{:id}}">{{:item_point}}</textarea></div>
                                             <div class="savenow" style="width: 10%"><button id="{{:id}}" class="savenowbtn">保存修改</button></div>
+                                            <div class="deletenow" style="width: 10%"><button id="{{:id}}" class="deletenowbtn">删除</button></div>
                                         </div>
                                     </li>
                                     {{/for}}
