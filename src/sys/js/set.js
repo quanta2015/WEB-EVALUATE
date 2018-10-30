@@ -110,10 +110,110 @@ $(document).ready(function() {
         }
     });
    });
+   
+   $("#add1").click(function () {
+    $("#myModalLabel1").text("教学设计");
+    $('#myModal1').modal();
+   });
 
-   // $(document).on('click','#add1',function(){
-   //  $("#ul1").append("<li><div class=&Prime;standardbox&Prime;><div class=&Prime;item_title&Prime; style=&Prime;width: 15%&Prime;><textarea></textarea></div><div class=&Prime;item_content&Prime; style=&Prime;width: 60%&Prime;><textarea></textarea></div><div class=&Prime;item_point&Prime; style=&Prime;width: 15%&Prime;><textarea></textarea></div><div class=&Prime;savenow&Prime; style=&Prime;width: 10%&Prime;><button class=&Prime;savenowbtn&Prime;>保存修改</button></div><div class=&Prime;deletenow&Prime; style=&Prime;width: 10%&Prime;><button class=&Prime;deletenowbtn&Prime;>删除</button></div></div></li>");
-   // });
+   $("#add2").click(function () {
+    $("#myModalLabel2").text("多媒体课件制作");
+    $('#myModal2').modal();
+   });
+
+   $("#add3").click(function () {
+    $("#myModalLabel3").text("即席演讲");
+    $('#myModal3').modal();
+   });
+
+   $("#add4").click(function () {
+    $("#myModalLabel4").text("模拟上课板书设计");
+    $('#myModal4').modal();
+   });
+
+    $("#item_add1").click(function () {
+    var changeCont = new Object();
+
+    changeCont.table_name = $("#myModalLabel1").text();
+    changeCont.item_title = $("#iitem_title1").val();
+    changeCont.item_content = $("#iitem_content1").val();
+    changeCont.item_point = $("#iitem_point1").val();
+    changeCont.tid = 1;
+    console.log(changeCont);
+
+    $.ajax({
+        url: '../php/set_detail.php',
+        type: 'POST',
+        async: false,
+        data: {id: " ", content: JSON.stringify(changeCont), operate: 2},
+        success: function(data) {
+            console.log(data);
+        }
+    });
+ });
+
+   $("#item_add2").click(function () {
+    var changeCont = new Object();
+
+    changeCont.table_name = $("#myModalLabel2").text();
+    changeCont.item_title = $("#iitem_title2").val();
+    changeCont.item_content = $("#iitem_content2").val();
+    changeCont.item_point = $("#iitem_point2").val();
+    changeCont.tid = 2;
+    console.log(changeCont);
+
+    $.ajax({
+        url: '../php/set_detail.php',
+        type: 'POST',
+        async: false,
+        data: {id: " ", content: JSON.stringify(changeCont), operate: 2},
+        success: function(data) {
+            console.log(data);
+        }
+    });
+ });
+
+   $("#item_add3").click(function () {
+    var changeCont = new Object();
+
+    changeCont.table_name = $("#myModalLabel3").text();
+    changeCont.item_title = $("#iitem_title3").val();
+    changeCont.item_content = $("#iitem_content3").val();
+    changeCont.item_point = $("#iitem_point3").val();
+    changeCont.tid = 3;
+    console.log(changeCont);
+
+    $.ajax({
+        url: '../php/set_detail.php',
+        type: 'POST',
+        async: false,
+        data: {id: " ", content: JSON.stringify(changeCont), operate: 2},
+        success: function(data) {
+            console.log(data);
+        }
+    });
+ });
+
+   $("#item_add4").click(function () {
+    var changeCont = new Object();
+
+    changeCont.table_name = $("#myModalLabel4").text();
+    changeCont.item_title = $("#iitem_title4").val();
+    changeCont.item_content = $("#iitem_content4").val();
+    changeCont.item_point = $("#iitem_point4").val();
+    changeCont.tid = 4;
+    console.log(changeCont);
+
+    $.ajax({
+        url: '../php/set_detail.php',
+        type: 'POST',
+        async: false,
+        data: {id: " ", content: JSON.stringify(changeCont), operate: 2},
+        success: function(data) {
+            console.log(data);
+        }
+    });
+ });
 
 });
 
