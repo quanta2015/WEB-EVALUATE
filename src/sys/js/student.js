@@ -15,7 +15,11 @@ function showTime(arr){
         var hours2 = -date2.diff(date3, 'hours')-days1*24;
 
         if(days2 == 0){
-            arr[i].publish_date = "已经发布 "+hours2+" 小时";
+            if(hours2 == 0)
+                arr[i].publish_date = "发布不到1小时";
+            else{
+                arr[i].publish_date = "已经发布 "+hours2+" 小时";
+            }           
         }
         else{
             arr[i].publish_date = "已经发布 "+days2+" 天";
