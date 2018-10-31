@@ -90,16 +90,17 @@ $(document).ready(function () {
                 if (obj.code == 0) {
                   
                     toastr.success('已成功发布任务');
+                    remove();
                 } else if (obj.code == 77) {
                     toastr.warning('存在空输入');
-                   
+                      remove();
                 } else if (obj.code == 20) {
                     toastr.warning('发布失败');
                  
-
+                remove();
                 } else if (obj.code == 55) {
                     toastr.error('数据库连接失败');
-                  
+                     remove();
                 }
 
             }
