@@ -33,39 +33,39 @@ var series = [{
 
 //初始化渲染
 $(document).ready(function() {
-    $.ajax({
-        url: '../php/final_search.php',
-        type: 'get',
-        async: false,
-        success: function(data) {
-            //获取学生数据
-            // console.log(data);
-            stdObj = JSON.parse(data);
-            console.log(stdObj);
-            stdObj_data = stdObj;
-            // console.log(stdObj_data);
-            // for (var i = 0; i < stdObj_data.data.length; i++) {
-            //     if((stdObj_data.data)[i].groupGrade) (stdObj_data.data)[i].groupGrade = Math.round((stdObj_data.data)[i].groupGrade);
-            //     var result = Math.round((stdObj_data.data)[i].studentGrade * (stdObj_data.data)[i].s_percent*1.0 / 100 + (stdObj_data.data)[i].teacherGrade * (stdObj_data.data)[i].t_percent*1.0 / 100 + (stdObj_data.data)[i].groupGrade * (stdObj_data.data)[i].g_percent*1.0 / 100);
-            //     (stdObj_data.data)[i].totalGrade = Math.round(result);
-            //     console.log((stdObj_data.data)[i]);
-            // }
-            stdObj_data.data.map(item => {
-                item.groupGrade = Math.round(item.groupGrade);
-                item.totalGrade = item.groupGrade * 1.0 * item.g_percent / 100 
-                + item.selfGrade * 1.0 * item.s_percent / 100 
-                + item.teacherGrade * 1.0 * item.t_percent / 100;
-                return item
-            })
+    // $.ajax({
+    //     url: '../php/final_search.php',
+    //     type: 'get',
+    //     async: false,
+    //     success: function(data) {
+    //         //获取学生数据
+    //         // console.log(data);
+    //         stdObj = JSON.parse(data);
+    //         console.log(stdObj);
+    //         stdObj_data = stdObj;
+    //         // console.log(stdObj_data);
+    //         // for (var i = 0; i < stdObj_data.data.length; i++) {
+    //         //     if((stdObj_data.data)[i].groupGrade) (stdObj_data.data)[i].groupGrade = Math.round((stdObj_data.data)[i].groupGrade);
+    //         //     var result = Math.round((stdObj_data.data)[i].studentGrade * (stdObj_data.data)[i].s_percent*1.0 / 100 + (stdObj_data.data)[i].teacherGrade * (stdObj_data.data)[i].t_percent*1.0 / 100 + (stdObj_data.data)[i].groupGrade * (stdObj_data.data)[i].g_percent*1.0 / 100);
+    //         //     (stdObj_data.data)[i].totalGrade = Math.round(result);
+    //         //     console.log((stdObj_data.data)[i]);
+    //         // }
+    //         stdObj_data.data.map(item => {
+    //             item.groupGrade = Math.round(item.groupGrade);
+    //             item.totalGrade = item.groupGrade * 1.0 * item.g_percent / 100 
+    //             + item.selfGrade * 1.0 * item.s_percent / 100 
+    //             + item.teacherGrade * 1.0 * item.t_percent / 100;
+    //             return item
+    //         })
 
-            //获取模版
-            var jsRenderTpl = $.templates('#theTmpl');
-            //模版与数据结合
-            var finalTpl = jsRenderTpl(stdObj_data.data);
-            $('.box').html(finalTpl);
-        }
-    });
-    $.ajax({
+    //         //获取模版
+    //         var jsRenderTpl = $.templates('#theTmpl');
+    //         //模版与数据结合
+    //         var finalTpl = jsRenderTpl(stdObj_data.data);
+    //         $('.box').html(finalTpl);
+    //     }
+    // });
+   $.ajax({
         url: '../php/groupeval_search.php',
         type: 'get',
         async: false,
@@ -73,6 +73,13 @@ $(document).ready(function() {
             console.log(data);
             select = JSON.parse(data); 
             console.log(select.data);
+
+            //获取模版
+            var jsRenderTpl = $.templates('#theTmpl');
+            //模版与数据结合
+            var finalTpl1 = jsRenderTpl(select.data);
+            $('.box').html(finalTpl1);
+
              //获取模版
             var jsRenderTpl = $.templates('#tmp');
             //模版与数据结合
@@ -80,14 +87,15 @@ $(document).ready(function() {
             $('#list').html(finalTpl);
 
             for(var i = 0; i < select.data.length; i++) {
-  categories.push(select.data[i].student.name);
-  series[0].data.push(select.data[i].s_pgrade);
-  series[1].data.push(select.data[i].g_pgrade);
-  series[2].data.push(select.data[i].t_pgrade);
-
-}
-     console.log(series);     }
+                categories.push(select.data[i].student.name);
+                series[0].data.push(select.data[i].s_pgrade);
+                series[1].data.push(select.data[i].g_pgrade);
+                series[2].data.push(select.data[i].t_pgrade);
+            }
+            console.log(series);     
+        }
     });
+   
     $.ajax({
         url: '../php/class_search.php',
         type: 'get',
@@ -183,12 +191,12 @@ $("#classSlct").change(function() {
 $("#minisearch").click(function() {
     var newstdObj=new Array();
     var newselect=new Array();
-        for (var i = 0; i < stdObj.data.length; i++){
-            if((stdObj.data[i].task_title == $("#taskSlct").val()||$("#taskSlct").val() == "全部作业")
-                &&(stdObj.data[i].user_class == $("#classSlct").val()||$("#classSlct").val() == "全部班级" ||stdObj.data[i].user_class == myclass))
+        for (var i = 0; i < select.data.length; i++){
+            if((select.data[i].task_title == $("#taskSlct").val()||$("#taskSlct").val() == "全部作业")
+                &&(select.data[i].user_class == $("#classSlct").val()||$("#classSlct").val() == "全部班级" ||select.data[i].user_class == myclass))
         
 
-               newstdObj.push(stdObj.data[i]);
+               newstdObj.push(select.data[i]);
         }
 
     //获取模版

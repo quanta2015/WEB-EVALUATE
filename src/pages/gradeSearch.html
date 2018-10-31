@@ -133,14 +133,14 @@
                                     {{for}}
                                     <li style="width: 100%;">
                                         <div class="taskDetail" style="display: flex; align-items: center;">
-                                            <div style="width: 12.5%; background: {{if groupGrade&&teacherGrade&&selfGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{:task_title}}</span></div>
-                                            <div style="width: 12.5%; background: {{if groupGrade&&teacherGrade&&selfGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{:user_number}}</span></div>
-                                            <div style="width: 12.5%; background: {{if groupGrade&&teacherGrade&&selfGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{:user_class}}</span></div>
-                                            <div style="width: 12.5%; background: {{if groupGrade&&teacherGrade&&selfGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{:user_name}}</span></div>
-                                            <div style="width: 12.5%; background: {{if groupGrade&&teacherGrade&&selfGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{if selfGrade}}{{:selfGrade}}{{else}}暂无评价{{/if}}</span></div>
-                                            <div style="width: 12.5%; background: {{if groupGrade&&teacherGrade&&selfGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{if groupGrade}}{{:groupGrade}}{{else}}暂无评价{{/if}}</span></div>
-                                            <div style="width: 12.5%; background: {{if groupGrade&&teacherGrade&&selfGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{if teacherGrade}}{{:teacherGrade}}{{else}}暂无评价{{/if}}</span></div>
-                                            <div style="width: 12.5%; background: {{if groupGrade&&teacherGrade&&selfGrade}}white{{else}}rgb(248, 247, 255){{/if}}; color:{{if groupGrade&&teacherGrade&&selfGrade}}red{{else}}black{{/if}};"><a href="" style="width:100%; height:100%; background:transparent;">{{if groupGrade&&teacherGrade&&selfGrade}}{{:totalGrade}}{{else}}暂无评价{{/if}}</a></div>
+                                            <div style="width: 12.5%; background: {{if totalGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{:task_title}}</span></div>
+                                            <div style="width: 12.5%; background: {{if totalGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{:student.id}}</span></div>
+                                            <div style="width: 12.5%; background: {{if totalGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{:user_class}}</span></div>
+                                            <div style="width: 12.5%; background: {{if totalGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{:student.name}}</span></div>
+                                            <div style="width: 12.5%; background: {{if totalGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{if student.grade}}{{:student.grade}}{{else}}暂无评价{{/if}}</span></div>
+                                            <div style="width: 12.5%; background: {{if totalGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{if groupGrade}}{{:group_avg}}{{else}}暂无评价{{/if}}</span></div>
+                                            <div style="width: 12.5%; background: {{if totalGrade}}white{{else}}rgb(248, 247, 255){{/if}}"><span>{{if teacher.grade}}{{:teacher.grade}}{{else}}暂无评价{{/if}}</span></div>
+                                            <div style="width: 12.5%; background: {{if totalGrade}}white{{else}}rgb(248, 247, 255){{/if}}; color:{{if totalGrade}}red{{else}}black{{/if}};"><a href="" style="width:100%; height:100%; background:transparent;">{{if totalGrade}}{{:totalgrade}}{{else}}暂无评价{{/if}}</a></div>
                                         </div>
                                     </li>
                                     {{/for}}

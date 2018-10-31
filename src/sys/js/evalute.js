@@ -32,9 +32,7 @@ $(document).ready(function() {
             $('.box').html(finalTpl);
         }
     });
-    $.ajax({
-
-    })
+    
  $.ajax({
         url: '../php/class_search.php',
         type: 'get',
