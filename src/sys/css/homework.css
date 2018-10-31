@@ -76,6 +76,7 @@ a{text-decoration:none;color:#202020;}
 .Btn_evalutegrey{
 	width: 70px;
 	height:30px;
+	margin-right: 5px;
 	border: 1px solid #aaa;
 	background-color: lightgrey;
 	border-radius: 18px;
@@ -110,6 +111,7 @@ a{text-decoration:none;color:#202020;}
 	background-color: rgb(245, 250, 255);
 	border-radius: 20px;
 	color: rgb(5, 127, 254);
+	outline: none;
 }
 .b-s:hover {
 	margin-top:20px;
