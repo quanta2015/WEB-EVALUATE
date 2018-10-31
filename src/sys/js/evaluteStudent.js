@@ -14,7 +14,7 @@ $(document).ready(function() {
         url: '../php/tevalute_search.php',
         type: 'POST',
         async: false,
-        data: {role: 2},
+        data: {role: 3},
         success: function(data) {
             //获取学生数据
             //console.log(data);
