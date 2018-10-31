@@ -231,6 +231,7 @@ var chart = Highcharts.chart('container', {
     },
     yAxis: {
         min: 0,
+        max:300,
         title: {
             text: '成绩图表'
         }
