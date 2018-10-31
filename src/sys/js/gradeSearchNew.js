@@ -33,38 +33,38 @@ var series = [{
 
 //初始化渲染
 $(document).ready(function() {
-    // $.ajax({
-    //     url: '../php/final_search.php',
-    //     type: 'get',
-    //     async: false,
-    //     success: function(data) {
-    //         //获取学生数据
-    //         // console.log(data);
-    //         stdObj = JSON.parse(data);
-    //         console.log(stdObj);
-    //         stdObj_data = stdObj;
-    //         // console.log(stdObj_data);
-    //         // for (var i = 0; i < stdObj_data.data.length; i++) {
-    //         //     if((stdObj_data.data)[i].groupGrade) (stdObj_data.data)[i].groupGrade = Math.round((stdObj_data.data)[i].groupGrade);
-    //         //     var result = Math.round((stdObj_data.data)[i].studentGrade * (stdObj_data.data)[i].s_percent*1.0 / 100 + (stdObj_data.data)[i].teacherGrade * (stdObj_data.data)[i].t_percent*1.0 / 100 + (stdObj_data.data)[i].groupGrade * (stdObj_data.data)[i].g_percent*1.0 / 100);
-    //         //     (stdObj_data.data)[i].totalGrade = Math.round(result);
-    //         //     console.log((stdObj_data.data)[i]);
-    //         // }
-    //         stdObj_data.data.map(item => {
-    //             item.groupGrade = Math.round(item.groupGrade);
-    //             item.totalGrade = item.groupGrade * 1.0 * item.g_percent / 100 
-    //             + item.selfGrade * 1.0 * item.s_percent / 100 
-    //             + item.teacherGrade * 1.0 * item.t_percent / 100;
-    //             return item
-    //         })
+    $.ajax({
+        url: '../php/final_search.php',
+        type: 'get',
+        async: false,
+        success: function(data) {
+            //获取学生数据
+            // console.log(data);
+            stdObj = JSON.parse(data);
+            console.log(stdObj);
+            stdObj_data = stdObj;
+            // console.log(stdObj_data);
+            // for (var i = 0; i < stdObj_data.data.length; i++) {
+            //     if((stdObj_data.data)[i].groupGrade) (stdObj_data.data)[i].groupGrade = Math.round((stdObj_data.data)[i].groupGrade);
+            //     var result = Math.round((stdObj_data.data)[i].studentGrade * (stdObj_data.data)[i].s_percent*1.0 / 100 + (stdObj_data.data)[i].teacherGrade * (stdObj_data.data)[i].t_percent*1.0 / 100 + (stdObj_data.data)[i].groupGrade * (stdObj_data.data)[i].g_percent*1.0 / 100);
+            //     (stdObj_data.data)[i].totalGrade = Math.round(result);
+            //     console.log((stdObj_data.data)[i]);
+            // }
+            stdObj_data.data.map(item => {
+                item.groupGrade = Math.round(item.groupGrade);
+                item.totalGrade = item.groupGrade * 1.0 * item.g_percent / 100 
+                + item.selfGrade * 1.0 * item.s_percent / 100 
+                + item.teacherGrade * 1.0 * item.t_percent / 100;
+                return item
+            })
 
-    //         //获取模版
-    //         var jsRenderTpl = $.templates('#theTmpl');
-    //         //模版与数据结合
-    //         var finalTpl = jsRenderTpl(stdObj_data.data);
-    //         $('.box').html(finalTpl);
-    //     }
-    // });
+            //获取模版
+            var jsRenderTpl = $.templates('#theTmplx');
+            //模版与数据结合
+            var finalTpl = jsRenderTpl(stdObj_data.data);
+            $('.boxx').html(finalTpl);
+        }
+    });
    $.ajax({
         url: '../php/groupeval_search.php',
         type: 'get',
@@ -205,29 +205,43 @@ $("#minisearch").click(function() {
     var finalTpl = jsRenderTpl(newstdObj);
     $('.box').html(finalTpl);
 
-       for (var i = 0; i < select.data.length; i++){
-            if((select.data[i].task_title == $("#taskSlct").val()||$("#taskSlct").val() == "全部作业")
-                &&(select.data[i].user_class == $("#classSlct").val()||$("#classSlct").val() == "全部班级" ||select.data[i].user_class == myclass))
+    var newstdObjx=new Array();
+        for (var i = 0; i < stdObj.data.length; i++){
+            if((stdObj.data[i].task_title == $("#taskSlct").val()||$("#taskSlct").val() == "全部作业")
+                &&(stdObj.data[i].user_class == $("#classSlct").val()||$("#classSlct").val() == "全部班级" ||stdObj.data[i].user_class == myclass))
         
 
-               newselect.push(select.data[i]);
+               newstdObjx.push(stdObj.data[i]);
         }
-         //获取模版
-            var jsRenderTpl = $.templates('#tmp');
-            //模版与数据结合
-            var finalTpl = jsRenderTpl(newselect);
-            $('#list').html(finalTpl);
-            categories.splice(0,categories.length);
-            series[0].data.splice(0,series[0].data.length);
-            series[1].data.splice(0,series[1].data.length);
-            series[2].data.splice(0,series[2].data.length);
-    for(var i=0;i<newselect.length;i++){
-        categories.push(newselect[i].student.name);
-  series[0].data.push(newselect[i].s_pgrade);
-  series[1].data.push(newselect[i].g_pgrade);
-  series[2].data.push(newselect[i].t_pgrade);
-    }
-    console.log(series);
+
+    //获取模版
+    var jsRenderTpl = $.templates('#theTmplx');
+    //模版与数据结合
+    var finalTpl = jsRenderTpl(newstdObjx);
+    $('.boxx').html(finalTpl);
+
+    for (var i = 0; i < select.data.length; i++){
+        if((select.data[i].task_title == $("#taskSlct").val()||$("#taskSlct").val() == "全部作业")
+            &&(select.data[i].user_class == $("#classSlct").val()||$("#classSlct").val() == "全部班级" ||select.data[i].user_class == myclass))
+            newselect.push(select.data[i]);
+        }
+        //获取模版
+        var jsRenderTpl = $.templates('#tmp');
+        //模版与数据结合
+        var finalTpl = jsRenderTpl(newselect);
+        $('#list').html(finalTpl);
+        categories.splice(0,categories.length);
+        series[0].data.splice(0,series[0].data.length);
+        series[1].data.splice(0,series[1].data.length);
+        series[2].data.splice(0,series[2].data.length);
+        for(var i=0;i<newselect.length;i++){
+            categories.push(newselect[i].student.name);
+            series[0].data.push(newselect[i].s_pgrade);
+            series[1].data.push(newselect[i].g_pgrade);
+            series[2].data.push(newselect[i].t_pgrade);
+        }
+        console.log(series);
+
 var chart = Highcharts.chart('container', {
     chart: {
         type: 'bar'
