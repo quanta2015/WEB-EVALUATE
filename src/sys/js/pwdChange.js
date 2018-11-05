@@ -1,4 +1,4 @@
-  toastr.options.positionClass = 'toast-top-left';
+
 $(".final").click(function () {
 
         if($('#password').val()==$('#confirm_password').val() && $('#password').val() ){

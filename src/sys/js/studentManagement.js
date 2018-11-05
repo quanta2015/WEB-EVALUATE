@@ -100,6 +100,7 @@ console.log(clsName);
 
              var html = $("#stdTmpl").render(stdInfor);
              $("#list").append(html);
+             toastr.success('已成功添加');
 
          }
      });

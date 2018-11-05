@@ -68,11 +68,15 @@
 
                             var html = $("#clsTmpl").render(classes.data);
                             $("#list").append(html);
+                            toastr.success('已成功添加');
 
                         }
                     })
 
 
+                }
+                else {
+                     toastr.success('已成功取消');
                 }
             }
         })
