@@ -88,18 +88,19 @@ $(document).ready(function () {
                 console.log(data);
                 var obj = JSON.parse(data);
                 if (obj.code == 0) {
-                    remove();
+                  
                     toastr.success('已成功发布任务');
+                    remove();
                 } else if (obj.code == 77) {
                     toastr.warning('存在空输入');
-                    remove();
+                      remove();
                 } else if (obj.code == 20) {
                     toastr.warning('发布失败');
-                    remove();
-
+                 
+                remove();
                 } else if (obj.code == 55) {
                     toastr.error('数据库连接失败');
-                    remove();
+                     remove();
                 }
 
             }
