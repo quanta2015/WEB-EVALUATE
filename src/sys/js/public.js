@@ -19,5 +19,6 @@ function mask() {
 }
 
 function remove() {
+    console.log("remove");
     document.querySelector(".mask").style.display = "none";
 }

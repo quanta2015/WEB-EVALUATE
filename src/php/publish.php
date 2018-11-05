@@ -51,15 +51,16 @@ $dotask_id =  mysqli_insert_id($conn);
  addTotalgrade($dotask_id,2,$ids[$i][0],$conn);
 shuffle($idflags);
 $j = $group_num-1;
+$g =$group_num-1;
 $k = 0;
 
 while($j>0){
+$count = 0;
+while(($idflags[$k]['flag'] ==$g)||($idflags[$k]['id'] == $ids[$i][0])){
+$count ++;
+if($count == $total)
+$g++;
 
-while(($idflags[$k]['flag'] ==$group_num-1)||($idflags[$k]['id'] == $ids[$i][0])){
-
- echo "flag:".$idflags[$k]['flag'];
- echo "id:".$idflags[$k]['id'];
- echo "selfid:".$ids[$i][0];
   $k++;
 if($k == $total) $k=0;
 }
