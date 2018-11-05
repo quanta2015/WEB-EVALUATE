@@ -55,9 +55,13 @@ $k = 0;
 
 while($j>0){
 
-while($idflags[$k]['flag'] ==$group_num-1||$idflags[$k]['id'] == $ids[$i][0]){
- $k++;
-if($k == $total-1) $k=0;
+while(($idflags[$k]['flag'] ==$group_num-1)||($idflags[$k]['id'] == $ids[$i][0])){
+
+ echo "flag:".$idflags[$k]['flag'];
+ echo "id:".$idflags[$k]['id'];
+ echo "selfid:".$ids[$i][0];
+  $k++;
+if($k == $total) $k=0;
 }
  
  $evalute_user = $idflags[$k]['id'];
@@ -65,6 +69,7 @@ if($k == $total-1) $k=0;
  addTotalgrade($dotask_id,3,$evalute_user,$conn);
   $idflags[$k]['flag'] ++;
   $k++;
+if($k == $total) $k=0;
   $j--;
 }
 

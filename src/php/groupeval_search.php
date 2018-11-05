@@ -26,12 +26,14 @@ $m = array(
 		),
 	'group'=> array(),
 	'task_title'=>'',
-	'totalGrade'=> '',
+	'totalgrade'=> '',
 	'user_class'=>'',
 	'group_avg'=>'',
 	't_pgrade' =>'',
 	's_pgrade' =>'',
 	'g_pgrade' =>'',
+	'group_tag' => 1,
+	'total_tag' => 1
 
 	);
 $k =$m;
@@ -46,13 +48,18 @@ $g = array('name' => '',
 $rows = mysqli_fetch_all($result,MYSQLI_ASSOC);
 $final = array();
 $length = sizeof($rows); 
+$group_tag = 1;
+$total_tag = 1;
 
 //print_r($rows);
 for($i = 0;$i<$length;$i++){
 
+
 	if($rows[$i]["role"] == 1){
 		$k["teacher"]["name"]= $rows[$i]["user_name"];
 		$k["teacher"]["grade"]= $rows[$i]["totalGrade"];
+		if(!($k["teacher"]["grade"]))
+			$k["total_tag"] =0;
 		//$k["teacher"]["id"] = $rows[$i]["evalute_user"];
 		//echo $k["teacher"]["name"];
 	}
@@ -61,6 +68,8 @@ for($i = 0;$i<$length;$i++){
 		$k["student"]["name"]= $rows[$i]["user_name"];
 		$k["student"]["grade"]= $rows[$i]["totalGrade"];
 		$k["student"]["id"] = $rows[$i]["evalute_user"];
+		if(!($k["student"]["grade"]))
+			$k["total_tag"] =0;
 		
 	}
 
@@ -69,36 +78,60 @@ for($i = 0;$i<$length;$i++){
 		$g["grade"]= $rows[$i]["totalGrade"];
 		$g["id"] = $rows[$i]["evalute_user"];
 		$sumgroup += $rows[$i]["totalGrade"];
-		array_push($k["group"],$g);
+		if(!($rows[$i]["totalGrade"]))
+			{	$k["group_tag"] = 0;
+				$k["total_tag"] =0;
+
+			}
+			array_push($k["group"],$g);
 		//print_r($k);
-	}
+		}
 
 
-	if($i<$length-1){
+		if($i<$length){
 
-		if($rows[$i]["doTask_id"] != $rows[$i+1]["doTask_id"] ){
-			$groupnum = sizeof($k["group"]);
 
-			$k["task_title"] =  $rows[$i]["task_title"];
-			$k["user_class"] =  $rows[$i]["publish_class"];
-			$k["totalgrade"] =  $k["teacher"]["grade"]*$rows[$i]["t_percent"]*0.01+ $k["student"]["grade"]*$rows[$i]["s_percent"]*0.01+$sumgroup*$rows[$i]["g_percent"]*0.01/$groupnum;
-			$k["group_avg"] = $sumgroup/$groupnum;
-			$k["t_pgrade"] =  $k["teacher"]["grade"]*$rows[$i]["t_percent"]*0.01;
-			$k["s_pgrade"] = $k["student"]["grade"]*$rows[$i]["s_percent"]*0.01;
-			$k["g_pgrade"] = $sumgroup*$rows[$i]["g_percent"]*0.01/$groupnum;
-			$sumgroup = 0;
-			array_push($final,$k);
-			array_splice($k["group"],0);
+			if( $i == $length-1||$rows[$i]["doTask_id"] != $rows[$i+1]["doTask_id"]){
+				$groupnum = sizeof($k["group"]);
 
+
+				$k["task_title"] =  $rows[$i]["task_title"];
+				$k["user_class"] =  $rows[$i]["publish_class"];
+				$k["t_pgrade"] =  $k["teacher"]["grade"]*$rows[$i]["t_percent"]*0.01;
+				$k["s_pgrade"] = $k["student"]["grade"]*$rows[$i]["s_percent"]*0.01;
+
+				if($groupnum ==0){
+				
+					$t =  $k["teacher"]["grade"]*$rows[$i]["t_percent"]*0.01+ $k["student"]["grade"]*$rows[$i]["s_percent"]*0.01;
+						$k["totalgrade"] = round($t, 2);
+					$k["group_avg"] = 0;
+					$k["g_pgrade"] = 0;
+					$k["group_tag"] = 0;
+
+				}
+				else{
+ 
+					$t =  $k["teacher"]["grade"]*$rows[$i]["t_percent"]*0.01+ $k["student"]["grade"]*$rows[$i]["s_percent"]*0.01+$sumgroup*$rows[$i]["g_percent"]*0.01/$groupnum;
+					$k["totalgrade"] = round($t, 2);
+					$k["group_avg"] = $sumgroup/$groupnum;
+					$k["g_pgrade"] = $sumgroup*$rows[$i]["g_percent"]*0.01/$groupnum;
+					$sumgroup = 0;
+				}
+
+				array_push($final,$k);
+				array_splice($k["group"],0);
+				$k["total_tag"] = 1;
+				$k["group_tag"] = 1;
+
+			}
 		}
 	}
-}
 
 //print_r($final);
 
 //if (0 == mysqli_num_rows($result))existempty();
 
-success($final);
+	success($final);
 
 //if (0 == mysqli_num_rows($result))existempty();
 /*
