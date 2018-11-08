@@ -26,6 +26,7 @@ function idFlag($ids,$total){
 function addTotalgrade($dotask_id,$role,$evalute_user,$conn){
     $sql = "INSERT INTO totalgrade (dotask_id,role,evalute_user) values('{$dotask_id}',{$role},'{$evalute_user}')";
     mysqli_query($conn,$sql);
+     echo mysqli_error($conn);
 
 }
 
@@ -40,8 +41,9 @@ function randgroup($task_id,$group_num,$result,$conn,$publisher){
 $total = mysqli_num_rows($result);
 $ids = mysqli_fetch_all($result,MYSQLI_NUM);
 $idflags = idFlag($ids,$total);
-
-for($i=0;$i<$total;$i++){
+shuffle($idflags);
+$index = 0;
+for($i=0;$i<$total;++$i){
 //为班级每位学生创建dotask
 	$sql = "INSERT INTO `dotask`(user_id,task_id)values('{$ids[$i][0]}','{$task_id}')";
 	mysqli_query($conn,$sql);
@@ -49,28 +51,25 @@ for($i=0;$i<$total;$i++){
 $dotask_id =  mysqli_insert_id($conn);
  addTotalgrade($dotask_id,1,$publisher,$conn);
  addTotalgrade($dotask_id,2,$ids[$i][0],$conn);
-shuffle($idflags);
+
 $j = $group_num-1;
-$g =$group_num-1;
-$k = 0;
 
 while($j>0){
-$count = 0;
-while(($idflags[$k]['flag'] ==$g)||($idflags[$k]['id'] == $ids[$i][0])){
-$count ++;
-if($count == $total)
-$g++;
 
-  $k++;
-if($k == $total) $k=0;
+while($idflags[$index]['id'] == $ids[$i][0]){
+  $index++;
+if($index == $total)
+$index = 0;
+
 }
- 
- $evalute_user = $idflags[$k]['id'];
+
+ $evalute_user = $idflags[$index]['id'];
 
  addTotalgrade($dotask_id,3,$evalute_user,$conn);
-  $idflags[$k]['flag'] ++;
-  $k++;
-if($k == $total) $k=0;
+
+  $idflags[$index]['flag'] ++;
+++$index;
+if($index == $total) $index=0;
   $j--;
 }
 
